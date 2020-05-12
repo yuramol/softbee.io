@@ -86,5 +86,14 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Gilroy"],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
   ],
 }
