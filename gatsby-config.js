@@ -81,16 +81,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {
-          families: ["Gilroy"],
+          families: ["Gilroy", "HelveticaNeueCyr"],
           urls: ["/fonts/fonts.css"],
         },
       },
