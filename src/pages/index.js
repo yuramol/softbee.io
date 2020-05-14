@@ -5,7 +5,6 @@ import { Grommet } from 'grommet';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
-import Footer from "../components/footer"
 import { theme } from "../utils/theme"
 
 class IndexPage extends React.Component {
@@ -34,7 +33,6 @@ class IndexPage extends React.Component {
           <Link to="/blog/">
             <Button marginTop="35px">Go to Blog</Button>
           </Link>
-          <Footer/>
         </Layout>
       </Grommet>
 
