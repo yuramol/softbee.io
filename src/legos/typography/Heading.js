@@ -36,7 +36,7 @@ const getFontWeight =(level)=> {
 const getlineHeight =(level)=> {
   switch (level) {
     case 1:
-      return '47px'
+      return '66px'
       break;
     case 2:
       return '47px'
