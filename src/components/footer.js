@@ -32,35 +32,62 @@ const SiteFooter = () => {
       >
         <Box justify="center" align="stretch" pad="large">
           <Image src={Logo} alt="Soft Bee" alignSelf="start" />
-          <Text size="medium" margin={{ top: "medium" }}>
-            <Link to="/work" text-decoration="none">
+          <Text margin={{ top: "medium" }}>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `#FFFFFF`,                
+              }}
+              to="/work"
+            >
               Work
             </Link>
           </Text>
-          <Text size="medium" margin={{ top: "medium" }}>
-            <Link to="/team">Our team</Link>
+          <Text size="18px" margin={{ top: "medium" }}>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `#FFFFFF`,                
+              }}
+              to="/team"
+            >
+              Our team
+            </Link>
           </Text>
-          <Text size="medium" margin={{ top: "medium" }}>
-            <Link to="/contacts">Contacts</Link>
+          <Text size="18px" margin={{ top: "medium" }}>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `#FFFFFF`,
+                // fontFamily: "Gilroy-Medium",
+                // hover: {textDecoration: 'underline'}????
+              }}
+              to="/contacts"              
+            >
+              Contacts
+            </Link>
           </Text>
         </Box>
-        <Box justify="center" align="stretch" align="start">
-          <Text size="xxlarge" margin={{ top: "medium" }} alignSelf="start">
+        <Box justify="center" align="stretch">
+          <Text size="48px" margin={{ top: "medium" }} alignSelf="start">
             Message us anything
           </Text>
-          <Text size="small" margin={{ top: "small" }} alignSelf="start">
+          <Text size="18px" margin={{ top: "small" }} alignSelf="start">
             Your message will be posted in one of our <br /> Slack channels.
           </Text>
           <Form>
             <Box direction="row" margin={{ top: "lagre" }}>
               <Grid columns={{ count: 2, size: "auto" }} fill="horizontal">
-                <Box justify="center">
+                <Box justify="center" width="385px">
                   <FormField name="name" htmlfor="text-input-id">
                     <TextInput
                       id="text-input-id"
                       name="name"
                       placeholder={
-                        <Text size="xsmall" margin={{ top: "small" }}>
+                        <Text size="18px" opacity="0.5" margin={{ top: "small" }}>
                           Let’s create somethign dope!!! Xoxo
                         </Text>
                       }
