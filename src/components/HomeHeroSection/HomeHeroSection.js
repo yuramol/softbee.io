@@ -1,5 +1,5 @@
 import React from "react"
-import { Grommet, Box, Button, Grid, Text} from 'grommet';
+import { Grommet, Box, Button, Grid, Text } from 'grommet';
 
 import { theme } from "../../utils/theme";
 import { Heading } from "../../legos/typography/Heading";
@@ -26,7 +26,7 @@ class HomeHeroSection extends React.Component {
               width="300px"
               pad={{"bottom": "large"}}
               >
-                <Text color="#104065" wordBreak={20}>
+                <Text color="#104065" style={{ lineHeight: "32px" }}>
                   with a bear drinking afterwards.
                   UPDATED: and staying at home =)
                 </Text>

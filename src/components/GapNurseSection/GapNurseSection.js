@@ -28,7 +28,7 @@ class GapNurseSection extends React.Component {
               <Box 
               width="380px"
               pad={{"bottom": "medium"}}>
-                <Text color="#104065" style={{fontFamily: 'HelveticaNeueCyr'}}>
+                <Text size="medium" color="#104065" style={{fontFamily: 'HelveticaNeueCyr'}}>
                 With GapNurse, facilities know they’re covered 
                 during critical moments and unexpected absences without breaking your budget.
                 </Text>

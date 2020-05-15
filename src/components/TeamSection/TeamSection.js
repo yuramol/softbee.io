@@ -32,16 +32,16 @@ class TeamSection extends React.Component {
               pad={{"bottom": "large"}}
               >
                 <Box pad={{"bottom": "medium"}}>
-                  <Text color="#104065">
+                  <Text size="medium" color="#104065">
                   Somethings about how we work. We do all sorts of programming: 
                   </Text>
-                  <Text color="#104065">Web, mobile, backend, desktop development. </Text>
-                  <Text color="#104065">
+                  <Text size="medium" color="#104065">Web, mobile, backend, desktop development. </Text>
+                  <Text size="medium" color="#104065">
                   JS is our lovest language. Blala something more.
                   </Text>
                 </Box>
                 <Box pad={{"bottom": "large"}}>
-                  <Text color="#104065">
+                  <Text size="medium" color="#104065">
                   We are a team of passionated mobile and web developers who love what they do.
                    Also we love being on the same page with our clients and to deliver real cases to users.
                   </Text>
