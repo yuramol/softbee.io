@@ -1,10 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Grommet as GrommetIcon } from "grommet-icons"
 import {
-  Box,
-  grommet,
-  Grommet,
+  Box,  
   Text,
   Footer,
   Grid,
@@ -14,12 +11,15 @@ import {
   FormField,
   TextInput,
 } from "grommet"
-import styled from "styled-components"
 
 import Logo from "..//..//static/assets/logo.svg"
 import sendButton from "..//..//static/assets/sendButton.svg"
 
-const linksItem = [{}]
+const linkItems = [ 
+    "Work",
+    "Our team",
+    "Contacts"
+]
 
 const SiteFooter = () => {
   return (
@@ -32,6 +32,7 @@ const SiteFooter = () => {
       >
         <Box justify="center" align="stretch" pad="large" width="40vw">
           <Image src={Logo} alt="Soft Bee" alignSelf="start" />
+          {linkItems.map(props => (
           <Text margin={{ top: "medium" }}>
             <Link
               style={{
@@ -40,38 +41,12 @@ const SiteFooter = () => {
                 color: `#FFFFFF`,
                 fontFamily: "Gilroy-Medium",
               }}
-              to="/work"
+              to="/{props}"
             >
-              Work
+              {`${props}`}
             </Link>
           </Text>
-          <Text size="18px" margin={{ top: "medium" }}>
-            <Link
-              style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `#FFFFFF`,
-                fontFamily: "Gilroy-Medium",
-              }}
-              to="/team"
-            >
-              Our team
-            </Link>
-          </Text>
-          <Text size="18px" margin={{ top: "medium" }}>
-            <Link
-              style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `#FFFFFF`,
-                fontFamily: "Gilroy-Medium",
-                // hover: {textDecoration: 'underline'}????
-              }}
-              to="/contacts"
-            >
-              Contacts
-            </Link>
-          </Text>
+          ))}          
         </Box>
         <Box justify="center" align="stretch" width="60vw">
           <Text
