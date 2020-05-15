@@ -1,11 +1,11 @@
 
 import React from "react"
-import { Grommet, Box, Button, Grid }  from 'grommet';
+import { Grommet, Box, Grid }  from 'grommet';
 
 import { theme } from "../../utils/theme";
 import { Heading } from "../../legos/typography/Heading";
 import { Text } from "../../legos/typography/Text";
-
+import { StyledButton } from "../../legos/Button/Button"
 
 class TeamSection extends React.Component {
   render() {
@@ -51,7 +51,7 @@ class TeamSection extends React.Component {
                     align="center"
                     height="60px"
                     width="200px">
-                      <Button label="Let’s talk"  fill color="#F5D040"  primary/>
+                      <StyledButton label="Meet our team 👋"  fill color="#F5D040"  primary/>
                   </Box>
               </Box>
             </Box>

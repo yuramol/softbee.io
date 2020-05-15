@@ -3,7 +3,7 @@ import { Grommet, Box, Button, Grid, Text } from 'grommet';
 
 import { theme } from "../../utils/theme";
 import { Heading } from "../../legos/typography/Heading";
-
+import { StyledButton } from "../../legos/Button/Button"
 
 class HomeHeroSection extends React.Component {
   render() {
@@ -37,7 +37,7 @@ class HomeHeroSection extends React.Component {
              align="center"
              height="60px"
              width="200px">
-            <Button label="Let’s talk"  fill color="#F5D040"  primary/>
+            <StyledButton label="Let’s talk"  fill color="#F5D040"  primary/>
             </Box>
             </Box>
             <Box align="center">
