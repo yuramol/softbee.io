@@ -30,14 +30,15 @@ const SiteFooter = () => {
         gap="small"
         pad="large"
       >
-        <Box justify="center" align="stretch" pad="large">
+        <Box justify="center" align="stretch" pad="large" width="40vw">
           <Image src={Logo} alt="Soft Bee" alignSelf="start" />
           <Text margin={{ top: "medium" }}>
             <Link
               style={{
                 boxShadow: `none`,
                 textDecoration: `none`,
-                color: `#FFFFFF`,                
+                color: `#FFFFFF`,
+                fontFamily: "Gilroy-Medium",
               }}
               to="/work"
             >
@@ -49,7 +50,8 @@ const SiteFooter = () => {
               style={{
                 boxShadow: `none`,
                 textDecoration: `none`,
-                color: `#FFFFFF`,                
+                color: `#FFFFFF`,
+                fontFamily: "Gilroy-Medium",
               }}
               to="/team"
             >
@@ -62,42 +64,60 @@ const SiteFooter = () => {
                 boxShadow: `none`,
                 textDecoration: `none`,
                 color: `#FFFFFF`,
-                // fontFamily: "Gilroy-Medium",
+                fontFamily: "Gilroy-Medium",
                 // hover: {textDecoration: 'underline'}????
               }}
-              to="/contacts"              
+              to="/contacts"
             >
               Contacts
             </Link>
           </Text>
         </Box>
-        <Box justify="center" align="stretch">
-          <Text size="48px" margin={{ top: "medium" }} alignSelf="start">
+        <Box justify="center" align="stretch" width="60vw">
+          <Text
+            size="48px"
+            margin={{ top: "medium" }}
+            alignSelf="start"
+            style={{
+              fontFamily: "Gilroy-Medium",
+            }}
+          >
             Message us anything
           </Text>
-          <Text size="18px" margin={{ top: "small" }} alignSelf="start">
+          <Text size="18px" margin={{ top: "small" }} alignSelf="start" style={{
+              fontFamily: "Gilroy-Medium",
+            }}>
             Your message will be posted in one of our <br /> Slack channels.
           </Text>
           <Form>
-            <Box direction="row" margin={{ top: "lagre" }}>
+            <Box direction="row" margin={{ top: "lagre" }} width="50%">
               <Grid columns={{ count: 2, size: "auto" }} fill="horizontal">
-                <Box justify="center" width="385px">
+                <Box justify="center" width="25vw">
                   <FormField name="name" htmlfor="text-input-id">
                     <TextInput
                       id="text-input-id"
                       name="name"
                       placeholder={
-                        <Text size="18px" opacity="0.5" margin={{ top: "small" }}>
+                        <Text
+                          size="18px"                          
+                          margin={{ top: "small" }}
+                          style={{
+                            fontFamily: "Gilroy-Medium",
+                            opacity: "0.5"
+                          }}
+                        >
                           Let’s create somethign dope!!! Xoxo
                         </Text>
                       }
                     />
                   </FormField>
                 </Box>
-                <Box align="start">
+                <Box align="start"
+                    height="33px"
+                    width="55px"  >
                   <Button
                     onClick={() => {}}
-                    margin={{ top: "medium", left: "small" }}
+                    margin={{ top: "26px", left: "small" }}
                   >
                     <Image src={sendButton} alt="Send Button" />
                   </Button>
