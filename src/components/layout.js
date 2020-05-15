@@ -12,7 +12,7 @@ class Layout extends React.Component {
           <Box background={{
             "size": "small",
             "position": "absolute",
-            "image": "url(./backgroundHeader.svg)"}}> 
+            "image": "url(./assets/backgroundHeader.svg)"}}> 
             
               <Box direction="row" justify="center" align="center" width={{"min": "350", "max": "1400"}}>
                 <main>{children}</main>

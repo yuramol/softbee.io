@@ -43,7 +43,7 @@ class GapNurseSection extends React.Component {
               />
             </Box>
             <Box align="center">
-              <img style={{}} src="./phoneGapnurse.svg" alt="Gatsby Scene" />
+              <img style={{}} src="./assets/phoneGapnurse.svg" alt="Gatsby Scene" />
             </Box>
           </Grid>
           </Box>

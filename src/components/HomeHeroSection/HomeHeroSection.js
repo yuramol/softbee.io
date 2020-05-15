@@ -41,7 +41,7 @@ class HomeHeroSection extends React.Component {
             </Box>
             </Box>
             <Box align="center">
-              <img style={{}} src="./sectioHeader.svg" alt="Gatsby Scene" />
+              <img style={{}} src="./assets/sectioHeader.svg" alt="Gatsby Scene" />
             </Box>
           </Grid>
       </Grommet>

@@ -1,11 +1,11 @@
 
 import React from "react"
-import { Grommet, Box, Grid }  from 'grommet';
+import { Grommet, Box, Button, Grid }  from 'grommet';
 
 import { theme } from "../../utils/theme";
 import { Heading } from "../../legos/typography/Heading";
 import { Text } from "../../legos/typography/Text";
-import { StyledButton } from "../../legos/Button/Button"
+
 
 class TeamSection extends React.Component {
   render() {
@@ -19,7 +19,7 @@ class TeamSection extends React.Component {
           >
 
             <Box align="center">
-              <img style={{}} src="./assets/section.svg" alt="Gatsby Scene" />
+              <img style={{}} src="./section.svg" alt="Gatsby Scene" />
             </Box>
           <Box justify="center" align="start" >
               <Box>
@@ -49,9 +49,9 @@ class TeamSection extends React.Component {
                   <Box 
                     justify="center"
                     align="center"
-                    height="50px"
+                    height="60px"
                     width="200px">
-                      <StyledButton label="Meet our team &#128074;"  fill color="#F5D040"  primary/>
+                      <Button label="Let’s talk"  fill color="#F5D040"  primary/>
                   </Box>
               </Box>
             </Box>
