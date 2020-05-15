@@ -5,7 +5,7 @@ import { theme } from "../../utils/theme";
 import { Heading } from "../../legos/typography/Heading";
 
 
-class SectionHero extends React.Component {
+class HomeHeroSection extends React.Component {
   render() {
 
     return (
@@ -50,4 +50,4 @@ class SectionHero extends React.Component {
   }
 }
 
-export default SectionHero
+export default HomeHeroSection

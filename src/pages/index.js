@@ -2,10 +2,11 @@ import React from "react"
 import { Grommet } from 'grommet';
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEO from "../components/Seo"
 import { theme } from "../utils/theme"
-import SectionHero from "../pages/home/sectionHeader"
-import  SectionTwo  from "../pages/home/sectionTwo";
+import HomeHeroSection from "../components/HomeHeroSection/HomeHeroSection"
+import  GapNurseSection  from "../components/GapNurseSection/GapNurseSection";
+import  TeamSection  from "../components/TeamSection/TeamSection";
 class IndexPage extends React.Component {
   render() {
     const siteTitle = "SoftBee"
@@ -17,8 +18,9 @@ class IndexPage extends React.Component {
             title="Home"
             keywords={[`blog`, `gatsby`, `javascript`, `react`]}
           />
-          <SectionHero />
-          <SectionTwo />
+          <HomeHeroSection />
+          <GapNurseSection />
+          <TeamSection />
         </Layout>
       </Grommet>
 

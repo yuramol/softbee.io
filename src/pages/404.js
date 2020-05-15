@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { Grommet } from "grommet";
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEO from "../components/Seo"
 import { theme } from "../utils/theme"
 
 class NotFoundPage extends React.Component {
