@@ -19,21 +19,21 @@ const linkItems = ["Work", "Our team", "Contacts"]
 
 const SiteFooter = () => {
   return (
-    <Footer background="#104065" height="350px" justify="center" pad="small">
+    <Footer background="#104065" height="350px" justify="stretch">
       <Grid
         columns={{ count: 2, size: "auto" }}
         fill="horizontal"
-        gap="small"
-        pad="large"
+        //gap="small"
+        // pad="large"
       >
-        <Box justify="center" align="stretch" pad="large" width="40vw">
+        <Box justify="center" align="stretch" pad="xlarge" width="40vw" margin={{ left: "xlarge" }}>
           <Image src={Logo} alt="Soft Bee" alignSelf="start" />
           {linkItems.map(props => (
             <Text margin={{ top: "medium" }}>
               <Link
-                style={{
-                  boxShadow: `none`,
-                  textDecoration: `none`,
+                style={{ 
+                  boxShadow: `none`,                
+                  // textDecoration: `none`,
                   color: `#FFFFFF`,
                   fontFamily: "Gilroy-Medium",
                 }}
@@ -44,7 +44,7 @@ const SiteFooter = () => {
             </Text>
           ))}
         </Box>
-        <Box justify="center" align="stretch" width="60vw">
+        <Box justify="center" align="stretch" pad="medium" width="55vw">
           <Text
             size="48px"
             margin={{ top: "medium" }}
