@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import {
-  Box,  
+  Box,
   Text,
   Footer,
   Grid,
@@ -15,11 +15,7 @@ import {
 import Logo from "..//..//static/assets/logo.svg"
 import sendButton from "..//..//static/assets/sendButton.svg"
 
-const linkItems = [ 
-    "Work",
-    "Our team",
-    "Contacts"
-]
+const linkItems = ["Work", "Our team", "Contacts"]
 
 const SiteFooter = () => {
   return (
@@ -33,20 +29,20 @@ const SiteFooter = () => {
         <Box justify="center" align="stretch" pad="large" width="40vw">
           <Image src={Logo} alt="Soft Bee" alignSelf="start" />
           {linkItems.map(props => (
-          <Text margin={{ top: "medium" }}>
-            <Link
-              style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `#FFFFFF`,
-                fontFamily: "Gilroy-Medium",
-              }}
-              to="/{props}"
-            >
-              {`${props}`}
-            </Link>
-          </Text>
-          ))}          
+            <Text margin={{ top: "medium" }}>
+              <Link
+                style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `#FFFFFF`,
+                  fontFamily: "Gilroy-Medium",
+                }}
+                to="/"
+              >
+                {`${props}`}
+              </Link>
+            </Text>
+          ))}
         </Box>
         <Box justify="center" align="stretch" width="60vw">
           <Text
@@ -59,9 +55,14 @@ const SiteFooter = () => {
           >
             Message us anything
           </Text>
-          <Text size="18px" margin={{ top: "small" }} alignSelf="start" style={{
+          <Text
+            size="18px"
+            margin={{ top: "small" }}
+            alignSelf="start"
+            style={{
               fontFamily: "Gilroy-Medium",
-            }}>
+            }}
+          >
             Your message will be posted in one of our <br /> Slack channels.
           </Text>
           <Form>
@@ -74,11 +75,11 @@ const SiteFooter = () => {
                       name="name"
                       placeholder={
                         <Text
-                          size="18px"                          
+                          size="18px"
                           margin={{ top: "small" }}
                           style={{
                             fontFamily: "Gilroy-Medium",
-                            opacity: "0.5"
+                            opacity: "0.5",
                           }}
                         >
                           Let’s create somethign dope!!! Xoxo
@@ -87,9 +88,7 @@ const SiteFooter = () => {
                     />
                   </FormField>
                 </Box>
-                <Box align="start"
-                    height="33px"
-                    width="55px"  >
+                <Box align="start" height="33px" width="55px">
                   <Button
                     onClick={() => {}}
                     margin={{ top: "26px", left: "small" }}
