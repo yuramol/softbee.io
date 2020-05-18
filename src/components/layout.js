@@ -1,34 +1,32 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import Footer from "./footer"
 import Header from "./header"
 // import Button from "../components/button"
+import "normalize.css";
 
-import { rhythm, scale } from "../utils/typography"
-
+import { Box } from "grommet";
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    const blogPath = `${__PATH_PREFIX__}/blog/`
-    
+    const {  children } = this.props
+  
     return (
-      <Wrapper>
-        <div
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`
+        <Wrapper>
+          <Box background={{
+            "size": "small",
+            "position": "absolute",
+            "image": "url(./assets/backgroundHeader.svg)"}}> 
             
-            // maxWidth: rhythm(24),
-            // padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          }}
-        >
-          <Header/>          
-          <main>{children}</main>
-        </div>
-        <Footer/>
-      </Wrapper>
+              <Box direction="row" justify="center" align="center" width={{"min": "350", "max": "1400"}}>
+                <main>{children}</main>
+              </Box>
+            <Footer>
+                © {new Date().getFullYear()}, Built with
+                {` `}
+                <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </Footer>
+          </Box>
+        </Wrapper>
     )
   }
 }
