@@ -89,12 +89,13 @@ const SiteFooter = () => {
                   </FormField>
                 </Box>
                 <Box align="start" height="33px" width="55px">
-                  <Button
+                  {/* <Button
                     onClick={() => {}}
                     margin={{ top: "26px", left: "small" }}
                   >
                     <Image src={sendButton} alt="Send Button" />
-                  </Button>
+                  </Button> */}
+                  <Button label=">" fill color="yellow" margin={{ top: "18px", left: "small" }} />
                 </Box>
               </Grid>
             </Box>
