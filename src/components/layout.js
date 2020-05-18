@@ -16,15 +16,11 @@ class Layout extends React.Component {
             "size": "small",
             "position": "absolute",
             "image": "url(./assets/backgroundHeader.svg)"}}> 
-            
+            <Header/>
               <Box direction="row" justify="center" align="center" width={{"min": "350", "max": "1400"}}>
                 <main>{children}</main>
               </Box>
-            <Footer>
-                © {new Date().getFullYear()}, Built with
-                {` `}
-                <a href="https://www.gatsbyjs.org">Gatsby</a>
-            </Footer>
+            <Footer/>
           </Box>
         </Wrapper>
     )

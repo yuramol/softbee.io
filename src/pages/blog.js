@@ -4,7 +4,7 @@ import { Grommet } from "grommet";
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEO from "../components/Seo"
 import Button from "../components/button"
 import { theme } from "../utils/theme"
 
