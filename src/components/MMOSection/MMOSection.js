@@ -18,7 +18,7 @@ class MMOSection extends React.Component {
             image: 'url(./assets/mmoBackground.svg)',
           }}
         >
-          <Grid columns={['2/3', '1/4']}>
+          <Grid columns={['2/3', '1/4']} pad="xlarge">
             <Box direction="row" justify="center">
               <Box justify="center" align="start" margin={{ left: 'large' }}>
                 <img
