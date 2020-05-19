@@ -1,19 +1,28 @@
 import React from "react"
-import { Box, Header, Button } from "grommet"
+import { Link } from "gatsby"
+import { Box, Header, Button, Image } from "grommet"
+import Logo from "..//..//static/assets/logo.svg"
 
 const linkItems = [
-  {label:"Work",
-    link:"/work"},
-    {label:"Our team",
-    link:"/our-team"},
-    {label:"Blog",
-    link:"/blog"},
-  ]
+  { label: "Work", link: "/work" },
+  { label: "Our team", link: "/our-team" },
+  { label: "Blog", link: "/blog" },
+]
 
 const SiteHeader = () => {
   return (
-    <Header justify="end" pad="medium">
-      <Box direction="row" gap="medium" margin="medium" align="center">
+    <Header pad="medium">
+      <Box width="100wh" justify="stretch" direction="row" gap="medium" margin="medium" align="center">
+      <Link to="/">
+        <Image
+          src={Logo}
+          alt="Soft Bee"
+          alignSelf="start" 
+          href='/'         
+        />
+        </Link>
+      </Box>
+      <Box alignSelf="end" direction="row">
         {linkItems.map(props => (
           <Button
             plain
