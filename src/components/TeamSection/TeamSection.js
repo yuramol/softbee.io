@@ -12,7 +12,7 @@ class TeamSection extends React.Component {
       <Grommet theme={theme}>
         <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
           <Box align="center">
-            <img style={{}} src="./assets/section.svg" alt="Gatsby Scene" />
+            <img src="./assets/section.svg" alt="Gatsby Scene" />
           </Box>
           <Box justify="center" align="start">
             <Box>

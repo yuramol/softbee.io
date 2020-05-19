@@ -22,14 +22,12 @@ class MMOSection extends React.Component {
             <Box direction="row" justify="center">
               <Box justify="center" align="start" margin={{ left: 'large' }}>
                 <img
-                  style={{}}
                   src="./assets/sectionMMO.svg"
                   alt="Gatsby Scene"
                 />
               </Box>
               <Box justify="center" pad={{ left: 'xlarge', right: 'small' }}>
-                <img
-                  style={{}}
+                <img 
                   src="./assets/mmoSectionMini.svg"
                   alt="Gatsby Scene"
                 />

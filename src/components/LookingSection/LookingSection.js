@@ -57,7 +57,7 @@ class LookingSection extends React.Component {
               </Heading>
             </Box>
             <Box justify="center" pad={{ right: 'medium' }}>
-              <img style={{}} src="./assets/arrow.svg" alt="Gatsby Scene" />
+              <img src="./assets/arrow.svg" alt="Gatsby Scene" />
             </Box>
           </Box>
         </Box>

@@ -28,7 +28,6 @@ class HomeHeroSection extends React.Component {
           </Box>
           <Box align="center">
             <img
-              style={{}}
               src="./assets/sectioHeader.svg"
               alt="Gatsby Scene"
             />
