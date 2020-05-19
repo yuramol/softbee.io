@@ -1,48 +1,52 @@
-import React from "react";
-import styled from "styled-components";
-import { Text as LibText } from "grommet";
-const getFontSize =(size)=> {
+import React from "react"
+import styled from "styled-components"
+import { Text as LibText } from "grommet"
+const getFontSize = size => {
   switch (size) {
     case "medium":
-      return '16px'
-      break;
+      return "16px"
+      break
     case "large":
-        return '18px'
-        break;
-        case "xxlarge":
-          return '48px'
-          break;    
+      return "18px"
+      break
+    case "xlarge":
+      return "20px"
+      break
+    case "xxlarge":
+      return "48px"
+      break
     case 2:
-      return '100px'
-      break;
+      return "100px"
+      break
     default:
-      return '16px'
-      break;
+      return "16px"
+      break
   }
-};
-const getlineHeight =(size)=> {
+}
+const getlineHeight = size => {
   switch (size) {
     case "medium":
-      return '26px'
-      break;
+      return "26px"
+      break
     case "large":
-      return '27px'
-      break;
-      case "xxlarge":
-          return '56px'
-          break;
+      return "27px"
+      break
+    case "xlarge":
+      return "36px"
+      break
+    case "xxlarge":
+      return "56px"
+      break
     default:
-      return ''
-      break;
+      return ""
+      break
   }
-};
+}
 
 const StyledText = styled(LibText)`
-  font-size: ${({size}) => getFontSize(size)};
-  line-height: ${({size}) => getlineHeight(size)};
+  font-size: ${({ size }) => getFontSize(size)};
+  line-height: ${({ size }) => getlineHeight(size)};
 `
-export const Text = ({children, ...props})=> (
-  <StyledText {...props}>
-    {children}
-  </StyledText>   
-);
+export const Text = ({ children, ...props }) => (
+  <StyledText {...props}>{children}</StyledText>
+)
