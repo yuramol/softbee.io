@@ -1,25 +1,28 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Box, Footer, Grid, Button, Image, Form, FormField } from "grommet"
+import { Anchor, Box, Footer, Grid, Button, Image, Form, FormField } from "grommet"
 import { Text } from "../legos/typography/Text"
-import { Add } from "grommet-icons"
 import Logo from "..//..//static/assets/logo.svg"
 
 import SendButtonIcon from "..//..//static/assets/sendButton.svg"
-import { StyledButton } from "../legos/Button/Button"
 import StyledFormField from "./FooterTextInput"
-//import Header from "./FooterTextInput"
 
-const linkItems = ["Work", "Our team", "Contacts"]
+
+const linkItems = [
+  {label:"Work",
+    link:"/work"},
+    {label:"Our team",
+    link:"/our-team"},
+    {label:"Contacts",
+    link:"/contacts"},
+  ]
 
 const SiteFooter = () => {
   return (
     <Footer background="#104065" height="350px" justify="stretch">
       <Grid
         columns={{ count: 2, size: "auto" }}
-        fill="horizontal"
-        //gap="small"
-        // pad="large"
+        fill="horizontal"        
       >
         <Box
           justify="center"
@@ -28,12 +31,14 @@ const SiteFooter = () => {
           margin={{ left: "xlarge" }}
           pad={{ left: "xlarge" }}
         >
+          <Link to="/">
           <Image
             src={Logo}
             alt="Soft Bee"
             alignSelf="start"
             margin={{ bottom: "medium" }}
           />
+          </Link>
           {linkItems.map(props => (
             <Text size="large" margin={{ top: "small", left: "10px" }}>
               <Link
@@ -42,9 +47,9 @@ const SiteFooter = () => {
                   textDecoration: `none`,
                   color: `#FFFFFF`,
                 }}
-                to="/"
+                to={props.link}
               >
-                {`${props}`}
+                {`${props.label}`}
               </Link>
             </Text>
           ))}
@@ -78,14 +83,7 @@ const SiteFooter = () => {
                     margin={{ top: "9px", left: "small" }}
                   >
                     <Image src={SendButtonIcon} alt="Send Button" />
-                  </Button>
-                  {/* <Button 
-                  label="" 
-                  fill color="yellow"
-                  borderRadius= "2px" 
-                  margin={{ top: "10px", left: "small" }} 
-                  icon={<Add />}
-                  />                     */}
+                  </Button>                 
                 </Box>
               </Grid>
             </Box>
