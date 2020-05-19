@@ -45,7 +45,6 @@ class MMOSection extends React.Component {
                 plain
                 label="See case study"
                 color="#25BBC5"
-                onClick={() => {}}
               />
             </Box>
           </Box>
