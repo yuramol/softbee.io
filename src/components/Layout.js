@@ -12,7 +12,8 @@ class Layout extends React.Component {
   
     return (
         <Wrapper>
-          <Box background={{
+          <Box 
+          background={{
             "size": "small",
             "position": "absolute",
             "image": "url(./assets/backgroundHeader.svg)"}}> 

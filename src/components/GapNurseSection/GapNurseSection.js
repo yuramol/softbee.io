@@ -10,7 +10,9 @@ class GapNurseSection extends React.Component {
   render() {
     return (
       <Grommet theme={theme}>
-        <Box background={{ color: '#F0F6F4' }}>
+        <Box 
+        // background={{ color: '#F0F6F4' }}
+        >
           <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
             <Box justify="center" align="start">
               <Box width="470px" pad={{ bottom: 'small' }}>
