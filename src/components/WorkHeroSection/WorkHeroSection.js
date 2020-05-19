@@ -13,25 +13,36 @@ const skillItems = [
   "UI & interactions",
   "Frontend",
   "Backend",
-  "Mobile apps"
+  "Mobile apps",
 ]
 class WorkHeroSection extends React.Component {
   render() {
     return (
       <Grommet theme={theme}>
-        <Box 
-        pad="medium"
-        height="695px"
-        background={{
-          "size": "small",
-          "position": "right",
-          "image": "url(./assets/background-work.svg)"}}>>
-          <Heading alignSelf="center" level={1} color="#104065" wordBreak="normal">
+        <Box
+          pad="medium"
+          height="695px"
+          background={{
+            size: "small",
+            position: "right",
+            image: "url(./assets/background-work.svg)",
+          }}
+        >
+          >
+          <Heading
+            alignSelf="center"
+            level={1}
+            color="#104065"
+            wordBreak="normal"
+          >
             Work
           </Heading>
-
-          <Grid columns={{ count: 2, size: "auto"}} gap="small" fill="horizontal">
-            <Box                            
+          <Grid
+            columns={{ count: 2, size: "auto" }}
+            gap="small"
+            fill="horizontal"
+          >
+            <Box
               justify="center"
               align="start"
               pad={{ bottom: "small", left: "large" }}
@@ -69,11 +80,11 @@ class WorkHeroSection extends React.Component {
                 />
               </Box>
             </Box>
-            <Box pad={{ left:"50%", top: "20%" }}>
-            <Heading level={2} color="#FFFFFF" wordBreak="normal">
-            What we do?
-                </Heading>
-            {skillItems.map(props => (
+            <Box pad={{ left: "50%", top: "20%" }}>
+              <Heading level={2} color="#FFFFFF" wordBreak="normal">
+                What we do?
+              </Heading>
+              {skillItems.map(props => (
                 <Text
                   margin="xsmall"
                   size="xlarge"
@@ -82,7 +93,7 @@ class WorkHeroSection extends React.Component {
                 >
                   {props}
                 </Text>
-            ))}
+              ))}
             </Box>
           </Grid>
         </Box>
