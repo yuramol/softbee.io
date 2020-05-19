@@ -6,6 +6,12 @@ const getFontSize =(size)=> {
     case "medium":
       return '16px'
       break;
+    case "large":
+        return '18px'
+        break;
+        case "xxlarge":
+          return '48px'
+          break;    
     case 2:
       return '100px'
       break;
@@ -20,8 +26,11 @@ const getlineHeight =(size)=> {
       return '26px'
       break;
     case "large":
-      return '47px'
+      return '27px'
       break;
+      case "xxlarge":
+          return '56px'
+          break;
     default:
       return ''
       break;

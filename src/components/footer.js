@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import {
-  Box,
-  Text,
+  Box,  
   Footer,
   Grid,
   Button,
@@ -11,9 +10,12 @@ import {
   FormField,
   TextInput,
 } from "grommet"
-
+import { Text } from "..//legos/typography/Text";
+import { Add } from "grommet-icons";
 import Logo from "..//..//static/assets/logo.svg"
-import sendButton from "..//..//static/assets/sendButton.svg"
+
+import SendButtonIcon from "..//..//static/assets/sendButton.svg"
+import { StyledButton } from '../legos/Button/Button'
 
 const linkItems = ["Work", "Our team", "Contacts"]
 
@@ -26,16 +28,15 @@ const SiteFooter = () => {
         //gap="small"
         // pad="large"
       >
-        <Box justify="center" align="stretch" pad="xlarge" width="40vw" margin={{ left: "xlarge" }}>
-          <Image src={Logo} alt="Soft Bee" alignSelf="start" />
+        <Box justify="center" align="stretch" width="40vw" margin={{ left: "xlarge" }} pad={{ left: "xlarge" }} >
+            <Image src={Logo} alt="Soft Bee" alignSelf="start" margin={{bottom : "medium" }}/>    
           {linkItems.map(props => (
-            <Text margin={{ top: "medium" }}>
+            <Text size="large" margin={{ top: "small" , left: "10px"}}>
               <Link
                 style={{ 
                   boxShadow: `none`,                
-                  // textDecoration: `none`,
-                  color: `#FFFFFF`,
-                  fontFamily: "Gilroy-Medium",
+                  textDecoration: `none`,
+                  color: `#FFFFFF`,                  
                 }}
                 to="/"
               >
@@ -46,56 +47,60 @@ const SiteFooter = () => {
         </Box>
         <Box justify="center" align="stretch" pad="medium" width="55vw">
           <Text
-            size="48px"
-            margin={{ top: "medium" }}
+            size="xxlarge"
+            margin={{ top: "small" }}
             alignSelf="start"
-            style={{
-              fontFamily: "Gilroy-Medium",
-            }}
+            fontFamily="Gilroy-Regular"
+            
           >
             Message us anything
           </Text>
           <Text
-            size="18px"
+            size="large"
             margin={{ top: "small" }}
-            alignSelf="start"
-            style={{
-              fontFamily: "Gilroy-Medium",
-            }}
+            alignSelf="start" 
+            fontFamily="Gilroy-Regular"
+
           >
             Your message will be posted in one of our <br /> Slack channels.
           </Text>
           <Form>
-            <Box direction="row" margin={{ top: "lagre" }} width="50%">
+            <Box direction="row" width="50%" margin={{ top: "40px" }}>
               <Grid columns={{ count: 2, size: "auto" }} fill="horizontal">
-                <Box justify="center" width="25vw">
+                <Box justify="center" width="25vw" >
                   <FormField name="name" htmlfor="text-input-id">
                     <TextInput
                       id="text-input-id"
-                      name="name"
+                      name="name" 
                       placeholder={
                         <Text
-                          size="18px"
-                          margin={{ top: "small" }}
-                          style={{
-                            fontFamily: "Gilroy-Medium",
+                          size="medium"
+                          fontFamily="Gilroy-Regular"
+                          style={{                            
                             opacity: "0.5",
                           }}
                         >
                           Let’s create somethign dope!!! Xoxo
                         </Text>
                       }
+                      
                     />
                   </FormField>
                 </Box>
                 <Box align="start" height="33px" width="55px">
-                  {/* <Button
+                  <Button
                     onClick={() => {}}
-                    margin={{ top: "26px", left: "small" }}
+                    margin={{ top: "9px", left: "small" }}
                   >
-                    <Image src={sendButton} alt="Send Button" />
-                  </Button> */}
-                  <Button label=">" fill color="yellow" margin={{ top: "18px", left: "small" }} />
+                    <Image src={SendButtonIcon} alt="Send Button" />
+                  </Button>
+                  {/* <Button 
+                  label="" 
+                  fill color="yellow"
+                  borderRadius= "2px" 
+                  margin={{ top: "10px", left: "small" }} 
+                  icon={<Add />}
+                  />                     */}
                 </Box>
               </Grid>
             </Box>
