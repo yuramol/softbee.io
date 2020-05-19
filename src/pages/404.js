@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Grommet } from "grommet";
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import { theme } from "../utils/theme"
 

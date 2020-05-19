@@ -1,7 +1,14 @@
 import React from "react"
 import { Box, Header, Button } from "grommet"
 
-const linkItems = ["Work", "Our team", "Blog"]
+const linkItems = [
+  {label:"Work",
+    link:"/work"},
+    {label:"Our team",
+    link:"/our-team"},
+    {label:"Blog",
+    link:"/blog"},
+  ]
 
 const SiteHeader = () => {
   return (
@@ -10,9 +17,9 @@ const SiteHeader = () => {
         {linkItems.map(props => (
           <Button
             plain
-            label={props}
+            label={props.label}
             onClick={() => {}}
-            href="/"
+            href={props.link}
             margin="medium"
             style={{
               boxShadow: `none`,
