@@ -1,22 +1,18 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from "react"
+import { Form, FormField, Text, TextInput} from "grommet"
 
-import { Box, Grommet, TextInput } from "grommet";
-import { grommet } from "grommet/themes";
-
-const SimpleTextInput = () => {
-  const [value, setValue] = React.useState("");
-
-  const onChange = event => setValue(event.target.value);
-
+const SiteHeader = () => {
   return (
-    <Grommet full theme={grommet}>
-      <Box fill align="center" justify="start" pad="large">
-        <Box width="medium">
-          <TextInput value={value} onChange={onChange} />
-        </Box>
-      </Box>
-    </Grommet>
-  );
-};
-export default SimpleTextInput
+    <Form onSubmit={({ value }) => {}}>
+      <FormField name="name" htmlfor="textinput-id">
+        <TextInput 
+        id="textinput-id" 
+        name="name" 
+        placeholder="Let’s create somethign dope!!! Xoxo"      
+        />
+      </FormField>
+    </Form>
+  )
+}
+
+export default SiteHeader
