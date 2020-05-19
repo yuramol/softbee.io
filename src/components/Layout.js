@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import Footer from "./footer"
-import Header from "./header"
+import Footer from "./Footer"
+import Header from "./Header"
 // import Button from "../components/button"
 import "normalize.css";
 

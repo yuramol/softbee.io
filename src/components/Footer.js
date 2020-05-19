@@ -1,21 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
-import {
-  Box,  
-  Footer,
-  Grid,
-  Button,
-  Image,
-  Form,
-  FormField
-} from "grommet"
-import { Text } from "..//legos/typography/Text";
-import { Add } from "grommet-icons";
+import { Box, Footer, Grid, Button, Image, Form, FormField } from "grommet"
+import { Text } from "../legos/typography/Text"
+import { Add } from "grommet-icons"
 import Logo from "..//..//static/assets/logo.svg"
 
 import SendButtonIcon from "..//..//static/assets/sendButton.svg"
-import { StyledButton } from '../legos/Button/Button'
-import { StyledTextInput } from './FooterTextInput'
+import { StyledButton } from "../legos/Button/Button"
+import StyledFormField from "./FooterTextInput"
+//import Header from "./FooterTextInput"
 
 const linkItems = ["Work", "Our team", "Contacts"]
 
@@ -28,15 +21,26 @@ const SiteFooter = () => {
         //gap="small"
         // pad="large"
       >
-        <Box justify="center" align="stretch" width="40vw" margin={{ left: "xlarge" }} pad={{ left: "xlarge" }} >
-            <Image src={Logo} alt="Soft Bee" alignSelf="start" margin={{bottom : "medium" }}/>    
+        <Box
+          justify="center"
+          align="stretch"
+          width="40vw"
+          margin={{ left: "xlarge" }}
+          pad={{ left: "xlarge" }}
+        >
+          <Image
+            src={Logo}
+            alt="Soft Bee"
+            alignSelf="start"
+            margin={{ bottom: "medium" }}
+          />
           {linkItems.map(props => (
-            <Text size="large" margin={{ top: "small" , left: "10px"}}>
+            <Text size="large" margin={{ top: "small", left: "10px" }}>
               <Link
-                style={{ 
-                  boxShadow: `none`,                
+                style={{
+                  boxShadow: `none`,
                   textDecoration: `none`,
-                  color: `#FFFFFF`,                  
+                  color: `#FFFFFF`,
                 }}
                 to="/"
               >
@@ -51,41 +55,22 @@ const SiteFooter = () => {
             margin={{ top: "small" }}
             alignSelf="start"
             fontFamily="Gilroy-Regular"
-            
           >
             Message us anything
           </Text>
           <Text
             size="large"
             margin={{ top: "small" }}
-            alignSelf="start" 
+            alignSelf="start"
             fontFamily="Gilroy-Regular"
-
           >
             Your message will be posted in one of our <br /> Slack channels.
           </Text>
           <Form>
             <Box direction="row" width="50%" margin={{ top: "40px" }}>
               <Grid columns={{ count: 2, size: "auto" }} fill="horizontal">
-                <Box justify="center" width="25vw" >
-                  <FormField name="name" htmlfor="text-input-id">
-                    <StyledTextInput
-                      id="text-input-id"
-                      name="name" 
-                      placeholder={
-                        <Text
-                          size="medium"
-                          fontFamily="Gilroy-Regular"
-                          style={{                            
-                            opacity: "0.5",
-                          }}
-                        >
-                          Let’s create somethign dope!!! Xoxo
-                        </Text>
-                      }
-                      
-                    />
-                  </FormField>
+                <Box justify="center" width="25vw">
+                  <StyledFormField />
                 </Box>
                 <Box align="start" height="33px" width="55px">
                   <Button
