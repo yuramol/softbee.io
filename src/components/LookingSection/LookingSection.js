@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
+import { TextColor } from '../../utils/colors';
 
 class LookingSection extends React.Component {
   render() {
@@ -42,13 +43,13 @@ class LookingSection extends React.Component {
           >
             <Heading
               level={2}
-              color="#104065"
+              color={TextColor}
               margin="xsmall"
               style={{ fontWeight: '600' }}
             >
               Looking for an team willing to go the extra mile for you?
             </Heading>
-            <Heading level={2} color="#104065">
+            <Heading level={2} color={TextColor}>
               You're in the right place.
             </Heading>
           </Box>

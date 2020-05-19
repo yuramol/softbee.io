@@ -3,7 +3,7 @@ import { Box, Button, Grid } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
-
+import { TextColor, TextColor2 } from '../../utils/colors';
 
 class GapNurseSection extends React.Component {
   render() {
@@ -12,14 +12,14 @@ class GapNurseSection extends React.Component {
         <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
           <Box justify="center" align="start">
             <Box width="470px" pad={{ bottom: 'small' }}>
-              <Heading level={2} color="#104065">
+              <Heading level={2} color={TextColor}>
                 They really help to fight COVID-19 in US
               </Heading>
             </Box>
             <Box width="380px" pad={{ bottom: 'medium' }}>
               <Text
                 size="medium"
-                color="#104065"
+                color={TextColor2}
                 style={{ fontFamily: 'HelveticaNeueCyr' }}
               >
                 With GapNurse, facilities know they’re covered during critical

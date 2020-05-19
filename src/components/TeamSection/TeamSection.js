@@ -4,6 +4,7 @@ import { Box, Grid } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { StyledButton } from '../../legos/Button/Button';
+import { TextColor, TextColor2 } from '../../utils/colors';
 
 class TeamSection extends React.Component {
   render() {
@@ -14,24 +15,24 @@ class TeamSection extends React.Component {
         </Box>
         <Box justify="center" align="start">
           <Box>
-            <Heading level={2} color="#104065">
+            <Heading level={2} color={TextColor}>
               We love taking products from vision to reality.
             </Heading>
           </Box>
           <Box width="491px" pad={{ bottom: 'large' }}>
             <Box pad={{ bottom: 'medium' }}>
-              <Text size="medium" color="#104065">
+              <Text size="medium" color={TextColor2}>
                 Somethings about how we work. We do all sorts of programming:
               </Text>
-              <Text size="medium" color="#104065">
+              <Text size="medium" color={TextColor2}>
                 Web, mobile, backend, desktop development.{' '}
               </Text>
-              <Text size="medium" color="#104065">
+              <Text size="medium" color={TextColor2}>
                 JS is our lovest language. Blala something more.
               </Text>
             </Box>
             <Box pad={{ bottom: 'large' }}>
-              <Text size="medium" color="#104065">
+              <Text size="medium" color={TextColor2}>
                 We are a team of passionated mobile and web developers who love
                 what they do. Also we love being on the same page with our
                 clients and to deliver real cases to users.
