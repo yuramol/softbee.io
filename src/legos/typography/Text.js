@@ -11,7 +11,7 @@ const getFontSize =(size)=> {
       return '16px'
   }
 };
-const getlineHeight =(size)=> {
+const getLineHeight =(size)=> {
   switch (size) {
     case "medium":
       return '26px'
@@ -24,7 +24,7 @@ const getlineHeight =(size)=> {
 
 const StyledText = styled(LibText)`
   font-size: ${({size}) => getFontSize(size)};
-  line-height: ${({size}) => getlineHeight(size)};
+  line-height: ${({size}) => getLineHeight(size)};
 `
 export const Text = ({children, ...props})=> (
   <StyledText {...props}>
