@@ -18,8 +18,10 @@ class WorkPage extends React.Component {
             title="Work"
             keywords={[`blog`, `gatsby`, `javascript`, `react`]}
           />      
-          <WorkHeroSection />
-          <GapNurseSection />    
+          <WorkHeroSection /> 
+          <Box background={{ color: '#FFFFFF' }}>
+          <GapNurseSection />  
+          </Box>           
         </Layout>
         </Box>
       </Grommet>

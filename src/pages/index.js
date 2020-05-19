@@ -1,5 +1,5 @@
 import React from "react"
-import { Grommet } from 'grommet';
+import { Grommet, Box } from 'grommet';
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
@@ -19,7 +19,9 @@ class IndexPage extends React.Component {
             keywords={[`blog`, `gatsby`, `javascript`, `react`]}
           />
           <HomeHeroSection />
+          <Box background={{ color: '#F0F6F4' }}>
           <GapNurseSection />
+          </Box>
           <TeamSection />
         </Layout>
       </Grommet>
