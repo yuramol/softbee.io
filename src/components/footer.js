@@ -7,8 +7,7 @@ import {
   Button,
   Image,
   Form,
-  FormField,
-  TextInput,
+  FormField
 } from "grommet"
 import { Text } from "..//legos/typography/Text";
 import { Add } from "grommet-icons";
@@ -16,6 +15,7 @@ import Logo from "..//..//static/assets/logo.svg"
 
 import SendButtonIcon from "..//..//static/assets/sendButton.svg"
 import { StyledButton } from '../legos/Button/Button'
+import { StyledTextInput } from './FooterTextInput'
 
 const linkItems = ["Work", "Our team", "Contacts"]
 
@@ -69,7 +69,7 @@ const SiteFooter = () => {
               <Grid columns={{ count: 2, size: "auto" }} fill="horizontal">
                 <Box justify="center" width="25vw" >
                   <FormField name="name" htmlfor="text-input-id">
-                    <TextInput
+                    <StyledTextInput
                       id="text-input-id"
                       name="name" 
                       placeholder={
