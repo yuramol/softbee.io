@@ -6,6 +6,7 @@ import SEO from "../components/Seo"
 import { theme } from "../utils/theme"
 import WorkHeroSection from "../components/WorkHeroSection/WorkHeroSection"
 import GapNurseSection from "../components/GapNurseSection/GapNurseSection"
+import ToolchainSection from "../components/ToolchainSection/ToolchainSection"
 class WorkPage extends React.Component {
   render() {
     const siteTitle = "SoftBee"
@@ -18,10 +19,9 @@ class WorkPage extends React.Component {
               title="Work"
               keywords={[`blog`, `gatsby`, `javascript`, `react`]}
             />
-            <WorkHeroSection />
-            <Box background={{ color: "#FFFFFF" }}>
-              <GapNurseSection />
-            </Box>
+            <WorkHeroSection />            
+              <GapNurseSection />            
+            <ToolchainSection />
           </Layout>
         </Box>
       </Grommet>

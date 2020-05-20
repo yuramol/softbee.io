@@ -20,10 +20,8 @@ class IndexPage extends React.Component {
             title="Home"
             keywords={[`blog`, `gatsby`, `javascript`, `react`]}
           />
-          <HomeHeroSection />
-          <Box background={{ color: '#F0F6F4' }}>
-          <GapNurseSection />
-          </Box>
+          <HomeHeroSection />          
+          <GapNurseSection />          
           <TeamSection />
           <MMOSection />
           <LookingSection />

@@ -39,7 +39,7 @@ const getLineHeight = size => {
       return "56px"
       break
     default:
-      return ""
+      return "25px"
       break
   }
 }
