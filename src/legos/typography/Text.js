@@ -23,7 +23,8 @@ const getFontSize = size => {
       break
   }
 }
-const getlineHeight = size => {
+
+const getLineHeight = size => {
   switch (size) {
     case "medium":
       return "26px"
