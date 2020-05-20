@@ -44,8 +44,8 @@ const getlineHeight = size => {
 }
 
 const StyledText = styled(LibText)`
-  font-size: ${({ size }) => getFontSize(size)};
-  line-height: ${({ size }) => getlineHeight(size)};
+  font-size: ${({size}) => getFontSize(size)};
+  line-height: ${({size}) => getLineHeight(size)};
 `
 export const Text = ({ children, ...props }) => (
   <StyledText {...props}>{children}</StyledText>
