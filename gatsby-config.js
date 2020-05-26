@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [".mdx", ".md"],
+        extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -81,13 +81,13 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
         custom: {
-          families: ["Gilroy", "HelveticaNeueCyr"],
-          urls: ["/fonts/fonts.css"],
+          families: ['Gilroy', 'HelveticaNeueCyr'],
+          urls: ['/fonts/fonts.css'],
         },
       },
     },
   ],
-}
+};
