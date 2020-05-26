@@ -44,7 +44,7 @@
     "react/prop-types": [
       "error",
       {
-        "ignore": ["children"]
+        "ignore": ["children", "location", "data", "pageContext"]
       }
     ]
   }
