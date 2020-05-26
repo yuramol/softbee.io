@@ -8,6 +8,8 @@ const getFontSize =(level)=> {
       return '54px'
     case 2:
       return '40px'
+    case 3:
+      return '30px'
     case 5:
       return '16px'
     default:
@@ -21,6 +23,8 @@ const getFontWeight =(level)=> {
       return '800'
     case 2:
       return '300'
+    case 3:
+       return '800'
     default:
       return '400'
   }
@@ -32,6 +36,8 @@ const getLineHeight =(level)=> {
       return '66px'
     case 2:
       return '47px'
+    case 3:
+      return '30px'
     default:
       return ''
   }

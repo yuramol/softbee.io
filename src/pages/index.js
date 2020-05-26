@@ -9,6 +9,8 @@ import  GapNurseSection  from "../components/GapNurseSection/GapNurseSection";
 import  TeamSection  from "../components/TeamSection/TeamSection";
 import  MMOSection  from "../components/MMOSection/MMOSection";
 import  LookingSection  from "../components/LookingSection/LookingSection";
+import  WhatWeDoSection  from "../components/WhatWeDoSection/WhatWeDoSection";
+import  LetsStarted  from "../components/LetsStarted/LetsStarted";
 class IndexPage extends React.Component {
   render() {
     const siteTitle = "SoftBee"
@@ -25,6 +27,8 @@ class IndexPage extends React.Component {
           <TeamSection />
           <MMOSection />
           <LookingSection />
+          <WhatWeDoSection />
+          <LetsStarted />
         </Layout>
       </Grommet>
 
