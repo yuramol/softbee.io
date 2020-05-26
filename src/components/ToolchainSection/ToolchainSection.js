@@ -19,16 +19,14 @@ class ToolchainSection extends React.Component {
   render() {
     return (
       <Box
-        direction="row-responsive"
+      direction="row"
+      wrap="true"        
         justify="center"
         align="center"
-        pad="xlarge"
-        gap="medium"
-        alignContent="center"
       >
           {toolchainItems.map(props => (
         <Box pad="medium">
-          <Box justify="center">
+          <Box>
             <img src={props.icon} alt={props.label}/>
           </Box>
           <Text alignSelf="center" size="medium" color={TextColor}>

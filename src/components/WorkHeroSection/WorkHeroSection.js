@@ -19,8 +19,7 @@ class WorkHeroSection extends React.Component {
   render() {
     return (
       <Grommet theme={theme}>
-        <Box
-          pad="medium"
+        <Box          
           height="695px"
           background={{
             size: "small",

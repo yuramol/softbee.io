@@ -56,7 +56,7 @@ const SiteFooter = () => {
             </Text>
           ))}
         </Box>
-        <Box justify="center" align="stretch" pad="medium" width="55vw">
+        <Box justify="center" align="stretch">
           <Text
             size="xxlarge"
             margin={{ top: "small" }}
