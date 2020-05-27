@@ -15,16 +15,16 @@ const MMOSection = () => (
       image: 'url(./assets/mmoBackground.svg)',
     }}
   >
-    <Grid columns={['2/3', '1/4']} pad="xlarge">
+    <Grid columns={['2/3', '1/3']} pad="xsmall">
       <Box direction="row" justify="center">
-        <Box justify="center" align="start" margin={{ left: 'large' }}>
-          <img src="./assets/sectionMMO.svg" alt="Gatsby Scene" />
+        <Box justify="center" align="start" margin={{ left: 'xsmall' }}>
+          <img src="./assets/sectionMMO.svg" alt="screenshot of MMO website page" />
         </Box>
-        <Box justify="center" pad={{ left: 'xlarge', right: 'small' }}>
-          <img src="./assets/mmoSectionMini.svg" alt="Gatsby Scene" />
+        <Box justify="center" pad={{ left: 'large', top: 'large'}}>
+          <img src="./assets/mmoSectionMini.svg" alt="screenshot of MMO website page, mobile version" />
         </Box>
       </Box>
-      <Box justify="center" align="start" margin={{ right: 'large' }}>
+      <Box justify="center" align="start" margin={{ right: 'large', top: 'large'}}>
         <Box>
           <Heading level={2} color={TextColor}>
             MMO.cat selling website

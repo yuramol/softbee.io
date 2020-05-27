@@ -7,8 +7,8 @@ import { TextColor } from '../../utils/colors';
 
 const HomeHeroSection = () => (
   <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
-    <Box justify="center" align="start">
-      <Box pad={{ bottom: 'small' }}>
+    <Box justify="center" align="start" pad={{top: "xlarge"}}>
+      <Box pad={{ bottom: 'small', top: "large"}}>
         <Heading level={1} color={TextColor}>
           Your partners in new products creating
         </Heading>
@@ -24,7 +24,7 @@ const HomeHeroSection = () => (
       </Box>
     </Box>
     <Box align="center">
-      <img src="./assets/sectionHeader.svg" alt="Gatsby Scene" />
+      <img src="./assets/sectionHeader.svg" alt="People create a website" />
     </Box>
   </Grid>
 );

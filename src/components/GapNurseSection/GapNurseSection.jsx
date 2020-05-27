@@ -29,9 +29,15 @@ const GapNurseSection = () => (
           See case study
         </Link>
       </Box>
-      <Box align="center">
-        <img src="./assets/phoneGapnurse.svg" alt="Gatsby Scene" />
-      </Box>
+      <Grid columns={{ count: 2, size: 'auto' }} gap="xlarge" pad={{right: "xlarge"}}>
+        <Box align="center">
+          <img src="./assets/PhoneGapnurse.png" alt="The iphone that shows the application GapNurse" />
+        </Box>
+        <Box align="center">
+          <img src="./assets/PhoneGapnurse2.png" alt="The iphone that shows the application GapNurse" />
+        </Box>
+        
+      </Grid>
     </Grid>
   </Box>
 );

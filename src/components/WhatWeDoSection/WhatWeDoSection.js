@@ -24,7 +24,7 @@ class WhatWeDoSection extends React.Component {
             pad={{ right: 'large' }}
           >
             <Box pad="small">
-              <img src="./assets/research.svg" alt="Research" />
+              <img src="./assets/research.svg" alt="Icon research" />
             </Box>
             <Heading
               level={3}
@@ -41,7 +41,7 @@ class WhatWeDoSection extends React.Component {
             pad={{ right: 'large' }}
           >
             <Box pad="small">
-              <img src="./assets/Desing.svg" alt="Desing" />
+              <img src="./assets/Desing.svg" alt="Icon pencil" />
             </Box>
             <Heading
               level={3}
@@ -58,7 +58,7 @@ class WhatWeDoSection extends React.Component {
             pad={{ right: 'large' }}
           >
             <Box pad="small">
-              <img src="./assets/Build.svg" alt="Gatsby Scene" />
+              <img src="./assets/Build.svg" alt="Arrows" />
             </Box>
             <Heading
               level={3}
