@@ -8,7 +8,8 @@ import TeamSection from '../components/TeamSection/TeamSection';
 import MMOSection from '../components/MMOSection/MMOSection';
 import LookingSection from '../components/LookingSection/LookingSection';
 import WhatWeDoSection from '../components/WhatWeDoSection/WhatWeDoSection';
-import LetsStarted from '../components/LetsStarted/LetsStarted';
+import LetsStarted from '../components/LetsStartedSection/LetsStarted';
+import AboutBlogSection from '../components/BlogSection/BlogSection';
 
 const IndexPage = ({ location }) => {
   const siteTitle = 'SoftBee';
@@ -23,6 +24,7 @@ const IndexPage = ({ location }) => {
       <LookingSection />
       <WhatWeDoSection />
       <LetsStarted />
+      <AboutBlogSection />
     </Layout>
   );
 };

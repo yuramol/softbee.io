@@ -33,7 +33,8 @@ class LookingSection extends React.Component {
             <img
               style={{ transform: 'rotate(-15.26deg)' }}
               src="./assets/gears.svg"
-              alt="Gatsby Scene"
+              alt="
+              Image of a gear"
             />
           </Box>
           <Box
@@ -54,7 +55,7 @@ class LookingSection extends React.Component {
             </Heading>
           </Box>
           <Box justify="center" pad={{ right: 'medium' }}>
-            <img src="./assets/arrow.svg" alt="Gatsby Scene" />
+            <img src="./assets/arrow.svg" alt="Arrows" />
           </Box>
         </Box>
       </Box>
