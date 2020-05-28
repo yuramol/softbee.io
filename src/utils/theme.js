@@ -3,5 +3,9 @@ export const theme = {
     font: {
       family: 'Gilroy',
     },
+    colors: {
+      focus: '#DADADA',
+      brand: '#104065',
+    },
   },
 };
