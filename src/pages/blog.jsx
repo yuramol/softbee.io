@@ -2,10 +2,10 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import Layout from '../components/Layout';
-import SEO from '../components/Seo';
-import Button from '../legos/Button/Button';
-import RouterLink from '../legos/RouterLink';
+import { Layout } from '../components/Layout';
+import { SEO } from '../components/SEO';
+import { Button } from '../legos/Button/Button';
+import { RouterLink } from '../legos/RouterLink';
 
 const Blog = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;

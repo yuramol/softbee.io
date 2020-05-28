@@ -3,7 +3,7 @@ import { Box } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 
-const WhatWeDoSection = () => (
+export const WhatWeDoSection = () => (
   <Box justify="center" align="center" pad="large" gap="medium">
     <Box
       style={{ textAlign: 'center' }}
@@ -70,5 +70,3 @@ const WhatWeDoSection = () => (
     </Box>
   </Box>
 );
-
-export default WhatWeDoSection;

@@ -4,7 +4,7 @@ import { Box, Button, Grid } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 
-const MMOSection = () => (
+export const MMOSection = () => (
   <Box
     height="800px"
     justify="center"
@@ -49,5 +49,3 @@ const MMOSection = () => (
     </Grid>
   </Box>
 );
-
-export default MMOSection;

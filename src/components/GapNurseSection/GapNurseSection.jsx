@@ -5,7 +5,7 @@ import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
-const GapNurseSection = () => (
+export const GapNurseSection = () => (
   <Box background={{ color: '#F0F6F4' }}>
     <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
       <Box justify="center" align="start">
@@ -32,5 +32,3 @@ const GapNurseSection = () => (
     </Grid>
   </Box>
 );
-
-export default GapNurseSection;

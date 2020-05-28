@@ -3,7 +3,7 @@ import { Box } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 
-const LookingSection = () => (
+export const LookingSection = () => (
   <Box
     direction="row-responsive"
     justify="center"
@@ -56,5 +56,3 @@ const LookingSection = () => (
     </Box>
   </Box>
 );
-
-export default LookingSection;

@@ -10,7 +10,7 @@ const Footer = styled.footer`
   margin: 24px;
 `;
 
-const Layout = ({ children }) => {
+export const Layout = ({ children }) => {
   return (
     <Grommet theme={theme}>
       <Box fill align="center">
@@ -33,5 +33,3 @@ const Layout = ({ children }) => {
     </Grommet>
   );
 };
-
-export default Layout;

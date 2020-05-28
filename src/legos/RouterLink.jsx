@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const StyledLink = styled(LibLink)`
   color: ${({ color }) => color};
 `;
+
 export const RouterLink = ({ to, children, ...props }) => {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading

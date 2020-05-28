@@ -4,7 +4,7 @@ import { Box, FormField } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { StyledTextInput } from '../../legos/TextInput/TextInput';
 
-const LetsStarted = () => (
+export const LetsStarted = () => (
   <Box
     direction="row-responsive"
     justify="center"
@@ -52,5 +52,3 @@ const LetsStarted = () => (
     </Box>
   </Box>
 );
-
-export default LetsStarted;

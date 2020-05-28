@@ -4,7 +4,7 @@ import { Box, Grid, Text } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Button } from '../../legos/Button/Button';
 
-const HomeHeroSection = () => (
+export const HomeHeroSection = () => (
   <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
     <Box justify="center" align="start">
       <Box pad={{ bottom: 'small' }}>
@@ -36,5 +36,3 @@ const HomeHeroSection = () => (
     </Box>
   </Grid>
 );
-
-export default HomeHeroSection;

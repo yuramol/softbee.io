@@ -5,7 +5,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 
-const TeamSection = () => (
+export const TeamSection = () => (
   <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
     <Box align="center">
       <img src="./assets/section.svg" alt="Gatsby Scene" />
@@ -42,5 +42,3 @@ const TeamSection = () => (
     </Box>
   </Grid>
 );
-
-export default TeamSection;
