@@ -6,6 +6,14 @@ import { Button } from '../../legos/Button/Button';
 import { TextColor } from '../../utils/colors';
 
 const HomeHeroSection = () => (
+  <Box          
+  height="847px"
+  background={{
+    size: "small",
+    position: "right",
+    image: "url(./assets/background-home.svg)",
+  }}
+>
   <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
     <Box justify="center" align="start" pad={{top: "xlarge"}}>
       <Box pad={{ bottom: 'small', top: "large"}}>
@@ -27,6 +35,7 @@ const HomeHeroSection = () => (
       <img src="./assets/sectionHeader.svg" alt="People create a website" />
     </Box>
   </Grid>
+  </Box>
 );
 
 export default HomeHeroSection;

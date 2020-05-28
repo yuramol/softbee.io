@@ -7,7 +7,7 @@ import GapNurseSection from '../components/GapNurseSection/GapNurseSection';
 import TeamSection from '../components/TeamSection/TeamSection';
 import MMOSection from '../components/MMOSection/MMOSection';
 import LookingSection from '../components/LookingSection/LookingSection';
-import WhatWeDoSection from '../components/WhatWeDoSection/WhatWeDoSection';
+import WhatWeDoSection from '../components/WhatWeDo/WhatWeDoSection';
 import LetsStarted from '../components/LetsStartedSection/LetsStarted';
 import AboutBlogSection from '../components/BlogSection/BlogSection';
 
@@ -18,9 +18,9 @@ const IndexPage = ({ location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <HomeHeroSection />
-      <GapNurseSection />
+      <GapNurseSection withBackground />
       <TeamSection />
-      <MMOSection />
+      <MMOSection withBackground/>
       <LookingSection />
       <WhatWeDoSection />
       <LetsStarted />
