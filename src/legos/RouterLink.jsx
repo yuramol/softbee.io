@@ -1,25 +1,26 @@
 import React from 'react';
 import { Link as LibLink } from 'gatsby';
 import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 
 const StyledLink = styled(LibLink)`
   color: ${({ color }) => color};
 `;
-
-export const Link = ({ to, children, color }) => {
+export const RouterLink = ({ to, children, ...props }) => {
   return (
-    <StyledLink to={to} color={color}>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <StyledLink to={to} {...props}>
       {children}
     </StyledLink>
   );
 };
 
-Link.propTypes = {
+RouterLink.propTypes = {
   color: PropTypes.string,
   to: PropTypes.string.isRequired,
 };
 
-Link.defaultProps = {
+RouterLink.defaultProps = {
   color: '#25BBC5',
 };

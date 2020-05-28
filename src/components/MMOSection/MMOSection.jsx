@@ -3,7 +3,6 @@ import { Box, Button, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
-import { TextColor, textDark } from '../../utils/colors';
 
 const MMOSection = () => (
   <Box
@@ -26,16 +25,16 @@ const MMOSection = () => (
       </Box>
       <Box justify="center" align="start" margin={{ right: 'large' }}>
         <Box>
-          <Heading level={2} color={TextColor}>
+          <Heading level={2} color="brand">
             MMO.cat selling website
           </Heading>
         </Box>
         <Box width="491px" pad={{ bottom: 'small' }}>
           <Box pad={{ bottom: 'large' }}>
-            <Text size="medium" color={textDark}>
+            <Text size="medium" color="text-dark-grey">
               We provided full-stack development service
             </Text>
-            <Text size="medium" color={textDark}>
+            <Text size="medium" color="text-dark-grey">
               for end-to-end websites of MMO.cat team
             </Text>
           </Box>

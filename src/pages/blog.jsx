@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import Bio from '../components/bio';
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import SEO from '../components/Seo';
 import Button from '../legos/Button/Button';
+import RouterLink from '../legos/RouterLink';
 
 const Blog = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
@@ -14,19 +14,18 @@ const Blog = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       <div style={{ margin: '20px 0 40px' }}>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug;
           return (
             <div key={node.fields.slug}>
               <h3>
-                <Link
+                <RouterLink
                   style={{ boxShadow: `none` }}
                   to={`blog${node.fields.slug}`}
                 >
                   {title}
-                </Link>
+                </RouterLink>
               </h3>
               <small>{node.frontmatter.date}</small>
               <p
@@ -39,9 +38,9 @@ const Blog = ({ data, location }) => {
           );
         })}
       </div>
-      <Link to="/">
+      <RouterLink to="/">
         <Button marginTop="85px">Go Home</Button>
-      </Link>
+      </RouterLink>
     </Layout>
   );
 };
