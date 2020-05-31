@@ -20,7 +20,7 @@ class WorkPage extends React.Component {
               keywords={[`blog`, `gatsby`, `javascript`, `react`]}
             />
             <WorkHeroSection />            
-            {/* <GapNurseSection />             */}
+            <GapNurseSection />            
             <ToolchainSection />
           </Layout>
         </Box>
