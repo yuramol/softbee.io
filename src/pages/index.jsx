@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import SEO from '../components/Seo';
 import HomeHeroSection from '../components/HomeHeroSection/HomeHeroSection';
 import GapNurseSection from '../components/GapNurseSection/GapNurseSection';
 import TeamSection from '../components/TeamSection/TeamSection';
