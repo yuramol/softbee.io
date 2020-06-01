@@ -27,7 +27,6 @@ const StyledText = styled(LibText)`
   line-height: ${({size}) => getLineHeight(size)};
 `
 export const Text = ({children, ...props})=> (
-  <StyledText {...props}>
-    {children}
-  </StyledText>   
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <StyledText {...props}>{children}</StyledText>   
 );
