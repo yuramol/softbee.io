@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import Bio from '../components/bio';
-import Layout from '../components/Layout';
-import SEO from '../components/seo';
+import { Layout } from '../components/Layout';
+import { SEO } from '../components/SEO';
+import { RouterLink } from '../legos/RouterLink';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
@@ -28,7 +28,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       </p>
       <MDXRenderer>{post.body}</MDXRenderer>
       <hr />
-      <Bio />
 
       <ul
         style={{
@@ -41,16 +40,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       >
         <li>
           {previous && (
-            <Link to={`blog${previous.fields.slug}`} rel="prev">
+            <RouterLink to={`blog${previous.fields.slug}`} rel="prev">
               ← {previous.frontmatter.title}
-            </Link>
+            </RouterLink>
           )}
         </li>
         <li>
           {next && (
-            <Link to={`blog${next.fields.slug}`} rel="next">
+            <RouterLink to={`blog${next.fields.slug}`} rel="next">
               {next.frontmatter.title} →
-            </Link>
+            </RouterLink>
           )}
         </li>
       </ul>
