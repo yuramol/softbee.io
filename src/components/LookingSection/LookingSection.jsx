@@ -30,8 +30,7 @@ export const LookingSection = () => (
         <img
           style={{ transform: 'rotate(-15.26deg)' }}
           src="./assets/gears.svg"
-          alt="
-              Image of a gear"
+          alt="Gatsby Scene"
         />
       </Box>
       <Box
@@ -52,7 +51,7 @@ export const LookingSection = () => (
         </Heading>
       </Box>
       <Box justify="center" pad={{ right: 'medium' }}>
-        <img src="./assets/arrow.svg" alt="Arrows" />
+        <img src="./assets/arrow.svg" alt="Gatsby Scene" />
       </Box>
     </Box>
   </Box>
