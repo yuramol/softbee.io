@@ -1,22 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Grid } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
-export const GapNurseSection = ({ withBackground }) => (
-  <Box
-    background={
-      withBackground && {
-        size: 'small',
-        position: 'top right',
-        image: 'url(./assets/background-gapNurse.svg)',
-        color: '#F0F6F4',
-      }
-    }
-  >
+export const GapNurseSection = () => (
+  <Box background={{ color: '#F0F6F4' }}>
     <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
       <Box justify="center" align="start">
         <Box width="470px" pad={{ bottom: 'small' }}>
@@ -34,36 +24,11 @@ export const GapNurseSection = ({ withBackground }) => (
             and unexpected absences without breaking your budget.
           </Text>
         </Box>
-        <RouterLink to="gapnurse-case-study" color="#25BBC5">
-          See case study
-        </RouterLink>
+        <RouterLink to="gapnurse-case-study">See case study</RouterLink>
       </Box>
-      <Grid
-        columns={{ count: 2, size: 'auto' }}
-        gap="xlarge"
-        pad={{ right: 'xlarge' }}
-      >
-        <Box align="center">
-          <img
-            src="./assets/PhoneGapnurse.png"
-            alt="The iphone that shows the application GapNurse"
-          />
-        </Box>
-        <Box align="center">
-          <img
-            src="./assets/PhoneGapnurse2.png"
-            alt="The iphone that shows the application GapNurse"
-          />
-        </Box>
-      </Grid>
+      <Box align="center">
+        <img src="./assets/phoneGapnurse.svg" alt="Gatsby Scene" />
+      </Box>
     </Grid>
   </Box>
 );
-
-GapNurseSection.propTypes = {
-  withBackground: PropTypes.boolean,
-};
-
-GapNurseSection.defaultProps = {
-  withBackground: undefined,
-};
