@@ -46,7 +46,7 @@ export const BlogSection = () => (
     </Box>
   </Grid>
   <Box justify="center" align="center">
-    <RouterLink to="gapnurse-case-study" color="brand">
+    <RouterLink to="blog" color="brand">
          <Heading level={2} color="brand">See our blog</Heading>
     </RouterLink>
   </Box>
