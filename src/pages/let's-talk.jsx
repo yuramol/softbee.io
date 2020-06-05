@@ -2,7 +2,7 @@ import React from 'react';
 import { Grommet, Box } from 'grommet';
 import { Close } from 'grommet-icons';
 
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/Seo';
 import { RouterLink } from '../legos/RouterLink';
 import { theme } from '../utils/theme';
 
