@@ -15,19 +15,16 @@ const skillItems = [
   "Backend",
   "Mobile apps",
 ]
-class WorkHeroSection extends React.Component {
-  render() {
-    return (
-      <Grommet theme={theme}>
+export const WorkHeroSection = () => (
         <Box          
           height="695px"
           background={{
             size: "small",
             position: "right",
             image: "url(./assets/background-work.svg)",
+            color: '#F0F6F4',
           }}
         >
-          >
           <Heading
             alignSelf="center"
             level={1}
@@ -96,9 +93,4 @@ class WorkHeroSection extends React.Component {
             </Box>
           </Grid>
         </Box>
-      </Grommet>
     )
-  }
-}
-
-export default WorkHeroSection

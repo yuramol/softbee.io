@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
+import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { SiteHeader } from '../components/Header';
@@ -19,12 +20,12 @@ const keywords = [
 
 const WorkPage = ({ location }) => {
   return (
-    <Layout location={location} title={siteTitle}>
-      <SiteHeader />
+    <Layout location={location} title={siteTitle} >
+      <SiteHeader withBackground />
       <SEO title={siteTitle} keywords={keywords} />
-      <WorkHeroSection withBackground />            
+      <WorkHeroSection />            
       <GapNurseSection />            
-      <ToolchainSection withBackground />
+      {/* <ToolchainSection withBackground /> */}
       <WhatWeDoSection />
       <SiteFooter />
     </Layout>

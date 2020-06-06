@@ -9,8 +9,21 @@ const linkItems = [
   { label: "Blog", link: "/blog" },
 ]
 
-export const SiteHeader = () => (
-    <Header pad="medium">
+export const SiteHeader = ({withBackground}) => (
+    <Header pad="medium"
+    background={
+      (withBackground && {
+        size: 'small',
+        position: 'absolute',
+        image: 'url(./assets/backgroundHeader.svg)',
+        color: '#F0F6F4',
+      }) || {
+        size: 'small',
+        position: 'absolute',
+        image: 'url(./assets/backgroundHeader.svg)',
+      }
+    }
+    >
       <Box width="100wh" justify="stretch" direction="row" gap="medium" margin="medium" align="center">
       <Link to="/">
         <Image
@@ -41,3 +54,11 @@ export const SiteHeader = () => (
       </Box>
     </Header>
   )
+
+  SiteHeader.propTypes = {
+    withBackground: PropTypes.boolean,
+  };
+  
+  SiteHeader.defaultProps = {
+    withBackground: undefined,
+  };
