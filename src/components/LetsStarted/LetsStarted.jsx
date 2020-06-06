@@ -3,9 +3,8 @@ import { Box, FormField } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { StyledTextInput } from '../../legos/TextInput/TextInput';
-import { TextColor3 } from '../../utils/colors';
 
-const LetsStarted = () => (
+export const LetsStarted = () => (
   <Box
     direction="row-responsive"
     justify="center"
@@ -37,7 +36,7 @@ const LetsStarted = () => (
         <Box pad={{ bottom: 'medium' }}>
           <Heading
             level={2}
-            color={TextColor3}
+            color="white"
             margin="xsmall"
             style={{ fontWeight: '600' }}
           >
@@ -53,5 +52,3 @@ const LetsStarted = () => (
     </Box>
   </Box>
 );
-
-export default LetsStarted;

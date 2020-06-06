@@ -1,30 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
-import { TextColor } from '../../utils/colors';
 
-const WhatWeDoSection = ({ withBackground }) => (
-  <Box background={ withBackground && { color: '#F0F6F4' }}>
-  <Box justify="center" align="center" pad={{top: "large", bottom: "xlarge"}} gap="medium">
+export const WhatWeDoSection = () => (
+  <Box justify="center" align="center" pad="large" gap="medium">
     <Box
       style={{ textAlign: 'center' }}
       justify="center"
-      margin={{ horizontal: 'medium' }}
+      margin={{ top: 'large', horizontal: 'medium' }}
     >
-      <Heading level={2} color={TextColor}>
+      <Heading level={2} color="brand">
         What we do?
       </Heading>
     </Box>
     <Box direction="row-responsive">
       <Box direction="row-responsive" align="center" pad={{ right: 'large' }}>
         <Box pad="small">
-          <img src="./assets/research.svg" alt="Icon research" />
+          <img src="./assets/research.svg" alt="Research" />
         </Box>
         <Heading
           level={3}
-          color={TextColor}
+          color="brand"
           margin="xsmall"
           style={{ fontWeight: '600' }}
         >
@@ -33,11 +30,11 @@ const WhatWeDoSection = ({ withBackground }) => (
       </Box>
       <Box direction="row-responsive" align="center" pad={{ right: 'large' }}>
         <Box pad="small">
-          <img src="./assets/Desing.svg" alt="Icon pencil" />
+          <img src="./assets/Desing.svg" alt="Desing" />
         </Box>
         <Heading
           level={3}
-          color={TextColor}
+          color="brand"
           margin="xsmall"
           style={{ fontWeight: '600' }}
         >
@@ -46,11 +43,11 @@ const WhatWeDoSection = ({ withBackground }) => (
       </Box>
       <Box direction="row-responsive" align="center" pad={{ right: 'large' }}>
         <Box pad="small">
-          <img src="./assets/Build.svg" alt="Arrows" />
+          <img src="./assets/Build.svg" alt="Gatsby Scene" />
         </Box>
         <Heading
           level={3}
-          color={TextColor}
+          color="brand"
           margin="xsmall"
           style={{ fontWeight: '600' }}
         >
@@ -63,7 +60,7 @@ const WhatWeDoSection = ({ withBackground }) => (
         </Box>
         <Heading
           level={3}
-          color={TextColor}
+          color="brand"
           margin="xsmall"
           style={{ fontWeight: '600' }}
         >
@@ -71,16 +68,5 @@ const WhatWeDoSection = ({ withBackground }) => (
         </Heading>
       </Box>
     </Box>
-    </Box>
   </Box>
 );
-
-export default WhatWeDoSection;
-
-WhatWeDoSection.propTypes = {
-  withBackground: PropTypes.boolean
-};
-
-WhatWeDoSection.defaultProps = {
-  withBackground: undefined
-};

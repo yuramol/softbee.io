@@ -4,10 +4,9 @@ import { Box, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
-import { Link } from '../../legos/Link';
-import { TextColor, textDark, cyan } from '../../utils/colors';
+import { RouterLink } from '../../legos/RouterLink';
 
-const MMOSection = ({ withBackground }) => (
+export const MMOSection = ({ withBackground }) => (
   <Box
     height="800px"
     justify="center"
@@ -39,29 +38,27 @@ const MMOSection = ({ withBackground }) => (
         margin={{ right: 'large', top: 'large' }}
       >
         <Box>
-          <Heading level={2} color={TextColor}>
+          <Heading level={2} color="brand">
             MMO.cat selling website
           </Heading>
         </Box>
         <Box width="491px" pad={{ bottom: 'small' }}>
           <Box pad={{ bottom: 'large' }}>
-            <Text size="medium" color={textDark}>
+            <Text size="medium" color="text-dark-grey">
               We provided full-stack development service
             </Text>
-            <Text size="medium" color={textDark}>
+            <Text size="medium" color="text-dark-grey">
               for end-to-end websites of MMO.cat team
             </Text>
           </Box>
-          <Link fill to="/404" color={cyan} primary>
+          <RouterLink fill to="/404" color="accent-2" primary>
             See case study
-          </Link>
+          </RouterLink>
         </Box>
       </Box>
     </Grid>
   </Box>
 );
-
-export default MMOSection;
 
 MMOSection.propTypes = {
   withBackground: PropTypes.boolean

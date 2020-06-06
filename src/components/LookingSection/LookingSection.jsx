@@ -2,9 +2,8 @@ import React from 'react';
 import { Box } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
-import { TextColor } from '../../utils/colors';
 
-const LookingSection = () => (
+export const LookingSection = () => (
   <Box
     direction="row-responsive"
     justify="center"
@@ -42,14 +41,14 @@ const LookingSection = () => (
       >
         <Heading
           level={2}
-          color={TextColor}
+          color="brand"
           margin="xsmall"
           style={{ fontWeight: '600' }}
         >
           Looking for an team willing to go the extra mile for you?
         </Heading>
-        <Heading level={2} color={TextColor}>
-          You're in the right place.
+        <Heading level={2} color="brand">
+          You&apos;re in the right place.
         </Heading>
       </Box>
       <Box justify="center" pad={{ right: 'medium' }}>
@@ -58,5 +57,3 @@ const LookingSection = () => (
     </Box>
   </Box>
 );
-
-export default LookingSection;

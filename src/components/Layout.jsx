@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Grommet, Box } from 'grommet';
 
@@ -10,16 +11,23 @@ const Footer = styled.footer`
   margin: 24px;
 `;
 
-const Layout = ({ children }) => {
+export const Layout = ({ children, withBackground }) => {
   return (
     <Grommet theme={theme}>
       <Box fill align="center">
         <Box
-          background={{
-            size: 'small',
-            position: 'absolute',
-            image: 'url(./assets/backgroundHeader.svg)',
-          }}
+          background={
+            withBackground && {
+              size: 'small',
+              position: 'absolute',
+              image: 'url(./assets/backgroundHeader.svg)',
+              color: '#F0F6F4',
+            } || {
+              size: 'small',
+              position: 'absolute',
+              image: 'url(./assets/backgroundHeader.svg)',
+            }
+          }
           width={{ max: '1400px' }}
         >
           {children}
@@ -34,4 +42,10 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;
+Layout.propTypes = {
+  withBackground: PropTypes.boolean,
+};
+
+Layout.defaultProps = {
+  withBackground: undefined,
+};

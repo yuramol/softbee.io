@@ -48,6 +48,13 @@ const StyledText = styled(LibText)`
   font-size: ${({size}) => getFontSize(size)};
   line-height: ${({size}) => getLineHeight(size)};
 `
+<<<<<<< HEAD
 export const Text = ({ children, ...props }) => (
   <StyledText {...props}>{children}</StyledText>
 )
+=======
+export const Text = ({children, ...props})=> (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <StyledText {...props}>{children}</StyledText>   
+);
+>>>>>>> home-section
