@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
-import { TextColor } from '../../utils/colors';
+import { theme } from '../../utils/theme';
 import { Text } from '../../legos/typography/Text';
 
 const toolchainItems = [
@@ -29,7 +29,7 @@ class ToolchainSection extends React.Component {
           <Box>
             <img src={props.icon} alt={props.label}/>
           </Box>
-          <Text alignSelf="center" size="medium" color={TextColor}>
+          <Text alignSelf="center" size="medium" color={theme.global.colors}>
           {props.label}
           </Text>
         </Box>
