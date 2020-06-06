@@ -6,23 +6,18 @@ import { Grommet, Box } from 'grommet';
 import 'normalize.css';
 import { theme } from '../utils/theme';
 
-const Footer = styled.footer`
-  text-align: center;
-  margin: 24px;
-`;
-
 export const Layout = ({ children, withBackground }) => {
   return (
     <Grommet theme={theme}>
       <Box fill align="center">
         <Box
           background={
-            withBackground && {
+            (withBackground && {
               size: 'small',
               position: 'absolute',
               image: 'url(./assets/backgroundHeader.svg)',
               color: '#F0F6F4',
-            } || {
+            }) || {
               size: 'small',
               position: 'absolute',
               image: 'url(./assets/backgroundHeader.svg)',
@@ -32,11 +27,6 @@ export const Layout = ({ children, withBackground }) => {
         >
           {children}
         </Box>
-        <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
       </Box>
     </Grommet>
   );
