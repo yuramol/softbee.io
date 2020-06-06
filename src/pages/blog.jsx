@@ -2,18 +2,11 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-<<<<<<< HEAD
-import Bio from '../components/bio';
-import Layout from '../components/Layout';
-import SEO from '../components/Seo';
-import Button from '../legos/Button/Button';
-=======
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { Button } from '../legos/Button/Button';
 import { RouterLink } from '../legos/RouterLink';
 import { Box, Grid, Text, Heading } from 'grommet';
->>>>>>> home-section
 
 const Blog = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;

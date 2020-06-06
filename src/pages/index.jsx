@@ -1,17 +1,5 @@
 import React from 'react';
 
-<<<<<<< HEAD
-import Layout from '../components/Layout';
-import SEO from '../components/Seo';
-import HomeHeroSection from '../components/HomeHeroSection/HomeHeroSection';
-import GapNurseSection from '../components/GapNurseSection/GapNurseSection';
-import TeamSection from '../components/TeamSection/TeamSection';
-import MMOSection from '../components/MMOSection/MMOSection';
-import LookingSection from '../components/LookingSection/LookingSection';
-import WhatWeDoSection from '../components/WhatWeDo/WhatWeDoSection';
-import LetsStarted from '../components/LetsStartedSection/LetsStarted';
-import AboutBlogSection from '../components/BlogSection/BlogSection';
-=======
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { HomeHeroSection } from '../components/HomeHeroSection/HomeHeroSection';
@@ -22,7 +10,6 @@ import { LookingSection } from '../components/LookingSection/LookingSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { LetsStarted } from '../components/LetsStarted/LetsStarted';
 import { BlogSection } from '../components/BlogSection/BlogSection';
->>>>>>> home-section
 
 const siteTitle = 'SoftBee';
 const keywords = [
