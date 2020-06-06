@@ -3,15 +3,9 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-<<<<<<< HEAD
-import Bio from "../components/bio"
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
-=======
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { RouterLink } from '../legos/RouterLink';
->>>>>>> home-section
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
