@@ -2,15 +2,14 @@ import React from "react"
 import { Link } from "gatsby"
 import { Box, Header, Button, Image } from "grommet"
 import Logo from "..//..//static/assets/logo.svg"
-
+ 
 const linkItems = [
   { label: "Work", link: "/work" },
   { label: "Our team", link: "/our-team" },
   { label: "Blog", link: "/blog" },
 ]
 
-const SiteHeader = () => {
-  return (
+export const SiteHeader = () => (
     <Header pad="medium">
       <Box width="100wh" justify="stretch" direction="row" gap="medium" margin="medium" align="center">
       <Link to="/">
@@ -42,6 +41,3 @@ const SiteHeader = () => {
       </Box>
     </Header>
   )
-}
-
-export default SiteHeader

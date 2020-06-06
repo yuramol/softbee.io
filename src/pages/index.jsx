@@ -10,8 +10,8 @@ import { LookingSection } from '../components/LookingSection/LookingSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { LetsStarted } from '../components/LetsStarted/LetsStarted';
 import { BlogSection } from '../components/BlogSection/BlogSection';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+import { SiteHeader } from '../components/Header';
+import { SiteFooter } from '../components/Footer';
 
 const siteTitle = 'SoftBee';
 const keywords = [
@@ -25,7 +25,7 @@ const keywords = [
 const IndexPage = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
-      <Header />
+      <SiteHeader />
       <SEO title={siteTitle} keywords={keywords} />
       <HomeHeroSection />
       <GapNurseSection withBackground />
@@ -35,7 +35,7 @@ const IndexPage = ({ location }) => {
       <WhatWeDoSection />
       <LetsStarted />
       <BlogSection />
-      <Footer />
+      <SiteFooter />
     </Layout>
   );
 };

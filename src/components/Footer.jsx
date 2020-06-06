@@ -22,8 +22,7 @@ const linkItems = [
   { label: "Contacts", link: "/contacts" },
 ]
 
-const SiteFooter = () => {
-  return (
+export const SiteFooter = () => (
     <Footer background="#104065" height="350px" justify="stretch">
       <Grid columns={{ count: 2, size: "auto" }} fill="horizontal">
         <Box
@@ -94,6 +93,3 @@ const SiteFooter = () => {
       </Grid>
     </Footer>
   )
-}
-
-export default SiteFooter

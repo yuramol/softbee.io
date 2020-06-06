@@ -14,7 +14,7 @@ class WorkPage extends React.Component {
     return (
       <Grommet theme={theme}>
         <Box background={{ color: "#F0F6F4" }}>
-          <Layout location={this.props.location} title={siteTitle}>
+          <Layout location={location} title={siteTitle}>
             <SEO
               title="Work"
               keywords={[`blog`, `gatsby`, `javascript`, `react`]}
