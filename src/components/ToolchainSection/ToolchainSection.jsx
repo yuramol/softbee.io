@@ -15,28 +15,17 @@ const toolchainItems = [
   { label: 'Ionic', icon: './assets/icons/ionicIcon.svg' },
 ];
 
-class ToolchainSection extends React.Component {
-  render() {
-    return (
-      <Box
-      direction="row"
-      wrap="true"        
-        justify="center"
-        align="center"
-      >
-          {toolchainItems.map(props => (
-        <Box pad="medium">
-          <Box>
-            <img src={props.icon} alt={props.label}/>
-          </Box>
-          <Text alignSelf="center" size="medium" color={theme.global.colors}>
-          {props.label}
-          </Text>
+export const ToolchainSection = () => (
+  <Box direction="row" wrap="true" justify="center" align="center">
+    {toolchainItems.map(props => (
+      <Box pad="medium">
+        <Box>
+          <img src={props.icon} alt={props.label} />
         </Box>
-        ))}
+        <Text alignSelf="center" size="medium" color={theme.global.colors}>
+          {props.label}
+        </Text>
       </Box>
-    );
-  }
-}
-
-export default ToolchainSection;
+    ))}
+  </Box>
+);
