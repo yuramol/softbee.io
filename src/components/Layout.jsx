@@ -17,16 +17,18 @@ export const Layout = ({ children, withBackground }) => {
       <Box fill align="center">
         <Box
           background={
-            withBackground && {
-              size: 'small',
-              position: 'absolute',
-              image: 'url(./assets/backgroundHeader.svg)',
-              color: '#F0F6F4',
-            } || {
-              size: 'small',
-              position: 'absolute',
-              image: 'url(./assets/backgroundHeader.svg)',
-            }
+            withBackground
+              ? {
+                  size: 'small',
+                  position: 'absolute',
+                  image: 'url(./assets/backgroundHeader.svg)',
+                  color: '#F0F6F4',
+                }
+              : {
+                  size: 'small',
+                  position: 'absolute',
+                  image: 'url(./assets/backgroundHeader.svg)',
+                }
           }
           width={{ max: '1400px' }}
         >
@@ -43,7 +45,7 @@ export const Layout = ({ children, withBackground }) => {
 };
 
 Layout.propTypes = {
-  withBackground: PropTypes.boolean,
+  withBackground: PropTypes.bool,
 };
 
 Layout.defaultProps = {
