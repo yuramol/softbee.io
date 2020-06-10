@@ -1,4 +1,6 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
@@ -9,22 +11,34 @@ export const GapNurseSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const rowsCount = size === 'small' ? 2 : 1;
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const textAlignVariant = isTabletOrMobile ? 'center' : 'start';
+  const fontSizeVariant = isTabletOrMobile ? 6 : 2;
+  const paddingVariant = isTabletOrMobile ? 'large' : 'xlarge';
 
   return (
     <Box background={{ color: '#F0F6F4' }}>
       <Grid
-        columns={{ count: columnsCount, size: 'auto' }}
+        columns={{ count: columnsCount, size: ['auto', 'auto'] }}
         rows={{ count: rowsCount, size: 'auto' }}
-        gap="small"
-        pad="xlarge"
+        gap="large"
+        pad={paddingVariant}
       >
-        <Box justify="center" align="start">
-          <Box width="470px" pad={{ bottom: 'small' }}>
-            <Heading level={2} color="brand">
+        <Box
+          justify="center"
+          align={textAlignVariant}
+          pad={{ horisontal: 'large' }}
+        >
+          <Box pad={{ bottom: 'small' }}>
+            <Heading
+              level={fontSizeVariant}
+              color="brand"
+              textAlign={textAlignVariant}
+            >
               They really help to fight COVID-19 in US
             </Heading>
           </Box>
-          <Box width="380px" pad={{ bottom: 'medium' }}>
+          <Box pad={{ bottom: 'medium' }}>
             <Text
               size="medium"
               color="text-dark-grey"
@@ -34,11 +48,31 @@ export const GapNurseSection = () => {
               and unexpected absences without breaking your budget.
             </Text>
           </Box>
-          <RouterLink to="gapnurse-case-study">See case study</RouterLink>
+          {isTabletOrMobile || (
+            <RouterLink to="gapnurse-case-study">See case study</RouterLink>
+          )}
         </Box>
-        <Box align="center">
-          <img src="./assets/phoneGapnurse.svg" alt="Gatsby Scene" />
-        </Box>
+        <Grid columns={{ count: 2, size: 'auto' }}>
+          <Box align="center" justify="center">
+            <img
+              style={{ height: 'auto', width: '100%' }}
+              src="./assets/PhoneGapnurse.png"
+              alt="The iphone that shows the application GapNurse"
+            />
+          </Box>
+          <Box align="center" justify="center">
+            <img
+              style={{ height: 'auto', width: '100%' }}
+              src="./assets/PhoneGapnurse2.png"
+              alt="The iphone that shows the application GapNurse"
+            />
+          </Box>
+        </Grid>
+        {isTabletOrMobile && (
+          <Box align="center">
+            <RouterLink to="gapnurse-case-study">See case study</RouterLink>
+          </Box>
+        )}
       </Grid>
     </Box>
   );

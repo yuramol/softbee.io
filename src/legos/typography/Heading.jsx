@@ -12,6 +12,8 @@ const getFontSize = level => {
       return '30px';
     case 5:
       return '16px';
+    case 6:
+      return '20px';
     default:
       return '16px';
   }
