@@ -10,12 +10,14 @@ export const MMOSection = ({ withBackground }) => (
   <Box
     height="800px"
     justify="center"
-    background={ withBackground && {
-      size: 'large',
-      position: 'absolute',
-      image: 'url(./assets/mmoBackground.svg)',
-      color: '#F0F6F4' 
-    }}
+    background={
+      withBackground && {
+        size: 'large',
+        position: 'absolute',
+        image: 'url(./assets/mmoBackground.svg)',
+        color: '#F0F6F4',
+      }
+    }
   >
     <Grid columns={['2/3', '1/3']} pad="xsmall">
       <Box direction="row" justify="center">
@@ -61,9 +63,9 @@ export const MMOSection = ({ withBackground }) => (
 );
 
 MMOSection.propTypes = {
-  withBackground: PropTypes.boolean
+  withBackground: PropTypes.bool,
 };
 
 MMOSection.defaultProps = {
-  withBackground: undefined
+  withBackground: undefined,
 };

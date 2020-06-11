@@ -61,7 +61,7 @@ export const GapNurseSection = ({ withBackground }) => (
 );
 
 GapNurseSection.propTypes = {
-  withBackground: PropTypes.boolean,
+  withBackground: PropTypes.bool,
 };
 
 GapNurseSection.defaultProps = {

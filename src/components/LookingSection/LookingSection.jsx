@@ -30,8 +30,7 @@ export const LookingSection = () => (
         <img
           style={{ transform: 'rotate(-15.26deg)' }}
           src="./assets/gears.svg"
-          alt="
-              Image of a gear"
+          alt="gear"
         />
       </Box>
       <Box
