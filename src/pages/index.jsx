@@ -11,7 +11,7 @@ import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { LetsStarted } from '../components/LetsStarted/LetsStarted';
 import { BlogSection } from '../components/BlogSection/BlogSection';
 
-const siteTitle = 'SoftBee';
+const siteTitle = 'Home';
 const keywords = [
   'softbee',
   'softbee.tech',
