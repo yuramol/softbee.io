@@ -1,18 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Grommet, Box } from 'grommet';
 
-import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
+import { theme } from '../utils/theme';
 
-const NotFoundPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
-
+const NotFoundPage = () => {
   return (
-    <Layout location={location} title={siteTitle}>
+    <Grommet full theme={theme}>
       <SEO title="404: Not Found" />
-      <h1>Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </Layout>
+      <Box background="brand" fill align="center" justify="center">
+        <h1>Not Found ¯\_(ツ)_/¯</h1>
+        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      </Box>
+    </Grommet>
   );
 };
 

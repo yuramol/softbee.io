@@ -13,7 +13,7 @@ import { BlogSection } from '../components/BlogSection/BlogSection';
 import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 
-const siteTitle = 'SoftBee';
+const siteTitle = 'Home';
 const keywords = [
   'softbee',
   'softbee.tech',
@@ -34,7 +34,7 @@ const IndexPage = ({ location }) => {
       <LookingSection />
       <WhatWeDoSection />
       <LetsStarted />
-      <BlogSection />
+      <BlogSection withBackground />
       <SiteFooter />
     </Layout>
   );
