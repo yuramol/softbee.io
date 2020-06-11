@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `SoftBee Blog`,
-    author: `Artem Marochkanych`,
+    title: `SoftBee`,
+    author: `softbee.tech`,
     description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
@@ -34,7 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [".mdx", ".md"],
+        extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
@@ -81,10 +81,13 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        custom: {
+          families: ['Gilroy', 'HelveticaNeueCyr'],
+          urls: ['/fonts/fonts.css'],
+        },
       },
     },
   ],
-}
+};
