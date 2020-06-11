@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `SoftBee Blog`,
-    author: `Artem Marochkanych`,
+    title: `SoftBee`,
+    author: `softbee.tech`,
     description: `A starter personal blog with styled components, dark mode, and Netlify CMS.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
     social: {
