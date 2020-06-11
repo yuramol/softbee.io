@@ -27,11 +27,11 @@ const IndexPage = ({ location }) => {
       <HomeHeroSection />
       <GapNurseSection withBackground />
       <TeamSection />
-      <MMOSection withBackground/>
+      <MMOSection withBackground />
       <LookingSection />
       <WhatWeDoSection />
       <LetsStarted />
-      <BlogSection />
+      <BlogSection withBackground />
     </Layout>
   );
 };
