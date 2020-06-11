@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { Layout } from '../components/Layout';
-import { SEO } from '../components/Seo';
+import { SEO } from '../components/SEO';
 import { RouterLink } from '../legos/RouterLink';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
