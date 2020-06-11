@@ -3,6 +3,7 @@ import { Box, Grid } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
+import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 
 export const CaseGapNurse = () => (
   <Box>
@@ -107,5 +108,6 @@ export const CaseGapNurse = () => (
         alt="screenshots GapNurse"
       />
     </Box>
+    <ButtonNextCase />
   </Box>
 );
