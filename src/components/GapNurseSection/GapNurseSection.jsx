@@ -21,12 +21,16 @@ export const GapNurseSection = ({ withBackground }) => {
   return (
     <Box
       background={
-        withBackground && {
-          size: 'small',
-          position: 'top right',
-          image: 'url(./assets/background-gapNurse.svg)',
-          color: '#F0F6F4',
-        }
+        withBackground
+          ? {
+              size: 'small',
+              position: 'top right',
+              image: 'url(./assets/background-gapNurse.svg)',
+              color: '#F0F6F4',
+            }
+          : {
+              color: '#F0F6F4',
+            }
       }
     >
       <Grid

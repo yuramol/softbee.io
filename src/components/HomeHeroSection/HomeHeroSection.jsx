@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import PropTypes from 'prop-types';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
@@ -7,12 +8,12 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { Button } from '../../legos/Button/Button';
 
-export const HomeHeroSection = () => {
+export const HomeHeroSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const rowsCount = size === 'small' ? 2 : 1;
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1000px)' });
+  const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
   const headingSize = isDesktopOrTablet ? 2 : 1;
   const textAlignVariant = isTabletOrMobile ? 'center' : 'start';
   const headingFontSizeVariant = isTabletOrMobile ? 3 : 1;
@@ -21,12 +22,14 @@ export const HomeHeroSection = () => {
 
   return (
     <Box
-      height="847px"
-      background={{
-        size: 'small',
-        position: 'right',
-        image: 'url(./assets/background-home.svg)',
-      }}
+      height={isDesktopOrTablet || '847px'}
+      background={
+        withBackground && {
+          size: 'small',
+          position: 'right',
+          image: 'url(./assets/background-home.svg)',
+        }
+      }
     >
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
@@ -89,4 +92,12 @@ export const HomeHeroSection = () => {
       </Grid>
     </Box>
   );
+};
+
+HomeHeroSection.propTypes = {
+  withBackground: PropTypes.bool,
+};
+
+HomeHeroSection.defaultProps = {
+  withBackground: undefined,
 };

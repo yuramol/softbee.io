@@ -58,7 +58,7 @@ export const TeamSection = () => {
               deliver real cases to users.
             </Text>
           </Box>
-          <Box align="center">
+          <Box align="center" pad={!isTabletOrMobile || 'large'}>
             <RouterLink fill to="our-team" primary>
               Meet our team &#128074;
             </RouterLink>

@@ -6,7 +6,7 @@ import { SEO } from '../components/Seo';
 import { HomeHeroSection } from '../components/HomeHeroSection/HomeHeroSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
 import { TeamSection } from '../components/TeamSection/TeamSection';
-// import { MMOSection } from '../components/MMOSection/MMOSection';
+import { MMOSection } from '../components/MMOSection/MMOSection';
 // import { LookingSection } from '../components/LookingSection/LookingSection';
 // import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 // import { LetsStarted } from '../components/LetsStarted/LetsStarted';
@@ -21,15 +21,15 @@ const keywords = [
 ];
 
 const IndexPage = ({ location }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 1210px)' });
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} keywords={keywords} />
-      <HomeHeroSection />
+      <HomeHeroSection withBackground={!isMobile} />
       <GapNurseSection withBackground={!isMobile} />
       <TeamSection />
-      {/* <MMOSection />
-      <LookingSection />
+      <MMOSection withBackground={!isMobile} />
+      {/* <LookingSection />
       <WhatWeDoSection />
       <LetsStarted /> */}
     </Layout>
