@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { useMediaQuery } from 'react-responsive';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
@@ -7,7 +9,7 @@ import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
-export const GapNurseSection = () => {
+export const GapNurseSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const rowsCount = size === 'small' ? 2 : 1;
@@ -17,7 +19,16 @@ export const GapNurseSection = () => {
   const paddingVariant = isTabletOrMobile ? 'large' : 'xlarge';
 
   return (
-    <Box background={{ color: '#F0F6F4' }}>
+    <Box
+      background={
+        withBackground && {
+          size: 'small',
+          position: 'top right',
+          image: 'url(./assets/background-gapNurse.svg)',
+          color: '#F0F6F4',
+        }
+      }
+    >
       <Grid
         columns={{ count: columnsCount, size: ['auto', 'auto'] }}
         rows={{ count: rowsCount, size: 'auto' }}
@@ -76,4 +87,12 @@ export const GapNurseSection = () => {
       </Grid>
     </Box>
   );
+};
+
+GapNurseSection.propTypes = {
+  withBackground: PropTypes.bool,
+};
+
+GapNurseSection.defaultProps = {
+  withBackground: undefined,
 };

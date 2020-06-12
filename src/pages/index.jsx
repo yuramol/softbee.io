@@ -1,7 +1,8 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { Layout } from '../components/Layout';
-import { SEO } from '../components/SEO';
+import { SEO } from '../components/Seo';
 import { HomeHeroSection } from '../components/HomeHeroSection/HomeHeroSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
 import { TeamSection } from '../components/TeamSection/TeamSection';
@@ -20,11 +21,12 @@ const keywords = [
 ];
 
 const IndexPage = ({ location }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} keywords={keywords} />
       <HomeHeroSection />
-      <GapNurseSection />
+      <GapNurseSection withBackground={!isMobile} />
       <TeamSection />
       {/* <MMOSection />
       <LookingSection />
