@@ -9,11 +9,15 @@ import { RouterLink } from '../../legos/RouterLink';
 export const GapNurseSection = ({ withBackground }) => (
   <Box
     background={
-      withBackground && {
+      (withBackground && {
         size: 'small',
         position: 'top right',
         image: 'url(./assets/background-gapNurse.svg)',
         color: '#F0F6F4',
+      }) || {
+        size: 'small',
+        position: 'top right',
+        color: '#FFFFFF',
       }
     }
   >
