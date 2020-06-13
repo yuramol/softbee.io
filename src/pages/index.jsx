@@ -10,6 +10,7 @@ import { LookingSection } from '../components/LookingSection/LookingSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { LetsStarted } from '../components/LetsStarted/LetsStarted';
 import { BlogSection } from '../components/BlogSection/BlogSection';
+import { SiteHeader } from '../components/Header';
 
 const siteTitle = 'Home';
 const keywords = [
@@ -24,6 +25,7 @@ const IndexPage = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} keywords={keywords} />
+      <SiteHeader />
       <HomeHeroSection />
       <GapNurseSection withBackground />
       <TeamSection />
