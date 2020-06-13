@@ -4,9 +4,9 @@ import { Box, Header, Button, Image } from 'grommet';
 import Logo from '../../static/assets/logo.svg';
 
 const linkItems = [
-  { label: 'Work', link: '/work' },
-  { label: 'Our team', link: '/our-team' },
-  { label: 'Blog', link: '/blog' },
+  { id: '1', label: 'Work', link: '/work' },
+  { id: '2', label: 'Our team', link: '/our-team' },
+  { id: '3', label: 'Blog', link: '/blog' },
 ];
 
 export const SiteHeader = () => (
@@ -26,6 +26,7 @@ export const SiteHeader = () => (
     <Box alignSelf="end" direction="row">
       {linkItems.map(props => (
         <Button
+          key={props.id}
           plain
           label={props.label}
           onClick={() => {}}
