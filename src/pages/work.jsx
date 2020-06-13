@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
-// import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
+import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { SiteHeader } from '../components/Header';
@@ -23,7 +23,7 @@ const WorkPage = ({ location }) => {
     <Layout location={location} title={siteTitle} withBackground>
       <SiteHeader />
       <SEO title={siteTitle} keywords={keywords} />
-      {/* <WorkHeroSection /> */}
+      <WorkHeroSection />
       <GapNurseSection />
       {/* <ToolchainSection /> */}
       <WhatWeDoSection />
