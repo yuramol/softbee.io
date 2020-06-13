@@ -6,7 +6,7 @@ import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { SiteHeader } from '../components/Header';
-// import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
+import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
 import { SiteFooter } from '../components/Footer';
 
 const siteTitle = 'SoftBee';
@@ -25,7 +25,7 @@ const WorkPage = ({ location }) => {
       <SEO title={siteTitle} keywords={keywords} />
       <WorkHeroSection />
       <GapNurseSection />
-      {/* <ToolchainSection /> */}
+      <ToolchainSection />
       <WhatWeDoSection />
       <SiteFooter />
     </Layout>
