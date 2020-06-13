@@ -4,7 +4,6 @@ import { Box, Grid } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
-// import BackgroundImage from "..//..//..//static/assets/background-work.svg"
 
 const skillItems = [
   'Branding',
