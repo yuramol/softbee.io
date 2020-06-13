@@ -3,6 +3,7 @@
     "gatsby": "^2.23.3",
     "gatsby-cli": "^2.12.45",
     "grommet": "^2.14.0",
+    "netlify-cli": "^2.53.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
