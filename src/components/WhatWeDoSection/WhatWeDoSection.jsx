@@ -7,8 +7,10 @@ import { Heading } from '../../legos/typography/Heading';
 export const WhatWeDoSection = ({ withBackground }) => (
   <Box
     background={
-      withBackground && {
+      (withBackground && {
         color: '#F0F6F4',
+      }) || {
+        color: '#FFFFFF',
       }
     }
   >

@@ -15,8 +15,6 @@ export const GapNurseSection = ({ withBackground }) => (
         image: 'url(./assets/background-gapNurse.svg)',
         color: '#F0F6F4',
       }) || {
-        size: 'small',
-        position: 'top right',
         color: '#FFFFFF',
       }
     }
