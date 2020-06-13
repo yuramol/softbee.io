@@ -89,10 +89,7 @@ export const SiteFooter = () => (
                 </Form>
               </Box>
               <Box align="start" height="33px" width="55px">
-                <Button
-                  onClick={() => {}}
-                  margin={{ top: '9px', left: 'small' }}
-                >
+                <Button margin={{ top: '9px', left: 'small' }}>
                   <Image src={SendButtonIcon} alt="Send Button" />
                 </Button>
               </Box>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Grid } from 'grommet';
+import { Box } from 'grommet';
 
-import { Heading } from '../../legos/typography/Heading';
 import { theme } from '../../utils/theme';
 import { Text } from '../../legos/typography/Text';
 
