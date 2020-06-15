@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { TextInput } from 'grommet';
+import { TextInput as LibTextInput } from 'grommet';
 
-export const StyledTextInput = styled(TextInput)`
+export const TextInput = styled(LibTextInput)`
   font-weight: 300;
   padding: 4px;
   padding-left: 15px;

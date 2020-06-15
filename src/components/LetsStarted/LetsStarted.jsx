@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, FormField } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
-import { StyledTextInput } from '../../legos/TextInput/TextInput';
+import { TextInput } from '../../legos/TextInput/TextInput';
 
 export const LetsStarted = () => (
   <Box
@@ -45,7 +45,7 @@ export const LetsStarted = () => (
         </Box>
         <Box pad={{ top: 'large' }}>
           <FormField>
-            <StyledTextInput placeholder="Lovely Person" />
+            <TextInput placeholder="Lovely Person" />
           </FormField>
         </Box>
       </Box>
