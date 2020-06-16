@@ -93,18 +93,18 @@ export const MMOSection = ({ withBackground }) => {
         </Box>
         {isMobile && (
           <Box direction="column" gap="medium" justify="end" align="center">
-            <Box>
-              <img
-                style={{ height: 'auto', width: '100%' }}
-                src="./assets/sectionMMO.svg"
-                alt="screenshot of MMO website page"
-              />
-            </Box>
             <Box align="center">
               <img
                 style={{ height: 'auto', width: '150%' }}
                 src="./assets/mmoSectionMini.svg"
                 alt="screenshot of MMO website page, mobile version"
+              />
+            </Box>
+            <Box>
+              <img
+                style={{ height: 'auto', width: '100%' }}
+                src="./assets/sectionMMO.svg"
+                alt="screenshot of MMO website page"
               />
             </Box>
           </Box>

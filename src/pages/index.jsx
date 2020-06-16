@@ -29,7 +29,7 @@ const IndexPage = ({ location }) => {
       <HomeHeroSection withBackground={!isMobile} />
       <GapNurseSection withBackground={!isMobile} />
       <TeamSection />
-      <MMOSection withBackground />
+      <MMOSection withBackground={!isMobile} />
       <LookingSection />
       <WhatWeDoSection />
       <LetsStarted />

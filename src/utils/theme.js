@@ -12,7 +12,7 @@ export const theme = {
     },
     breakpoints: {
       small: {
-        value: 700,
+        value: 780,
       },
       medium: {
         value: 900,
