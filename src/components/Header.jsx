@@ -23,13 +23,12 @@ export const SiteHeader = () => (
         <Image src={Logo} alt="Soft Bee" alignSelf="start" href="/" />
       </Link>
     </Box>
-    <Box alignSelf="end" direction="row">
+    <Box alignSelf="end" align="center" direction="row">
       {linkItems.map(props => (
         <Button
           key={props.id}
           plain
           label={props.label}
-          onClick={() => {}}
           href={props.link}
           margin="medium"
           style={{

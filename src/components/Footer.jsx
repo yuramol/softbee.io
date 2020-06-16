@@ -10,6 +10,7 @@ import {
   FormField,
   TextInput,
 } from 'grommet';
+import { Heading } from '../legos/typography/Heading';
 import { Text } from '../legos/typography/Text';
 import Logo from '../../static/assets/logo.svg';
 
@@ -59,19 +60,10 @@ export const SiteFooter = () => (
         ))}
       </Box>
       <Box justify="center" align="stretch">
-        <Text
-          size="xxlarge"
-          margin={{ top: 'small' }}
-          alignSelf="start"
-          fontFamily="Gilroy-Regular"
-        >
+        <Heading level={2} fontFamily="Gilroy-Regular">
           Message us anything
-        </Text>
-        <Text
-          margin={{ top: 'small' }}
-          alignSelf="start"
-          fontFamily="Gilroy-Regular"
-        >
+        </Heading>
+        <Text alignSelf="start" fontFamily="Gilroy-Regular">
           Your message will be posted in one of our <br /> Slack channels.
         </Text>
         <Form>

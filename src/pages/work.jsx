@@ -2,11 +2,12 @@ import React from 'react';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
+import { SiteHeader } from '../components/Header';
 import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
-import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
-import { SiteHeader } from '../components/Header';
 import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
+import { MMOSection } from '../components/MMOSection/MMOSection';
+import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { SiteFooter } from '../components/Footer';
 
 const siteTitle = 'SoftBee';
@@ -26,7 +27,8 @@ const WorkPage = ({ location }) => {
       <WorkHeroSection />
       <GapNurseSection />
       <ToolchainSection />
-      <WhatWeDoSection />
+      <MMOSection />
+      <WhatWeDoSection withBackground />
       <SiteFooter />
     </Layout>
   );

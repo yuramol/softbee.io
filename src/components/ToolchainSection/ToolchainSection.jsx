@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box } from 'grommet';
-
-import { theme } from '../../utils/theme';
+import { Box, Grid, Image } from 'grommet';
+import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 
 const toolchainItems = [
@@ -19,16 +18,42 @@ const toolchainItems = [
 ];
 
 export const ToolchainSection = () => (
-  <Box direction="row" wrap="true" justify="center" align="center">
-    {toolchainItems.map(props => (
-      <Box key={props.id} pad="medium">
-        <Box>
-          <img src={props.icon} alt={props.label} />
-        </Box>
-        <Text alignSelf="center" size="medium" color={theme.global.colors}>
-          {props.label}
-        </Text>
+  <Box height="500px">
+    <Grid
+      fill
+      columns={['flex']}
+      rows={['45%', '65%']}
+      areas={[
+        { name: 'heading', start: [0, 0], end: [1, 0] },
+        { name: 'main', start: [0, 1], end: [1, 1] },
+      ]}
+      pad="xsmall"
+    >
+      <Box gridArea="heading" align="center" justify="center">
+        <Heading level={2} color="brand">
+          What do we have in our toolchain?
+        </Heading>
       </Box>
-    ))}
+      <Box gridArea="main" margin={{ left: '120px', right: '120px' }}>
+        <Grid
+          columns={{ count: 7, size: 'auto' }}
+          fill="horizontal"
+          justify="center"
+          align="center"
+        >
+          {toolchainItems.map(props => (
+            <Box key={props.id} height="250px">
+              <Box height="130px" alignSelf="center">
+                <Image src={props.icon} alt={props.label} />
+              </Box>
+
+              <Text alignSelf="center" size="large" color="brand">
+                {props.label}
+              </Text>
+            </Box>
+          ))}
+        </Grid>
+      </Box>
+    </Grid>
   </Box>
 );

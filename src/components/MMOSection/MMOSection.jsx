@@ -11,11 +11,13 @@ export const MMOSection = ({ withBackground }) => (
     height="800px"
     justify="center"
     background={
-      withBackground && {
+      (withBackground && {
         size: 'large',
         position: 'absolute',
         image: 'url(./assets/mmoBackground.svg)',
         color: '#F0F6F4',
+      }) || {
+        color: '#FFFFFF',
       }
     }
   >
