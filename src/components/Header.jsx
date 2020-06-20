@@ -24,21 +24,31 @@ export const SiteHeader = () => (
       </Link>
     </Box>
     <Box alignSelf="end" align="center" direction="row">
-      {linkItems.map(props => (
+      {linkItems.map(linkItem => (
         <Button
-          key={props.id}
+          key={linkItem.id}
           plain
-          label={props.label}
-          href={props.link}
+          label={linkItem.label}
+          href={linkItem.link}
           margin="medium"
           style={{
             boxShadow: `none`,
             textDecoration: `none`,
+            fontSize: '18px',
           }}
         />
       ))}
       <Box justify="center" align="center" height="60px" width="200px">
-        <Button label="Let’s talk 👋" fill color="yellow" />
+        <Button
+          label="Let’s talk 👋"
+          fill
+          color="yellow"
+          style={{
+            boxShadow: `none`,
+            textDecoration: `none`,
+            fontSize: '18px',
+          }}
+        />
       </Box>
     </Box>
   </Header>
