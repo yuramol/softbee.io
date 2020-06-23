@@ -41,14 +41,14 @@ export const ToolchainSection = () => (
           justify="center"
           align="center"
         >
-          {toolchainItems.map(props => (
-            <Box key={props.id} height="250px">
+          {toolchainItems.map(toolchainItem => (
+            <Box key={toolchainItem.id} height="250px">
               <Box height="130px" alignSelf="center">
-                <Image src={props.icon} alt={props.label} />
+                <Image src={toolchainItem.icon} alt={toolchainItem.label} />
               </Box>
 
-              <Text alignSelf="center" size="large" color="brand">
-                {props.label}
+              <Text alignSelf="center" size="xxlarge" color="brand">
+                {toolchainItem.label}
               </Text>
             </Box>
           ))}

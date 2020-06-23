@@ -6,9 +6,4 @@ export const TextInput = styled(LibTextInput)`
   padding: 4px;
   padding-left: 15px;
   border: none;
-  ::placeholder {
-    color: #ffffff;
-    font-size: 24px;
-    line-height: 28px;
-  }
 `;

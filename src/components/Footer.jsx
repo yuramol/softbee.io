@@ -1,17 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import {
-  Box,
-  Footer,
-  Grid,
-  Button,
-  Image,
-  Form,
-  FormField,
-  TextInput,
-} from 'grommet';
+import { Box, Footer, Grid, Image, FormField } from 'grommet';
+import { Button } from '../legos/Button/Button';
 import { Heading } from '../legos/typography/Heading';
 import { Text } from '../legos/typography/Text';
+import { TextInput } from '../legos/TextInput/TextInput';
 import Logo from '../../static/assets/logo.svg';
 
 import SendButtonIcon from '../../static/assets/sendButton.svg';
@@ -23,7 +16,7 @@ const linkItems = [
 ];
 
 export const SiteFooter = () => (
-  <Footer background="#104065" height="350px" justify="stretch">
+  <Footer background="brand" height="350px" justify="stretch">
     <Grid columns={{ count: 2, size: 'auto' }} fill="horizontal">
       <Box
         justify="center"
@@ -40,9 +33,9 @@ export const SiteFooter = () => (
             margin={{ bottom: 'medium' }}
           />
         </Link>
-        {linkItems.map(props => (
+        {linkItems.map(linkItem => (
           <Text
-            key={props.id}
+            key={linkItem.id}
             size="large"
             margin={{ top: 'small', left: '10px' }}
           >
@@ -52,42 +45,32 @@ export const SiteFooter = () => (
                 textDecoration: `none`,
                 color: `#FFFFFF`,
               }}
-              to={props.link}
+              to={linkItem.link}
             >
-              {`${props.label}`}
+              {`${linkItem.label}`}
             </Link>
           </Text>
         ))}
       </Box>
       <Box justify="center" align="stretch">
-        <Heading level={2} fontFamily="Gilroy-Regular">
-          Message us anything
-        </Heading>
-        <Text alignSelf="start" fontFamily="Gilroy-Regular">
+        <Heading level={2}>Message us anything</Heading>
+        <Text alignSelf="start" size="large">
           Your message will be posted in one of our <br /> Slack channels.
         </Text>
-        <Form>
-          <Box direction="row" width="50%" margin={{ top: '40px' }}>
-            <Grid columns={{ count: 2, size: 'auto' }} fill="horizontal">
-              <Box justify="center" width="25vw">
-                <Form onSubmit={() => {}}>
-                  <FormField name="name" htmlfor="textinput-id">
-                    <TextInput
-                      id="textinput-id"
-                      name="name"
-                      placeholder="Let’s create somethign dope!!! Xoxo"
-                    />
-                  </FormField>
-                </Form>
-              </Box>
-              <Box align="start" height="33px" width="55px">
-                <Button margin={{ top: '9px', left: 'small' }}>
-                  <Image src={SendButtonIcon} alt="Send Button" />
-                </Button>
-              </Box>
-            </Grid>
-          </Box>
-        </Form>
+        <Box direction="row" width="50%" margin={{ top: '40px' }}>
+          <Grid columns={{ count: 2, size: 'auto' }} fill="horizontal">
+            <Box justify="end" width="25vw">
+              <FormField>
+                <TextInput placeholder="Let’s create somethign dope!!! Xoxo" />
+              </FormField>
+            </Box>
+            <Box justify="end" align="start" height="31px" width="55px">
+              <Button margin={{ left: 'small' }}>
+                <Image src={SendButtonIcon} alt="Send Button" />
+              </Button>
+            </Box>
+          </Grid>
+        </Box>
       </Box>
     </Grid>
   </Footer>
