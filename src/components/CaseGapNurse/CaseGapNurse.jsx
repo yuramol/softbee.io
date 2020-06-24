@@ -14,31 +14,24 @@ export const CaseGapNurse = () => {
   return (
     <Box>
       <Box
-        height="910px"
+        height="830px"
         background={{
           position: 'bottom',
           size: 'small',
           image: 'url(../assets/backgroundCaseGapnurse.svg)',
         }}
       >
+        <Box width="100%" align="center">
+          <Heading size="medium" level={2} color="brand">
+            Mobile app
+          </Heading>
+        </Box>
         <Grid
           columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-          rows={['50px', '1fr']}
-          gap="small"
-          areas={[
-            { name: 'h', start: [0, 0], end: [1, 0] },
-            { name: 't', start: [0, 1], end: [0, 1] },
-            { name: 'g', start: [1, 1], end: [1, 1] },
-          ]}
-          pad="xlarge"
+          pad={{ horizontal: 'xlarge' }}
+          style={{ height: '480px' }}
         >
-          <Box width="100%" gridArea="h" align="center">
-            <Heading size="medium" level={2} color="brand">
-              Mobile app
-            </Heading>
-          </Box>
           <Box
-            gridArea="t"
             justify="start"
             align="start"
             pad={{ left: 'large', top: 'large' }}
@@ -60,6 +53,7 @@ export const CaseGapNurse = () => {
                 level={4}
                 color="brand"
                 style={{ lineHeight: '130%' }}
+                pad="xlarge"
               >
                 About client:
               </Heading>
@@ -78,12 +72,8 @@ export const CaseGapNurse = () => {
               </Text>
             </Box>
           </Box>
-          <Box gridArea="g" align="center" pad={{ left: 'large' }}>
-            <Grid
-              columns={{ count: 2, size: 'auto' }}
-              gap="medium"
-              pad={{ right: 'xlarge' }}
-            >
+          <Box align="center">
+            <Grid columns={{ count: 2, size: 'auto' }} gap="medium">
               <Box align="center">
                 <img
                   style={{ height: 'auto', width: '100%' }}
@@ -101,7 +91,7 @@ export const CaseGapNurse = () => {
             </Grid>
           </Box>
         </Grid>
-        <Box align="center" margin={{ top: '40px' }}>
+        <Box align="center" margin={{ top: '70px' }}>
           <Grid columns={['1/3', '1/3', '1/3']}>
             <Box width="250px" align="center">
               <Heading level={4} color="white">
