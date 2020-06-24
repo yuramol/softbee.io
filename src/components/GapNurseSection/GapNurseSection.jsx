@@ -21,6 +21,7 @@ export const GapNurseSection = ({ withBackground }) => {
 
   return (
     <Box
+      height={withBackground ? '700px' : '800px'}
       background={
         withBackground
           ? {

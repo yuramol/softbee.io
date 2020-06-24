@@ -11,6 +11,8 @@ import { LookingSection } from '../components/LookingSection/LookingSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { LetsStarted } from '../components/LetsStarted/LetsStarted';
 import { BlogSection } from '../components/BlogSection/BlogSection';
+import { SiteHeader } from '../components/Header';
+import { SiteFooter } from '../components/Footer';
 
 const siteTitle = 'Home';
 const keywords = [
@@ -26,6 +28,7 @@ const IndexPage = ({ location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} keywords={keywords} />
+      <SiteHeader />
       <HomeHeroSection withBackground={!isMobile} />
       <GapNurseSection withBackground={!isMobile} />
       <TeamSection />
@@ -34,6 +37,7 @@ const IndexPage = ({ location }) => {
       <WhatWeDoSection />
       <LetsStarted />
       <BlogSection withBackground />
+      <SiteFooter />
     </Layout>
   );
 };
