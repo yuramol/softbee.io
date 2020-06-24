@@ -11,33 +11,35 @@ import { Button } from '../../legos/Button/Button';
 export const HomeHeroSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const rowsCount = size === 'small' ? 2 : 1;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
   const headingSize = isDesktopOrTablet ? 2 : 1;
-  const textAlignVariant = isTabletOrMobile ? 'center' : 'start';
-  const headingFontSizeVariant = isTabletOrMobile ? 3 : 1;
-  const textFontSizeVariant = isTabletOrMobile ? 'medium' : undefined;
-  const paddingVariant = isTabletOrMobile ? 'large' : 'xlarge';
+  const textAlignVariant = isMobile ? 'center' : 'start';
+  const headingFontSizeVariant = isMobile ? 3 : 1;
+  const textFontSizeVariant = isMobile ? 'medium' : undefined;
+  const paddingVariant = isMobile
+    ? { horizontal: 'large', vertical: 'xlarge' }
+    : 'xlarge';
 
   return (
     <Box
-      height={isDesktopOrTablet || '847px'}
+      height={isDesktopOrTablet ? 'auto' : '847px'}
       background={
-        withBackground && {
-          size: 'small',
-          position: 'right',
-          image: 'url(./assets/background-home.svg)',
-        }
+        withBackground
+          ? {
+              size: 'small',
+              position: 'right',
+              image: 'url(./assets/background-home.svg)',
+            }
+          : undefined
       }
     >
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
-        rows={{ count: rowsCount, size: 'auto' }}
         gap="small"
         pad={paddingVariant}
       >
-        {isTabletOrMobile && (
+        {isMobile && (
           <Box align="center">
             <img
               style={{ height: 'auto', width: '100%' }}
@@ -46,7 +48,11 @@ export const HomeHeroSection = ({ withBackground }) => {
             />
           </Box>
         )}
-        <Box justify="center" align={textAlignVariant}>
+        <Box
+          justify="center"
+          align={textAlignVariant}
+          pad={isMobile ? { bottom: 'medium' } : undefined}
+        >
           <Box pad={{ bottom: 'small' }}>
             <Heading
               level={headingFontSizeVariant && headingSize}
@@ -80,7 +86,7 @@ export const HomeHeroSection = ({ withBackground }) => {
             />
           </Box>
         </Box>
-        {isTabletOrMobile || (
+        {isMobile || (
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}

@@ -12,11 +12,12 @@ import { RouterLink } from '../../legos/RouterLink';
 export const GapNurseSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const rowsCount = size === 'small' ? 2 : 1;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const textAlignVariant = isTabletOrMobile ? 'center' : 'start';
-  const fontSizeVariant = isTabletOrMobile ? 6 : 2;
-  const paddingVariant = isTabletOrMobile ? 'large' : 'xlarge';
+  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const textAlignVariant = isMobile ? 'center' : 'start';
+  const fontSizeVariant = isMobile ? 6 : 2;
+  const paddingVariant = isMobile
+    ? { horizontal: 'large', vertical: 'large' }
+    : 'xlarge';
 
   return (
     <Box
@@ -35,7 +36,6 @@ export const GapNurseSection = ({ withBackground }) => {
     >
       <Grid
         columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-        rows={{ count: rowsCount, size: 'auto' }}
         gap="large"
         pad={paddingVariant}
       >
@@ -63,7 +63,7 @@ export const GapNurseSection = ({ withBackground }) => {
               and unexpected absences without breaking your budget.
             </Text>
           </Box>
-          {isTabletOrMobile || (
+          {isMobile || (
             <RouterLink to="gapnurse-case-study">See case study</RouterLink>
           )}
         </Box>
@@ -83,8 +83,8 @@ export const GapNurseSection = ({ withBackground }) => {
             />
           </Box>
         </Grid>
-        {isTabletOrMobile && (
-          <Box align="center">
+        {isMobile && (
+          <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
             <RouterLink to="gapnurse-case-study">See case study</RouterLink>
           </Box>
         )}

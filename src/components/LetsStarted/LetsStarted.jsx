@@ -9,10 +9,11 @@ import { TextInput } from '../../legos/TextInput/TextInput';
 export const LetsStarted = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 1;
-  const rowsCount = size === 'small' ? 1 : 1;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const fontSizeMobile = isMobile ? 3 : 2;
-  const paddingVariant = isMobile ? 'large' : 'xlarge';
+  const paddingVariant = isMobile
+    ? { horizontal: 'large', vertical: 'xlarge' }
+    : 'xlarge';
 
   return (
     <Box
@@ -24,8 +25,8 @@ export const LetsStarted = () => {
     >
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
-        rows={{ count: rowsCount, size: 'auto' }}
         pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'large'}
+        margin={isMobile ? 'medium' : undefined}
         justify="center"
         alignContent="center"
         height="363px"
@@ -43,7 +44,7 @@ export const LetsStarted = () => {
           <Box
             style={{ textAlign: 'center' }}
             pad={
-              !isMobile ? { vertical: 'large', horizontal: 'large' } : 'small'
+              !isMobile ? { vertical: 'xlarge', horizontal: 'large' } : 'small'
             }
             justify="center"
             align="start"

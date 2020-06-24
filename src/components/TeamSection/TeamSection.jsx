@@ -10,19 +10,21 @@ import { RouterLink } from '../../legos/RouterLink';
 export const TeamSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const rowsCount = size === 'small' ? 2 : 1;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const textAlignVariant = isTabletOrMobile ? 'center' : 'start';
-  const fontSizeVariant = isTabletOrMobile ? 6 : 2;
-  const paddingVariant = isTabletOrMobile ? 'large' : 'xlarge';
+  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const textAlignVariant = isMobile ? 'center' : 'start';
+  const fontSizeVariant = isMobile ? 6 : 2;
+  const paddingVariant = isMobile ? 'large' : 'xlarge';
   return (
     <Grid
       columns={{ count: columnsCount, size: 'auto' }}
-      rows={{ count: rowsCount, size: 'auto' }}
       gap="medium"
       pad={paddingVariant}
     >
-      <Box justify="center" align="center">
+      <Box
+        pad={isMobile ? { top: 'xlarge' } : undefined}
+        justify="center"
+        align="center"
+      >
         <img
           style={{ height: 'auto', width: '100%' }}
           src="./assets/section.svg"
@@ -58,10 +60,8 @@ export const TeamSection = () => {
               deliver real cases to users.
             </Text>
           </Box>
-          <Box align="center" pad={!isTabletOrMobile || 'large'}>
-            <RouterLink fill to="our-team" primary>
-              Meet our team &#128074;
-            </RouterLink>
+          <Box align="center" pad={paddingVariant}>
+            <RouterLink to="our-team">Meet our team &#128074;</RouterLink>
           </Box>
         </Box>
       </Box>

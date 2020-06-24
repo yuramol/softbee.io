@@ -11,37 +11,42 @@ import { RouterLink } from '../../legos/RouterLink';
 export const BlogSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const rowsCount = size === 'small' ? 1 : 1;
   const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const fontSizeVariant = isMobile ? 6 : 2;
+  const textAlignVariant = isMobile ? 'center' : 'start';
   const paddingVariant = isMobile ? 'large' : 'xlarge';
 
   return (
     <Box
       justify="center"
-      height={isTablet || '800px'}
+      height={isTablet ? undefined : '800px'}
       background={
-        withBackground && {
-          color: '#F0F6F4',
-        }
+        withBackground
+          ? {
+              color: '#F0F6F4',
+            }
+          : undefined
       }
     >
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
-        rows={{ count: rowsCount, size: 'auto' }}
         gap="small"
         pad={paddingVariant}
         justify="center"
       >
-        <Box justify="center" align="start">
-          <Box pad={isTablet ? 'xsmall' : 'large'}>
-            <Box pad={{ bottom: 'small' }}>
+        <Box justify="center">
+          <Box
+            pad={isTablet ? { horizontal: 'xsmall', top: 'xlarge' } : 'large'}
+            align="center"
+          >
+            <Box pad={{ bottom: 'small' }} align={textAlignVariant}>
               <Heading
+                textAlign={textAlignVariant}
                 level={isMobile ? 3 : 2}
                 color="brand"
                 margin={{ vertical: 'small' }}
-                style={isMobile && { fontWeight: '400' }}
+                style={isMobile ? { fontWeight: '400' } : undefined}
               >
                 How to write on Java?
               </Heading>
@@ -49,7 +54,7 @@ export const BlogSection = ({ withBackground }) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu
                 purus sit. Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit. Arcu purus sit adipiscing....
-                <RouterLink fill to="our-team" primary>
+                <RouterLink to="our-team">
                   {'  '}
                   read more
                 </RouterLink>
@@ -66,16 +71,13 @@ export const BlogSection = ({ withBackground }) => {
                   rutrum eu mi quam mauris dui orci ante. Faucibus elit,
                   imperdiet mi maecenas egestas semper mauris ultricies
                   vitae....
-                  <RouterLink fill to="our-team" primary>
-                    {' '}
-                    read more
-                  </RouterLink>
+                  <RouterLink to="our-team"> read more</RouterLink>
                 </Text>
               </Box>
             )}
           </Box>
         </Box>
-        {isMobile || (
+        {!isMobile && (
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
@@ -85,9 +87,13 @@ export const BlogSection = ({ withBackground }) => {
           </Box>
         )}
       </Grid>
-      <Box justify="start" align="center">
-        <RouterLink to="blog" primary>
-          <Heading margin="large" level={fontSizeVariant} primary>
+      <Box
+        justify="start"
+        align="center"
+        pad={isTablet ? { bottom: 'xlarge' } : undefined}
+      >
+        <RouterLink to="blog">
+          <Heading margin="large" level={fontSizeVariant}>
             See our blog
           </Heading>
         </RouterLink>

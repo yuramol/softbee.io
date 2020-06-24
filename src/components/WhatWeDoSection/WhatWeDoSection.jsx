@@ -11,36 +11,39 @@ export const WhatWeDoSection = ({ withBackground }) => {
   const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const columnsCount = size === 'small' ? 2 : 4;
-  const rowsCount = size === 'small' ? 2 : 1;
   const marginVariant = isTablet ? 'none' : 'xsmall';
 
   return (
     <Box
       background={
-        withBackground && {
-          color: '#F0F6F4',
-        }
+        withBackground
+          ? {
+              color: '#F0F6F4',
+            }
+          : undefined
       }
     >
-      <Box justify="center" align="center" pad="large" gap="medium">
+      <Box
+        justify="center"
+        align="center"
+        pad={isMobile ? { horizontal: 'large', vertical: 'xlarge' } : 'large'}
+        gap="medium"
+      >
         <Box
           style={{ textAlign: 'center' }}
           justify="center"
-          margin={{ top: 'large', horizontal: 'medium' }}
+          margin={{ horizontal: 'medium' }}
         >
           <Heading level={2} color="brand">
             What we do?
           </Heading>
         </Box>
         {isMobile || (
-          <Grid
-            columns={{ count: columnsCount, size: 'auto' }}
-            rows={{ count: rowsCount, size: 'auto' }}
-          >
+          <Grid columns={{ count: columnsCount, size: 'auto' }}>
             <Box
               direction="row"
               align="center"
-              pad={isTablet || { right: 'large' }}
+              pad={isTablet ? undefined : { right: 'large' }}
             >
               <Box pad="small">
                 <img src="./assets/research.svg" alt="Research" />
@@ -57,7 +60,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
             <Box
               direction="row"
               align="center"
-              pad={isTablet || { right: 'large' }}
+              pad={isTablet ? undefined : { right: 'large' }}
             >
               <Box
                 pad={isTablet ? { left: 'medium', right: 'small' } : 'small'}
@@ -76,7 +79,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
             <Box
               direction="row"
               align="center"
-              pad={isTablet || { right: 'large' }}
+              pad={isTablet ? undefined : { right: 'large' }}
             >
               <Box pad="small">
                 <img src="./assets/Build.svg" alt="Gatsby Scene" />
@@ -93,7 +96,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
             <Box
               direction="row"
               align="center"
-              pad={isTablet || { right: 'large' }}
+              pad={isTablet ? undefined : { right: 'large' }}
             >
               <Box pad="small">
                 <img src="./assets/gearSmall.svg" alt="Small gears" />
@@ -110,11 +113,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
           </Grid>
         )}
         {isMobile && (
-          <Grid
-            columns={{ count: columnsCount, size: 'auto' }}
-            rows={{ count: rowsCount, size: 'auto' }}
-            gap="medium"
-          >
+          <Grid columns={{ count: columnsCount, size: 'auto' }} gap="medium">
             <Box direction="row" align="center" justify="start" pad="medium">
               <Box pad="small">
                 <img src="./assets/research.svg" alt="Research" />

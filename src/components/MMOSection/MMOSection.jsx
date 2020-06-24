@@ -11,14 +11,16 @@ import { RouterLink } from '../../legos/RouterLink';
 export const MMOSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const rowsCount = size === 'small' ? 2 : 1;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
-  const paddingVariant = isMobile ? 'large' : 'xlarge';
+  const paddingVariant = isMobile
+    ? { horizontal: 'large', vertical: 'xlarge' }
+    : 'xlarge';
 
   return (
     <Box
-      height="800px"
+      height={isMobile ? '850px' : '800px'}
       justify="center"
       background={
         withBackground
@@ -35,23 +37,26 @@ export const MMOSection = ({ withBackground }) => {
     >
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
-        rows={{ count: rowsCount, size: 'auto' }}
         gap="medium"
         pad={paddingVariant}
       >
         {isMobile || (
-          <Box direction="row" justify="center" margin={{ left: 'large' }}>
-            <Box justify="center" align="start" margin={{ left: 'xsmall' }}>
+          <Box direction="row" justify="center" align="center">
+            <Box
+              justify="center"
+              align="start"
+              margin={{ left: 'xsmall', right: 'medium' }}
+            >
               <img
-                style={{ height: 'auto', width: '100%' }}
-                src="./assets/sectionMMO.svg"
+                style={{ height: 'auto', width: '110%' }}
+                src="./assets/sectionMMO.png"
                 alt="screenshot of MMO website page"
               />
             </Box>
             <Box justify="center" pad={{ left: 'large', top: 'large' }}>
               <img
-                style={{ height: 'auto', width: '100%' }}
-                src="./assets/mmoSectionMini.svg"
+                style={{ height: 'auto', width: '130%' }}
+                src="./assets/sectionMMOMini.png"
                 alt="screenshot of MMO website page, mobile version"
               />
             </Box>
@@ -59,8 +64,10 @@ export const MMOSection = ({ withBackground }) => {
         )}
         <Box
           justify="center"
+          pad={
+            isTablet ? { left: 'large' } : { left: 'xlarge', right: 'xlarge' }
+          }
           align={textAlignVariant}
-          margin={isMobile || { left: 'large', top: 'large' }}
         >
           <Box>
             <Heading level={2} color="brand" textAlign={textAlignVariant}>
@@ -84,35 +91,33 @@ export const MMOSection = ({ withBackground }) => {
                 for end-to-end websites of MMO.cat team
               </Text>
             </Box>
-            {isMobile || (
-              <RouterLink fill to="/404" primary>
-                See case study
-              </RouterLink>
-            )}
+            {isMobile || <RouterLink to="/404">See case study</RouterLink>}
           </Box>
         </Box>
         {isMobile && (
           <Box direction="column" gap="medium" justify="end" align="center">
             <Box align="center">
               <img
-                style={{ height: 'auto', width: '150%' }}
-                src="./assets/mmoSectionMini.svg"
+                style={{ height: 'auto', width: '100%' }}
+                src="./assets/sectionMMOMini.png"
                 alt="screenshot of MMO website page, mobile version"
               />
             </Box>
             <Box>
               <img
                 style={{ height: 'auto', width: '100%' }}
-                src="./assets/sectionMMO.svg"
+                src="./assets/sectionMMO.png"
                 alt="screenshot of MMO website page"
               />
             </Box>
           </Box>
         )}
         {isMobile && (
-          <RouterLink align="center" fill to="/404" primary>
-            See case study
-          </RouterLink>
+          <Box pad={{ bottom: 'xlarge', top: 'large' }}>
+            <RouterLink align="center" to="/404">
+              See case study
+            </RouterLink>
+          </Box>
         )}
       </Grid>
     </Box>
