@@ -25,7 +25,7 @@ export const LetsStarted = () => {
     >
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
-        pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'large'}
+        pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'small'}
         margin={isMobile ? 'medium' : undefined}
         justify="center"
         alignContent="center"
@@ -44,7 +44,7 @@ export const LetsStarted = () => {
           <Box
             style={{ textAlign: 'center' }}
             pad={
-              !isMobile ? { vertical: 'xlarge', horizontal: 'large' } : 'small'
+              isMobile ? { vertical: 'xlarge', horizontal: 'large' } : 'medium'
             }
             justify="center"
             align="start"
