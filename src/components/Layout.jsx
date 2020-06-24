@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Grommet, Box } from 'grommet';
 
 import 'normalize.css';
 import { theme } from '../utils/theme';
-
-const Footer = styled.footer`
-  text-align: center;
-  margin: 24px;
-`;
 
 export const Layout = ({ children, withBackground }) => {
   return (
@@ -34,11 +28,6 @@ export const Layout = ({ children, withBackground }) => {
         >
           {children}
         </Box>
-        <Footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </Footer>
       </Box>
     </Grommet>
   );
