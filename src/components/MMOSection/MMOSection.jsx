@@ -11,14 +11,16 @@ export const MMOSection = ({ withBackground }) => (
     height="800px"
     justify="center"
     background={
-      (withBackground && {
-        size: 'large',
-        position: 'absolute',
-        image: 'url(./assets/mmoBackground.svg)',
-        color: '#F0F6F4',
-      }) || {
-        color: '#FFFFFF',
-      }
+      withBackground
+        ? {
+            size: 'large',
+            position: 'absolute',
+            image: 'url(./assets/mmoBackground.svg)',
+            color: '#F0F6F4',
+          }
+        : {
+            color: '#FFFFFF',
+          }
     }
   >
     <Grid columns={['2/3', '1/3']} pad="xsmall">

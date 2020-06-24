@@ -8,15 +8,19 @@ import { RouterLink } from '../../legos/RouterLink';
 
 export const GapNurseSection = ({ withBackground }) => (
   <Box
+    justify="center"
+    height={withBackground ? '700px' : '800px'}
     background={
-      (withBackground && {
-        size: 'small',
-        position: 'top right',
-        image: 'url(./assets/background-gapNurse.svg)',
-        color: '#F0F6F4',
-      }) || {
-        color: '#FFFFFF',
-      }
+      withBackground
+        ? {
+            size: 'small',
+            position: 'top right',
+            image: 'url(./assets/background-gapNurse.svg)',
+            color: '#F0F6F4',
+          }
+        : {
+            color: '#FFFFFF',
+          }
     }
   >
     <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">

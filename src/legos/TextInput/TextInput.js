@@ -4,6 +4,6 @@ import { TextInput as LibTextInput } from 'grommet';
 export const TextInput = styled(LibTextInput)`
   font-weight: 300;
   padding: 4px;
-  padding-left: 15px;
+  padding-left: 10px;
   border: none;
 `;
