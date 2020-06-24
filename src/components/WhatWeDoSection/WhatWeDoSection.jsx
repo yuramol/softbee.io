@@ -7,16 +7,26 @@ import { Heading } from '../../legos/typography/Heading';
 export const WhatWeDoSection = ({ withBackground }) => (
   <Box
     background={
-      withBackground && {
-        color: '#F0F6F4',
-      }
+      withBackground
+        ? {
+            color: '#F0F6F4',
+          }
+        : {
+            color: '#FFFFFF',
+          }
     }
   >
-    <Box justify="center" align="center" pad="large" gap="medium">
+    <Box
+      justify="center"
+      align="center"
+      pad="large"
+      gap="medium"
+      margin={{ bottom: 'large' }}
+    >
       <Box
         style={{ textAlign: 'center' }}
         justify="center"
-        margin={{ top: 'large', horizontal: 'medium' }}
+        margin={{ horizontal: 'medium' }}
       >
         <Heading level={2} color="brand">
           What we do?
