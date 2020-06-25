@@ -14,7 +14,7 @@ export const GapNurseSection = ({ withBackground }) => {
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
-  const fontSizeVariant = isMobile ? 6 : 2;
+  const fontSizeVariant = isMobile ? 4 : 2;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'large' }
     : 'xlarge';

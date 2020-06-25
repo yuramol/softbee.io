@@ -14,6 +14,7 @@ export const MMOSection = ({ withBackground }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
+  const headerLevel = isMobile ? 4 : 2;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
     : 'xlarge';
@@ -70,7 +71,11 @@ export const MMOSection = ({ withBackground }) => {
           align={textAlignVariant}
         >
           <Box>
-            <Heading level={2} color="brand" textAlign={textAlignVariant}>
+            <Heading
+              level={headerLevel}
+              color="brand"
+              textAlign={textAlignVariant}
+            >
               MMO.cat selling website
             </Heading>
           </Box>
