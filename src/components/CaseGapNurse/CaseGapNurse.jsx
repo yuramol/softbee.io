@@ -10,7 +10,10 @@ import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 export const CaseGapNurse = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
+  const columnsCounts = size === 'small' ? 1 : 2;
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1010px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     <Box>
       <Box
@@ -30,10 +33,11 @@ export const CaseGapNurse = () => {
           columns={{ count: columnsCount, size: ['auto', 'auto'] }}
           pad={{ horizontal: 'xlarge' }}
           style={{ height: '480px' }}
+          align={textAlignVariant}
         >
           <Box
             justify="start"
-            align="start"
+            align={textAlignVariant}
             pad={{ left: 'large', top: 'large' }}
           >
             <Box>
@@ -44,7 +48,7 @@ export const CaseGapNurse = () => {
               size="small"
               pad={
                 isTabletOrMobile
-                  ? { bottom: 'xxsmall', top: 'small' }
+                  ? { top: 'small' }
                   : { bottom: 'xxsmall', top: 'xlarge' }
               }
             >
@@ -73,7 +77,7 @@ export const CaseGapNurse = () => {
             </Box>
           </Box>
           <Box align="center">
-            <Grid columns={{ count: 2, size: 'auto' }} gap="medium">
+            <Grid columns={{ count: columnsCounts, size: 'auto' }} gap="medium">
               <Box align="center">
                 <img
                   style={{ height: 'auto', width: '100%' }}
@@ -81,13 +85,15 @@ export const CaseGapNurse = () => {
                   alt="The iphone that shows the application GapNurse"
                 />
               </Box>
-              <Box align="center">
-                <img
-                  style={{ height: 'auto', width: '100%' }}
-                  src="../assets/PhoneGapNurse2.png"
-                  alt="The iphone that shows the application GapNurse"
-                />
-              </Box>
+              {isTabletOrMobile || (
+                <Box align="center">
+                  <img
+                    style={{ height: 'auto', width: '100%' }}
+                    src="../assets/PhoneGapNurse2.png"
+                    alt="The iphone that shows the application GapNurse"
+                  />
+                </Box>
+              )}
             </Grid>
           </Box>
         </Grid>
