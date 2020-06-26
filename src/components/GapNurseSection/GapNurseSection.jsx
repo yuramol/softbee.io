@@ -6,6 +6,10 @@ import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
+import backgroundImage from '../../../static/assets/background-gapNurse.svg';
+import PhoneGapNurse from '../../../static/assets/PhoneGapNurse.png';
+import PhoneGapNurse2 from '../../../static/assets/PhoneGapNurse2.png';
+
 export const GapNurseSection = ({ withBackground }) => (
   <Box
     justify="center"
@@ -15,7 +19,7 @@ export const GapNurseSection = ({ withBackground }) => (
         ? {
             size: 'small',
             position: 'top right',
-            image: 'url(../../assets/background-gapNurse.svg)',
+            image: { backgroundImage },
             color: '#F0F6F4',
           }
         : {
@@ -51,13 +55,13 @@ export const GapNurseSection = ({ withBackground }) => (
       >
         <Box align="center">
           <img
-            src="../../assets/PhoneGapnurse.png"
+            src={PhoneGapNurse}
             alt="The iphone that shows the application GapNurse"
           />
         </Box>
         <Box align="center">
           <img
-            src="../../assets/PhoneGapnurse2.png"
+            src={PhoneGapNurse2}
             alt="The iphone that shows the application GapNurse"
           />
         </Box>
