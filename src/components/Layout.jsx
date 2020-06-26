@@ -15,13 +15,13 @@ export const Layout = ({ children, withBackground }) => {
               ? {
                   size: 'small',
                   position: 'absolute',
-                  image: 'url(../../assets/backgroundHeader.svg)',
+                  image: 'url(/assets/backgroundHeader.svg)',
                   color: '#F0F6F4',
                 }
               : {
                   size: 'small',
                   position: 'absolute',
-                  image: 'url(../../assets/backgroundHeader.svg)',
+                  image: 'url(/assets/backgroundHeader.svg)',
                 }
           }
           width={{ max: '1400px' }}

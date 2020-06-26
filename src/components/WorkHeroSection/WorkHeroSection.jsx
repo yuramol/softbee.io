@@ -19,7 +19,7 @@ export const WorkHeroSection = () => (
     background={{
       size: 'small',
       position: 'right',
-      image: 'url(../../assets/background-work.svg)',
+      image: 'url(/assets/background-work.svg)',
     }}
   >
     <Heading alignSelf="center" level={1} color="brand" wordBreak="normal">
