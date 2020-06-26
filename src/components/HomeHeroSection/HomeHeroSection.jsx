@@ -10,7 +10,7 @@ export const HomeHeroSection = () => (
     background={{
       size: 'small',
       position: 'right',
-      image: 'url(./assets/background-home.svg)',
+      image: 'url(../../assets/background-home.svg)',
     }}
   >
     <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
@@ -40,7 +40,10 @@ export const HomeHeroSection = () => (
         </Box>
       </Box>
       <Box align="center">
-        <img src="./assets/sectionHeader.svg" alt="People create a website" />
+        <img
+          src="../../assets/sectionHeader.svg"
+          alt="People create a website"
+        />
       </Box>
     </Grid>
   </Box>

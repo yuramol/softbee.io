@@ -15,7 +15,7 @@ export const MMOSection = ({ withBackground }) => (
         ? {
             size: 'large',
             position: 'absolute',
-            image: 'url(./assets/mmoBackground.svg)',
+            image: 'url(../../assets/mmoBackground.svg)',
             color: '#F0F6F4',
           }
         : {
@@ -27,13 +27,13 @@ export const MMOSection = ({ withBackground }) => (
       <Box direction="row" justify="center">
         <Box justify="center" align="start" margin={{ left: 'xsmall' }}>
           <img
-            src="./assets/sectionMMO.svg"
+            src="../../assets/sectionMMO.svg"
             alt="screenshot of MMO website page"
           />
         </Box>
         <Box justify="center" pad={{ left: 'large', top: 'large' }}>
           <img
-            src="./assets/mmoSectionMini.svg"
+            src="../../assets/mmoSectionMini.svg"
             alt="screenshot of MMO website page, mobile version"
           />
         </Box>
