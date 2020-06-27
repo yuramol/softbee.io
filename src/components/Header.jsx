@@ -1,7 +1,15 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Box, Header, Button, Image } from 'grommet';
-import Logo from '../../static/assets/logo.svg';
+import {
+  Box,
+  Header,
+  Button,
+  Grid,
+  Image,
+  Nav,
+  Menu,
+  ResponsiveContext,
+} from 'grommet';
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -10,46 +18,87 @@ const linkItems = [
 ];
 
 export const SiteHeader = () => (
-  <Header pad="medium">
-    <Box
-      width="100wh"
-      justify="stretch"
-      direction="row"
-      gap="medium"
-      margin="medium"
-      align="center"
-    >
-      <Link to="/">
-        <Image src={Logo} alt="Soft Bee" alignSelf="start" href="/" />
-      </Link>
-    </Box>
-    <Box alignSelf="end" align="center" direction="row">
-      {linkItems.map(linkItem => (
-        <Button
-          key={linkItem.id}
-          plain
-          label={linkItem.label}
-          href={linkItem.link}
-          margin="medium"
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            fontSize: '18px',
-          }}
-        />
-      ))}
-      <Box justify="center" align="center" height="60px" width="200px">
-        <Button
-          label="Let’s talk 👋"
-          fill
-          color="yellow"
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            fontSize: '18px',
-          }}
-        />
-      </Box>
-    </Box>
+  <Header>
+    <ResponsiveContext.Consumer>
+      {responsive => {
+        console.log('%c mylog', 'color:cyan', responsive);
+        return responsive === 'medium' ? (
+          <Grid
+            pad={{
+              left: 'large',
+              right: 'large',
+              top: 'medium',
+              bottom: 'medium',
+            }}
+            fill
+            rows={['auto', 'flex']}
+            columns={['auto', 'flex']}
+          >
+            <Box align="start" justify="center">
+              <Link to="/">
+                <Image
+                  src="/assets/logo.svg"
+                  alt="Soft Bee"
+                  alignSelf="start"
+                  href="/"
+                />
+              </Link>
+            </Box>
+            <Nav direction="row" align="center" justify="end">
+              {linkItems.map(linkItem => (
+                <Button
+                  key={linkItem.id}
+                  plain
+                  label={linkItem.label}
+                  href={linkItem.link}
+                  margin={{ left: 'medium', right: 'medium' }}
+                  style={{
+                    boxShadow: `none`,
+                    textDecoration: `none`,
+                    fontSize: '18px',
+                  }}
+                />
+              ))}
+              <Box height="60px" width="200px">
+                <Button
+                  label="Let’s talk 👋"
+                  fill
+                  color="yellow"
+                  style={{
+                    boxShadow: `none`,
+                    textDecoration: `none`,
+                    fontSize: '18px',
+                  }}
+                />
+              </Box>
+            </Nav>
+          </Grid>
+        ) : (
+          <Box pad="small" width="100%" background={{ color: 'brand' }}>
+            <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
+              <Menu
+                align="center"
+                icon={<Image src="/assets/icons/menuIcon.svg" />}
+                items={[
+                  { label: 'This is' },
+                  { label: 'The Menu' },
+                  { label: 'Component' },
+                ]}
+              />
+              <Box align="center" justify="center">
+                <Link to="/">
+                  <Image
+                    src="/assets/logo.svg"
+                    alt="Soft Bee"
+                    alignSelf="start"
+                    href="/"
+                  />
+                </Link>
+              </Box>
+            </Grid>
+          </Box>
+        );
+      }}
+    </ResponsiveContext.Consumer>
   </Header>
 );
