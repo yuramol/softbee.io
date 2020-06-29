@@ -8,7 +8,7 @@ import { RouterLink } from '../../legos/RouterLink';
 export const TeamSection = () => (
   <Grid columns={{ count: 2, size: 'auto' }} gap="small" pad="xlarge">
     <Box align="center">
-      <img src="./assets/section.svg" alt="Gatsby Scene" />
+      <img src="./assets/section.svg" alt="Drawn man working on laptop" />
     </Box>
     <Box justify="center" align="start">
       <Box>

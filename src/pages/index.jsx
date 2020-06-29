@@ -9,8 +9,9 @@ import { MMOSection } from '../components/MMOSection/MMOSection';
 import { LookingSection } from '../components/LookingSection/LookingSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { LetsStarted } from '../components/LetsStarted/LetsStarted';
+import { BlogSection } from '../components/BlogSection/BlogSection';
 
-const siteTitle = 'SoftBee';
+const siteTitle = 'Home';
 const keywords = [
   'softbee',
   'softbee.tech',
@@ -26,10 +27,11 @@ const IndexPage = ({ location }) => {
       <HomeHeroSection />
       <GapNurseSection />
       <TeamSection />
-      <MMOSection />
+      <MMOSection withBackground />
       <LookingSection />
       <WhatWeDoSection />
       <LetsStarted />
+      <BlogSection withBackground />
     </Layout>
   );
 };
