@@ -15,7 +15,9 @@ export const BlogSection = ({ withBackground }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const fontSizeVariant = isMobile ? 6 : 2;
   const textAlignVariant = isMobile ? 'center' : 'start';
-  const paddingVariant = isMobile ? 'large' : 'xlarge';
+  const paddingVariant = isMobile
+    ? 'large'
+    : { horizontal: 'xlarge', top: 'xlarge' };
 
   return (
     <Box

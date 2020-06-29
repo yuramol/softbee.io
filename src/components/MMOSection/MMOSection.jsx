@@ -13,6 +13,7 @@ export const MMOSection = ({ withBackground }) => {
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
+  const heightSection = withBackground ? '800px' : '600px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
@@ -20,7 +21,7 @@ export const MMOSection = ({ withBackground }) => {
 
   return (
     <Box
-      height={isMobile ? '850px' : '800px'}
+      height={isMobile ? '850px' : heightSection}
       justify="center"
       background={
         withBackground
@@ -37,7 +38,7 @@ export const MMOSection = ({ withBackground }) => {
     >
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
-        gap="medium"
+        gap={isTablet ? 'large' : 'medium'}
         pad={paddingVariant}
       >
         {isMobile || (
@@ -64,9 +65,7 @@ export const MMOSection = ({ withBackground }) => {
         )}
         <Box
           justify="center"
-          pad={
-            isTablet ? { left: 'large' } : { left: 'xlarge', right: 'xlarge' }
-          }
+          pad={isTablet ? undefined : { left: 'xlarge', right: 'xlarge' }}
           align={textAlignVariant}
         >
           <Box>

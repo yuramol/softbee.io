@@ -10,6 +10,9 @@ export const LetsStarted = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 1;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const boxShadowIsTablet = isMobile
+    ? '10px 10px 2px 1px'
+    : '25px 25px 2px 1px';
   const fontSizeMobile = isMobile ? 3 : 2;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
@@ -33,8 +36,8 @@ export const LetsStarted = () => {
         width="1000px"
         style={{
           background: '#104065',
-          boxShadow: '0px 0px 75px',
-          color: '#F3F3F3',
+          boxShadow: boxShadowIsTablet,
+          color: '#FAE79F',
           borderRadius: '20px',
         }}
         round

@@ -11,6 +11,7 @@ export const TeamSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 6 : 2;
   const paddingVariant = isMobile ? 'large' : 'xlarge';
@@ -60,7 +61,7 @@ export const TeamSection = () => {
               deliver real cases to users.
             </Text>
           </Box>
-          <Box align="center" pad={paddingVariant}>
+          <Box align="center" pad={isTablet ? { top: 'large' } : 'large'}>
             <RouterLink to="our-team">Meet our team &#128074;</RouterLink>
           </Box>
         </Box>

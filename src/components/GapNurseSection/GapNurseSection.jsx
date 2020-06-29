@@ -13,6 +13,9 @@ export const GapNurseSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1030px)' });
+  const heightSection = withBackground ? '700px' : '800px';
+  // const paddingVarTablet = isTablet
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 6 : 2;
   const paddingVariant = isMobile
@@ -21,7 +24,7 @@ export const GapNurseSection = ({ withBackground }) => {
 
   return (
     <Box
-      height={withBackground ? '700px' : '800px'}
+      height={isTablet ? undefined : heightSection}
       background={
         withBackground
           ? {
@@ -40,11 +43,7 @@ export const GapNurseSection = ({ withBackground }) => {
         gap="large"
         pad={paddingVariant}
       >
-        <Box
-          justify="center"
-          align={textAlignVariant}
-          pad={{ horisontal: 'large' }}
-        >
+        <Box justify="center" align="center" pad={{ horisontal: 'large' }}>
           <Box pad={{ bottom: 'small' }}>
             <Heading
               level={fontSizeVariant}
