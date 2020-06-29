@@ -128,6 +128,7 @@ export const CaseGapNurse = () => {
             style={
               isMobile ? { width: '100%', height: '150px' } : { width: 'auto' }
             }
+            pad="small"
           >
             <Box
               style={
@@ -136,7 +137,7 @@ export const CaseGapNurse = () => {
                   : { width: '250px' }
               }
               align="center"
-              pad={{ horizontal: '2em' }}
+              pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
               <Heading
                 level={isMobile ? undefined : 4}
@@ -162,7 +163,7 @@ export const CaseGapNurse = () => {
                   : { width: '250px' }
               }
               align="center"
-              pad={{ horizontal: '2em' }}
+              pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
               <Heading
                 level={isMobile ? undefined : 4}
@@ -187,7 +188,7 @@ export const CaseGapNurse = () => {
                   : { width: '250px' }
               }
               align="center"
-              pad={{ horizontal: '2em' }}
+              pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
               <Heading
                 level={isMobile ? undefined : 4}
