@@ -7,16 +7,26 @@ import { Heading } from '../../legos/typography/Heading';
 export const WhatWeDoSection = ({ withBackground }) => (
   <Box
     background={
-      withBackground && {
-        color: '#F0F6F4',
-      }
+      withBackground
+        ? {
+            color: '#F0F6F4',
+          }
+        : {
+            color: '#FFFFFF',
+          }
     }
   >
-    <Box justify="center" align="center" pad="large" gap="medium">
+    <Box
+      justify="center"
+      align="center"
+      pad="large"
+      gap="medium"
+      margin={{ bottom: 'large' }}
+    >
       <Box
         style={{ textAlign: 'center' }}
         justify="center"
-        margin={{ top: 'large', horizontal: 'medium' }}
+        margin={{ horizontal: 'medium' }}
       >
         <Heading level={2} color="brand">
           What we do?
@@ -25,7 +35,7 @@ export const WhatWeDoSection = ({ withBackground }) => (
       <Box direction="row-responsive">
         <Box direction="row-responsive" align="center" pad={{ right: 'large' }}>
           <Box pad="small">
-            <img src="./assets/research.svg" alt="Research" />
+            <img src="/assets/research.svg" alt="Research" />
           </Box>
           <Heading
             level={3}
@@ -38,7 +48,7 @@ export const WhatWeDoSection = ({ withBackground }) => (
         </Box>
         <Box direction="row-responsive" align="center" pad={{ right: 'large' }}>
           <Box pad="small">
-            <img src="./assets/Desing.svg" alt="Desing" />
+            <img src="/assets/Desing.svg" alt="Desing" />
           </Box>
           <Heading
             level={3}
@@ -51,7 +61,7 @@ export const WhatWeDoSection = ({ withBackground }) => (
         </Box>
         <Box direction="row-responsive" align="center" pad={{ right: 'large' }}>
           <Box pad="small">
-            <img src="./assets/Build.svg" alt="Gatsby Scene" />
+            <img src="/assets/Build.svg" alt="Gatsby Scene" />
           </Box>
           <Heading
             level={3}
@@ -64,7 +74,7 @@ export const WhatWeDoSection = ({ withBackground }) => (
         </Box>
         <Box direction="row-responsive" align="center" pad={{ right: 'large' }}>
           <Box pad="small">
-            <img src="./assets/gearSmall.svg" alt="Small gears" />
+            <img src="/assets/gearSmall.svg" alt="Small gears" />
           </Box>
           <Heading
             level={3}
