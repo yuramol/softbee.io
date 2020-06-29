@@ -21,8 +21,22 @@ export const SiteHeader = () => (
   <Header>
     <ResponsiveContext.Consumer>
       {responsive => {
-        console.log('%c mylog', 'color:cyan', responsive);
-        return responsive === 'medium' ? (
+        return responsive === 'small' ? (
+          <Box pad="small" width="100%" background={{ color: 'brand' }}>
+            <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
+              <Menu
+                align="center"
+                icon={<Image src="/assets/icons/menuIcon.svg" />}
+                items={linkItems}
+              />
+              <Box align="center" justify="center">
+                <Link to="/">
+                  <Image src="/assets/logo.svg" alt="Soft Bee" href="/" />
+                </Link>
+              </Box>
+            </Grid>
+          </Box>
+        ) : (
           <Grid
             pad={{
               left: 'large',
@@ -73,30 +87,6 @@ export const SiteHeader = () => (
               </Box>
             </Nav>
           </Grid>
-        ) : (
-          <Box pad="small" width="100%" background={{ color: 'brand' }}>
-            <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
-              <Menu
-                align="center"
-                icon={<Image src="/assets/icons/menuIcon.svg" />}
-                items={[
-                  { label: 'This is' },
-                  { label: 'The Menu' },
-                  { label: 'Component' },
-                ]}
-              />
-              <Box align="center" justify="center">
-                <Link to="/">
-                  <Image
-                    src="/assets/logo.svg"
-                    alt="Soft Bee"
-                    alignSelf="start"
-                    href="/"
-                  />
-                </Link>
-              </Box>
-            </Grid>
-          </Box>
         );
       }}
     </ResponsiveContext.Consumer>
