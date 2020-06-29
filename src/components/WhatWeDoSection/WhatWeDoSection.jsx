@@ -12,6 +12,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const columnsCount = size === 'small' ? 2 : 4;
   const marginVariant = isTablet ? 'none' : 'xsmall';
+  const headerLevel = isMobile ? 4 : 2;
 
   return (
     <Box
@@ -34,7 +35,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
           justify="center"
           margin={{ horizontal: 'medium' }}
         >
-          <Heading level={2} color="brand">
+          <Heading level={headerLevel} color="brand">
             What we do?
           </Heading>
         </Box>

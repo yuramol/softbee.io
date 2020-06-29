@@ -13,7 +13,7 @@ export const TeamSection = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
-  const fontSizeVariant = isMobile ? 6 : 2;
+  const fontSizeVariant = isMobile ? 4 : 2;
   const paddingVariant = isMobile ? 'large' : 'xlarge';
   return (
     <Grid

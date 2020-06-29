@@ -17,7 +17,7 @@ export const GapNurseSection = ({ withBackground }) => {
   const heightSection = withBackground ? '700px' : '800px';
   // const paddingVarTablet = isTablet
   const textAlignVariant = isMobile ? 'center' : 'start';
-  const fontSizeVariant = isMobile ? 6 : 2;
+  const fontSizeVariant = isMobile ? 4 : 2;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'large' }
     : 'xlarge';
