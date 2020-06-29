@@ -31,8 +31,6 @@ export const LetsStarted = () => {
         pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'small'}
         margin={isMobile ? 'medium' : undefined}
         justify="center"
-        alignContent="center"
-        height="363px"
         width="1000px"
         style={{
           background: '#104065',

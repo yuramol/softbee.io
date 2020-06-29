@@ -11,14 +11,5 @@ export const theme = {
       'text-dark-grey': '#3B4649',
       'text-white': '#FFFFFF',
     },
-    breakpoints: {
-      small: {
-        value: 780,
-      },
-      medium: {
-        value: 900,
-      },
-      large: 3000,
-    },
   },
 };
