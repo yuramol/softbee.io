@@ -29,7 +29,7 @@ export const GapNurseSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'top right',
-              image: 'url(./assets/background-gapNurse.svg)',
+              image: 'url(/assets/background-gapNurse.svg)',
               color: '#F0F6F4',
             }
           : {
@@ -70,14 +70,14 @@ export const GapNurseSection = ({ withBackground }) => {
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/PhoneGapnurse.png"
+              src="/assets/PhoneGapnurse.png"
               alt="The iphone that shows the application GapNurse"
             />
           </Box>
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/PhoneGapnurse2.png"
+              src="/assets/PhoneGapnurse2.png"
               alt="The iphone that shows the application GapNurse"
             />
           </Box>

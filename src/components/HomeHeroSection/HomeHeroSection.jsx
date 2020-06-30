@@ -29,7 +29,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'right',
-              image: 'url(./assets/background-home.svg)',
+              image: 'url(/assets/background-home.svg)',
             }
           : undefined
       }
@@ -43,7 +43,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           <Box align="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/sectionHeader.svg"
+              src="/assets/sectionHeader.svg"
               alt="Gatsby Scene"
             />
           </Box>
@@ -90,7 +90,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/sectionHeader.svg"
+              src="/assets/sectionHeader.svg"
               alt="Gatsby Scene"
             />
           </Box>
