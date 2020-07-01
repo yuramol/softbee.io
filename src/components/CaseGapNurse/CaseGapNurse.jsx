@@ -140,7 +140,7 @@ export const CaseGapNurse = () => {
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
               <Heading
-                level={isMobile ? undefined : 4}
+                level={isMobile ? undefined : 5}
                 color="white"
                 margin={{ vertical: 'small' }}
               >
@@ -148,7 +148,7 @@ export const CaseGapNurse = () => {
               </Heading>
 
               <Heading
-                level={isMobile ? undefined : 4}
+                level={isMobile ? undefined : 5}
                 color="white"
                 style={{ fontWeight: '700', lineHeight: '16px' }}
                 margin={{ vertical: 'small' }}
@@ -166,14 +166,14 @@ export const CaseGapNurse = () => {
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
               <Heading
-                level={isMobile ? undefined : 4}
+                level={isMobile ? undefined : 5}
                 color="white"
                 margin={{ vertical: 'small' }}
               >
                 Languages:
               </Heading>
               <Heading
-                level={isMobile ? undefined : 4}
+                level={isMobile ? undefined : 5}
                 color="white"
                 style={{ fontWeight: '700', lineHeight: '16px' }}
                 margin={{ vertical: 'small' }}
@@ -191,14 +191,14 @@ export const CaseGapNurse = () => {
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
               <Heading
-                level={isMobile ? undefined : 4}
+                level={isMobile ? undefined : 5}
                 color="white"
                 margin={{ vertical: 'small' }}
               >
                 Time:
               </Heading>
               <Heading
-                level={isMobile ? undefined : 4}
+                level={isMobile ? undefined : 5}
                 color="white"
                 style={{ fontWeight: '700', lineHeight: '16px' }}
                 margin={{ vertical: 'small' }}
