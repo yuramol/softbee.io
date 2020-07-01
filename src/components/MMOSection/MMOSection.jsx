@@ -55,7 +55,7 @@ export const MMOSection = ({ withBackground }) => {
                 alt="screenshot of MMO website page"
               />
             </Box>
-            <Box justify="center" pad={{ left: 'large', top: 'large' }}>
+            <Box justify="center" pad={{ left: 'large' }}>
               <img
                 style={{ height: 'auto', width: '130%' }}
                 src="./assets/sectionMMOMini.png"

@@ -61,7 +61,10 @@ export const TeamSection = () => {
               deliver real cases to users.
             </Text>
           </Box>
-          <Box align="center" pad={isTablet ? { top: 'large' } : 'large'}>
+          <Box
+            align={isMobile ? 'center' : 'start'}
+            pad={isTablet ? { top: 'large' } : { vertical: 'medium' }}
+          >
             <RouterLink to="our-team">Meet our team &#128074;</RouterLink>
           </Box>
         </Box>

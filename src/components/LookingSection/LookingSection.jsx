@@ -33,8 +33,8 @@ export const LookingSection = () => {
         height="414px"
         width="1160px"
         style={{
-          boxShadow: '0px 0px 75px',
-          color: '#F3F3F3',
+          boxShadow: '0px 0px 30px 10px',
+          color: '#E5E5E5',
           borderRadius: '55px',
         }}
         round
