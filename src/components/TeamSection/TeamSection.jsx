@@ -29,7 +29,7 @@ export const TeamSection = () => {
         <img
           style={{ height: 'auto', width: '100%' }}
           src="./assets/section.svg"
-          alt="Gatsby Scene"
+          alt="Man working at the computer"
         />
       </Box>
       <Box justify="center" align={textAlignVariant}>

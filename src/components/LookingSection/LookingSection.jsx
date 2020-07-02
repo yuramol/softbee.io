@@ -44,7 +44,7 @@ export const LookingSection = () => {
           <img
             style={{ transform: 'rotate(-15.26deg)' }}
             src="./assets/gears.svg"
-            alt="Gatsby Scene"
+            alt="Gears"
           />
         </Box>
         {isMobile || (
@@ -94,7 +94,7 @@ export const LookingSection = () => {
           </Box>
         )}
         <Box justify="center" pad={{ vertical: 'large' }}>
-          <img src="./assets/arrow.svg" alt="Gatsby Scene" />
+          <img src="./assets/arrow.svg" alt="Arrows" />
         </Box>
       </Grid>
     </Box>

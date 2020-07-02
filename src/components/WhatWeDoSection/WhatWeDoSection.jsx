@@ -83,7 +83,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
               pad={isTablet ? undefined : { right: 'large' }}
             >
               <Box pad="small">
-                <img src="./assets/Build.svg" alt="Gatsby Scene" />
+                <img src="./assets/Build.svg" alt="Arrows" />
               </Box>
               <Heading
                 level={3}
@@ -143,7 +143,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
             </Box>
             <Box direction="row" align="center" justify="start" pad="medium">
               <Box pad={{ right: 'medium', left: 'small', vertical: 'small' }}>
-                <img src="./assets/Build.svg" alt="Gatsby Scene" />
+                <img src="./assets/Build.svg" alt="Arrows" />
               </Box>
               <Heading
                 level={6}
