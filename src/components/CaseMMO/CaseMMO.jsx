@@ -9,6 +9,7 @@ import { Heading } from '../../legos/typography/Heading';
 export const CaseMMO = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
+  const isTablet = useMediaQuery({ query: '(max-width: 990px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
@@ -16,22 +17,25 @@ export const CaseMMO = () => {
       <Box style={{ height: 'auto' }}>
         <Box width="100%" align="center">
           <Heading level={2} color="brand">
-            Site
+            Web-site MMO.CAT
           </Heading>
         </Box>
         <Grid
           columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-          pad={{ horizontal: 'xlarge' }}
-          style={isMobile ? { height: '800px' } : { height: '480px' }}
+          pad={isTablet ? { horizontal: 'large' } : { horizontal: 'xlarge' }}
+          style={isMobile ? { height: '550px' } : { height: '450px' }}
           align={textAlignVariant}
         >
-          <Box align={textAlignVariant} pad={{ left: 'large', top: 'large' }}>
-            <Box background={{ color: 'orange' }} pad="small">
+          <Box
+            align={textAlignVariant}
+            pad={isTablet ? { top: 'large' } : { left: 'large', top: 'large' }}
+          >
+            <Box background={{ color: '#241F43' }} pad="small">
               <img src="../assets/logoMMO.png" alt=" Logo MMO" />
             </Box>
             {isMobile || (
               <Box>
-                <Box width="470px" pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
+                <Box pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
                   <Heading
                     level={4}
                     color="brand"
@@ -41,7 +45,7 @@ export const CaseMMO = () => {
                   </Heading>
                 </Box>
 
-                <Box width="380px">
+                <Box style={isTablet ? { width: '340px' } : { width: '380px' }}>
                   <Text
                     size="medium"
                     color="text-dark-grey"
@@ -50,22 +54,24 @@ export const CaseMMO = () => {
                       { lineHeight: '150%' })
                     }
                   >
-                    With GapNurse, facilities know they’re covered during
-                    critical moments and unexpected absences without breaking
-                    your budget.
+                    We provided full-stack development service for end-to-end
+                    websites of MMO.cat team
                   </Text>
                 </Box>
               </Box>
             )}
           </Box>
-          <Box align="center">
-            <Box align="center">
-              <img
-                style={{ height: 'auto', width: '100%' }}
-                src="../assets/sectionMMO.png"
-                alt="The "
-              />
-            </Box>
+          <Box
+            style={{ height: '100%' }}
+            align="center"
+            justify="center"
+            pad={isMobile ? { horizontal: 'large' } : undefined}
+          >
+            <img
+              style={{ height: 'auto', width: '100%' }}
+              src="../assets/sectionMMO.png"
+              alt="The "
+            />
           </Box>
           {isMobile && (
             <Box align="center">
@@ -81,8 +87,8 @@ export const CaseMMO = () => {
                     ({ fontFamily: 'HelveticaNeueCyr' }, { lineHeight: '150%' })
                   }
                 >
-                  With GapNurse, facilities know they’re covered during critical
-                  moments and unexpected absences without breaking your budget.
+                  We provided full-stack development service for end-to-end
+                  websites of MMO.cat team
                 </Text>
               </Box>
             </Box>
@@ -90,10 +96,11 @@ export const CaseMMO = () => {
         </Grid>
         <Box
           width="100%"
-          height="200px"
+          style={isMobile ? { height: 'auto' } : { height: '210px' }}
           align="center"
+          justify="center"
           margin={isMobile ? { top: '30px' } : undefined}
-          background={{ color: 'pink' }}
+          background={{ color: '#FF1B60' }}
         >
           <Grid
             columns={['1/3', '1/3', '1/3']}
