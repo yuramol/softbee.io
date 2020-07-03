@@ -4,12 +4,10 @@ import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { CaseGapNurse } from '../components/CaseGapNurse/CaseGapNurse';
 
-const siteTitle = 'SoftBee';
-
 const PageCaseGapNurse = () => {
   return (
-    <Layout title={siteTitle}>
-      <SEO title="All posts" />
+    <Layout>
+      <SEO title="GapNurse Case" />
       <CaseGapNurse />
     </Layout>
   );

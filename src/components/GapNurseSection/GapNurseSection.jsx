@@ -63,7 +63,7 @@ export const GapNurseSection = ({ withBackground }) => {
             </Text>
           </Box>
           {isMobile || (
-            <RouterLink to="gapnurse-case-study">See case study</RouterLink>
+            <RouterLink to="gapnurse-case">See case study</RouterLink>
           )}
         </Box>
         <Grid columns={{ count: 2, size: 'auto' }}>
@@ -84,7 +84,7 @@ export const GapNurseSection = ({ withBackground }) => {
         </Grid>
         {isMobile && (
           <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-            <RouterLink to="gapnurse-case-study">See case study</RouterLink>
+            <RouterLink to="gapnurse-case">See case study</RouterLink>
           </Box>
         )}
       </Grid>
