@@ -14,9 +14,13 @@ export const CaseMMO = () => {
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     <Box>
-      <Box style={{ height: 'auto' }}>
+      <Box>
         <Box width="100%" align="center">
-          <Heading level={2} color="brand">
+          <Heading
+            level={isMobile ? 4 : 2}
+            color="brand"
+            style={{ textAlign: 'center' }}
+          >
             Web-site MMO.CAT
           </Heading>
         </Box>
@@ -70,7 +74,7 @@ export const CaseMMO = () => {
             <img
               style={{ height: 'auto', width: '100%' }}
               src="../assets/sectionMMO.png"
-              alt="The "
+              alt="screenshot of MMO website page "
             />
           </Box>
           {isMobile && (
