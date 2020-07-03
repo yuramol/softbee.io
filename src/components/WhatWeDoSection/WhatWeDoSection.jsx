@@ -47,7 +47,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
               pad={isTablet ? undefined : { right: 'large' }}
             >
               <Box pad="small">
-                <img src="./assets/research.svg" alt="Research" />
+                <img src="/assets/research.svg" alt="Research" />
               </Box>
               <Heading
                 level={3}
@@ -66,7 +66,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
               <Box
                 pad={isTablet ? { left: 'medium', right: 'small' } : 'small'}
               >
-                <img src="./assets/Desing.svg" alt="Desing" />
+                <img src="/assets/Desing.svg" alt="Desing" />
               </Box>
               <Heading
                 level={3}
@@ -100,7 +100,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
               pad={isTablet ? undefined : { right: 'large' }}
             >
               <Box pad="small">
-                <img src="./assets/gearSmall.svg" alt="Small gears" />
+                <img src="/assets/gearSmall.svg" alt="Small gears" />
               </Box>
               <Heading
                 level={3}
@@ -117,7 +117,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
           <Grid columns={{ count: columnsCount, size: 'auto' }} gap="medium">
             <Box direction="row" align="center" justify="start" pad="medium">
               <Box pad="small">
-                <img src="./assets/research.svg" alt="Research" />
+                <img src="/assets/research.svg" alt="Research" />
               </Box>
               <Heading
                 level={6}
@@ -130,7 +130,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
             </Box>
             <Box direction="row" align="center" justify="start" pad="medium">
               <Box pad={{ right: 'medium', left: 'small', vertical: 'small' }}>
-                <img src="./assets/Desing.svg" alt="Desing" />
+                <img src="/assets/Desing.svg" alt="Desing" />
               </Box>
               <Heading
                 level={6}
@@ -156,7 +156,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
             </Box>
             <Box direction="row" align="center" justify="start" pad="medium">
               <Box pad="small">
-                <img src="./assets/gearSmall.svg" alt="Small gears" />
+                <img src="/assets/gearSmall.svg" alt="Small gears" />
               </Box>
               <Heading
                 level={6}

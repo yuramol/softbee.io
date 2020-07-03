@@ -29,7 +29,7 @@ export const GapNurseSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'top right',
-              image: 'url(./assets/background-gapNurse.svg)',
+              image: 'url(/assets/background-gapNurse.svg)',
               color: '#F0F6F4',
             }
           : {

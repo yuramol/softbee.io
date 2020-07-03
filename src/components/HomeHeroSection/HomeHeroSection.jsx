@@ -29,7 +29,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'right',
-              image: 'url(./assets/background-home.svg)',
+              image: 'url(/assets/background-home.svg)',
             }
           : undefined
       }
