@@ -48,6 +48,7 @@ export const CaseGapNurse = () => {
                     level={4}
                     color="brand"
                     style={{ lineHeight: '130%', fontSize: '24px' }}
+                    margin={{ vertical: '10px' }}
                   >
                     About client:
                   </Heading>
@@ -97,7 +98,12 @@ export const CaseGapNurse = () => {
         {isMobile && (
           <Box align="left" pad={{ horizontal: 'xlarge' }}>
             <Box style={{ width: '100%' }}>
-              <Heading level={6} color="brand" style={{ lineHeight: '100%' }}>
+              <Heading
+                level={6}
+                color="brand"
+                style={{ lineHeight: '100%' }}
+                margin={{ vertical: '10px' }}
+              >
                 About client:
               </Heading>
             </Box>
