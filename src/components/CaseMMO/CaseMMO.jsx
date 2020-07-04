@@ -1,14 +1,12 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 
 export const CaseMMO = () => {
-  const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
   const isTablet = useMediaQuery({ query: '(max-width: 990px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
@@ -25,9 +23,13 @@ export const CaseMMO = () => {
           </Heading>
         </Box>
         <Grid
-          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-          pad={isTablet ? { horizontal: 'large' } : { horizontal: 'xlarge' }}
-          style={isMobile ? { height: '550px' } : { height: '450px' }}
+          columns={['auto', 'auto']}
+          pad={
+            isTablet
+              ? { horizontal: 'large', vertical: 'large' }
+              : { horizontal: 'xlarge', vertical: 'large' }
+          }
+          style={isMobile ? { height: 'auto' } : { height: 'auto' }}
           align={textAlignVariant}
         >
           <Box
@@ -35,28 +37,32 @@ export const CaseMMO = () => {
             pad={isTablet ? { top: 'large' } : { left: 'large', top: 'large' }}
           >
             <Box background={{ color: '#241F43' }} pad="small">
-              <img src="../assets/logoMMO.png" alt=" Logo MMO" />
+              <img src="/assets/logoMMO.png" alt=" Logo MMO" />
             </Box>
             {isMobile || (
               <Box>
                 <Box pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
                   <Heading
-                    level={4}
+                    level={5}
                     color="brand"
                     style={{ lineHeight: '130%' }}
+                    margin={{ vertical: 'xsmall' }}
                   >
                     About client:
                   </Heading>
                 </Box>
 
-                <Box style={isTablet ? { width: '340px' } : { width: '380px' }}>
+                <Box
+                  style={isTablet ? { width: '320px' } : { width: '370px' }}
+                  pad={{ right: 'large' }}
+                >
                   <Text
                     size="medium"
                     color="text-dark-grey"
-                    style={
-                      ({ fontFamily: 'HelveticaNeueCyr' },
-                      { lineHeight: '150%' })
-                    }
+                    style={{
+                      fontFamily: 'HelveticaNeueCyr',
+                      lineHeight: '150%',
+                    }}
                   >
                     We provided full-stack development service for end-to-end
                     websites of MMO.cat team
@@ -73,31 +79,34 @@ export const CaseMMO = () => {
           >
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="../assets/sectionMMO.png"
+              src="/assets/sectionMMO.png"
               alt="screenshot of MMO website page "
             />
           </Box>
-          {isMobile && (
-            <Box align="center">
-              <Box>
-                <Heading level={4} color="brand" style={{ lineHeight: '130%' }}>
-                  About client:
-                </Heading>
-              </Box>
-              <Box width="380px">
-                <Text
-                  color="text-dark-grey"
-                  style={
-                    ({ fontFamily: 'HelveticaNeueCyr' }, { lineHeight: '150%' })
-                  }
-                >
-                  We provided full-stack development service for end-to-end
-                  websites of MMO.cat team
-                </Text>
-              </Box>
-            </Box>
-          )}
         </Grid>
+        {isMobile && (
+          <Box align="left" pad={{ horizontal: 'xlarge' }}>
+            <Box style={{ width: '100%' }}>
+              <Heading
+                level={6}
+                color="brand"
+                style={{ lineHeight: '130%' }}
+                margin={{ vertical: 'xsmall' }}
+              >
+                About client:
+              </Heading>
+            </Box>
+            <Box width="100%">
+              <Text
+                color="text-dark-grey"
+                style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
+              >
+                We provided full-stack development service for end-to-end
+                websites of MMO.cat team
+              </Text>
+            </Box>
+          </Box>
+        )}
         <Box
           width="100%"
           style={isMobile ? { height: 'auto' } : { height: '210px' }}
@@ -195,7 +204,7 @@ export const CaseMMO = () => {
       <Box>
         <img
           style={{ width: '100%', height: 'auto' }}
-          src="../assets/backgroundCaseMMO.png"
+          src="/assets/backgroundCaseMMO.png"
           alt="screenshots GapNurse"
         />
       </Box>
