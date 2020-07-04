@@ -1,15 +1,13 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 
 export const CaseGapNurse = () => {
-  const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1110px)' });
   const columnsCountTablet = isTabletOrMobile ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -17,14 +15,14 @@ export const CaseGapNurse = () => {
   return (
     <Box>
       <Box
-        style={isMobile ? { height: '1057px' } : { height: '830px' }}
+        style={isMobile ? { height: 'auto' } : { height: '835px' }}
         background={
           isMobile
             ? undefined
             : {
                 position: 'bottom',
                 size: 'small',
-                image: 'url(../assets/backgroundCaseGapnurse.svg)',
+                image: 'url(/assets/backgroundCaseGapnurse.svg)',
               }
         }
       >
@@ -34,14 +32,14 @@ export const CaseGapNurse = () => {
           </Heading>
         </Box>
         <Grid
-          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
+          columns={['auto', 'auto']}
           pad={{ horizontal: 'xlarge' }}
-          style={isMobile ? { height: '800px' } : { height: '480px' }}
+          style={isMobile ? { height: 'auto' } : { height: '480px' }}
           align={textAlignVariant}
         >
           <Box align={textAlignVariant} pad={{ left: 'large', top: 'large' }}>
             <Box>
-              <img src="../assets/logoGapNurse.svg" alt=" Gap Nurse " />
+              <img src="/assets/logoGapNurse.svg" alt=" Gap Nurse " />
             </Box>
             {isMobile || (
               <Box>
@@ -49,7 +47,7 @@ export const CaseGapNurse = () => {
                   <Heading
                     level={4}
                     color="brand"
-                    style={{ lineHeight: '130%' }}
+                    style={{ lineHeight: '130%', fontSize: '24px' }}
                   >
                     About client:
                   </Heading>
@@ -59,10 +57,10 @@ export const CaseGapNurse = () => {
                   <Text
                     size="medium"
                     color="text-dark-grey"
-                    style={
-                      ({ fontFamily: 'HelveticaNeueCyr' },
-                      { lineHeight: '150%' })
-                    }
+                    style={{
+                      fontFamily: 'HelveticaNeueCyr',
+                      lineHeight: '150%',
+                    }}
                   >
                     With GapNurse, facilities know they’re covered during
                     critical moments and unexpected absences without breaking
@@ -80,7 +78,7 @@ export const CaseGapNurse = () => {
               <Box align="center">
                 <img
                   style={{ height: 'auto', width: '100%' }}
-                  src="../assets/PhoneGapNurse.png"
+                  src="/assets/PhoneGapNurse.png"
                   alt="The iphone that shows the application GapNurse"
                 />
               </Box>
@@ -88,34 +86,32 @@ export const CaseGapNurse = () => {
                 <Box align="center">
                   <img
                     style={{ height: 'auto', width: '100%' }}
-                    src="../assets/PhoneGapNurse2.png"
+                    src="/assets/PhoneGapNurse2.png"
                     alt="The iphone that shows the application GapNurse"
                   />
                 </Box>
               )}
             </Grid>
           </Box>
-          {isMobile && (
-            <Box align="center">
-              <Box>
-                <Heading level={4} color="brand" style={{ lineHeight: '130%' }}>
-                  About client:
-                </Heading>
-              </Box>
-              <Box width="380px">
-                <Text
-                  color="text-dark-grey"
-                  style={
-                    ({ fontFamily: 'HelveticaNeueCyr' }, { lineHeight: '150%' })
-                  }
-                >
-                  With GapNurse, facilities know they’re covered during critical
-                  moments and unexpected absences without breaking your budget.
-                </Text>
-              </Box>
-            </Box>
-          )}
         </Grid>
+        {isMobile && (
+          <Box align="left" pad={{ horizontal: 'xlarge' }}>
+            <Box style={{ width: '100%' }}>
+              <Heading level={6} color="brand" style={{ lineHeight: '100%' }}>
+                About client:
+              </Heading>
+            </Box>
+            <Box width="100%">
+              <Text
+                color="text-dark-grey"
+                style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
+              >
+                With GapNurse, facilities know they’re covered during critical
+                moments and unexpected absences without breaking your budget.
+              </Text>
+            </Box>
+          </Box>
+        )}
         <Box
           width="100%"
           height="150px"
@@ -212,7 +208,7 @@ export const CaseGapNurse = () => {
       <Box>
         <img
           style={{ width: '100%', height: 'auto' }}
-          src="../assets/backgroundScreenshotsGapNurse.svg"
+          src="/assets/backgroundScreenshotsGapNurse.png"
           alt="screenshots GapNurse"
         />
       </Box>
