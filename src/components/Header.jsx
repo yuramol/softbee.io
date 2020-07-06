@@ -7,9 +7,10 @@ import {
   Grid,
   Image,
   Nav,
-  Menu,
   ResponsiveContext,
 } from 'grommet';
+
+import HeaderMenu from './HeaderMenu/HeaderMenu';
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -24,11 +25,7 @@ export const SiteHeader = () => (
         return responsive === 'small' ? (
           <Box pad="small" width="100%" background={{ color: 'brand' }}>
             <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
-              <Menu
-                align="center"
-                icon={<Image src="/assets/icons/menuIcon.svg" />}
-                items={linkItems}
-              />
+              <HeaderMenu />
               <Box align="center" justify="center">
                 <Link to="/">
                   <Image src="/assets/logo.svg" alt="Soft Bee" href="/" />
@@ -48,7 +45,7 @@ export const SiteHeader = () => (
             rows={['auto', 'flex']}
             columns={['auto', 'flex']}
           >
-            <Box align="start" justify="center">
+            <Box align="start" justify="center" pad={{ right: '150px' }}>
               <Link to="/">
                 <Image
                   src="/assets/logo.svg"
