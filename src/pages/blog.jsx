@@ -57,7 +57,7 @@ const Blog = ({ data, location }) => {
                   </Box>
                   <Box justify="center" align="center">
                     <img
-                      src="./assets/HowWriteJava.png"
+                      src="/assets/HowWriteJava.png"
                       alt="On laptop open code editor"
                     />
                   </Box>

@@ -13,7 +13,7 @@ export const GapNurseSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1030px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1112px)' });
   const heightSection = withBackground ? '700px' : '800px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
@@ -29,7 +29,7 @@ export const GapNurseSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'top right',
-              image: 'url(./assets/background-gapNurse.svg)',
+              image: 'url(/assets/background-gapNurse.svg)',
               color: '#F0F6F4',
             }
           : {
@@ -42,7 +42,11 @@ export const GapNurseSection = ({ withBackground }) => {
         gap="large"
         pad={paddingVariant}
       >
-        <Box justify="center" align="center" pad={{ horisontal: 'large' }}>
+        <Box
+          justify="center"
+          align={isMobile ? 'center' : 'start'}
+          pad={{ horisontal: 'large' }}
+        >
           <Box pad={{ bottom: 'small' }}>
             <Heading
               level={fontSizeVariant}
@@ -52,7 +56,13 @@ export const GapNurseSection = ({ withBackground }) => {
               They really help to fight COVID-19 in US
             </Heading>
           </Box>
-          <Box pad={{ bottom: 'medium' }}>
+          <Box
+            pad={
+              isMobile
+                ? { bottom: 'medium', horizontal: 'medium' }
+                : { bottom: 'medium' }
+            }
+          >
             <Text
               size="medium"
               color="text-dark-grey"
@@ -63,28 +73,28 @@ export const GapNurseSection = ({ withBackground }) => {
             </Text>
           </Box>
           {isMobile || (
-            <RouterLink to="gapnurse-case-study">See case study</RouterLink>
+            <RouterLink to="/gapnurse-case">See case study</RouterLink>
           )}
         </Box>
         <Grid columns={{ count: 2, size: 'auto' }}>
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/PhoneGapnurse.png"
+              src="/assets/PhoneGapNurse.png"
               alt="The iphone that shows the application GapNurse"
             />
           </Box>
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/PhoneGapnurse2.png"
+              src="/assets/PhoneGapNurse2.png"
               alt="The iphone that shows the application GapNurse"
             />
           </Box>
         </Grid>
         {isMobile && (
           <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-            <RouterLink to="gapnurse-case-study">See case study</RouterLink>
+            <RouterLink to="gapnurse-case">See case study</RouterLink>
           </Box>
         )}
       </Grid>

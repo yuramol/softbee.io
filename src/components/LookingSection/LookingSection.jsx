@@ -33,8 +33,8 @@ export const LookingSection = () => {
         height="414px"
         width="1160px"
         style={{
-          boxShadow: '0px 0px 75px',
-          color: '#F3F3F3',
+          boxShadow: '0px 0px 30px 10px',
+          color: '#E5E5E5',
           borderRadius: '55px',
         }}
         round
@@ -43,8 +43,8 @@ export const LookingSection = () => {
         <Box justify="center" pad={{ vertical: 'large' }}>
           <img
             style={{ transform: 'rotate(-15.26deg)' }}
-            src="./assets/gears.svg"
-            alt="Gatsby Scene"
+            src="/assets/gears.svg"
+            alt="Gears"
           />
         </Box>
         {isMobile || (
@@ -94,7 +94,7 @@ export const LookingSection = () => {
           </Box>
         )}
         <Box justify="center" pad={{ vertical: 'large' }}>
-          <img src="./assets/arrow.svg" alt="Gatsby Scene" />
+          <img src="/assets/arrow.svg" alt="Arrows" />
         </Box>
       </Grid>
     </Box>

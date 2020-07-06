@@ -83,7 +83,7 @@ export const BlogSection = ({ withBackground }) => {
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/writeOnJava.png"
+              src="/assets/writeOnJava.png"
               alt="On laptop open code editor"
             />
           </Box>
