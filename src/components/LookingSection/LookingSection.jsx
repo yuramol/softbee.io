@@ -43,7 +43,7 @@ export const LookingSection = () => {
         <Box justify="center" pad={{ vertical: 'large' }}>
           <img
             style={{ transform: 'rotate(-15.26deg)' }}
-            src="./assets/gears.svg"
+            src="/assets/gears.svg"
             alt="Gears"
           />
         </Box>
@@ -94,7 +94,7 @@ export const LookingSection = () => {
           </Box>
         )}
         <Box justify="center" pad={{ vertical: 'large' }}>
-          <img src="./assets/arrow.svg" alt="Arrows" />
+          <img src="/assets/arrow.svg" alt="Arrows" />
         </Box>
       </Grid>
     </Box>
