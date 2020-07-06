@@ -43,7 +43,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           <Box align="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/sectionHeader.svg"
+              src="/assets/sectionHeader.svg"
               alt="People create a website"
             />
           </Box>
@@ -90,7 +90,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="./assets/sectionHeader.svg"
+              src="/assets/sectionHeader.svg"
               alt="People create a website"
             />
           </Box>

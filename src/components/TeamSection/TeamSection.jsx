@@ -28,7 +28,7 @@ export const TeamSection = () => {
       >
         <img
           style={{ height: 'auto', width: '100%' }}
-          src="./assets/section.svg"
+          src="/assets/section.svg"
           alt="Man working at the computer"
         />
       </Box>
