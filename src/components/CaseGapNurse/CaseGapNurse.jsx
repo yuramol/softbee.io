@@ -120,7 +120,7 @@ export const CaseGapNurse = () => {
         )}
         <Box
           width="100%"
-          height="150px"
+          height={isMobile ? '130px' : '150px'}
           align="center"
           margin={isMobile ? { top: '30px' } : { top: '70px' }}
           background={{ color: '#5E5999' }}
@@ -128,7 +128,9 @@ export const CaseGapNurse = () => {
           <Grid
             columns={['1/3', '1/3', '1/3']}
             style={
-              isMobile ? { width: '100%', height: '150px' } : { width: 'auto' }
+              isMobile
+                ? { width: '100%', height: isMobile ? '130px' : '150px' }
+                : { width: 'auto' }
             }
             pad="small"
           >
@@ -144,7 +146,7 @@ export const CaseGapNurse = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                margin={{ vertical: 'small' }}
+                margin={{ vertical: isMobile ? 'none' : 'small' }}
               >
                 Technologies:
               </Heading>
@@ -170,7 +172,7 @@ export const CaseGapNurse = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                margin={{ vertical: 'small' }}
+                margin={{ vertical: isMobile ? 'none' : 'small' }}
               >
                 Languages:
               </Heading>
@@ -195,7 +197,7 @@ export const CaseGapNurse = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                margin={{ vertical: 'small' }}
+                margin={{ vertical: isMobile ? 'none' : 'small' }}
               >
                 Time:
               </Heading>
