@@ -5,56 +5,57 @@ import { Box, Grid } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
-import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 
-export const CaseGapNurse = () => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1110px)' });
-  const columnsCountTablet = isTabletOrMobile ? 1 : 2;
+export const CaseMMO = () => {
+  const isTablet = useMediaQuery({ query: '(max-width: 990px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     <Box>
-      <Box
-        style={isMobile ? { height: 'auto' } : { height: '835px' }}
-        background={
-          isMobile
-            ? undefined
-            : {
-                position: 'bottom',
-                size: 'small',
-                image: 'url(/assets/backgroundCaseGapnurse.svg)',
-              }
-        }
-      >
+      <Box>
         <Box width="100%" align="center">
-          <Heading level={2} color="brand">
-            Mobile app
+          <Heading
+            level={isMobile ? 4 : 2}
+            color="brand"
+            style={{ textAlign: 'center' }}
+          >
+            Web-site MMO.CAT
           </Heading>
         </Box>
         <Grid
           columns={['auto', 'auto']}
-          pad={{ horizontal: 'xlarge' }}
-          style={isMobile ? { height: 'auto' } : { height: '480px' }}
+          pad={
+            isTablet
+              ? { horizontal: 'large', vertical: 'large' }
+              : { horizontal: 'xlarge', vertical: 'large' }
+          }
+          style={isMobile ? { height: 'auto' } : { height: 'auto' }}
           align={textAlignVariant}
         >
-          <Box align={textAlignVariant} pad={{ left: 'large', top: 'large' }}>
-            <Box>
-              <img src="/assets/logoGapNurse.svg" alt=" Gap Nurse " />
+          <Box
+            align={textAlignVariant}
+            pad={isTablet ? { top: 'large' } : { left: 'large', top: 'large' }}
+          >
+            <Box background={{ color: '#241F43' }} pad="small">
+              <img src="/assets/logoMMO.png" alt="Logo of MMO.CAT project" />
             </Box>
             {isMobile || (
               <Box>
-                <Box width="470px" pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
+                <Box pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
                   <Heading
-                    level={4}
+                    level={5}
                     color="brand"
-                    style={{ lineHeight: '130%', fontSize: '24px' }}
-                    margin={{ vertical: '10px' }}
+                    style={{ lineHeight: '130%' }}
+                    margin={{ vertical: 'xsmall' }}
                   >
                     About client:
                   </Heading>
                 </Box>
 
-                <Box width="380px">
+                <Box
+                  style={isTablet ? { width: '320px' } : { width: '370px' }}
+                  pad={{ right: 'large' }}
+                >
                   <Text
                     size="medium"
                     color="text-dark-grey"
@@ -63,46 +64,34 @@ export const CaseGapNurse = () => {
                       lineHeight: '150%',
                     }}
                   >
-                    With GapNurse, facilities know they’re covered during
-                    critical moments and unexpected absences without breaking
-                    your budget.
+                    We provided full-stack development service for end-to-end
+                    websites of MMO.cat team
                   </Text>
                 </Box>
               </Box>
             )}
           </Box>
-          <Box align="center">
-            <Grid
-              columns={{ count: columnsCountTablet, size: 'auto' }}
-              gap="medium"
-            >
-              <Box align="center">
-                <img
-                  style={{ height: 'auto', width: '100%' }}
-                  src="/assets/PhoneGapNurse.png"
-                  alt="The iphone that shows the application GapNurse"
-                />
-              </Box>
-              {isTabletOrMobile || (
-                <Box align="center">
-                  <img
-                    style={{ height: 'auto', width: '100%' }}
-                    src="/assets/PhoneGapNurse2.png"
-                    alt="The iphone that shows the application GapNurse"
-                  />
-                </Box>
-              )}
-            </Grid>
+          <Box
+            style={{ height: '100%' }}
+            align="center"
+            justify="center"
+            pad={isMobile ? { horizontal: 'large' } : undefined}
+          >
+            <img
+              style={{ height: 'auto', width: '100%' }}
+              src="/assets/sectionMMO.png"
+              alt="Screenshot of MMO website page "
+            />
           </Box>
         </Grid>
         {isMobile && (
-          <Box align="left" pad={{ horizontal: 'xlarge' }}>
+          <Box align="start" pad={{ horizontal: 'xlarge' }}>
             <Box style={{ width: '100%' }}>
               <Heading
                 level={6}
                 color="brand"
-                style={{ lineHeight: '100%' }}
-                margin={{ vertical: '10px' }}
+                style={{ lineHeight: '130%' }}
+                margin={{ vertical: 'xsmall' }}
               >
                 About client:
               </Heading>
@@ -112,18 +101,19 @@ export const CaseGapNurse = () => {
                 color="text-dark-grey"
                 style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
               >
-                With GapNurse, facilities know they’re covered during critical
-                moments and unexpected absences without breaking your budget.
+                We provided full-stack development service for end-to-end
+                websites of MMO.cat team
               </Text>
             </Box>
           </Box>
         )}
         <Box
           width="100%"
-          height={isMobile ? '130px' : '150px'}
+          style={isMobile ? { height: '130px' } : { height: '210px' }}
           align="center"
-          margin={isMobile ? { top: '30px' } : { top: '70px' }}
-          background={{ color: '#5E5999' }}
+          justify="center"
+          margin={isMobile ? { top: '30px' } : undefined}
+          background={{ color: '#FF1B60' }}
         >
           <Grid
             columns={['1/3', '1/3', '1/3']}
@@ -216,11 +206,10 @@ export const CaseGapNurse = () => {
       <Box>
         <img
           style={{ width: '100%', height: 'auto' }}
-          src="/assets/backgroundScreenshotsGapNurse.png"
-          alt="screenshots GapNurse"
+          src="/assets/backgroundCaseMMO.png"
+          alt="Screenshots of MMO.CAT website"
         />
       </Box>
-      <ButtonNextCase />
     </Box>
   );
 };

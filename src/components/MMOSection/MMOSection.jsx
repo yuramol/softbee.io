@@ -95,7 +95,7 @@ export const MMOSection = ({ withBackground }) => {
                 for end-to-end websites of MMO.cat team
               </Text>
             </Box>
-            {isMobile || <RouterLink to="/404">See case study</RouterLink>}
+            {isMobile || <RouterLink to="/mmo-case">See case study</RouterLink>}
           </Box>
         </Box>
         {isMobile && (
@@ -118,7 +118,7 @@ export const MMOSection = ({ withBackground }) => {
         )}
         {isMobile && (
           <Box pad={{ bottom: 'xlarge', top: 'large' }}>
-            <RouterLink align="center" to="/404">
+            <RouterLink align="center" to="/mmo-case">
               See case study
             </RouterLink>
           </Box>
