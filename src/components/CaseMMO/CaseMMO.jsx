@@ -80,7 +80,7 @@ export const CaseMMO = () => {
             <img
               style={{ height: 'auto', width: '100%' }}
               src="/assets/sectionMMO.png"
-              alt="screenshot of MMO website page "
+              alt="Screenshot of MMO website page "
             />
           </Box>
         </Grid>
