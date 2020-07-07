@@ -37,7 +37,7 @@ export const CaseMMO = () => {
             pad={isTablet ? { top: 'large' } : { left: 'large', top: 'large' }}
           >
             <Box background={{ color: '#241F43' }} pad="small">
-              <img src="/assets/logoMMO.png" alt=" Logo MMO" />
+              <img src="/assets/logoMMO.png" alt=" Logo MMO.CAT" />
             </Box>
             {isMobile || (
               <Box>
@@ -205,7 +205,7 @@ export const CaseMMO = () => {
         <img
           style={{ width: '100%', height: 'auto' }}
           src="/assets/backgroundCaseMMO.png"
-          alt="screenshots GapNurse"
+          alt="screenshots MMO.CAT"
         />
       </Box>
     </Box>
