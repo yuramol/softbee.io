@@ -28,7 +28,9 @@ const getFontWeight = level => {
     case 2:
       return '300';
     case 3:
-      return '800';
+      return '300';
+    case 4:
+      return '300';
     default:
       return '400';
   }
