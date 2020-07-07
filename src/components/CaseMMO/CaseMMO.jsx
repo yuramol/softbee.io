@@ -207,7 +207,7 @@ export const CaseMMO = () => {
         <img
           style={{ width: '100%', height: 'auto' }}
           src="/assets/backgroundCaseMMO.png"
-          alt="screenshots MMO.CAT"
+          alt="Screenshots MMO.CAT"
         />
       </Box>
     </Box>
