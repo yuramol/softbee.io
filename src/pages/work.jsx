@@ -24,7 +24,7 @@ const WorkPage = ({ location }) => {
     <Layout location={location} title={siteTitle} withBackground>
       <SiteHeader />
       <SEO title={siteTitle} keywords={keywords} />
-      <WorkHeroSection withBackground />
+      <WorkHeroSection />
       <GapNurseSection />
       <ToolchainSection />
       <MMOSection />
