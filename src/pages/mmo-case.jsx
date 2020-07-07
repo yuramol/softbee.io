@@ -9,7 +9,7 @@ const siteTitle = 'SoftBee';
 const PageCaseMMO = () => {
   return (
     <Layout title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="MMO.CAT Case" />
       <CaseMMO />
     </Layout>
   );
