@@ -20,23 +20,32 @@ const skillItems = [
 export const WorkHeroSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const rowsCount = size === 'small' ? 2 : 1;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const textAlignVariant = isTabletOrMobile ? 'center' : 'start';
-  const fontSizeVariant = isTabletOrMobile ? 4 : 2;
-  const paddingVariant = isTabletOrMobile ? 'small' : 'medium';
+  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
+  const headingSize = isDesktopOrTablet ? 3 : 2;
+  const alignVariant = isMobile ? 'center' : 'start';
+  const textMarginVariant = isMobile
+    ? { horizontal: 'medium', vertical: 'xsmall' }
+    : { vertical: 'xsmall' };
+  const gridColumns = isMobile ? 2 : 1;
+  const textFontSizeVariant = isMobile ? 'small' : 'xlarge';
+  const paddingVariant = isMobile
+    ? { horizontal: 'large', vertical: 'medium' }
+    : { horizontal: 'xlarge', vertical: 'medium' };
+
   return (
     <Box
+      height={{ min: '695px' }}
+      justify="center"
       background={
-        withBackground
+        !isMobile && withBackground
           ? {
               size: 'small',
-              position: 'top right',
-              image: 'url(./assets/background-gapNurse.svg)',
-              color: '#F0F6F4',
+              position: 'bottom right',
+              image: 'url(./assets/background-work.svg)',
             }
           : {
-              color: '#F0F6F4',
+              color: '#FFFFFF',
             }
       }
     >
@@ -45,53 +54,83 @@ export const WorkHeroSection = ({ withBackground }) => {
       </Heading>
       <Grid
         columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-        rows={{ count: rowsCount, size: 'auto' }}
         pad={paddingVariant}
         fill="horizontal"
       >
-        <Box justify="center" align={textAlignVariant}>
-          <Box width="65%">
+        <Box
+          justify="center"
+          margin={isMobile ? { bottom: 'xlarge' } : { paddingVariant }}
+        >
+          <Box>
             <Heading
-              level={fontSizeVariant}
+              level={headingSize}
               color="brand"
-              textAlign={textAlignVariant}
+              textAlign="start"
               wordBreak="normal"
+              margin={{ top: 'small' }}
             >
               How we work and what we do. And a bit of our favorite projects and
               the impact they&apos;ve made.
             </Heading>
-          </Box>
-
-          <Box width="50%" pad={{ bottom: 'small' }}>
-            <Text size="medium" color="brand">
-              We work really well together but are awesome separately, too. Hire
-              only what you need, we’ll build our team around your project.
-            </Text>
-          </Box>
-          <Box width="50%" pad={{ bottom: 'large' }}>
-            <Text size="medium" color="brand">
-              From small HTML-template, to building entire applications, we’ve
-              worked on projects of all sizes.
-            </Text>
-          </Box>
-          <Box justify="center" align="center" height="60px" width="200px">
-            <StyledButton label="How we work" fill color="accent-1" primary />
+            <Box pad={{ bottom: 'small' }}>
+              <Text size="medium" color="brand">
+                We work really well together but are awesome separately, too.
+                Hire only what you need, we’ll build our team around your
+                project.
+              </Text>
+            </Box>
+            <Box pad={{ bottom: 'large' }}>
+              <Text size="medium" color="brand">
+                From small HTML-template, to building entire applications, we’ve
+                worked on projects of all sizes.
+              </Text>
+            </Box>
+            <Box
+              justify="center"
+              alignSelf={alignVariant}
+              height="60px"
+              width="200px"
+            >
+              <StyledButton label="How we work" fill color="accent-1" primary />
+            </Box>
           </Box>
         </Box>
-        <Box justify="end">
-          <Heading level={2} color="text-white" wordBreak="normal">
+        <Box
+          justify="end"
+          pad={!isMobile ? { left: '200px' } : { paddingVariant }}
+          background={
+            isMobile
+              ? {
+                  color: 'brand',
+                }
+              : undefined
+          }
+        >
+          <Heading
+            level={headingSize}
+            alignSelf="center"
+            color="text-white"
+            wordBreak="normal"
+          >
             What we do?
           </Heading>
-          {skillItems.map(skillItem => (
-            <Text
-              key={skillItem}
-              margin="xsmall"
-              size="xlarge"
-              color="text-white"
-            >
-              {skillItem}
-            </Text>
-          ))}
+
+          <Grid
+            alignSelf="center"
+            columns={{ count: gridColumns, size: ['auto', 'auto'] }}
+            pad={isMobile ? { bottom: 'large' } : undefined}
+          >
+            {skillItems.map(skillItem => (
+              <Text
+                key={skillItem}
+                size={textFontSizeVariant}
+                margin={textMarginVariant}
+                color="text-white"
+              >
+                {skillItem}
+              </Text>
+            ))}
+          </Grid>
         </Box>
       </Grid>
     </Box>
