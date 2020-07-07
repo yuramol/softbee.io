@@ -11,9 +11,11 @@ const getFontSize = level => {
     case 3:
       return '30px';
     case 4:
-      return '24px';
+      return '36px';
     case 5:
-      return '16px';
+      return '24px';
+    case 6:
+      return '20px';
     default:
       return '16px';
   }
@@ -43,7 +45,7 @@ const getLineHeight = level => {
     case 3:
       return '30px';
     case 4:
-      return '32px';
+      return '40px';
     default:
       return '';
   }
