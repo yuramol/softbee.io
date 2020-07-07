@@ -85,7 +85,7 @@ export const CaseMMO = () => {
           </Box>
         </Grid>
         {isMobile && (
-          <Box align="left" pad={{ horizontal: 'xlarge' }}>
+          <Box align="start" pad={{ horizontal: 'xlarge' }}>
             <Box style={{ width: '100%' }}>
               <Heading
                 level={6}
@@ -109,7 +109,7 @@ export const CaseMMO = () => {
         )}
         <Box
           width="100%"
-          style={isMobile ? { height: 'auto' } : { height: '210px' }}
+          style={isMobile ? { height: '130px' } : { height: '210px' }}
           align="center"
           justify="center"
           margin={isMobile ? { top: '30px' } : undefined}
@@ -118,7 +118,9 @@ export const CaseMMO = () => {
           <Grid
             columns={['1/3', '1/3', '1/3']}
             style={
-              isMobile ? { width: '100%', height: '150px' } : { width: 'auto' }
+              isMobile
+                ? { width: '100%', height: isMobile ? '130px' : '150px' }
+                : { width: 'auto' }
             }
             pad="small"
           >
@@ -134,7 +136,7 @@ export const CaseMMO = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                margin={{ vertical: 'small' }}
+                margin={{ vertical: isMobile ? 'none' : 'small' }}
               >
                 Technologies:
               </Heading>
@@ -160,7 +162,7 @@ export const CaseMMO = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                margin={{ vertical: 'small' }}
+                margin={{ vertical: isMobile ? 'none' : 'small' }}
               >
                 Languages:
               </Heading>
@@ -185,7 +187,7 @@ export const CaseMMO = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                margin={{ vertical: 'small' }}
+                margin={{ vertical: isMobile ? 'none' : 'small' }}
               >
                 Time:
               </Heading>
