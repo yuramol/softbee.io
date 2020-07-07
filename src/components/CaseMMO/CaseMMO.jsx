@@ -80,7 +80,7 @@ export const CaseMMO = () => {
             <img
               style={{ height: 'auto', width: '100%' }}
               src="/assets/sectionMMO.png"
-              alt="screenshot of MMO website page "
+              alt="Screenshot of MMO website page "
             />
           </Box>
         </Grid>
@@ -207,7 +207,7 @@ export const CaseMMO = () => {
         <img
           style={{ width: '100%', height: 'auto' }}
           src="/assets/backgroundCaseMMO.png"
-          alt="screenshots MMO.CAT"
+          alt="Screenshots MMO.CAT"
         />
       </Box>
     </Box>
