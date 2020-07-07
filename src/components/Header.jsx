@@ -26,7 +26,7 @@ export const SiteHeader = () => (
           <Box pad="small" width="100%" background={{ color: 'brand' }}>
             <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
               <HeaderMenu />
-              <Box align="center" justify="center">
+              <Box align="center" justify="center" pad={{ right: '54px' }}>
                 <Link to="/">
                   <Image src="/assets/logo.svg" alt="Soft Bee" href="/" />
                 </Link>
