@@ -3,6 +3,7 @@ import { Link as LibLink } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import styled from 'styled-components';
+import { theme } from '../utils/theme';
 
 const StyledLink = styled(LibLink)`
   color: ${({ color }) => color};
@@ -23,5 +24,5 @@ RouterLink.propTypes = {
 };
 
 RouterLink.defaultProps = {
-  color: '#25BBC5',
+  color: theme.global.colors['accent-2'],
 };
