@@ -1,33 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grommet, Box } from 'grommet';
+import { Grommet, Box, ResponsiveContext } from 'grommet';
 
 import 'normalize.css';
 import { theme } from '../utils/theme';
 
 export const Layout = ({ children, withBackground }) => {
+  const image = size =>
+    size === 'small' ? undefined : 'url(/assets/backgroundHeader.svg)';
+
   return (
     <Grommet theme={theme}>
-      <Box
-        fill
-        background={
-          withBackground
-            ? {
-                size: 'small',
-                position: 'absolute',
-                image: 'url(/assets/backgroundHeader.svg)',
-                color: '#F0F6F4',
-              }
-            : {
-                size: 'small',
-                position: 'absolute',
-                image: 'url(/assets/backgroundHeader.svg)',
-              }
-        }
-        width={{ max: '1400px' }}
-      >
-        {children}
-      </Box>
+      <ResponsiveContext.Consumer>
+        {size => (
+          <Box
+            fill
+            background={
+              withBackground
+                ? {
+                    size: 'small',
+                    position: 'absolute',
+                    image: image(size),
+                    color: '#F0F6F4',
+                  }
+                : {
+                    size: 'small',
+                    position: 'absolute',
+                    image: image(size),
+                  }
+            }
+            width={{ max: '1400px' }}
+          >
+            {children}
+          </Box>
+        )}
+      </ResponsiveContext.Consumer>
     </Grommet>
   );
 };
