@@ -67,7 +67,7 @@ export const WorkHeroSection = ({ withBackground }) => {
               color="brand"
               textAlign="start"
               wordBreak="normal"
-              margin={{ top: 'small' }}
+              margin={{ top: 'none' }}
             >
               How we work and what we do. And a bit of our favorite projects and
               the impact they&apos;ve made.
