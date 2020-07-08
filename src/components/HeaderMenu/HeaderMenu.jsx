@@ -62,6 +62,7 @@ const HeaderMenu = () => {
                     plain
                     label={linkItem.label}
                     href={linkItem.link}
+                    onClick={onClose}
                     style={{
                       boxShadow: `none`,
                       textDecoration: `none`,
@@ -73,6 +74,7 @@ const HeaderMenu = () => {
               <Box height="60px" width="200px">
                 <Button
                   label="Let’s talk 👋"
+                  onClick={onClose}
                   fill
                   color="yellow"
                   style={{
