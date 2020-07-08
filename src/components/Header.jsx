@@ -9,9 +9,15 @@ import {
   Nav,
   ResponsiveContext,
 } from 'grommet';
+import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
+
+const StyledBox = styled(Box)`
+  top: 0;
+  position: fixed;
+`;
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -26,7 +32,12 @@ export const SiteHeader = () => {
   return (
     <Header>
       {size === 'small' ? (
-        <Box pad="medium" width="100%" background={{ color: 'brand' }}>
+        <StyledBox
+          elevation="medium"
+          pad="medium"
+          width="100%"
+          background={{ color: 'brand' }}
+        >
           <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
             <HeaderMenu />
             <Box align="center" justify="center" pad={{ right: '54px' }}>
@@ -35,7 +46,7 @@ export const SiteHeader = () => {
               </Link>
             </Box>
           </Grid>
-        </Box>
+        </StyledBox>
       ) : (
         <Grid
           pad={{

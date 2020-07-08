@@ -15,6 +15,7 @@ export const Layout = ({ children, withBackground }) => {
         {size => (
           <Box
             fill
+            margin={{ top: size === 'small' ? 'xlarge' : 'none' }}
             background={
               withBackground
                 ? {
