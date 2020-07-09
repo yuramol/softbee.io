@@ -51,25 +51,20 @@ const HeaderMenu = () => {
           >
             <Nav direction="column" justify="center">
               {linkItems.map(linkItem => (
-                <Box
+                <Button
+                  plain
+                  size="large"
                   key={linkItem.id}
-                  align="center"
-                  height="60px"
-                  width="200px"
-                >
-                  <Button
-                    margin={{ vertical: 'small' }}
-                    plain
-                    label={linkItem.label}
-                    href={linkItem.link}
-                    onClick={onClose}
-                    style={{
-                      boxShadow: `none`,
-                      textDecoration: `none`,
-                      fontSize: '18px',
-                    }}
-                  />
-                </Box>
+                  margin={{ vertical: 'xsmall' }}
+                  label={linkItem.label}
+                  href={linkItem.link}
+                  onClick={onClose}
+                  style={{
+                    textAlign: 'center',
+                    fontSize: '18px',
+                    lineHeight: '40px',
+                  }}
+                />
               ))}
               <Box height="60px" width="200px">
                 <Button
