@@ -47,7 +47,7 @@ const getLineHeight = level => {
     case 4:
       return '40px';
     default:
-      return '';
+      return '20px';
   }
 };
 
