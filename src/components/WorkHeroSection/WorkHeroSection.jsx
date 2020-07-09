@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Box, Grid } from 'grommet';
+import { useMediaQuery } from 'react-responsive';
 
 import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
@@ -13,62 +15,137 @@ const skillItems = [
   'Backend',
   'Mobile apps',
 ];
-export const WorkHeroSection = () => (
-  <Box
-    height="695px"
-    background={{
-      size: 'small',
-      position: 'right',
-      image: 'url(/assets/background-work.svg)',
-    }}
-  >
-    <Heading alignSelf="center" level={1} color="brand" wordBreak="normal">
-      Work
-    </Heading>
-    <Grid columns={{ count: 2, size: 'auto' }} gap="small" fill="horizontal">
-      <Box
-        justify="center"
-        align="start"
-        pad={{ bottom: 'small', left: 'large' }}
-      >
-        <Box pad={{ bottom: 'medium' }}>
-          <Heading level={2} color="brand" wordBreak="normal">
-            How we work and what we do. And a bit of our favorite projects and
-            the impact they have made.
-          </Heading>
-        </Box>
 
-        <Box width="70%" pad={{ bottom: 'small' }}>
-          <Text size="medium" color="brand">
-            We work really well together but are awesome separately, too. Hire
-            only what you need, we’ll build our team around your project.
-          </Text>
+export const WorkHeroSection = ({ withBackground }) => {
+  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const columnsCount = isMobile ? 1 : 2;
+  const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
+  const headingSize = isDesktopOrTablet ? 4 : 2;
+  const alignVariant = isMobile ? 'center' : 'start';
+  const textMarginVariant = isMobile
+    ? { horizontal: 'medium', vertical: 'xsmall' }
+    : { vertical: 'xsmall' };
+  const gridColumns = isMobile ? 2 : 1;
+  const textFontSizeVariant = isMobile ? 'small' : 'xlarge';
+  const paddingVariant = isMobile
+    ? { horizontal: 'large', vertical: 'medium' }
+    : { horizontal: 'xlarge', vertical: 'medium' };
+
+  return (
+    <Box
+      height={{ min: '695px' }}
+      justify="center"
+      background={
+        !isMobile && withBackground
+          ? {
+              size: 'xxsmall',
+              position: 'bottom right',
+              image: 'url(/assets/background-work.svg)',
+            }
+          : {
+              color: '#FFFFFF',
+            }
+      }
+    >
+      <Heading alignSelf="center" level={1} color="brand" wordBreak="normal">
+        Work
+      </Heading>
+      <Grid
+        columns={{ count: columnsCount, size: ['auto', 'auto'] }}
+        fill="horizontal"
+      >
+        <Box
+          pad={paddingVariant}
+          justify="center"
+          margin={isMobile ? { bottom: 'large' } : { paddingVariant }}
+        >
+          <Box>
+            <Heading
+              level={headingSize}
+              color="brand"
+              textAlign="start"
+              wordBreak="normal"
+              margin={{ top: 'none' }}
+            >
+              How we work and what we do. And a bit of our favorite projects and
+              the impact they&apos;ve made.
+            </Heading>
+            <Box pad={{ bottom: 'small' }}>
+              <Text size="medium" color="brand">
+                We work really well together but are awesome separately, too.
+                Hire only what you need, we’ll build our team around your
+                project.
+              </Text>
+            </Box>
+            <Box pad={{ bottom: 'large' }}>
+              <Text size="medium" color="brand">
+                From small HTML-template, to building entire applications, we’ve
+                worked on projects of all sizes.
+              </Text>
+            </Box>
+            <Box
+              pad={{ top: 'medium' }}
+              justify="center"
+              alignSelf={alignVariant}
+              height="60px"
+              width="200px"
+            >
+              <StyledButton label="How we work" fill color="accent-1" primary />
+            </Box>
+          </Box>
         </Box>
-        <Box width="70%" pad={{ bottom: 'large' }}>
-          <Text size="medium" color="brand">
-            From small HTML-template, to building entire applications, we’ve
-            worked on projects of all sizes.
-          </Text>
-        </Box>
-        <Box justify="center" align="center" height="60px" width="200px">
-          <StyledButton label="How we work" fill color="accent-1" primary />
-        </Box>
-      </Box>
-      <Box pad={{ left: '50%', top: '20%' }}>
-        <Heading level={2} color="text-white" wordBreak="normal">
-          What we do?
-        </Heading>
-        {skillItems.map(skillItem => (
-          <Text
-            key={skillItem}
-            margin="xsmall"
-            size="xlarge"
+        <Box
+          justify="end"
+          pad={
+            !isMobile
+              ? { left: '200px', right: '40px', bottom: '50px' }
+              : { paddingVariant }
+          }
+          background={
+            isMobile
+              ? {
+                  color: 'brand',
+                }
+              : undefined
+          }
+        >
+          <Heading
+            level={headingSize}
+            alignSelf="center"
             color="text-white"
+            wordBreak="normal"
+            fontWeight="normal"
+            margin={{ vertical: isMobile ? 'large' : 'small' }}
           >
-            {skillItem}
-          </Text>
-        ))}
-      </Box>
-    </Grid>
-  </Box>
-);
+            What we do?
+          </Heading>
+
+          <Grid
+            alignSelf={isMobile ? 'center' : undefined}
+            columns={{ count: gridColumns, size: ['auto', 'auto'] }}
+            pad={isMobile ? { bottom: 'large' } : undefined}
+          >
+            {skillItems.map(skillItem => (
+              <Text
+                key={skillItem}
+                size={textFontSizeVariant}
+                margin={textMarginVariant}
+                color="text-white"
+              >
+                {skillItem}
+              </Text>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
+    </Box>
+  );
+};
+
+WorkHeroSection.propTypes = {
+  withBackground: PropTypes.bool,
+};
+
+WorkHeroSection.defaultProps = {
+  withBackground: undefined,
+};
