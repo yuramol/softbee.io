@@ -13,26 +13,28 @@ export const Layout = ({ children, withBackground }) => {
     <Grommet theme={theme}>
       <ResponsiveContext.Consumer>
         {size => (
-          <Box
-            fill
-            pad={{ top: size === 'small' ? '70px' : 'none' }}
-            background={
-              withBackground
-                ? {
-                    size: 'small',
-                    position: 'absolute',
-                    image: image(size),
-                    color: '#F0F6F4',
-                  }
-                : {
-                    size: 'small',
-                    position: 'absolute',
-                    image: image(size),
-                  }
-            }
-            width={{ max: '1400px' }}
-          >
-            {children}
+          <Box align="center">
+            <Box
+              fill
+              pad={{ top: size === 'small' ? '70px' : 'none' }}
+              background={
+                withBackground
+                  ? {
+                      size: 'small',
+                      position: 'absolute',
+                      image: image(size),
+                      color: '#F0F6F4',
+                    }
+                  : {
+                      size: 'small',
+                      position: 'absolute',
+                      image: image(size),
+                    }
+              }
+              width={{ max: '1440px' }}
+            >
+              {children}
+            </Box>
           </Box>
         )}
       </ResponsiveContext.Consumer>
