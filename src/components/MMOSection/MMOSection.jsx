@@ -9,11 +9,11 @@ import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 
 export const MMOSection = ({ withBackground }) => {
+  const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
-  const heightSection = withBackground ? '800px' : '600px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headerLevel = isMobile ? 4 : 2;
   const paddingVariant = isMobile
@@ -22,18 +22,20 @@ export const MMOSection = ({ withBackground }) => {
 
   return (
     <Box
-      height={isMobile ? '850px' : heightSection}
+      height={isMobile ? '850px' : '800px'}
       justify="center"
       background={
         withBackground
           ? {
               size: 'small',
               position: 'absolute',
-              image: 'url(/assets/mmoBackground.svg)',
+              image: shouldHaveBlueFigure
+                ? 'url(/assets/mmoBackground.svg)'
+                : undefined,
               color: '#F0F6F4',
             }
           : {
-              color: '#F0F6F4',
+              color: 'white',
             }
       }
     >

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid } from 'grommet';
+import styled from 'styled-components';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 import { useMediaQuery } from 'react-responsive';
 
 import { Heading } from '../../legos/typography/Heading';
@@ -16,7 +17,12 @@ const skillItems = [
   'Mobile apps',
 ];
 
+const StyledHeading = styled(Heading)`
+  max-width: unset;
+`;
+
 export const WorkHeroSection = ({ withBackground }) => {
+  const size = React.useContext(ResponsiveContext);
   const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
   const columnsCount = isMobile ? 1 : 2;
   const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
@@ -36,11 +42,11 @@ export const WorkHeroSection = ({ withBackground }) => {
       height={{ min: '695px' }}
       justify="center"
       background={
-        !isMobile && withBackground
+        size !== 'small' && withBackground
           ? {
-              size: 'xxsmall',
+              size: 'small',
               position: 'bottom right',
-              image: 'url(/assets/background-work.svg)',
+              image: isMobile ? undefined : 'url(/assets/background-work.svg)',
             }
           : {
               color: '#FFFFFF',
@@ -60,7 +66,7 @@ export const WorkHeroSection = ({ withBackground }) => {
           margin={isMobile ? { bottom: 'large' } : { paddingVariant }}
         >
           <Box>
-            <Heading
+            <StyledHeading
               level={headingSize}
               color="brand"
               textAlign="start"
@@ -69,7 +75,7 @@ export const WorkHeroSection = ({ withBackground }) => {
             >
               How we work and what we do. And a bit of our favorite projects and
               the impact they&apos;ve made.
-            </Heading>
+            </StyledHeading>
             <Box pad={{ bottom: 'small' }}>
               <Text size="medium" color="brand">
                 We work really well together but are awesome separately, too.

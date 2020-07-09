@@ -10,6 +10,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
 export const GapNurseSection = ({ withBackground }) => {
+  const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
@@ -24,16 +25,19 @@ export const GapNurseSection = ({ withBackground }) => {
   return (
     <Box
       height={isTablet ? undefined : heightSection}
+      justify="center"
       background={
         withBackground
           ? {
               size: 'small',
               position: 'top right',
-              image: 'url(/assets/background-gapNurse.svg)',
+              image: shouldHaveBlueFigure
+                ? 'url(/assets/background-gapNurse.svg)'
+                : undefined,
               color: '#F0F6F4',
             }
           : {
-              color: '#F0F6F4',
+              color: 'white',
             }
       }
     >
