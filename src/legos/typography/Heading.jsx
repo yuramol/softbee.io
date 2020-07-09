@@ -28,7 +28,9 @@ const getFontWeight = level => {
     case 2:
       return '300';
     case 3:
-      return '800';
+      return '300';
+    case 4:
+      return '300';
     default:
       return '400';
   }
@@ -45,14 +47,14 @@ const getLineHeight = level => {
     case 4:
       return '40px';
     default:
-      return '';
+      return '20px';
   }
 };
 
 const StyledHeading = styled(LibHeading)`
   font-size: ${({ level }) => getFontSize(level)};
-  font-weight: ${({ level }) => getFontWeight(level)};
-  line-height: ${({ level }) => getLineHeight(level)};
+  font-weight: ${({ fontWeight, level }) => fontWeight || getFontWeight(level)};
+  line-height: ${({ lineHeight, level }) => lineHeight || getLineHeight(level)};
 `;
 
 export const Heading = ({ children, ...props }) => (
