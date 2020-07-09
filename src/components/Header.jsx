@@ -19,6 +19,11 @@ const StyledBox = styled(Box)`
   position: fixed;
 `;
 
+const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
+
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
   { id: '2', label: 'Our team', link: '/our-team' },
@@ -41,9 +46,9 @@ export const SiteHeader = () => {
           <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
             <HeaderMenu />
             <Box align="center" justify="center" pad={{ right: '54px' }}>
-              <Link to="/">
-                <Image src="/assets/logo.svg" alt="Soft Bee" href="/" />
-              </Link>
+              <StyledLink to="/">
+                <Image src="/assets/logo.svg" alt="Soft Bee" />
+              </StyledLink>
             </Box>
           </Grid>
         </StyledBox>
@@ -61,12 +66,7 @@ export const SiteHeader = () => {
         >
           <Box align="start" justify="center" pad={{ right: '150px' }}>
             <Link to="/">
-              <Image
-                src="/assets/logo.svg"
-                alt="Soft Bee"
-                alignSelf="start"
-                href="/"
-              />
+              <Image src="/assets/logo.svg" alt="Soft Bee" alignSelf="start" />
             </Link>
           </Box>
           <Nav direction="row" align="center" justify="end">
