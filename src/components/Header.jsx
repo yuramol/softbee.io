@@ -16,7 +16,10 @@ import HeaderMenu from './HeaderMenu/HeaderMenu';
 
 const StyledBox = styled(Box)`
   top: 0;
+  right: 0;
+  left: 0;
   position: fixed;
+  max-width: 100vw;
 `;
 
 const StyledLink = styled(Link)`
@@ -39,7 +42,7 @@ export const SiteHeader = () => {
       {size === 'small' ? (
         <StyledBox
           elevation="medium"
-          pad="medium"
+          pad="small"
           width="100%"
           background={{ color: 'brand' }}
         >
