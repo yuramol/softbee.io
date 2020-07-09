@@ -42,7 +42,7 @@ export const WorkHeroSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'bottom right',
-              image: 'url(./assets/background-work.svg)',
+              image: 'url(/assets/background-work.svg)',
             }
           : {
               color: '#FFFFFF',
