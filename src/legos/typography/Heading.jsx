@@ -53,8 +53,8 @@ const getLineHeight = level => {
 
 const StyledHeading = styled(LibHeading)`
   font-size: ${({ level }) => getFontSize(level)};
-  font-weight: ${({ level }) => getFontWeight(level)};
-  line-height: ${({ level }) => getLineHeight(level)};
+  font-weight: ${({ fontWeight, level }) => fontWeight || getFontWeight(level)};
+  line-height: ${({ lineHeight, level }) => lineHeight || getLineHeight(level)};
 `;
 
 export const Heading = ({ children, ...props }) => (

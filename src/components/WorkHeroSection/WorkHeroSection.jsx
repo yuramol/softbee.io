@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box, Grid } from 'grommet';
 import { useMediaQuery } from 'react-responsive';
-
-import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
@@ -18,11 +17,10 @@ const skillItems = [
 ];
 
 export const WorkHeroSection = ({ withBackground }) => {
-  const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const columnsCount = isMobile ? 1 : 2;
   const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
-  const headingSize = isDesktopOrTablet ? 3 : 2;
+  const headingSize = isDesktopOrTablet ? 4 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
   const textMarginVariant = isMobile
     ? { horizontal: 'medium', vertical: 'xsmall' }
@@ -40,7 +38,7 @@ export const WorkHeroSection = ({ withBackground }) => {
       background={
         !isMobile && withBackground
           ? {
-              size: 'small',
+              size: 'xxsmall',
               position: 'bottom right',
               image: 'url(/assets/background-work.svg)',
             }
@@ -54,12 +52,12 @@ export const WorkHeroSection = ({ withBackground }) => {
       </Heading>
       <Grid
         columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-        pad={paddingVariant}
         fill="horizontal"
       >
         <Box
+          pad={paddingVariant}
           justify="center"
-          margin={isMobile ? { bottom: 'xlarge' } : { paddingVariant }}
+          margin={isMobile ? { bottom: 'large' } : { paddingVariant }}
         >
           <Box>
             <Heading
@@ -86,6 +84,7 @@ export const WorkHeroSection = ({ withBackground }) => {
               </Text>
             </Box>
             <Box
+              pad={{ top: 'medium' }}
               justify="center"
               alignSelf={alignVariant}
               height="60px"
@@ -97,7 +96,11 @@ export const WorkHeroSection = ({ withBackground }) => {
         </Box>
         <Box
           justify="end"
-          pad={!isMobile ? { left: '200px' } : { paddingVariant }}
+          pad={
+            !isMobile
+              ? { left: '200px', right: '40px', bottom: '50px' }
+              : { paddingVariant }
+          }
           background={
             isMobile
               ? {
@@ -111,12 +114,14 @@ export const WorkHeroSection = ({ withBackground }) => {
             alignSelf="center"
             color="text-white"
             wordBreak="normal"
+            fontWeight="normal"
+            margin={{ vertical: isMobile ? 'large' : 'small' }}
           >
             What we do?
           </Heading>
 
           <Grid
-            alignSelf="center"
+            alignSelf={isMobile ? 'center' : undefined}
             columns={{ count: gridColumns, size: ['auto', 'auto'] }}
             pad={isMobile ? { bottom: 'large' } : undefined}
           >
