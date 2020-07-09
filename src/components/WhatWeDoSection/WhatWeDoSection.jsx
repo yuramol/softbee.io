@@ -35,7 +35,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
           justify="center"
           margin={{ horizontal: 'medium' }}
         >
-          <Heading level={headerLevel} color="brand">
+          <Heading level={headerLevel} margin={{ top: 'none' }} color="brand">
             What we do?
           </Heading>
         </Box>

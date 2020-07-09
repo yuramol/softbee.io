@@ -30,9 +30,9 @@ const IndexPage = ({ location }) => {
       <SEO title={siteTitle} keywords={keywords} />
       <SiteHeader />
       <HomeHeroSection withBackground={!isMobile} />
-      <GapNurseSection withBackground={!isMobile} />
+      <GapNurseSection withBackground />
       <TeamSection />
-      <MMOSection withBackground={!isMobile} />
+      <MMOSection withBackground />
       <LookingSection />
       <WhatWeDoSection />
       <LetsStarted />
