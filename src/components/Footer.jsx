@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { useMediaQuery } from 'react-responsive';
 import { Box, Footer, Grid, Image, FormField } from 'grommet';
 
 import { Button } from '../legos/Button/Button';
@@ -10,78 +11,103 @@ import { Heading } from '../legos/typography/Heading';
 import { TextInput } from '../legos/TextInput/TextInput';
 import SendButtonIcon from '../../static/assets/sendButton.svg';
 
+const linkFooterItems = [
+  { id: '1', label: 'Work', link: '/work' },
+  { id: '2', label: 'Our team', link: '/our-team' },
+  { id: '3', label: 'Contacts', link: '/contacts' },
+  { id: '4', label: 'Blog', link: '/blog' },
+];
+
 const StyledButton = styled(Button)`
   border-radius: unset;
 `;
 
-const linkItems = [
-  { id: '1', label: 'Work', link: '/work' },
-  { id: '2', label: 'Our team', link: '/our-team' },
-  { id: '3', label: 'Contacts', link: '/contacts' },
-];
+const StyledLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
 
-export const SiteFooter = () => (
-  <Footer background="brand" height="350px" justify="stretch">
-    <Grid columns={{ count: 2, size: 'auto' }} fill="horizontal">
-      <Box
-        justify="center"
-        align="stretch"
-        width="40vw"
-        margin={{ left: 'xlarge' }}
-        pad={{ left: 'xlarge' }}
+export const SiteFooter = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
+  const columnsCount = isMobile ? 1 : 2;
+  const alignVariant = isMobile ? 'center' : 'start';
+
+  return (
+    <Footer background="brand" justify="stretch">
+      <Grid
+        columns={{ count: columnsCount, size: ['auto', 'auto'] }}
+        fill="horizontal"
+        pad={isMobile ? 'large' : { vertical: 'large', horizontal: 'xlarge' }}
       >
-        <Link to="/">
-          <Image
-            src={Logo}
-            alt="Soft Bee"
-            alignSelf="start"
-            margin={{ bottom: 'medium' }}
-          />
-        </Link>
-        {linkItems.map(linkItem => (
-          <Text
-            key={linkItem.id}
-            size="large"
-            margin={{ top: 'small', left: '10px' }}
+        <Box
+          align={alignVariant}
+          pad={isMobile ? { right: 'none' } : { right: 'xlarge' }}
+        >
+          <StyledLink to="/">
+            <Image
+              src={Logo}
+              alt="Soft Bee"
+              margin={isMobile ? { bottom: 'small' } : { bottom: 'medium' }}
+            />
+          </StyledLink>
+          <Box
+            width="100%"
+            justify="stretch"
+            direction={isMobile ? 'row' : 'column'}
+            align={alignVariant}
+            pad={isMobile ? { vertical: 'none' } : { vertical: 'small' }}
+            style={{ justifyContent: 'space-between' }}
           >
-            <Link
-              style={{
-                boxShadow: `none`,
-                textDecoration: `none`,
-                color: `#FFFFFF`,
-              }}
-              to={linkItem.link}
-            >
-              {`${linkItem.label}`}
-            </Link>
-          </Text>
-        ))}
-      </Box>
-      <Box justify="center" align="stretch">
-        <Heading level={2}>Message us anything</Heading>
-        <Text alignSelf="start" size="large">
-          Your message will be posted in one of our <br /> Slack channels.
-        </Text>
-        <Box direction="row" width="50%" margin={{ top: '40px' }}>
-          <Grid columns={{ count: 2, size: 'auto' }} fill="horizontal">
-            <Box
-              style={{
-                justifyContent: 'flex-end',
-              }}
-              width="25vw"
-            >
-              <FormField margin="none">
-                <TextInput placeholder="Let’s create somethign dope!!! Xoxo" />
-              </FormField>
-            </Box>
-            <Box justify="end" align="start" width="55px">
-              <StyledButton margin={{ left: 'small' }}>
-                <Image src={SendButtonIcon} alt="Send Button" />
-              </StyledButton>
-            </Box>
-          </Grid>
+            {linkFooterItems.map(linkItem => (
+              <Button
+                size="large"
+                key={linkItem.id}
+                plain
+                label={linkItem.label}
+                href={linkItem.link}
+                style={{
+                  textAlign: { alignVariant },
+                  fontSize: '18px',
+                  lineHeight: '40px',
+                }}
+              />
+            ))}
+          </Box>
         </Box>
-      </Box>
-    </Grid>
-  </Footer>
-);
+        <Box
+          justify="center"
+          align="start"
+          pad={isMobile ? { left: 'none' } : { left: 'xlarge' }}
+        >
+          <Heading
+            alignSelf="start"
+            level={isMobile ? 3 : 2}
+            margin={{ bottom: 'small' }}
+          >
+            Message us anything
+          </Heading>
+          <Text alignSelf="start" size="large">
+            Your message will be posted in one of our <br /> Slack channels.
+          </Text>
+          <Box margin={{ top: 'medium' }}>
+            <Grid
+              columns={{ count: 2, size: ['auto', 'auto'] }}
+              fill="horizontal"
+            >
+              <Box>
+                <FormField margin="none">
+                  <TextInput placeholder="Let’s create somethign dope!!! Xoxo" />
+                </FormField>
+              </Box>
+              <Box justify="end" align="start" width="55px">
+                <StyledButton margin={{ left: 'small' }}>
+                  <Image src={SendButtonIcon} alt="Send Button" />
+                </StyledButton>
+              </Box>
+            </Grid>
+          </Box>
+        </Box>
+      </Grid>
+    </Footer>
+  );
+};
