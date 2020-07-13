@@ -69,6 +69,7 @@ export const SiteFooter = () => {
                   textAlign: { alignVariant },
                   fontSize: '18px',
                   lineHeight: '40px',
+                  fontWeight: '500',
                 }}
               />
             ))}
@@ -83,29 +84,34 @@ export const SiteFooter = () => {
             alignSelf="start"
             level={isMobile ? 3 : 2}
             margin={{ bottom: 'small' }}
+            fontWeight="500"
           >
             Message us anything
           </Heading>
-          <Text alignSelf="start" size="large">
+          <Text alignSelf="start" size="large" weight="400">
             Your message will be posted in one of our <br /> Slack channels.
           </Text>
-          <Box margin={{ top: 'medium' }}>
-            <Grid
-              columns={{ count: 2, size: ['auto', 'auto'] }}
-              fill="horizontal"
-            >
-              <Box>
-                <FormField margin="none">
-                  <TextInput placeholder="Let’s create somethign dope!!! Xoxo" />
-                </FormField>
-              </Box>
-              <Box justify="end" align="start" width="55px">
-                <StyledButton margin={{ left: 'small' }}>
-                  <Image src={SendButtonIcon} alt="Send Button" />
-                </StyledButton>
-              </Box>
-            </Grid>
-          </Box>
+          <Grid
+            columns={{ count: 2, size: ['auto', 'auto'] }}
+            fill="horizontal"
+            margin={{ top: 'medium' }}
+          >
+            <Box>
+              <FormField>
+                <Box margin={{ bottom: 'small' }}>
+                  <TextInput
+                    plain
+                    placeholder="Let’s create somethign dope!!! Xoxo"
+                  />
+                </Box>
+              </FormField>
+            </Box>
+            <Box justify="end" align="start" width="55px" height="36px">
+              <StyledButton margin={{ left: 'medium' }}>
+                <Image src={SendButtonIcon} alt="Send Button" />
+              </StyledButton>
+            </Box>
+          </Grid>
         </Box>
       </Grid>
     </Footer>
