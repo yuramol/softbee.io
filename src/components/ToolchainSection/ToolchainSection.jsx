@@ -1,7 +1,8 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { Box, Grid, Image } from 'grommet';
+
 import { Heading } from '../../legos/typography/Heading';
-import { Text } from '../../legos/typography/Text';
 
 const toolchainItems = [
   { id: '1', label: 'React', icon: '/assets/icons/reactIcon.svg' },
@@ -17,43 +18,55 @@ const toolchainItems = [
   { id: '7', label: 'Ionic', icon: '/assets/icons/ionicIcon.svg' },
 ];
 
-export const ToolchainSection = () => (
-  <Box height="500px">
-    <Grid
-      fill
-      columns={['flex']}
-      rows={['45%', '65%']}
-      areas={[
-        { name: 'heading', start: [0, 0], end: [1, 0] },
-        { name: 'main', start: [0, 1], end: [1, 1] },
-      ]}
-      pad="xsmall"
-    >
-      <Box gridArea="heading" align="center" justify="center">
-        <Heading level={2} color="brand">
-          What do we have in our toolchain?
-        </Heading>
-      </Box>
-      <Box gridArea="main" margin={{ left: '120px', right: '120px' }}>
-        <Grid
-          columns={{ count: 7, size: 'auto' }}
-          fill="horizontal"
-          justify="center"
-          align="center"
-        >
-          {toolchainItems.map(toolchainItem => (
-            <Box key={toolchainItem.id} height="250px">
-              <Box height="130px" alignSelf="center">
-                <Image src={toolchainItem.icon} alt={toolchainItem.label} />
-              </Box>
+export const ToolchainSection = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const headerLevel = isMobile ? 6 : 5;
+  const paddingVariant = isMobile
+    ? { horizontal: 'large', vertical: 'large' }
+    : 'xlarge';
 
-              <Text alignSelf="center" size="xxlarge" color="brand">
-                {toolchainItem.label}
-              </Text>
-            </Box>
-          ))}
-        </Grid>
-      </Box>
-    </Grid>
-  </Box>
-);
+  return (
+    <Box>
+      <Grid
+        fill
+        rows={{ count: 2, size: ['auto', 'flex'] }}
+        pad={paddingVariant}
+      >
+        <Box align="center">
+          <Heading textAlign="center" level={isMobile ? 3 : 2} color="brand">
+            What do we have in our toolchain?
+          </Heading>
+        </Box>
+        <Box>
+          <Grid
+            rows={
+              isMobile ? { count: 2, size: 'auto' } : { count: 1, size: 'auto' }
+            }
+            columns={
+              isMobile ? { count: 4, size: 'auto' } : { count: 7, size: 'auto' }
+            }
+            gap="small"
+            justify="stretch"
+            justifyContent="around"
+          >
+            {toolchainItems.map(toolchainItem => (
+              <Box key={toolchainItem.id} height="250px">
+                <Box height="130px" alignSelf="center">
+                  <Image
+                    fill
+                    src={toolchainItem.icon}
+                    alt={toolchainItem.label}
+                  />
+                </Box>
+
+                <Heading level={headerLevel} alignSelf="center" color="brand">
+                  {toolchainItem.label}
+                </Heading>
+              </Box>
+            ))}
+          </Grid>
+        </Box>
+      </Grid>
+    </Box>
+  );
+};
