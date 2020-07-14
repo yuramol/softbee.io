@@ -41,7 +41,11 @@ export const SiteFooter = () => {
       >
         <Box
           align={alignVariant}
-          pad={isMobile ? { right: 'none' } : { right: 'xlarge' }}
+          pad={
+            isMobile
+              ? { top: 'medium', right: 'none' }
+              : { left: 'large', right: 'xlarge' }
+          }
         >
           <StyledLink to="/">
             <Image
@@ -78,37 +82,44 @@ export const SiteFooter = () => {
         <Box
           justify="center"
           align="start"
-          pad={isMobile ? { left: 'none' } : { left: 'xlarge' }}
+          pad={
+            isMobile ? { vertical: 'large', left: 'none' } : { left: 'xlarge' }
+          }
         >
           <Heading
             alignSelf="start"
             level={isMobile ? 3 : 2}
-            margin={{ bottom: 'small' }}
-            fontWeight="500"
+            margin={
+              isMobile ? { bottom: 'large' } : { top: 'small', bottom: 'none' }
+            }
+            fontWeight="400"
           >
             Message us anything
           </Heading>
-          <Text alignSelf="start" size="large" weight="400">
+          <Text alignSelf="start" size="medium" weight="400">
             Your message will be posted in one of our <br /> Slack channels.
           </Text>
           <Grid
             columns={{ count: 2, size: ['auto', 'auto'] }}
             fill="horizontal"
-            margin={{ top: 'medium' }}
+            margin={isMobile ? { top: 'large' } : { top: 'medium' }}
           >
             <Box>
               <FormField>
-                <Box margin={{ bottom: 'small' }}>
+                <Box>
                   <TextInput
-                    plain
                     placeholder="Let’s create somethign dope!!! Xoxo"
+                    size="medium"
+                    style={{
+                      lineHeight: '26px',
+                    }}
                   />
                 </Box>
               </FormField>
             </Box>
-            <Box justify="end" align="start" width="55px" height="36px">
-              <StyledButton margin={{ left: 'medium' }}>
-                <Image src={SendButtonIcon} alt="Send Button" />
+            <Box justify="start" align="start">
+              <StyledButton plain margin={{ left: 'medium' }}>
+                <Image fill src={SendButtonIcon} alt="Send Button" />
               </StyledButton>
             </Box>
           </Grid>
