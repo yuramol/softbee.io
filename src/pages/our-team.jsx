@@ -6,6 +6,7 @@ import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { OurTeamHeroSection } from '../components/OurTeamHeroSection/OurTeamHeroSection';
 import { OurTeamAboutTeam } from '../components/OurTeamAboutTeam/OurTeamAboutTeam';
+import { OurTeamWeAreSection } from '../components/OurTeamWeAreSection/OurTeamWeAreSection';
 
 const siteTitle = 'SoftBee';
 const keywords = [
@@ -23,6 +24,7 @@ const WorkPage = ({ location }) => {
       <SEO title={siteTitle} keywords={keywords} />
       <OurTeamHeroSection withBackground />
       <OurTeamAboutTeam />
+      <OurTeamWeAreSection />
       <SiteFooter />
     </Layout>
   );
