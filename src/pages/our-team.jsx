@@ -7,6 +7,7 @@ import { SiteFooter } from '../components/Footer';
 import { OurTeamHeroSection } from '../components/OurTeamHeroSection/OurTeamHeroSection';
 import { OurTeamAboutTeam } from '../components/OurTeamAboutTeam/OurTeamAboutTeam';
 import { OurTeamWeAreSection } from '../components/OurTeamWeAreSection/OurTeamWeAreSection';
+import { OurTeamFollowSection } from '../components/OurTeamFollowSection/OurTeamFollowSection';
 
 const siteTitle = 'SoftBee';
 const keywords = [
@@ -25,6 +26,7 @@ const WorkPage = ({ location }) => {
       <OurTeamHeroSection withBackground />
       <OurTeamAboutTeam />
       <OurTeamWeAreSection />
+      <OurTeamFollowSection />
       <SiteFooter />
     </Layout>
   );

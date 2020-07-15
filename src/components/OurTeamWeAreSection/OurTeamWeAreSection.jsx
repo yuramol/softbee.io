@@ -1,42 +1,70 @@
 import React from 'react';
-import { Box, Grid } from 'grommet';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 import { useMediaQuery } from 'react-responsive';
 import { Text } from '../../legos/typography/Text';
+import { Button } from '../../legos/Button/Button';
 
 export const OurTeamWeAreSection = () => {
+  const size = React.useContext(ResponsiveContext);
+  const columnsCount = size === 'small' ? 1 : 2;
+  const isTablet = useMediaQuery({ query: '(max-width: 1100px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
 
   return (
     <Box
-      height={isMobile ? { min: '450px ' } : { min: '600px' }}
-      pad={{ horizontal: 'large' }}
+      height="auto"
+      pad={isTablet ? { horizontal: 'medium' } : { horizontal: 'xlarge' }}
     >
       <Grid
-        columns={['1fr', '1fr']}
+        columns={{ count: columnsCount, size: 'auto' }}
         pad={{ horizontal: 'small', vertical: 'xlarge' }}
         gap="medium"
         style={{ height: 'auto' }}
       >
-        <Box>
+        <Box pad={{ horizontal: 'large' }}>
           <img
             style={{ height: 'auto', width: '100%' }}
             src="/assets/sectionHeader.svg"
             alt=" People create a website "
           />
         </Box>
-        <Box width="100%" height="auto" justify="center">
+        <Box
+          width="100%"
+          height="auto"
+          align="center"
+          justify="center"
+          pad={
+            isTablet
+              ? { horizontal: 'small' }
+              : { left: 'xlarge', right: 'large' }
+          }
+        >
           <Text
-            pad={{ horizontal: 'large' }}
             color="brand"
-            size="medium"
+            size={isMobile ? 'small' : 'medium'}
             align="center"
-            style={{ textAlign: 'center' }}
+            style={{}}
           >
             We’re designers, developers, illustrators, copywriters and coders,
             but we also have pure gold ideas. iPhone games, time-keeping apps,
             dog-backpacks, too many tshirt slogans to keep track of. One day
             we’ll be rich, you’d best work with us while we need the money.
           </Text>
+          <Box
+            justify="center"
+            align="center"
+            height="50px"
+            width="194px"
+            margin={{ top: '50px' }}
+          >
+            <Button
+              label="Let’s talk   &#128075;"
+              fill
+              color="accent-1"
+              primary
+              href="/let's-talk"
+            />
+          </Box>
         </Box>
       </Grid>
     </Box>
