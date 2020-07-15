@@ -33,57 +33,133 @@ export const OurTeamAboutTeam = () => {
           have to share biscuits.
         </Text>
       </Box>
-      <Box justifyContent="center" width="1100px">
-        <Grid
-          columns={['auto', 'auto', 'auto']}
-          pad={{ horizontal: 'small', vertical: 'xlarge' }}
-          gap="medium"
-          style={{ height: 'auto' }}
-        >
-          <Box
-            width="100%"
-            height="100%"
-            pad={{ bottom: '100%' }}
-            style={{
-              borderRadius: '25px',
-
-              height: '100%',
-              position: 'relative ',
-            }}
-            background={{
-              size: 'cover',
-              image: 'url(/assets/ourTeamCat.png)',
-            }}
+      <Box align="center">
+        <Box width="1100px">
+          <Grid
+            columns={['auto', 'auto', 'auto']}
+            pad={{ horizontal: 'small', vertical: 'xlarge' }}
+            gap="large"
+            style={{ height: 'auto' }}
           >
             <Box
               width="100%"
               height="100%"
-              justify="end"
+              pad={{ bottom: '100%' }}
               style={{
-                position: 'absolute',
-                boxShadow: ' 1px 1px 20px rgba(230,230,230,0.3)',
+                borderRadius: '25px',
+
+                height: '100%',
+                position: 'relative ',
               }}
               background={{
                 size: 'cover',
-                image: 'url(/assets/Rectangle69.svg)',
+                image: 'url(/assets/ourTeamCat.png)',
               }}
             >
-              <Box pad="small">
-                <Heading level={5} color="brand" textAlign="bottom">
-                  Andriy Gavriluk
-                </Heading>
-                <Text size="medium" color="brand">
-                  programmer
-                </Text>
+              <Box
+                width="100%"
+                height="100%"
+                justify="end"
+                style={{
+                  position: 'absolute',
+                  boxShadow: ' 1px 1px 20px rgba(230,230,230,0.3)',
+                }}
+                background={{
+                  size: 'cover',
+                  image: 'url(/assets/Rectangle69.svg)',
+                }}
+              >
+                <Box pad="small">
+                  <Heading level={5} color="brand" textAlign="bottom">
+                    Andriy Gavriluk
+                  </Heading>
+                  <Text size="medium" color="brand">
+                    programmer
+                  </Text>
+                </Box>
               </Box>
             </Box>
-          </Box>
-          <Box>lorem</Box>
-          <Box>lorem</Box>
-          <Box>lorem</Box>
-          <Box>lorem</Box>
-          <Box>lorem</Box>
-        </Grid>
+            <Box
+              width="100%"
+              height="100%"
+              pad={{ bottom: '100%' }}
+              style={{
+                borderRadius: '25px',
+
+                height: '100%',
+                position: 'relative ',
+              }}
+              background={{
+                size: 'cover',
+                image: 'url(/assets/ourTeamCat.png)',
+              }}
+            >
+              <Box
+                width="100%"
+                height="100%"
+                justify="end"
+                style={{
+                  position: 'absolute',
+                  boxShadow: ' 1px 1px 20px rgba(230,230,230,0.3)',
+                }}
+                background={{
+                  size: 'cover',
+                  image: 'url(/assets/Rectangle69.svg)',
+                }}
+              >
+                <Box pad="small">
+                  <Heading level={5} color="brand" textAlign="bottom">
+                    Andriy Gavriluk
+                  </Heading>
+                  <Text size="medium" color="brand">
+                    programmer
+                  </Text>
+                </Box>
+              </Box>
+            </Box>
+            <Box>lorem</Box>
+            <Box>lorem</Box>
+            <Box>lorem</Box>
+            <Box
+              width="100%"
+              height="100%"
+              pad={{ bottom: '100%' }}
+              style={{
+                borderRadius: '25px',
+
+                height: '100%',
+                position: 'relative ',
+              }}
+              background={{
+                size: 'cover',
+                image: 'url(/assets/ourTeamCat.png)',
+              }}
+            >
+              <Box
+                width="100%"
+                height="100%"
+                justify="end"
+                style={{
+                  position: 'absolute',
+                  boxShadow: ' 1px 1px 20px rgba(230,230,230,0.3)',
+                }}
+                background={{
+                  size: 'cover',
+                  image: 'url(/assets/Rectangle69.svg)',
+                }}
+              >
+                <Box pad="small">
+                  <Heading level={5} color="brand" textAlign="bottom">
+                    Andriy Gavriluk
+                  </Heading>
+                  <Text size="medium" color="brand">
+                    programmer
+                  </Text>
+                </Box>
+              </Box>
+            </Box>
+          </Grid>
+        </Box>
       </Box>
     </Box>
   );
