@@ -14,9 +14,8 @@ export const OurTeamHeroSection = ({ withBackground }) => {
 
   return (
     <Box
-      height={isMobile ? { min: '450px ' } : { min: '600px' }}
-      margin={isMobile ? undefined : { top: 'xlarge' }}
-      pad={isMobile ? { vertical: 'xlarge' } : undefined}
+      height="auto"
+      pad={{ vertical: 'xlarge' }}
       background={
         size !== 'small' && withBackground
           ? {
