@@ -36,8 +36,8 @@ const getLineHeight = size => {
 };
 
 const StyledText = styled(LibText)`
-  font-size: ${({ size }) => getFontSize(size)};
-  line-height: ${({ size }) => getLineHeight(size)};
+  font-size: ${({ size, fontSize }) => fontSize || getFontSize(size)};
+  line-height: ${({ size, fontSize }) => fontSize || getLineHeight(size)};
 `;
 export const Text = ({ children, ...props }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
