@@ -35,7 +35,7 @@ export const OurTeamWeAreSection = () => {
           justify="center"
           pad={
             isTablet
-              ? { horizontal: 'small' }
+              ? { horizontal: 'small', vertical: 'large' }
               : { left: 'xlarge', right: 'large' }
           }
         >

@@ -6,27 +6,37 @@ import { Text } from '../../legos/typography/Text';
 
 export const OurTeamAboutTeam = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const columnsCount = isMobile ? 2 : 3;
 
   return (
     <Box
       height={isMobile ? { min: '450px ' } : { min: '600px' }}
-      pad={isMobile ? { vertical: 'xlarge' } : undefined}
+      pad={{ vertical: 'xlarge' }}
       background={{ color: '#fff' }}
     >
-      <Box align="center" width="100%">
+      <Box
+        align="center"
+        width="100%"
+        pad={isMobile ? { horizontal: 'small' } : undefined}
+      >
         <Heading
-          level={2}
+          level={isMobile ? 5 : 2}
           color="brand"
-          style={{ textAlign: 'center', lineHeight: '100px' }}
+          style={{ textAlign: 'center' }}
+          margin={{ vertical: '15px' }}
         >
           Real peaole creating real results
         </Heading>
       </Box>
       <Box align="center" width="100%">
         <Text
-          size="medium"
+          size={isMobile ? 'small' : 'medium'}
           color="brand"
-          style={{ textAlign: 'center', width: '50%' }}
+          style={
+            isMobile
+              ? { textAlign: 'start', width: '80%' }
+              : { textAlign: 'center', width: '50%' }
+          }
         >
           Working alone sucks, so we teamed up to kick ass together. We prove
           that distance doesn’t matter when you love what you do, plus we don’t
@@ -34,35 +44,48 @@ export const OurTeamAboutTeam = () => {
         </Text>
       </Box>
       <Box align="center">
-        <Box width="1100px">
+        <Box maxWidth="1100px">
           <Grid
-            columns={['auto', 'auto', 'auto']}
-            pad={{ horizontal: 'small', vertical: 'xlarge' }}
-            gap="large"
+            columns={{ count: columnsCount, size: 'auto' }}
+            pad={{ horizontal: 'small', top: 'xlarge' }}
+            gap={isMobile ? 'medium' : 'xlarge'}
             style={{ height: 'auto' }}
+            align="center"
+            justify="center"
+            justifyContent="around"
           >
             <Box
-              width="100%"
-              height="100%"
-              pad={{ bottom: '100%' }}
-              style={{
-                borderRadius: '25px',
-
-                height: '100%',
-                position: 'relative ',
-              }}
+              style={
+                isMobile
+                  ? {
+                      width: '30vw',
+                      height: '30vw',
+                      minWidth: '150px',
+                      minHeight: '150px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+                  : {
+                      width: '17vw',
+                      height: '17vw',
+                      maxWidth: '320px',
+                      maxHeight: '320px',
+                      minWidth: '190px',
+                      minHeight: '190px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+              }
               background={{
                 size: 'cover',
-                image: 'url(/assets/ourTeamCat.png)',
+                image: 'url(/assets/AndriyGavriluk.png)',
               }}
             >
               <Box
-                width="100%"
-                height="100%"
                 justify="end"
                 style={{
-                  position: 'absolute',
-                  boxShadow: ' 1px 1px 20px rgba(230,230,230,0.3)',
+                  width: '100%',
+                  height: '100%',
                 }}
                 background={{
                   size: 'cover',
@@ -70,37 +93,108 @@ export const OurTeamAboutTeam = () => {
                 }}
               >
                 <Box pad="small">
-                  <Heading level={5} color="brand" textAlign="bottom">
+                  <Heading
+                    level={5}
+                    style={isMobile ? { fontSize: '14px' } : undefined}
+                    color="brand"
+                    textAlign="bottom"
+                    margin={isMobile ? { vertical: '0' } : { vertical: '5px' }}
+                  >
                     Andriy Gavriluk
                   </Heading>
-                  <Text size="medium" color="brand">
+                  <Text size={isMobile ? 'small' : 'medium'} color="brand">
+                    programmer
+                  </Text>
+                </Box>
+              </Box>
+            </Box>
+
+            <Box
+              style={
+                isMobile
+                  ? {
+                      width: '30vw',
+                      height: '30vw',
+                      minWidth: '150px',
+                      minHeight: '150px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+                  : {
+                      width: '17vw',
+                      height: '17vw',
+                      maxWidth: '320px',
+                      maxHeight: '320px',
+                      minWidth: '190px',
+                      minHeight: '190px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+              }
+              background={{
+                size: 'cover',
+                image: 'url(/assets/ArtemMarochkanych.png)',
+              }}
+            >
+              <Box
+                justify="end"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                }}
+                background={{
+                  size: 'cover',
+                  image: 'url(/assets/Rectangle69.svg)',
+                }}
+              >
+                <Box pad="small">
+                  <Heading
+                    level={5}
+                    color="brand"
+                    textAlign="bottom"
+                    margin={isMobile ? { vertical: '0' } : { vertical: '5px' }}
+                    style={isMobile ? { fontSize: '14px' } : undefined}
+                  >
+                    Artem Marochkanych
+                  </Heading>
+                  <Text size={isMobile ? 'small' : 'medium'} color="brand">
                     programmer
                   </Text>
                 </Box>
               </Box>
             </Box>
             <Box
-              width="100%"
-              height="100%"
-              pad={{ bottom: '100%' }}
-              style={{
-                borderRadius: '25px',
-
-                height: '100%',
-                position: 'relative ',
-              }}
+              style={
+                isMobile
+                  ? {
+                      width: '30vw',
+                      height: '30vw',
+                      minWidth: '150px',
+                      minHeight: '150px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+                  : {
+                      width: '17vw',
+                      height: '17vw',
+                      maxWidth: '320px',
+                      maxHeight: '320px',
+                      minWidth: '190px',
+                      minHeight: '190px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+              }
               background={{
                 size: 'cover',
-                image: 'url(/assets/ourTeamCat.png)',
+                image: 'url(/assets/OleksandrOmelchenko.png)',
               }}
             >
               <Box
-                width="100%"
-                height="100%"
                 justify="end"
                 style={{
-                  position: 'absolute',
-                  boxShadow: ' 1px 1px 20px rgba(230,230,230,0.3)',
+                  width: '100%',
+                  height: '100%',
                 }}
                 background={{
                   size: 'cover',
@@ -108,40 +202,53 @@ export const OurTeamAboutTeam = () => {
                 }}
               >
                 <Box pad="small">
-                  <Heading level={5} color="brand" textAlign="bottom">
-                    Andriy Gavriluk
+                  <Heading
+                    level={5}
+                    color="brand"
+                    textAlign="bottom"
+                    margin={isMobile ? { vertical: '0' } : { vertical: '5px' }}
+                    style={isMobile ? { fontSize: '14px' } : undefined}
+                  >
+                    Oleksandr Omelchenko
                   </Heading>
-                  <Text size="medium" color="brand">
+                  <Text size={isMobile ? 'small' : 'medium'} color="brand">
                     programmer
                   </Text>
                 </Box>
               </Box>
             </Box>
-            <Box>lorem</Box>
-            <Box>lorem</Box>
-            <Box>lorem</Box>
             <Box
-              width="100%"
-              height="100%"
-              pad={{ bottom: '100%' }}
-              style={{
-                borderRadius: '25px',
-
-                height: '100%',
-                position: 'relative ',
-              }}
+              style={
+                isMobile
+                  ? {
+                      width: '30vw',
+                      height: '30vw',
+                      minWidth: '150px',
+                      minHeight: '150px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+                  : {
+                      width: '17vw',
+                      height: '17vw',
+                      maxWidth: '320px',
+                      maxHeight: '320px',
+                      minWidth: '190px',
+                      minHeight: '190px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+              }
               background={{
                 size: 'cover',
-                image: 'url(/assets/ourTeamCat.png)',
+                image: 'url(/assets/VitaliyHula.png)',
               }}
             >
               <Box
-                width="100%"
-                height="100%"
                 justify="end"
                 style={{
-                  position: 'absolute',
-                  boxShadow: ' 1px 1px 20px rgba(230,230,230,0.3)',
+                  width: '100%',
+                  height: '100%',
                 }}
                 background={{
                   size: 'cover',
@@ -149,10 +256,128 @@ export const OurTeamAboutTeam = () => {
                 }}
               >
                 <Box pad="small">
-                  <Heading level={5} color="brand" textAlign="bottom">
-                    Andriy Gavriluk
+                  <Heading
+                    level={5}
+                    color="brand"
+                    textAlign="bottom"
+                    margin={isMobile ? { vertical: '0' } : { vertical: '5px' }}
+                    style={isMobile ? { fontSize: '14px' } : undefined}
+                  >
+                    Vitaliy Hula
                   </Heading>
-                  <Text size="medium" color="brand">
+                  <Text size={isMobile ? 'small' : 'medium'} color="brand">
+                    programmer
+                  </Text>
+                </Box>
+              </Box>
+            </Box>
+            <Box
+              style={
+                isMobile
+                  ? {
+                      width: '30vw',
+                      height: '30vw',
+                      minWidth: '150px',
+                      minHeight: '150px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+                  : {
+                      width: '17vw',
+                      height: '17vw',
+                      maxWidth: '320px',
+                      maxHeight: '320px',
+                      minWidth: '190px',
+                      minHeight: '190px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+              }
+              background={{
+                size: 'cover',
+                image: 'url(/assets/MoldavchukYurij.png)',
+              }}
+            >
+              <Box
+                justify="end"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                }}
+                background={{
+                  size: 'cover',
+                  image: 'url(/assets/Rectangle69.svg)',
+                }}
+              >
+                <Box pad="small">
+                  <Heading
+                    level={5}
+                    color="brand"
+                    textAlign="bottom"
+                    margin={isMobile ? { vertical: '0' } : { vertical: '5px' }}
+                    style={isMobile ? { fontSize: '14px' } : undefined}
+                  >
+                    Moldavchuk Yurij
+                  </Heading>
+                  <Text size={isMobile ? 'small' : 'medium'} color="brand">
+                    programmer
+                  </Text>
+                </Box>
+              </Box>
+            </Box>
+            <Box
+              style={
+                isMobile
+                  ? {
+                      width: '30vw',
+                      height: '30vw',
+                      minWidth: '150px',
+                      minHeight: '150px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+                  : {
+                      width: '17vw',
+                      height: '17vw',
+                      maxWidth: '320px',
+                      maxHeight: '320px',
+                      minWidth: '190px',
+                      minHeight: '190px',
+                      boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
+                      borderRadius: '22px',
+                    }
+              }
+              background={{
+                size: 'cover',
+                image: 'url(/assets/OlegDuma.png)',
+              }}
+            >
+              <Box
+                justify="end"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                }}
+                background={{
+                  size: 'cover',
+                  image: 'url(/assets/Rectangle69.svg)',
+                }}
+              >
+                <Box pad="small">
+                  <Heading
+                    level={5}
+                    color="brand"
+                    textAlign="bottom"
+                    margin={isMobile ? { vertical: '0' } : { vertical: '5px' }}
+                    style={
+                      isMobile
+                        ? { fontSize: '14px', lineHeight: '22px' }
+                        : { lineHeight: '22px' }
+                    }
+                  >
+                    Oleg Duma
+                  </Heading>
+                  <Text size={isMobile ? 'small' : 'medium'} color="brand">
                     programmer
                   </Text>
                 </Box>

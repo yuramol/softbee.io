@@ -49,6 +49,7 @@ export const OurTeamHeroSection = ({ withBackground }) => {
                 ? { fontWeight: '700', fontSize: '24px', textAlign: 'center' }
                 : { fontWeight: '700' }
             }
+            margin={{ vertical: '5px' }}
           >
             About our team
           </Heading>

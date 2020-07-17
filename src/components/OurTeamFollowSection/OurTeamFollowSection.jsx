@@ -47,8 +47,12 @@ export const OurTeamFollowSection = () => {
       >
         <Heading
           color="text-white"
-          level={2}
-          style={{ textAlign: 'center' }}
+          level={isMobile ? 5 : 2}
+          style={
+            isMobile
+              ? { textAlign: 'center', lineHeight: '130%' }
+              : { textAlign: 'center' }
+          }
           pad={{ vertical: 'xlarge' }}
         >
           Follow us on{' '}
