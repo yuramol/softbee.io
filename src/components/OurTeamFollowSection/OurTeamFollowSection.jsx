@@ -1,8 +1,8 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
+import { theme } from '../../utils/theme';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
@@ -10,9 +10,7 @@ export const OurTeamFollowSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 1;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const boxShadowIsTablet = isMobile
-    ? '10px 10px 2px 1px'
-    : '25px 25px 2px 1px';
+  const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
     : 'xlarge';
@@ -37,8 +35,8 @@ export const OurTeamFollowSection = () => {
         justify="center"
         width="1000px"
         style={{
-          background: '#104065',
-          boxShadow: boxShadowIsTablet,
+          background: theme.global.colors.brand,
+          boxShadow,
           color: '#FAE79F',
           borderRadius: '20px',
         }}
@@ -61,8 +59,8 @@ export const OurTeamFollowSection = () => {
             color="white"
             style={{ textDecorationLine: 'underline' }}
           >
-            Medium{' '}
-          </RouterLink>
+            Medium
+          </RouterLink>{' '}
           and don’t forget to{' '}
           <RouterLink
             to=" Hire the team"

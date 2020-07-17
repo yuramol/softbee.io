@@ -71,7 +71,7 @@ export const OurTeamHeroSection = ({ withBackground }) => {
           <img
             style={{ height: 'auto', width: '100%' }}
             src="/assets/ourTeamHerosection.svg"
-            alt="People developed"
+            alt="A group of people are developing a web site"
           />
         </Box>
       </Grid>

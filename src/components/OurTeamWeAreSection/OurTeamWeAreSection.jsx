@@ -25,7 +25,7 @@ export const OurTeamWeAreSection = () => {
           <img
             style={{ height: 'auto', width: '100%' }}
             src="/assets/sectionHeader.svg"
-            alt=" People create a website "
+            alt="People are creating a website"
           />
         </Box>
         <Box
@@ -43,7 +43,6 @@ export const OurTeamWeAreSection = () => {
             color="brand"
             size={isMobile ? 'small' : 'medium'}
             align="center"
-            style={{}}
           >
             We’re designers, developers, illustrators, copywriters and coders,
             but we also have pure gold ideas. iPhone games, time-keeping apps,
