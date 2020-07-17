@@ -21,7 +21,7 @@ export const CaseGapNurse = () => {
             ? undefined
             : {
                 position: 'bottom',
-                size: 'small',
+                size: 'contain',
                 image: 'url(/assets/backgroundCaseGapnurse.svg)',
               }
         }

@@ -16,6 +16,8 @@ export const WhatWeDoSection = ({ withBackground }) => {
 
   return (
     <Box
+      height={{ min: '330px' }}
+      justify="center"
       background={
         withBackground
           ? {
