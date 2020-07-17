@@ -27,13 +27,14 @@ export const ToolchainSection = () => {
 
   return (
     <Box>
-      <Grid
-        fill
-        rows={{ count: 2, size: ['auto', 'flex'] }}
-        pad={paddingVariant}
-      >
+      <Grid rows={{ count: 2, size: ['auto', 'flex'] }} pad={paddingVariant}>
         <Box align="center">
-          <Heading textAlign="center" level={isMobile ? 3 : 2} color="brand">
+          <Heading
+            textAlign="center"
+            level={isMobile ? 3 : 2}
+            color="brand"
+            margin={{ bottom: 'xlarge' }}
+          >
             What do we have in our toolchain?
           </Heading>
         </Box>
@@ -51,7 +52,7 @@ export const ToolchainSection = () => {
           >
             {toolchainItems.map(toolchainItem => (
               <Box key={toolchainItem.id} height="250px">
-                <Box height="130px" alignSelf="center">
+                <Box height="90px" alignSelf="center">
                   <Image
                     fill
                     src={toolchainItem.icon}
@@ -59,7 +60,12 @@ export const ToolchainSection = () => {
                   />
                 </Box>
 
-                <Heading level={headerLevel} alignSelf="center" color="brand">
+                <Heading
+                  level={headerLevel}
+                  alignSelf="center"
+                  color="brand"
+                  textAlign="center"
+                >
                   {toolchainItem.label}
                 </Heading>
               </Box>
