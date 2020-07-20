@@ -1,10 +1,10 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-
 import { Box, Grid } from 'grommet';
+import { useMediaQuery } from 'react-responsive';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
+import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 
 export const CaseMMO = () => {
   const isTablet = useMediaQuery({ query: '(max-width: 990px)' });
@@ -210,6 +210,7 @@ export const CaseMMO = () => {
           alt="Screenshots of MMO.CAT website"
         />
       </Box>
+      <ButtonNextCase url="/gapnurse-case" />
     </Box>
   );
 };

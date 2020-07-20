@@ -220,7 +220,7 @@ export const CaseGapNurse = () => {
           alt="screenshots GapNurse"
         />
       </Box>
-      <ButtonNextCase />
+      <ButtonNextCase url="/mmo-case" />
     </Box>
   );
 };

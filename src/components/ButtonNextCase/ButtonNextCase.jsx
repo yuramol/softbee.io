@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box } from 'grommet';
+import { string } from 'prop-types';
 import { RouterLink } from '../../legos/RouterLink';
 
-export const ButtonNextCase = () => (
+export const ButtonNextCase = ({ url }) => (
   <Box
     height="220px"
     style={{
@@ -18,9 +19,13 @@ export const ButtonNextCase = () => (
         fontSize: '48px',
         lineHeight: '56px',
       }}
-      to="next-case"
+      to={url}
     >
       Next case
     </RouterLink>
   </Box>
 );
+
+ButtonNextCase.propTypes = {
+  url: string.isRequired,
+};
