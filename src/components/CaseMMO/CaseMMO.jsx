@@ -72,7 +72,6 @@ export const CaseMMO = () => {
             )}
           </Box>
           <Box
-            style={{ height: '100%' }}
             align="center"
             justify="center"
             pad={isMobile ? { horizontal: 'large' } : undefined}
