@@ -19,7 +19,7 @@ const toolchainItems = [
 ];
 
 export const ToolchainSection = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
   const headerLevel = isMobile ? 6 : 5;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'large' }
@@ -38,7 +38,7 @@ export const ToolchainSection = () => {
             What do we have in our toolchain?
           </Heading>
         </Box>
-        <Box direction="row" justify="center">
+        <Box direction="row" justify="center" wrap={!!isMobile}>
           {toolchainItems.map(toolchainItem => (
             <Box
               width={{ min: 'xsmall' }}
