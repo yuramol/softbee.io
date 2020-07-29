@@ -1,39 +1,58 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 
 import { Box, Grid, Text, Heading } from 'grommet';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
-import { Button } from '../legos/Button/Button';
 import { RouterLink } from '../legos/RouterLink';
+import { SiteHeader } from '../components/Header';
+import { SiteFooter } from '../components/Footer';
 
 const Blog = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
+  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
 
   return (
     <Layout location={location} title={siteTitle} withBackground>
       <SEO title="All posts" />
+      <SiteHeader />
       <Box>
         <Grid
           columns={{ count: 1 }}
           gap="small"
-          pad={{ horizontal: 'xlarge', top: 'xlarge' }}
+          pad={
+            isTablet
+              ? { top: 'xlarge' }
+              : { horizontal: 'xlarge', top: 'xlarge' }
+          }
         >
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug;
             return (
               <Box
                 key={node.fields.slug}
-                pad={{ horizontal: 'xlarge', vertical: 'large' }}
+                pad={
+                  isMobile
+                    ? { horizontal: 'xsmall', vertical: 'large' }
+                    : { horizontal: 'xlarge', vertical: 'large' }
+                }
               >
                 <Grid
-                  columns={['2/3', '1/3']}
+                  columns={['auto', 'auto']}
                   gap="small"
-                  pad={{ horizontal: 'xlarge' }}
+                  justify="stretch"
+                  justifyContent="between"
+                  pad={
+                    isTablet
+                      ? { horizontal: 'medium' }
+                      : { horizontal: 'xlarge' }
+                  }
                 >
-                  <Box pad={{ left: 'large' }}>
+                  <Box pad={{ right: 'large' }}>
                     <RouterLink
                       style={{ boxShadow: `none` }}
                       to={`blog${node.fields.slug}`}
@@ -49,14 +68,32 @@ const Blog = ({ data, location }) => {
                     </RouterLink>
                     {/* <small>{node.frontmatter.date}</small> */}
                     <Text
+                      size={isMobile ? 'small' : undefined}
                       // eslint-disable-next-line react/no-danger
                       dangerouslySetInnerHTML={{
                         __html: node.frontmatter.description || node.excerpt,
                       }}
                     />
                   </Box>
-                  <Box justify="center" align="center">
+                  <Box
+                    style={
+                      isTablet
+                        ? {
+                            width: '17vw',
+                            height: '17vw',
+                            minHeight: '100px',
+                            minWidth: '100px',
+                          }
+                        : {
+                            width: '10vw',
+                            height: '10vw',
+                          }
+                    }
+                    justify="center"
+                    align="center"
+                  >
                     <img
+                      style={{ height: 'auto', width: '100%' }}
                       src="/assets/writeOnJava.png"
                       alt="On laptop open code editor"
                     />
@@ -67,9 +104,7 @@ const Blog = ({ data, location }) => {
           })}
         </Grid>
       </Box>
-      <RouterLink to="/">
-        <Button marginTop="85px">Go Home</Button>
-      </RouterLink>
+      <SiteFooter />
     </Layout>
   );
 };
