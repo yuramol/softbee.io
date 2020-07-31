@@ -38,17 +38,18 @@ export const ToolchainSection = () => {
             What do we have in our toolchain?
           </Heading>
         </Box>
-        <Box direction="row" justify="center" wrap={!!isMobile}>
+        <Box direction="row" justify="center" wrap>
           {toolchainItems.map(toolchainItem => (
             <Box
-              width={{ min: 'xsmall' }}
               key={toolchainItem.id}
               height="250px"
+              width="150px"
               pad={{ horizontal: 'medium' }}
             >
               <Box height="90px" alignSelf="center">
                 <Image
                   fill
+                  responsive={false}
                   src={toolchainItem.icon}
                   alt={toolchainItem.label}
                 />
