@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Box, Image, Grid } from 'grommet';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { useMediaQuery } from 'react-responsive';
 
 import { SEO } from '../components/SEO';
 import { Layout } from '../components/Layout';
@@ -17,6 +18,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const { previous, next } = pageContext;
 
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
+  const padVariant = isMobile
+    ? 'none'
+    : { horizontal: isTablet ? 'large' : 'xlarge' };
+  const headingLevel = isMobile ? 4 : 3;
+
   return (
     <Layout location={location} title={siteTitle}>
       <SiteHeader />
@@ -24,10 +32,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <Box margin={{ horizontal: 'xlarge' }} pad="xlarge">
+      <Box
+        margin={padVariant}
+        pad={padVariant}
+        background={isMobile ? { color: '#F0F6F4' } : 'none'}
+      >
         <Box
-          margin={{ horizontal: 'xlarge' }}
-          pad={{ horizontal: 'xlarge' }}
+          margin={padVariant}
+          pad={padVariant}
           justify="center"
           align="center"
         >
@@ -61,7 +73,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               src="/assets/postimage.svg"
               alt="On laptop open code editor"
             />
-            <Heading level={3} color="brand" textAlign="center" pad="none">
+            <Heading
+              level={headingLevel}
+              color="brand"
+              textAlign="center"
+              pad="none"
+            >
               {previous && (
                 <RouterLink
                   to={`/blog${previous.fields.slug}`}
@@ -80,7 +97,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               src="/assets/postimage.svg"
               alt="On laptop open code editor"
             />
-            <Heading level={3} color="brand" textAlign="center" pad="none">
+            <Heading
+              level={headingLevel}
+              color="brand"
+              textAlign="center"
+              pad="none"
+            >
               {next && (
                 <RouterLink
                   to={`/blog${next.fields.slug}`}
@@ -99,7 +121,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               src="/assets/postimage.svg"
               alt="On laptop open code editor"
             />
-            <Heading level={3} color="brand" textAlign="center" pad="none">
+            <Heading
+              level={headingLevel}
+              color="brand"
+              textAlign="center"
+              pad="none"
+            >
               How to write on Java?
             </Heading>
           </Box>
