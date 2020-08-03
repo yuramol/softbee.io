@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Box, Image, Grid } from 'grommet';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Box, Image } from 'grommet';
 
-import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
+import { Layout } from '../components/Layout';
 
 import { RouterLink } from '../legos/RouterLink';
 import { SiteFooter } from '../components/Footer';
@@ -26,7 +26,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <Box margin={{ horizontal: 'xlarge' }} pad="xlarge">
         <Box
-          fill
           margin={{ horizontal: 'xlarge' }}
           pad={{ horizontal: 'xlarge' }}
           justify="center"
@@ -46,34 +45,65 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.title}
           </Heading>
-
           <MDXRenderer>{post.body}</MDXRenderer>
-
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <RouterLink to={`blog${previous.fields.slug}`} rel="prev">
-                  ← {previous.frontmatter.title}
-                </RouterLink>
-              )}
-            </li>
-            <li>
-              {next && (
-                <RouterLink to={`blog${next.fields.slug}`} rel="next">
-                  {next.frontmatter.title} →
-                </RouterLink>
-              )}
-            </li>
-          </ul>
         </Box>
+      </Box>
+      <Box
+        background={{ color: '#F0F6F4' }}
+        pad={{ horizontal: 'xlarge', vertical: 'medium' }}
+        wrap
+        direction="row"
+      >
+        <Grid columns={{ count: 3, size: 'auto' }}>
+          <Box pad="medium" height="400px">
+            <Image
+              fit="cover"
+              src="/assets/postimage.svg"
+              alt="On laptop open code editor"
+            />
+            <Heading level={3} color="brand" textAlign="center" pad="none">
+              {previous && (
+                <RouterLink
+                  to={`/blog${previous.fields.slug}`}
+                  rel="prev"
+                  color="#104065"
+                  style={{ textDecoration: 'none' }}
+                >
+                  {previous.frontmatter.title}
+                </RouterLink>
+              )}
+            </Heading>
+          </Box>
+          <Box pad="medium" height="400px">
+            <Image
+              fit="cover"
+              src="/assets/postimage.svg"
+              alt="On laptop open code editor"
+            />
+            <Heading level={3} color="brand" textAlign="center" pad="none">
+              {next && (
+                <RouterLink
+                  to={`/blog${next.fields.slug}`}
+                  rel="next"
+                  color="#104065"
+                  style={{ textDecoration: 'none' }}
+                >
+                  {next.frontmatter.title}
+                </RouterLink>
+              )}
+            </Heading>
+          </Box>
+          <Box pad="medium" height="400px">
+            <Image
+              fit="cover"
+              src="/assets/postimage.svg"
+              alt="On laptop open code editor"
+            />
+            <Heading level={3} color="brand" textAlign="center" pad="none">
+              How to write on Java?
+            </Heading>
+          </Box>
+        </Grid>
       </Box>
 
       <SiteFooter />
@@ -97,7 +127,6 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         description
       }
     }
