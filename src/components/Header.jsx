@@ -42,7 +42,7 @@ export const SiteHeader = () => {
       {size === 'small' ? (
         <StyledBox
           elevation="medium"
-          pad="small"
+          pad="medium"
           width="100%"
           background={{ color: 'brand' }}
         >
