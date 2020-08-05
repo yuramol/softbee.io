@@ -19,7 +19,7 @@ const toolchainItems = [
 ];
 
 export const ToolchainSection = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
   const headerLevel = isMobile ? 6 : 5;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'large' }
@@ -38,39 +38,33 @@ export const ToolchainSection = () => {
             What do we have in our toolchain?
           </Heading>
         </Box>
-        <Box>
-          <Grid
-            rows={
-              isMobile ? { count: 2, size: 'auto' } : { count: 1, size: 'auto' }
-            }
-            columns={
-              isMobile ? { count: 4, size: 'auto' } : { count: 7, size: 'auto' }
-            }
-            gap="small"
-            justify="stretch"
-            justifyContent="around"
-          >
-            {toolchainItems.map(toolchainItem => (
-              <Box key={toolchainItem.id} height="250px">
-                <Box height="90px" alignSelf="center">
-                  <Image
-                    fill
-                    src={toolchainItem.icon}
-                    alt={toolchainItem.label}
-                  />
-                </Box>
-
-                <Heading
-                  level={headerLevel}
-                  alignSelf="center"
-                  color="brand"
-                  textAlign="center"
-                >
-                  {toolchainItem.label}
-                </Heading>
+        <Box direction="row" justify="center" wrap>
+          {toolchainItems.map(toolchainItem => (
+            <Box
+              key={toolchainItem.id}
+              height="250px"
+              width="150px"
+              pad={{ horizontal: 'medium' }}
+            >
+              <Box height="90px" alignSelf="center">
+                <Image
+                  fill
+                  responsive={false}
+                  src={toolchainItem.icon}
+                  alt={toolchainItem.label}
+                />
               </Box>
-            ))}
-          </Grid>
+
+              <Heading
+                level={headerLevel}
+                alignSelf="center"
+                color="brand"
+                textAlign="center"
+              >
+                {toolchainItem.label}
+              </Heading>
+            </Box>
+          ))}
         </Box>
       </Grid>
     </Box>
