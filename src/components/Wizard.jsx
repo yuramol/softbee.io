@@ -1,13 +1,13 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Box, Button, FormField, Grid, ResponsiveContext } from 'grommet';
+import { Box, Button, FormField, Grid, ResponsiveContext, Text } from 'grommet';
 import { Next, Previous } from 'grommet-icons';
 
-import { Heading } from '../legos/typography/Heading';
 import { TextInput } from '../legos/TextInput/TextInput';
+import { validateEmail } from '../utils/helpers';
 
 const StyledGrid = styled(Grid)`
   width: 100%;
@@ -16,9 +16,13 @@ const StyledGrid = styled(Grid)`
   color: #fae79f;
   border-radius: 20px;
 `;
-const StyledHeading = styled(Heading)`
+const StyledHeading = styled(Text)`
   font-weight: 600;
-  white-space: pre-line;
+  ${props =>
+    props.preLine &&
+    css`
+      white-space: pre-line;
+    `}
 `;
 const NavigationButton = styled(Button)`
   display: flex;
@@ -44,7 +48,14 @@ const wizardSteps = [
     placeholder: 'best@customer.com',
     type: 'email',
   },
+  { title: 'Thank you for your submission! 🎉' },
 ];
+
+const headingSizes = {
+  large: '42px',
+  medium: '30px',
+  small: '22px',
+};
 
 export const Wizard = ({ style }) => {
   const initialWizardState = {};
@@ -57,10 +68,12 @@ export const Wizard = ({ style }) => {
   const [formData, setFormData] = useState(initialWizardState);
 
   const currentStep = useMemo(() => wizardSteps[step - 1], [step]);
-  const moveForwardIsDisabled = useMemo(
-    () => step === wizardSteps.length || formData[step].length === 0,
-    [step, formData],
-  );
+  const moveForwardIsDisabled = useMemo(() => {
+    if (currentStep.type === 'email') {
+      return !validateEmail(formData[step]);
+    }
+    return step === wizardSteps.length || formData[step].length === 0;
+  }, [step, formData]);
 
   const navigate = (forward = true) => {
     if (
@@ -83,7 +96,8 @@ export const Wizard = ({ style }) => {
   const columnsCount = size === 'small' ? 1 : 1;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
-  const fontSizeMobile = isMobile ? 3 : 2;
+
+  const headingSize = headingSizes[size];
 
   return (
     <StyledGrid
@@ -98,7 +112,7 @@ export const Wizard = ({ style }) => {
     >
       <Box
         style={{ textAlign: 'center' }}
-        pad={isMobile ? { vertical: 'xlarge', horizontal: 'large' } : 'medium'}
+        pad={isMobile ? { vertical: 'xlarge', horizontal: 'medium' } : 'medium'}
         justify="center"
         align="start"
         fill
@@ -106,42 +120,52 @@ export const Wizard = ({ style }) => {
         <StyledHeading
           justify="center"
           textAlign="start"
-          level={fontSizeMobile}
+          size={headingSize}
           color="white"
           margin="xsmall"
+          preLine={size === 'large'}
         >
           {currentStep.title}
         </StyledHeading>
-        <Box pad={{ top: 'large' }} fill>
-          <FormField>
-            <TextInput
-              onChange={handleTextChange}
-              onKeyDown={handleKeyEvent}
-              value={formData[step]}
-              type={currentStep.type || 'text'}
-              placeholder={currentStep.placeholder}
-              style={{ paddingBottom: '30px' }}
-            />
-          </FormField>
-        </Box>
-        <Box direction="row" justify="center" margin={{ top: 'medium' }} fill>
-          <NavigationButton
-            onClick={() => navigate(false)}
-            label={<Previous color="brand" />}
-            margin={{ right: 'medium' }}
-            color="accent-1"
-            primary
-            disabled={step === 1}
-          />
-          <NavigationButton
-            onClick={navigate}
-            label={<Next color="brand" />}
-            margin={{ left: 'medium' }}
-            color="accent-1"
-            primary
-            disabled={moveForwardIsDisabled}
-          />
-        </Box>
+        {currentStep.placeholder && (
+          <>
+            <Box pad={{ top: 'large' }} fill>
+              <FormField>
+                <TextInput
+                  onChange={handleTextChange}
+                  onKeyDown={handleKeyEvent}
+                  value={formData[step]}
+                  type={currentStep.type || 'text'}
+                  placeholder={currentStep.placeholder}
+                  style={{ paddingBottom: '30px' }}
+                />
+              </FormField>
+            </Box>
+            <Box
+              direction="row"
+              justify="center"
+              margin={{ top: 'medium' }}
+              fill
+            >
+              <NavigationButton
+                onClick={() => navigate(false)}
+                label={<Previous color="brand" />}
+                margin={{ right: 'medium' }}
+                color="accent-1"
+                primary
+                disabled={step === 1}
+              />
+              <NavigationButton
+                onClick={navigate}
+                label={<Next color="brand" />}
+                margin={{ left: 'medium' }}
+                color="accent-1"
+                primary
+                disabled={moveForwardIsDisabled}
+              />
+            </Box>
+          </>
+        )}
       </Box>
     </StyledGrid>
   );
