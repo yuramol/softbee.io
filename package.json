@@ -10,6 +10,8 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
+    "@types/react-responsive": "^8.0.3",
+    "@types/styled-components": "^5.1.12",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "2.23.21",
     "gatsby-cli": "^2.12.59",
