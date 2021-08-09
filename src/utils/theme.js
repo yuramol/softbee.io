@@ -10,6 +10,7 @@ export const theme = {
       'accent-2': '#25BBC5',
       'text-dark-grey': '#3B4649',
       'text-white': '#FFFFFF',
+      border: '#FFFFFF',
     },
   },
 };
