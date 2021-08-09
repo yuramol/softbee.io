@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
@@ -8,6 +9,17 @@ import { Next, Previous } from 'grommet-icons';
 import { Heading } from '../legos/typography/Heading';
 import { TextInput } from '../legos/TextInput/TextInput';
 
+const StyledGrid = styled(Grid)`
+  width: 100%;
+  background-color: #104065;
+  box-shadow: ${props => props.boxShadow};
+  color: #fae79f;
+  border-radius: 20px;
+`;
+const StyledHeading = styled(Heading)`
+  font-weight: 600;
+  white-space: pre-line;
+`;
 const NavigationButton = styled(Button)`
   display: flex;
   align-items: center;
@@ -34,7 +46,7 @@ const wizardSteps = [
   },
 ];
 
-export const Wizard = () => {
+export const Wizard = ({ style }) => {
   const initialWizardState = {};
 
   for (let i = 1; i <= wizardSteps.length; i += 1) {
@@ -74,108 +86,71 @@ export const Wizard = () => {
   const fontSizeMobile = isMobile ? 3 : 2;
 
   return (
-    <Grid
+    <StyledGrid
       columns={{ count: columnsCount, size: 'auto' }}
       pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'small'}
       margin={isMobile ? 'medium' : undefined}
       justify="center"
-      width="1000px"
-      style={{
-        background: '#104065',
-        boxShadow,
-        color: '#FAE79F',
-        borderRadius: '20px',
-      }}
+      boxShadow={boxShadow}
       round
+      style={style}
       gap="small"
     >
-      {isMobile || (
-        <Box
-          style={{ textAlign: 'center' }}
-          pad={
-            isMobile ? { vertical: 'xlarge', horizontal: 'large' } : 'medium'
-          }
+      <Box
+        style={{ textAlign: 'center' }}
+        pad={isMobile ? { vertical: 'xlarge', horizontal: 'large' } : 'medium'}
+        justify="center"
+        align="start"
+        fill
+      >
+        <StyledHeading
           justify="center"
-          align="start"
-          fill
+          textAlign="start"
+          level={fontSizeMobile}
+          color="white"
+          margin="xsmall"
         >
-          <Heading
-            justify="center"
-            textAlign="start"
-            level={fontSizeMobile}
-            color="white"
-            margin="xsmall"
-            style={{ fontWeight: '600', whiteSpace: 'pre-line' }}
-          >
-            {currentStep.title}
-          </Heading>
-          <Box pad={{ top: 'large' }} fill>
-            <FormField>
-              <TextInput
-                onChange={handleTextChange}
-                onKeyDown={handleKeyEvent}
-                value={formData[step]}
-                type={currentStep.type || 'text'}
-                placeholder={currentStep.placeholder}
-                style={{ paddingBottom: '30px' }}
-              />
-            </FormField>
-          </Box>
-          <Box direction="row" justify="center" margin={{ top: 'medium' }} fill>
-            <NavigationButton
-              onClick={() => navigate(false)}
-              label={<Previous color="brand" />}
-              margin={{ right: 'medium' }}
-              color="accent-1"
-              primary
-              disabled={step === 1}
+          {currentStep.title}
+        </StyledHeading>
+        <Box pad={{ top: 'large' }} fill>
+          <FormField>
+            <TextInput
+              onChange={handleTextChange}
+              onKeyDown={handleKeyEvent}
+              value={formData[step]}
+              type={currentStep.type || 'text'}
+              placeholder={currentStep.placeholder}
+              style={{ paddingBottom: '30px' }}
             />
-            <NavigationButton
-              onClick={navigate}
-              label={<Next color="brand" />}
-              margin={{ left: 'medium' }}
-              color="accent-1"
-              primary
-              disabled={moveForwardIsDisabled}
-            />
-          </Box>
+          </FormField>
         </Box>
-      )}
-      {isMobile && (
-        <Box
-          style={{ textAlign: 'center' }}
-          pad="medium"
-          justify="center"
-          align="start"
-          fill
-        >
-          <Heading
-            justify="center"
-            textAlign="start"
-            level={5}
-            color="white"
-            margin="xsmall"
-            style={{ fontWeight: '600' }}
-          >
-            Hey! Let’s get started. We’re SoftBee, and
-          </Heading>
-          <Heading
-            justify="center"
-            textAlign="start"
-            level={5}
-            color="white"
-            margin="xsmall"
-            style={{ fontWeight: '600' }}
-          >
-            you are? &#128075;
-          </Heading>
-          <Box pad={{ top: 'large' }} fill>
-            <FormField>
-              <TextInput placeholder="Lovely Person" />
-            </FormField>
-          </Box>
+        <Box direction="row" justify="center" margin={{ top: 'medium' }} fill>
+          <NavigationButton
+            onClick={() => navigate(false)}
+            label={<Previous color="brand" />}
+            margin={{ right: 'medium' }}
+            color="accent-1"
+            primary
+            disabled={step === 1}
+          />
+          <NavigationButton
+            onClick={navigate}
+            label={<Next color="brand" />}
+            margin={{ left: 'medium' }}
+            color="accent-1"
+            primary
+            disabled={moveForwardIsDisabled}
+          />
         </Box>
-      )}
-    </Grid>
+      </Box>
+    </StyledGrid>
   );
+};
+
+Wizard.propTypes = {
+  style: PropTypes.shape({ maxWidth: PropTypes.string }),
+};
+
+Wizard.defaultProps = {
+  style: {},
 };
