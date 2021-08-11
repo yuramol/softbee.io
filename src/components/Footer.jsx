@@ -10,6 +10,7 @@ import Logo from '../../static/assets/logo.svg';
 import { Heading } from '../legos/typography/Heading';
 import { TextInput } from '../legos/TextInput/TextInput';
 import SendButtonIcon from '../../static/assets/sendButton.svg';
+import { RouterLink } from '../legos/RouterLink';
 
 const linkFooterItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -63,19 +64,20 @@ export const SiteFooter = () => {
             style={{ justifyContent: 'space-between' }}
           >
             {linkFooterItems.map(linkItem => (
-              <Button
-                size="large"
-                key={linkItem.id}
-                plain
-                label={linkItem.label}
-                href={linkItem.link}
-                style={{
-                  textAlign: { alignVariant },
-                  fontSize: '18px',
-                  lineHeight: '40px',
-                  fontWeight: '500',
-                }}
-              />
+              <RouterLink to={linkItem.link} key={linkItem.id}>
+                <Button
+                  size="large"
+                  key={linkItem.id}
+                  plain
+                  label={linkItem.label}
+                  style={{
+                    textAlign: { alignVariant },
+                    fontSize: '18px',
+                    lineHeight: '40px',
+                    fontWeight: '500',
+                  }}
+                />
+              </RouterLink>
             ))}
           </Box>
         </Box>
