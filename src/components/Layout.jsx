@@ -5,6 +5,8 @@ import { Grommet, Box, ResponsiveContext } from 'grommet';
 import 'normalize.css';
 import { theme } from '../utils/theme';
 
+import { LetsTalk } from './LetsTalk';
+
 export const Layout = ({ children, withBackground }) => {
   const image = size =>
     size === 'small' ? undefined : 'url(/assets/backgroundHeader.svg)';
@@ -34,6 +36,7 @@ export const Layout = ({ children, withBackground }) => {
               width={{ max: '1440px' }}
             >
               {children}
+              <LetsTalk />
             </Box>
           </Box>
         )}

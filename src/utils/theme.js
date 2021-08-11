@@ -1,4 +1,7 @@
 export const theme = {
+  layer: {
+    background: 'transparent',
+  },
   global: {
     font: {
       family: 'Gilroy',

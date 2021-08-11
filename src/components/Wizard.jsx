@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 import styled, { css } from 'styled-components';
 
 import { Box, Button, FormField, Grid, ResponsiveContext, Text } from 'grommet';
-import { Next, Previous } from 'grommet-icons';
+import { Close, Next, Previous } from 'grommet-icons';
 
 import { TextInput } from '../legos/TextInput/TextInput';
 import { validateEmail } from '../utils/helpers';
@@ -14,7 +14,7 @@ const StyledGrid = styled(Grid)`
   background-color: #104065;
   box-shadow: ${props => props.boxShadow};
   color: #fae79f;
-  border-radius: 20px;
+  border-radius: ${props => props.borderRadius};
 `;
 const StyledHeading = styled(Text)`
   font-weight: 600;
@@ -69,7 +69,7 @@ const headingSizes = {
   small: '22px',
 };
 
-export const Wizard = ({ style }) => {
+export const Wizard = ({ style, needBoxShadow, onClose }) => {
   const initialWizardState = {};
 
   for (let i = 1; i <= wizardSteps.length; i += 1) {
@@ -99,6 +99,10 @@ export const Wizard = ({ style }) => {
 
   const navigate = to => {
     setStep(to);
+
+    if (onClose && to === wizardSteps.length) {
+      setTimeout(() => onClose(), 3000);
+    }
   };
 
   const handleTextChange = e => {
@@ -121,15 +125,16 @@ export const Wizard = ({ style }) => {
     <StyledGrid
       columns={{ count: columnsCount, size: 'auto' }}
       pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'small'}
-      margin={isMobile ? 'medium' : undefined}
+      margin="none"
       justify="center"
-      boxShadow={boxShadow}
+      boxShadow={needBoxShadow ? boxShadow : null}
       round
       style={style}
+      borderRadius={isMobile ? 0 : '20px'}
       gap="small"
     >
       <Box
-        style={{ textAlign: 'center' }}
+        style={{ textAlign: 'center', maxHeight: isMobile ? '377px' : 'auto' }}
         pad={isMobile ? { vertical: 'xlarge', horizontal: 'medium' } : 'medium'}
         justify="center"
         align="start"
@@ -163,7 +168,7 @@ export const Wizard = ({ style }) => {
             <Box
               direction="row"
               justify="center"
-              margin={{ top: 'medium', bottom: 'medium' }}
+              margin={{ vertical: isMobile ? 'large' : 'medium' }}
               fill
             >
               <NavigationButton
@@ -204,15 +209,33 @@ export const Wizard = ({ style }) => {
             </Box>
           </>
         )}
+        {onClose && isMobile && (
+          <Box align="center" fill>
+            <Button
+              onClick={onClose}
+              label="Close"
+              primary
+              color="accent-1"
+              icon={<Close color="brand" />}
+            />
+          </Box>
+        )}
       </Box>
     </StyledGrid>
   );
 };
 
 Wizard.propTypes = {
-  style: PropTypes.shape({ maxWidth: PropTypes.string }),
+  style: PropTypes.shape({
+    maxWidth: PropTypes.string,
+    height: PropTypes.string,
+  }),
+  needBoxShadow: PropTypes.bool,
+  onClose: PropTypes.func,
 };
 
 Wizard.defaultProps = {
   style: {},
+  needBoxShadow: true,
+  onClose: null,
 };
