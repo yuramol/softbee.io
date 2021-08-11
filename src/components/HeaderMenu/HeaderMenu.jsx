@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Box, Layer, Image, Button, Nav } from 'grommet';
 
 import { theme } from '../../utils/theme';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -67,16 +68,14 @@ const HeaderMenu = () => {
                 />
               ))}
               <Box height="60px" width="200px">
-                <Button
-                  label="Let’s talk 👋"
-                  onClick={onClose}
-                  fill
-                  color="yellow"
-                  style={{
+                <ButtonLetsTalk
+                  labelButton="Let’s talk 👋"
+                  styleButton={{
                     boxShadow: `none`,
                     textDecoration: `none`,
                     fontSize: '18px',
                   }}
+                  onClickButton={onClose}
                 />
               </Box>
             </Nav>

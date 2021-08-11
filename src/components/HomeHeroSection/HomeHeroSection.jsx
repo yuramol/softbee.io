@@ -6,7 +6,7 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
-import { Button } from '../../legos/Button/Button';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 export const HomeHeroSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
@@ -77,13 +77,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           </Box>
 
           <Box justify="center" align="center" height="60px" width="200px">
-            <Button
-              label="Let’s talk"
-              fill
-              color="accent-1"
-              primary
-              href="/let's-talk"
-            />
+            <ButtonLetsTalk labelButton="Let’s talk" colorButton="accent-1" />
           </Box>
         </Box>
         {isMobile || (

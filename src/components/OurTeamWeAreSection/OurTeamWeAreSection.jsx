@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 import { useMediaQuery } from 'react-responsive';
 import { Text } from '../../legos/typography/Text';
-import { Button } from '../../legos/Button/Button';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 export const OurTeamWeAreSection = () => {
   const size = React.useContext(ResponsiveContext);
@@ -56,12 +56,10 @@ export const OurTeamWeAreSection = () => {
             width="194px"
             margin={{ top: '50px' }}
           >
-            <Button
-              label="Let’s talk   &#128075;"
-              fill
-              color="accent-1"
-              primary
-              href="/let's-talk"
+            <ButtonLetsTalk
+              labelButton="Let’s talk4   &#128075;"
+              colorButton="accent-1"
+              primaryButton
             />
           </Box>
         </Box>

@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
+import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
 
 const StyledBox = styled(Box)`
   top: 0;
@@ -88,11 +89,9 @@ export const SiteHeader = () => {
               />
             ))}
             <Box height="60px" width={isDense ? '148px' : '200px'}>
-              <Button
-                label="Let’s talk 👋"
-                fill
-                color="yellow"
-                style={{
+              <ButtonLetsTalk
+                labelButton="Let’s talk 👋"
+                styleButton={{
                   boxShadow: `none`,
                   textDecoration: `none`,
                   fontSize: '18px',
