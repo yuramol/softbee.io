@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, Layer, Image, Button, Nav } from 'grommet';
+import { RouterLink } from '../../legos/RouterLink';
 
 import { theme } from '../../utils/theme';
 
@@ -51,20 +52,21 @@ const HeaderMenu = () => {
           >
             <Nav direction="column" justify="center">
               {linkItems.map(linkItem => (
-                <Button
-                  plain
-                  size="large"
-                  key={linkItem.id}
-                  margin={{ vertical: 'xsmall' }}
-                  label={linkItem.label}
-                  href={linkItem.link}
-                  onClick={onClose}
-                  style={{
-                    textAlign: 'center',
-                    fontSize: '18px',
-                    lineHeight: '40px',
-                  }}
-                />
+                <RouterLink to={linkItem.link} key={linkItem.id}>
+                  <Button
+                    plain
+                    size="large"
+                    key={linkItem.id}
+                    margin={{ vertical: 'xsmall' }}
+                    label={linkItem.label}
+                    onClick={onClose}
+                    style={{
+                      textAlign: 'center',
+                      fontSize: '18px',
+                      lineHeight: '40px',
+                    }}
+                  />
+                </RouterLink>
               ))}
               <Box height="60px" width="200px">
                 <Button
