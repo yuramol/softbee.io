@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Layer } from 'grommet';
 import { Wizard } from './Wizard';
+import Event from '../utils/Event';
+
+export const modalOpenEvent = new Event();
 
 export const LetsTalk = () => {
   const [show, setShow] = useState(false);
 
   const hide = () => setShow(false);
+
+  useEffect(() => {
+    const openHandler = () => setShow(true);
+    modalOpenEvent.on(openHandler);
+    return () => modalOpenEvent.off(openHandler);
+  });
 
   return (
     <Box>
