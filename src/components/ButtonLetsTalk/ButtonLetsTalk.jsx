@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'grommet';
 import { shape, string, bool, func } from 'prop-types';
-// import { modalOpenEvent } from './LetsTalk';
+import { modalOpenEvent } from '../LetsTalk';
 
 export const ButtonLetsTalk = ({
   labelButton,
@@ -14,7 +14,7 @@ export const ButtonLetsTalk = ({
     if (onClickButton) {
       onClickButton(true);
     }
-    // modalOpenEvent.emit();
+    modalOpenEvent.emit();
   };
 
   return (
