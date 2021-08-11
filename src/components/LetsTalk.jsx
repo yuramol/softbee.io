@@ -14,7 +14,7 @@ export const LetsTalk = () => {
     const openHandler = () => setShow(true);
     modalOpenEvent.on(openHandler);
     return () => modalOpenEvent.off(openHandler);
-  });
+  }, []);
 
   return (
     <Box>
