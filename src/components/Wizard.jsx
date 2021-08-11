@@ -25,9 +25,21 @@ const StyledHeading = styled(Text)`
     `}
 `;
 const NavigationButton = styled(Button)`
+  height: 42px;
   display: flex;
   align-items: center;
   border-radius: 2px;
+`;
+const StepButton = styled(Button)`
+  width: 66px;
+  height: 0;
+  margin: 0 7px;
+  padding: 0;
+
+  &:disabled {
+    border-color: #ffffff;
+    opacity: 1;
+  }
 `;
 
 const wizardSteps = [
@@ -44,7 +56,7 @@ const wizardSteps = [
     placeholder: 'Budget / Timeframe?',
   },
   {
-    title: 'Please provide your email 📧',
+    title: 'Please provide your email\n 📧',
     placeholder: 'best@customer.com',
     type: 'email',
   },
@@ -68,6 +80,16 @@ export const Wizard = ({ style }) => {
   const [formData, setFormData] = useState(initialWizardState);
 
   const currentStep = useMemo(() => wizardSteps[step - 1], [step]);
+  const currentTitle = useMemo(() => {
+    const { title } = currentStep;
+
+    if (step === 2) {
+      return title.replace('{name}', formData[1]);
+    }
+
+    return title;
+  }, [step]);
+
   const moveForwardIsDisabled = useMemo(() => {
     if (currentStep.type === 'email') {
       return !validateEmail(formData[step]);
@@ -75,12 +97,8 @@ export const Wizard = ({ style }) => {
     return step === wizardSteps.length || formData[step].length === 0;
   }, [step, formData]);
 
-  const navigate = (forward = true) => {
-    if (
-      !((step === 1 && !forward) || (step === wizardSteps.length && forward))
-    ) {
-      setStep(forward ? step + 1 : step - 1);
-    }
+  const navigate = to => {
+    setStep(to);
   };
 
   const handleTextChange = e => {
@@ -88,7 +106,7 @@ export const Wizard = ({ style }) => {
   };
   const handleKeyEvent = e => {
     if (e.key === 'Enter' && !moveForwardIsDisabled) {
-      navigate();
+      navigate(step + 1);
     }
   };
 
@@ -125,30 +143,31 @@ export const Wizard = ({ style }) => {
           margin="xsmall"
           preLine={size === 'large'}
         >
-          {currentStep.title}
+          {currentTitle}
         </StyledHeading>
         {currentStep.placeholder && (
           <>
-            <Box pad={{ top: 'large' }} fill>
-              <FormField>
+            <Box pad={{ top: 'large' }} height="xlarge" fill>
+              <FormField style={{ minHeight: 'auto' }}>
                 <TextInput
                   onChange={handleTextChange}
                   onKeyDown={handleKeyEvent}
                   value={formData[step]}
                   type={currentStep.type || 'text'}
                   placeholder={currentStep.placeholder}
-                  style={{ paddingBottom: '30px' }}
+                  dropHeight="xlarge"
+                  size="medium"
                 />
               </FormField>
             </Box>
             <Box
               direction="row"
               justify="center"
-              margin={{ top: 'medium' }}
+              margin={{ top: 'medium', bottom: 'medium' }}
               fill
             >
               <NavigationButton
-                onClick={() => navigate(false)}
+                onClick={() => navigate(step - 1)}
                 label={<Previous color="brand" />}
                 margin={{ right: 'medium' }}
                 color="accent-1"
@@ -156,13 +175,32 @@ export const Wizard = ({ style }) => {
                 disabled={step === 1}
               />
               <NavigationButton
-                onClick={navigate}
+                onClick={() => navigate(step + 1)}
                 label={<Next color="brand" />}
                 margin={{ left: 'medium' }}
                 color="accent-1"
                 primary
                 disabled={moveForwardIsDisabled}
               />
+            </Box>
+            <Box
+              direction="row"
+              justify="center"
+              fill
+              margin={{ top: 'medium' }}
+            >
+              {wizardSteps.map(
+                (s, i) =>
+                  i < wizardSteps.length - 1 && (
+                    <StepButton
+                      onClick={() => navigate(i + 1)}
+                      disabled={step <= i}
+                      color="accent-1"
+                      primary
+                      key={s.title}
+                    />
+                  ),
+              )}
             </Box>
           </>
         )}
