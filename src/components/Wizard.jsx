@@ -6,8 +6,8 @@ import styled, { css } from 'styled-components';
 import { Box, Button, FormField, Grid, ResponsiveContext, Text } from 'grommet';
 import { Close, Next, Previous } from 'grommet-icons';
 
+import { string } from 'yup';
 import { TextInput } from '../legos/TextInput/TextInput';
-import { validateEmail } from '../utils/helpers';
 
 const StyledGrid = styled(Grid)`
   width: 100%;
@@ -90,9 +90,13 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
     return title;
   }, [step]);
 
+  const emailFieldValidator = string()
+    .email()
+    .required();
+
   const moveForwardIsDisabled = useMemo(() => {
     if (currentStep.type === 'email') {
-      return !validateEmail(formData[step]);
+      return !emailFieldValidator.isValidSync(formData[step]);
     }
     return step === wizardSteps.length || formData[step].length === 0;
   }, [step, formData]);
