@@ -1,48 +1,35 @@
 import React from 'react';
 import { Button } from 'grommet';
-import { shape, string, bool, func } from 'prop-types';
+import { string, bool, func } from 'prop-types';
 import { modalOpenEvent } from '../LetsTalk';
 
-export const ButtonLetsTalk = ({
-  labelButton,
-  styleButton,
-  colorButton,
-  primaryButton,
-  onClickButton,
-}) => {
+export const ButtonLetsTalk = ({ label, color, primary, onClick }) => {
   const openModal = () => {
-    if (onClickButton) {
-      onClickButton(true);
+    if (onClick) {
+      onClick(true);
     }
     modalOpenEvent.emit();
   };
 
   return (
     <Button
-      label={labelButton}
+      label={label}
       onClick={openModal}
       fill
-      color={colorButton}
-      style={styleButton}
-      primary={primaryButton}
+      color={color}
+      primary={primary}
     />
   );
 };
 
 ButtonLetsTalk.propTypes = {
-  styleButton: shape({
-    boxShadow: string,
-    textDecoration: string,
-    fontSize: string,
-  }),
-  colorButton: string,
-  labelButton: string.isRequired,
-  primaryButton: bool,
-  onClickButton: func,
+  color: string,
+  label: string.isRequired,
+  primary: bool,
+  onClick: func,
 };
 ButtonLetsTalk.defaultProps = {
-  styleButton: {},
-  colorButton: 'yellow',
-  primaryButton: false,
-  onClickButton: null,
+  color: 'yellow',
+  primary: false,
+  onClick: null,
 };

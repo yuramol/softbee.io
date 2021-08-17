@@ -77,7 +77,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           </Box>
 
           <Box justify="center" align="center" height="60px" width="200px">
-            <ButtonLetsTalk labelButton="Let’s talk" colorButton="accent-1" />
+            <ButtonLetsTalk label="Let’s talk" color="accent-1" />
           </Box>
         </Box>
         {isMobile || (

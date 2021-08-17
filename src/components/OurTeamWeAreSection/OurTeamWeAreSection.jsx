@@ -57,9 +57,9 @@ export const OurTeamWeAreSection = () => {
             margin={{ top: '50px' }}
           >
             <ButtonLetsTalk
-              labelButton="Let’s talk4   &#128075;"
-              colorButton="accent-1"
-              primaryButton
+              label="Let’s talk4   &#128075;"
+              color="accent-1"
+              primary
             />
           </Box>
         </Box>

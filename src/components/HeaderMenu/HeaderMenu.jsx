@@ -69,8 +69,8 @@ const HeaderMenu = () => {
               ))}
               <Box height="60px" width="200px">
                 <ButtonLetsTalk
-                  labelButton="Let’s talk 👋"
-                  styleButton={{
+                  label="Let’s talk 👋"
+                  style={{
                     boxShadow: `none`,
                     textDecoration: `none`,
                     fontSize: '18px',
