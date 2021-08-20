@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `http://softbee.netlify.app`,
   },
   plugins: [
+    `gatsby-plugin-no-index`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
