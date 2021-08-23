@@ -33,4 +33,50 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Message, name: message, widget: string }
               - { label: Input placeholder, name: placeholder, widget: string }
+      - file: content/settings/home.md
+        name: home
+        label: Home
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: home }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
+          - label: Home hero
+            name: homeHero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: GapNurse
+            name: gapNurse
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Team
+            name: team
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: MMO.cat
+            name: mmoCat
+            widget: object
+            fields:
+                - { label: Title, name: title, widget: string }
+                - { label: Text, name: text, widget: text }
+          - label: Looking
+            name: looking
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+          - label: What we do
+            name: whatWeDo
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
 

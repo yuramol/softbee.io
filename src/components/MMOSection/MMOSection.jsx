@@ -1,14 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 
-import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 
-export const MMOSection = ({ withBackground }) => {
+export const MMOSection = ({ title, text, withBackground }) => {
   const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
@@ -77,7 +77,7 @@ export const MMOSection = ({ withBackground }) => {
               color="brand"
               textAlign={textAlignVariant}
             >
-              MMO.cat selling website
+              {title}
             </Heading>
           </Box>
           <Box width="491px" pad={{ bottom: 'small' }}>
@@ -86,15 +86,9 @@ export const MMOSection = ({ withBackground }) => {
                 size="medium"
                 color="text-dark-grey"
                 textAlign={textAlignVariant}
+                style={{ whiteSpace: 'pre-line' }}
               >
-                We provided full-stack development service
-              </Text>
-              <Text
-                size="medium"
-                color="text-dark-grey"
-                textAlign={textAlignVariant}
-              >
-                for end-to-end websites of MMO.cat team
+                {text}
               </Text>
             </Box>
             {isMobile || <RouterLink to="/mmo-case">See case study</RouterLink>}
@@ -131,6 +125,9 @@ export const MMOSection = ({ withBackground }) => {
 };
 
 MMOSection.propTypes = {
+  title: PropTypes.string.isRequired,
+
+  text: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 

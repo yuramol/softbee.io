@@ -9,7 +9,7 @@ import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
-export const GapNurseSection = ({ withBackground }) => {
+export const GapNurseSection = ({ title, text, withBackground }) => {
   const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
@@ -57,7 +57,7 @@ export const GapNurseSection = ({ withBackground }) => {
               color="brand"
               textAlign={textAlignVariant}
             >
-              They really help to fight COVID-19 in US
+              {title}
             </Heading>
           </Box>
           <Box
@@ -70,10 +70,9 @@ export const GapNurseSection = ({ withBackground }) => {
             <Text
               size="medium"
               color="text-dark-grey"
-              style={{ fontFamily: 'HelveticaNeueCyr' }}
+              style={{ fontFamily: 'HelveticaNeueCyr', whiteSpace: 'pre-line' }}
             >
-              GapNurse, facilities know they’re covered during critical moments
-              and unexpected absences without breaking your budget.
+              {text}
             </Text>
           </Box>
           {isMobile || (
@@ -107,6 +106,8 @@ export const GapNurseSection = ({ withBackground }) => {
 };
 
 GapNurseSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 
