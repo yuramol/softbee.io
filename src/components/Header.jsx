@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
+import { RouterLink } from '../legos/RouterLink';
 
 const StyledBox = styled(Box)`
   top: 0;
@@ -74,18 +75,19 @@ export const SiteHeader = () => {
           </Box>
           <Nav direction="row" align="center" justify="end">
             {linkItems.map(linkItem => (
-              <Button
-                key={linkItem.id}
-                plain
-                label={linkItem.label}
-                href={linkItem.link}
-                margin={{ horizontal: isDense ? 'none' : 'medium' }}
-                style={{
-                  boxShadow: `none`,
-                  textDecoration: `none`,
-                  fontSize: '18px',
-                }}
-              />
+              <RouterLink to={linkItem.link} key={linkItem.id}>
+                <Button
+                  key={linkItem.id}
+                  plain
+                  label={linkItem.label}
+                  margin={{ horizontal: isDense ? 'none' : 'medium' }}
+                  style={{
+                    boxShadow: `none`,
+                    textDecoration: `none`,
+                    fontSize: '18px',
+                  }}
+                />
+              </RouterLink>
             ))}
             <Box height="60px" width={isDense ? '148px' : '200px'}>
               <Button

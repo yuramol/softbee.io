@@ -55,7 +55,7 @@ const Blog = ({ data, location }) => {
                   <Box pad={{ right: 'large' }}>
                     <RouterLink
                       style={{ boxShadow: `none` }}
-                      to={`blog${node.fields.slug}`}
+                      to={`/blog${node.fields.slug}`}
                     >
                       <Box>
                         <Heading
