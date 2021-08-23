@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: soft-bee/softbee.tech
-  branch: feat/93-add-main-image-article-use-netlify-cms
+  branch: develop
 
 media_folder: static/assets
 public_folder: assets
@@ -14,7 +14,23 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
-      - { name: image, logo: Image, widget: image} 
+      - { name: image, logo: Image, widget: image}
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
+  - name: settings
+    label: Settings
+    files:
+      - file: content/settings/common.md
+        name: common
+        label: Common
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: common }
+          - label: Footer
+            name: footer
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Message, name: message, widget: string }
+              - { label: Input placeholder, name: placeholder, widget: string }
+

@@ -30,6 +30,7 @@
     "gatsby-remark-smartypants": "^2.0.9",
     "gatsby-remark-vscode": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.29",
+    "gatsby-transformer-remark": "^4.9.0",
     "gatsby-transformer-sharp": "^2.1.18",
     "grommet": "^2.13.0",
     "grommet-icons": "^4.4.0",
