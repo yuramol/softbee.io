@@ -1,10 +1,13 @@
 import React from 'react';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
+
+import { Box, Grid, ResponsiveContext } from 'grommet';
+
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
-export const OurTeamWeAreSection = () => {
+export const OurTeamWeAreSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isTablet = useMediaQuery({ query: '(max-width: 1100px)' });
@@ -43,11 +46,9 @@ export const OurTeamWeAreSection = () => {
             color="brand"
             size={isMobile ? 'small' : 'medium'}
             align="center"
+            style={{ whiteSpace: 'pre-line' }}
           >
-            We’re designers, developers, illustrators, copywriters and coders,
-            but we also have pure gold ideas. iPhone games, time-keeping apps,
-            dog-backpacks, too many tshirt slogans to keep track of. One day
-            we’ll be rich, you’d best work with us while we need the money.
+            {text}
           </Text>
           <Box
             justify="center"
@@ -66,4 +67,8 @@ export const OurTeamWeAreSection = () => {
       </Grid>
     </Box>
   );
+};
+
+OurTeamWeAreSection.propTypes = {
+  text: PropTypes.string.isRequired,
 };

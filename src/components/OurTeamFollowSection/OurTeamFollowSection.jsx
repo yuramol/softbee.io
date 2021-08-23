@@ -1,12 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
+import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
+
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { theme } from '../../utils/theme';
 import { Heading } from '../../legos/typography/Heading';
-import { RouterLink } from '../../legos/RouterLink';
 
-export const OurTeamFollowSection = () => {
+const StyledMarkdown = styled(ReactMarkdown)`
+  a {
+    color: white;
+  }
+`;
+
+export const OurTeamFollowSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 1;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
@@ -53,24 +62,13 @@ export const OurTeamFollowSection = () => {
           }
           pad={{ vertical: 'xlarge' }}
         >
-          Follow us on{' '}
-          <RouterLink
-            to="our-Medium"
-            color="white"
-            style={{ textDecorationLine: 'underline' }}
-          >
-            Medium
-          </RouterLink>{' '}
-          and don’t forget to{' '}
-          <RouterLink
-            to=" Hire the team"
-            color="white"
-            style={{ textDecorationLine: 'underline' }}
-          >
-            Hire the team
-          </RouterLink>
+          <StyledMarkdown>{text}</StyledMarkdown>
         </Heading>
       </Grid>
     </Box>
   );
+};
+
+OurTeamFollowSection.propTypes = {
+  text: PropTypes.string.isRequired,
 };

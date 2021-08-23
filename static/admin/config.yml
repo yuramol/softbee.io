@@ -79,4 +79,39 @@ collections:
             widget: object
             fields:
               - { label: Title, name: title, widget: string }
-
+      - file: content/settings/team.md
+        name: team
+        label: Our team
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: team }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
+          - label: Main
+            name: main
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Members
+            name: members
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - label: List
+                name: list
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Position, name: position, widget: string }
+                  - { label: Photo, name: photo, widget: image }
+          - label: Let's talk
+            name: letsTalk
+            widget: text
+          - label: Follow
+            name: follow
+            widget: markdown
