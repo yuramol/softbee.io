@@ -216,7 +216,7 @@ export const CaseGapNurse = () => {
       <Box>
         <img
           style={{ width: '100%', height: 'auto' }}
-          src="/assets/backgroundScreenshotsGapNurse.png"
+          src="/assets/backgroundScreenshotsGapNurse.jpg"
           alt="screenshots GapNurse"
         />
       </Box>
