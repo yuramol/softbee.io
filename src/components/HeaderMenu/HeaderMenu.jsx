@@ -19,12 +19,6 @@ const StyledLayer = styled(Layer)`
   border-radius: unset;
 `;
 
-const StyleButtonLetsTalk = styled(ButtonLetsTalk)`
-  box-shadow: none;
-  text-decoration: none;
-  font-size: 18px;
-`;
-
 const HeaderMenu = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -74,10 +68,7 @@ const HeaderMenu = () => {
                 />
               ))}
               <Box height="60px" width="200px">
-                <StyleButtonLetsTalk
-                  label="Let’s talk 👋"
-                  onClickButton={onClose}
-                />
+                <ButtonLetsTalk label="Let’s talk 👋" onClickButton={onClose} />
               </Box>
             </Nav>
           </Box>

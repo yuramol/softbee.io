@@ -28,12 +28,6 @@ const StyledLink = styled(Link)`
   align-items: center;
 `;
 
-const StyleButtonLetsTalk = styled(ButtonLetsTalk)`
-  box-shadow: none;
-  text-decoration: none;
-  font-size: 18px;
-`;
-
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
   { id: '2', label: 'Our team', link: '/our-team' },
@@ -95,7 +89,7 @@ export const SiteHeader = () => {
               />
             ))}
             <Box height="60px" width={isDense ? '148px' : '200px'}>
-              <StyleButtonLetsTalk label="Let’s talk 👋" />
+              <ButtonLetsTalk label="Let’s talk 👋" />
             </Box>
           </Nav>
         </Grid>

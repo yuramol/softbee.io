@@ -3,13 +3,7 @@ import { Button } from 'grommet';
 import { string, bool, func } from 'prop-types';
 import { dispatch } from '../../utils/useBus';
 
-export const ButtonLetsTalk = ({
-  className,
-  label,
-  color,
-  primary,
-  onClick,
-}) => {
+export const ButtonLetsTalk = ({ label, color, primary, onClick }) => {
   const openModal = () => {
     if (onClick) {
       onClick(true);
@@ -19,7 +13,6 @@ export const ButtonLetsTalk = ({
 
   return (
     <Button
-      className={className}
       label={label}
       onClick={openModal}
       fill
@@ -34,7 +27,6 @@ ButtonLetsTalk.propTypes = {
   label: string.isRequired,
   primary: bool,
   onClick: func,
-  className: string.isRequired,
 };
 ButtonLetsTalk.defaultProps = {
   color: 'yellow',
