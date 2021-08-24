@@ -115,3 +115,29 @@ collections:
           - label: Follow
             name: follow
             widget: markdown
+      - file: content/settings/work.md
+        name: work
+        label: Work
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: work }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
+          - label: Main
+            name: main
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: What we do, name: whatWeDo, widget: list, field: {label: Name, name: name, widget: string} }
+          - label: Toolchain
+            name: toolchain
+            widget: list
+            fields:
+              - { label: Logo, name: logo, widget: image }
+              - { label: Name, name: name, widget: string }
+

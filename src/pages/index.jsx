@@ -44,7 +44,7 @@ const IndexPage = ({ location, data }) => {
       <TeamSection title={team.title} text={team.text} />
       <MMOSection title={mmoCat.title} text={mmoCat.text} withBackground />
       <LookingSection title={looking.title} text={looking.text} />
-      <WhatWeDoSection title={whatWeDo.title} text={whatWeDo.text} />
+      <WhatWeDoSection title={whatWeDo.title} />
       <LetsStarted />
       <BlogSection withBackground />
       <SiteFooter />
