@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'grommet';
 import { string, bool, func } from 'prop-types';
-import { modalOpenEvent } from '../LetsTalk';
+import { dispatch } from '../../utils/useBus';
 
 export const ButtonLetsTalk = ({
   className,
@@ -14,7 +14,7 @@ export const ButtonLetsTalk = ({
     if (onClick) {
       onClick(true);
     }
-    modalOpenEvent.emit();
+    dispatch('letsTalk/open');
   };
 
   return (
