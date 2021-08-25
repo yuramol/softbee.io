@@ -1,6 +1,7 @@
 backend:
   name: github
-  repo: serartmar/softbee
+  repo: soft-bee/softbee.tech
+  branch: feat/93-add-main-image-article-use-netlify-cms
 
 media_folder: static/assets
 public_folder: assets
@@ -13,6 +14,7 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
+      - { name: image, logo: Image, widget: image} 
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
