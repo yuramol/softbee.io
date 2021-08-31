@@ -41,9 +41,12 @@
     "react-helmet": "^5.2.0",
     "react-responsive": "^8.1.0",
     "react-switch": "^5.0.0",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@types/react-responsive": "^8.0.3",
+    "@types/styled-components": "^5.1.12",
     "babel-plugin-module-resolver": "^4.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",

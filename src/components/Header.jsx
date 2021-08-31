@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import { useMediaQuery } from 'react-responsive';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
+import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../legos/RouterLink';
 
 const StyledBox = styled(Box)`
@@ -90,16 +91,7 @@ export const SiteHeader = () => {
               </RouterLink>
             ))}
             <Box height="60px" width={isDense ? '148px' : '200px'}>
-              <Button
-                label="Let’s talk 👋"
-                fill
-                color="yellow"
-                style={{
-                  boxShadow: `none`,
-                  textDecoration: `none`,
-                  fontSize: '18px',
-                }}
-              />
+              <ButtonLetsTalk label="Let’s talk 👋" />
             </Box>
           </Nav>
         </Grid>

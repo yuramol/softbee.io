@@ -4,6 +4,7 @@ import { Box, Layer, Image, Button, Nav } from 'grommet';
 import { RouterLink } from '../../legos/RouterLink';
 
 import { theme } from '../../utils/theme';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -69,17 +70,7 @@ const HeaderMenu = () => {
                 </RouterLink>
               ))}
               <Box height="60px" width="200px">
-                <Button
-                  label="Let’s talk 👋"
-                  onClick={onClose}
-                  fill
-                  color="yellow"
-                  style={{
-                    boxShadow: `none`,
-                    textDecoration: `none`,
-                    fontSize: '18px',
-                  }}
-                />
+                <ButtonLetsTalk label="Let’s talk 👋" onClickButton={onClose} />
               </Box>
             </Nav>
           </Box>
