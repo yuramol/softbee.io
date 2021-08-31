@@ -33,6 +33,19 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Message, name: message, widget: string }
               - { label: Input placeholder, name: placeholder, widget: string }
+          - label: Let's talk form
+            name: form
+            widget: object
+            fields:
+              - label: List
+                name: list
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: text }
+                  - { label: Input placeholder, name: placeholder, widget: string }
+              - label: Thank you
+                name: submission
+                widget: text
       - file: content/settings/home.md
         name: home
         label: Home
