@@ -1,6 +1,7 @@
 backend:
   name: github
-  repo: serartmar/softbee
+  repo: soft-bee/softbee.tech
+  branch: master
 
 media_folder: static/assets
 public_folder: assets
