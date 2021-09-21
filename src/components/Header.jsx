@@ -10,7 +10,6 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
@@ -36,8 +35,8 @@ const linkItems = [
 ];
 
 export const SiteHeader = () => {
-  const isDense = useMediaQuery({ query: '(max-width: 960px)' });
   const size = React.useContext(ResponsiveContext);
+  const isDense = size === 'sTablet';
 
   return (
     <Header>

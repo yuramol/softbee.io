@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
-import { Box, Footer, Grid, Image, FormField } from 'grommet';
+import {
+  Box,
+  Footer,
+  Grid,
+  Image,
+  FormField,
+  ResponsiveContext,
+} from 'grommet';
 
 import { Button } from '../legos/Button/Button';
 import { Text } from '../legos/typography/Text';
@@ -29,7 +35,8 @@ const StyledLink = styled(Link)`
 `;
 
 export const SiteFooter = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = size === 'xSmall';
   const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
 

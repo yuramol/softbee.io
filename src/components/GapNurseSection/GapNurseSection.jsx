@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useMediaQuery } from 'react-responsive';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
@@ -10,11 +8,11 @@ import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 
 export const GapNurseSection = ({ withBackground }) => {
-  const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
   const size = React.useContext(ResponsiveContext);
+  const shouldHaveBlueFigure = size === 'desktopOrTablet';
   const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1112px)' });
+  const isMobile = size === 'mobile';
+  const isTablet = size === 'tabletOrMobile';
   const heightSection = withBackground ? '700px' : '800px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;

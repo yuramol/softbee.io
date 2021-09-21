@@ -1,12 +1,12 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
-import { Box } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 
 import { Wizard } from '../Wizard';
 
 export const LetsStarted = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = size === 'mobile';
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
     : 'xlarge';

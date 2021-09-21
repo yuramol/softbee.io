@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
@@ -24,12 +23,11 @@ const keywords = [
 ];
 
 const IndexPage = ({ location }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 1210px)' });
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title={siteTitle} keywords={keywords} />
       <SiteHeader />
-      <HomeHeroSection withBackground={!isMobile} />
+      <HomeHeroSection withBackground />
       <GapNurseSection withBackground />
       <TeamSection />
       <MMOSection withBackground />

@@ -1,6 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-import PropTypes from 'prop-types';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
@@ -8,11 +6,11 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
-export const HomeHeroSection = ({ withBackground }) => {
+export const HomeHeroSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
+  const isMobile = size === 'mobile';
+  const isDesktopOrTablet = size === 'desktopOrTablet';
   const headingSize = isDesktopOrTablet ? 2 : 1;
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headingFontSizeVariant = isMobile ? 3 : 1;
@@ -25,7 +23,7 @@ export const HomeHeroSection = ({ withBackground }) => {
     <Box
       height={isDesktopOrTablet ? 'auto' : '847px'}
       background={
-        withBackground
+        size === 'large' || size === 'medium'
           ? {
               size: 'small',
               position: 'right',
@@ -34,6 +32,7 @@ export const HomeHeroSection = ({ withBackground }) => {
           : undefined
       }
     >
+      {size}
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
         gap="small"
@@ -92,12 +91,4 @@ export const HomeHeroSection = ({ withBackground }) => {
       </Grid>
     </Box>
   );
-};
-
-HomeHeroSection.propTypes = {
-  withBackground: PropTypes.bool,
-};
-
-HomeHeroSection.defaultProps = {
-  withBackground: undefined,
 };

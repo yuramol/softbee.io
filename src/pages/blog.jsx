@@ -1,9 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
-import { Box, Grid, Text, Heading } from 'grommet';
+import { Box, Grid, Text, Heading, ResponsiveContext } from 'grommet';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { RouterLink } from '../legos/RouterLink';
@@ -11,10 +10,11 @@ import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 
 const Blog = ({ data, location }) => {
+  const size = React.useContext(ResponsiveContext);
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
-  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isMobile = size === 'mobile';
+  const isTablet = size === 'desktopOrTablet';
 
   return (
     <Layout location={location} title={siteTitle} withBackground>

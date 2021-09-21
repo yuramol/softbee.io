@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import PropTypes from 'prop-types';
 import { Box, ResponsiveContext, Grid } from 'grommet';
@@ -8,8 +7,8 @@ import { Heading } from '../../legos/typography/Heading';
 
 export const WhatWeDoSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isMobile = size === 'mobile';
+  const isTablet = size === 'tablet';
   const columnsCount = size === 'small' ? 2 : 4;
   const marginVariant = isTablet ? 'none' : 'xsmall';
   const headerLevel = isMobile ? 4 : 2;

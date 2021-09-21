@@ -1,6 +1,5 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 import styled, { css } from 'styled-components';
 
 import { Box, Button, FormField, Grid, ResponsiveContext, Text } from 'grommet';
@@ -120,7 +119,7 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
 
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 1;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isMobile = size === 'mobile';
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
 
   const headingSize = headingSizes[size];

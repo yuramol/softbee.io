@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
@@ -9,11 +8,11 @@ import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 
 export const MMOSection = ({ withBackground }) => {
-  const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
   const size = React.useContext(ResponsiveContext);
+  const shouldHaveBlueFigure = size === 'desktopOrTablet';
   const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
+  const isMobile = size === 'mobile';
+  const isTablet = size === 'desktopOrTablet';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headerLevel = isMobile ? 4 : 2;
   const paddingVariant = isMobile
@@ -68,7 +67,11 @@ export const MMOSection = ({ withBackground }) => {
         )}
         <Box
           justify="center"
-          pad={isTablet ? undefined : { left: 'xlarge', right: 'xlarge' }}
+          pad={
+            size === 'desktopOrTablet' || size === 'large' || size === 'medium'
+              ? undefined
+              : { left: 'xlarge', right: 'xlarge' }
+          }
           align={textAlignVariant}
         >
           <Box>

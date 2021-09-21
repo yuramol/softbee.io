@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Grid } from 'grommet';
-import { useMediaQuery } from 'react-responsive';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 
@@ -44,7 +43,8 @@ const teamMembers = [
 ];
 
 export const OurTeamAboutTeam = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = size === 'bMobile';
   const columnsCount = isMobile ? 2 : 3;
 
   return (

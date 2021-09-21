@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { theme } from '../../utils/theme';
@@ -8,8 +7,8 @@ import { RouterLink } from '../../legos/RouterLink';
 
 export const OurTeamFollowSection = () => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 1;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const columnsCount = 1;
+  const isMobile = size === 'mobile';
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }

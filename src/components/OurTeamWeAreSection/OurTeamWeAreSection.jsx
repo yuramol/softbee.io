@@ -1,14 +1,13 @@
 import React from 'react';
 import { Box, Grid, ResponsiveContext } from 'grommet';
-import { useMediaQuery } from 'react-responsive';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 export const OurTeamWeAreSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const isTablet = useMediaQuery({ query: '(max-width: 1100px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const isMobile = size === 'bMobile';
+  const isTablet = size === 'tabletOrMobile';
 
   return (
     <Box

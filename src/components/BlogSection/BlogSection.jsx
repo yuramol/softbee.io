@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
@@ -36,8 +35,8 @@ export const BlogSection = ({ withBackground }) => {
   const posts = data.allMdx.edges;
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const isTablet = size === 'tablet';
+  const isMobile = size === 'mobile';
   const fontSizeVariant = isMobile ? 6 : 2;
   const paddingVariant = isMobile
     ? 'large'
@@ -77,7 +76,7 @@ export const BlogSection = ({ withBackground }) => {
             })}
           </Box>
         </Box>
-        {!isMobile && (
+        {size === 'small' && (
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}

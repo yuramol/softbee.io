@@ -1,16 +1,16 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import PropTypes from 'prop-types';
-import { Box } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 
 export const BlogItem = ({ post, first }) => {
-  const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isTablet = size === 'tablet';
+  const isMobile = size === 'mobile';
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     (isTablet && !first) || (

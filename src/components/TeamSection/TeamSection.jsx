@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
@@ -10,8 +9,8 @@ import { RouterLink } from '../../legos/RouterLink';
 export const TeamSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1024px)' });
+  const isMobile = size === 'mobile';
+  const isTablet = size === 'tablet';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
   const paddingVariant = isMobile ? 'large' : 'xlarge';
