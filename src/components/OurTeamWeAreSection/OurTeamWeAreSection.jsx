@@ -2,12 +2,13 @@ import React from 'react';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const OurTeamWeAreSection = () => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = size === 'bMobile';
-  const isTablet = size === 'tabletOrMobile';
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isMobile = maxBreakpoints('bMobile', size);
+  const isTablet = maxBreakpoints('tabletOrMobile', size);
 
   return (
     <Box

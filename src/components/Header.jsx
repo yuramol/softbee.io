@@ -14,6 +14,7 @@ import styled from 'styled-components';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../legos/RouterLink';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const StyledBox = styled(Box)`
   top: 0;
@@ -36,11 +37,11 @@ const linkItems = [
 
 export const SiteHeader = () => {
   const size = React.useContext(ResponsiveContext);
-  const isDense = size === 'sTablet';
+  const isDense = maxBreakpoints('sTablet', size);
 
   return (
     <Header>
-      {size === 'small' ? (
+      {maxBreakpoints('small', size) ? (
         <StyledBox
           elevation="medium"
           pad="small"

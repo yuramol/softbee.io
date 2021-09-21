@@ -5,12 +5,13 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const CaseGapNurse = () => {
   const size = React.useContext(ResponsiveContext);
-  const isTabletOrMobile = size === 'tabletOrMobile';
+  const isTabletOrMobile = maxBreakpoints('tabletOrMobile', size);
   const columnsCountTablet = isTabletOrMobile ? 1 : 2;
-  const isMobile = size === 'small';
+  const isMobile = maxBreakpoints('small', size);
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     <Box>

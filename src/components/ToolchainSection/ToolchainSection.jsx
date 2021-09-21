@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, Image, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 const toolchainItems = [
   { id: '1', label: 'React', icon: '/assets/icons/reactIcon.svg' },
@@ -19,7 +20,7 @@ const toolchainItems = [
 
 export const ToolchainSection = () => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'xSmall';
+  const isMobile = maxBreakpoints('xSmall', size);
   const headerLevel = isMobile ? 6 : 5;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'large' }

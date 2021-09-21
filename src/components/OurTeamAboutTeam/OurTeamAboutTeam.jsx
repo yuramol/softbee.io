@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 const teamMembers = [
   {
@@ -44,7 +45,7 @@ const teamMembers = [
 
 export const OurTeamAboutTeam = () => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'bMobile';
+  const isMobile = maxBreakpoints('bMobile', size);
   const columnsCount = isMobile ? 2 : 3;
 
   return (

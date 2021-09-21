@@ -4,11 +4,12 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const CaseMMO = () => {
   const size = React.useContext(ResponsiveContext);
-  const isTablet = size === 'sTablet';
-  const isMobile = size === 'small';
+  const isTablet = maxBreakpoints('sTablet', size);
+  const isMobile = maxBreakpoints('small', size);
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     <Box>

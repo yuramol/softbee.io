@@ -17,6 +17,7 @@ import { Heading } from '../legos/typography/Heading';
 import { TextInput } from '../legos/TextInput/TextInput';
 import SendButtonIcon from '../../static/assets/sendButton.svg';
 import { RouterLink } from '../legos/RouterLink';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const linkFooterItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -36,7 +37,7 @@ const StyledLink = styled(Link)`
 
 export const SiteFooter = () => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'xSmall';
+  const isMobile = maxBreakpoints('xSmall', size);
   const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
 

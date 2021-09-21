@@ -6,6 +6,7 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 const skillItems = [
   'Branding',
@@ -22,9 +23,9 @@ const StyledHeading = styled(Heading)`
 
 export const WorkHeroSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'bMobile';
+  const isMobile = maxBreakpoints('bMobile', size);
   const columnsCount = isMobile ? 1 : 2;
-  const isDesktopOrTablet = size === 'desktopOrTablet';
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
   const headingSize = isDesktopOrTablet ? 4 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
   const textMarginVariant = isMobile
@@ -41,7 +42,7 @@ export const WorkHeroSection = ({ withBackground }) => {
       height={{ min: '695px' }}
       justify="center"
       background={
-        size !== 'small' && withBackground
+        !isMobile !== 'small' && withBackground
           ? {
               size: 'small',
               position: 'bottom right',

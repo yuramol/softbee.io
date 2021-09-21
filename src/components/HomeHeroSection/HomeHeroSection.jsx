@@ -5,12 +5,13 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const HomeHeroSection = () => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = size === 'mobile';
-  const isDesktopOrTablet = size === 'desktopOrTablet';
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
   const headingSize = isDesktopOrTablet ? 2 : 1;
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headingFontSizeVariant = isMobile ? 3 : 1;
@@ -23,7 +24,7 @@ export const HomeHeroSection = () => {
     <Box
       height={isDesktopOrTablet ? 'auto' : '847px'}
       background={
-        size === 'large' || size === 'medium'
+        !isDesktopOrTablet
           ? {
               size: 'small',
               position: 'right',
@@ -32,7 +33,6 @@ export const HomeHeroSection = () => {
           : undefined
       }
     >
-      {size}
       <Grid
         columns={{ count: columnsCount, size: 'auto' }}
         gap="small"

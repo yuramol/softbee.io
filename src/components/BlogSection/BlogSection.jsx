@@ -7,6 +7,7 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 import { BlogItem } from './BlogItem';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const BlogSection = ({ withBackground }) => {
   const data = useStaticQuery(graphql`
@@ -34,9 +35,10 @@ export const BlogSection = ({ withBackground }) => {
   `);
   const posts = data.allMdx.edges;
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isTablet = size === 'tablet';
-  const isMobile = size === 'mobile';
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isTablet = maxBreakpoints('tablet', size);
+  const isMobile = maxBreakpoints('mobile', size);
+
   const fontSizeVariant = isMobile ? 6 : 2;
   const paddingVariant = isMobile
     ? 'large'
@@ -76,7 +78,7 @@ export const BlogSection = ({ withBackground }) => {
             })}
           </Box>
         </Box>
-        {size === 'small' && (
+        {!isMobile && (
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}

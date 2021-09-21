@@ -6,13 +6,14 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const MMOSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const shouldHaveBlueFigure = size === 'desktopOrTablet';
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = size === 'mobile';
-  const isTablet = size === 'desktopOrTablet';
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('desktopOrTablet', size);
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headerLevel = isMobile ? 4 : 2;
   const paddingVariant = isMobile
@@ -28,7 +29,7 @@ export const MMOSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'absolute',
-              image: shouldHaveBlueFigure
+              image: !shouldHaveBlueFigure
                 ? 'url(/assets/mmoBackground.svg)'
                 : undefined,
               color: '#F0F6F4',
@@ -67,11 +68,7 @@ export const MMOSection = ({ withBackground }) => {
         )}
         <Box
           justify="center"
-          pad={
-            size === 'desktopOrTablet' || size === 'large' || size === 'medium'
-              ? undefined
-              : { left: 'xlarge', right: 'xlarge' }
-          }
+          pad={isTablet ? undefined : { left: 'xlarge', right: 'xlarge' }}
           align={textAlignVariant}
         >
           <Box>
@@ -122,10 +119,8 @@ export const MMOSection = ({ withBackground }) => {
           </Box>
         )}
         {isMobile && (
-          <Box pad={{ bottom: 'xlarge', top: 'large' }}>
-            <RouterLink align="center" to="/mmo-case">
-              See case study
-            </RouterLink>
+          <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
+            <RouterLink to="/mmo-case">See case study</RouterLink>
           </Box>
         )}
       </Grid>

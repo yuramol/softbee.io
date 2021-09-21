@@ -9,14 +9,15 @@ import { SEO } from '../components/SEO';
 import { RouterLink } from '../legos/RouterLink';
 import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
   const postsRecent = data.allMdx.edges;
   const siteTitle = data.site.siteMetadata.title;
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'mobile';
-  const isTablet = size === 'desktopOrTablet';
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('desktopOrTablet', size);
   const { previous, next } = pageContext;
   const columnsCount = isMobile ? 1 : 3;
 

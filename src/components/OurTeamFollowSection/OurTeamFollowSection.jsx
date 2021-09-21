@@ -4,11 +4,12 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { theme } from '../../utils/theme';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const OurTeamFollowSection = () => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = 1;
-  const isMobile = size === 'mobile';
+  const isMobile = maxBreakpoints('mobile', size);
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const OurTeamHeroSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'bMobile';
-  const isTablet = size === 'tabletOrMobile';
-
+  const isMobile = maxBreakpoints('bMobile', size);
+  const isTablet = maxBreakpoints('tabletOrMobile', size);
   const columnsCount = isMobile ? 1 : 2;
 
   return (

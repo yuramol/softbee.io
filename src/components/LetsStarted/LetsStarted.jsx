@@ -3,10 +3,11 @@ import React from 'react';
 import { Box, ResponsiveContext } from 'grommet';
 
 import { Wizard } from '../Wizard';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const LetsStarted = () => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'mobile';
+  const isMobile = maxBreakpoints('mobile', size);
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
     : 'xlarge';

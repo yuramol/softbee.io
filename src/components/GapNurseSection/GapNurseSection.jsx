@@ -6,13 +6,14 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const GapNurseSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const shouldHaveBlueFigure = size === 'desktopOrTablet';
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = size === 'mobile';
-  const isTablet = size === 'tabletOrMobile';
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('tabletOrMobile', size);
+  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
   const heightSection = withBackground ? '700px' : '800px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
@@ -29,7 +30,7 @@ export const GapNurseSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'top right',
-              image: shouldHaveBlueFigure
+              image: !shouldHaveBlueFigure
                 ? 'url(/assets/background-gapNurse.svg)'
                 : undefined,
               color: '#F0F6F4',
@@ -96,7 +97,7 @@ export const GapNurseSection = ({ withBackground }) => {
         </Grid>
         {isMobile && (
           <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-            <RouterLink to="gapnurse-case">See case study</RouterLink>
+            <RouterLink to="/gapnurse-case">See case study</RouterLink>
           </Box>
         )}
       </Grid>

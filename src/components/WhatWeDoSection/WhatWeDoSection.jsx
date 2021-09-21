@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import { Box, ResponsiveContext, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const WhatWeDoSection = ({ withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = size === 'mobile';
-  const isTablet = size === 'tablet';
-  const columnsCount = size === 'small' ? 2 : 4;
+  const columnsCount = maxBreakpoints('small', size) ? 2 : 4;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('tablet', size);
   const marginVariant = isTablet ? 'none' : 'xsmall';
   const headerLevel = isMobile ? 4 : 2;
 

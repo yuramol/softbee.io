@@ -7,6 +7,7 @@ import { Close, Next, Previous } from 'grommet-icons';
 
 import { string } from 'yup';
 import { TextInput } from '../legos/TextInput/TextInput';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const StyledGrid = styled(Grid)`
   width: 100%;
@@ -118,8 +119,8 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
   };
 
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 1;
-  const isMobile = size === 'mobile';
+  const columnsCount = 1;
+  const isMobile = maxBreakpoints('mobile', size);
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
 
   const headingSize = headingSizes[size];
