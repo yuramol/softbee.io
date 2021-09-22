@@ -1,12 +1,13 @@
 import { theme } from './theme';
 
-const breakpoints = Object.keys(theme.global.breakpoints);
+const nameBreakpoints = Object.keys(theme.global.breakpoints);
 
+// maxBreakpoints analog media query max-width.
 export const maxBreakpoints = (breakpointName, size) => {
-  const breakpointsBeforeNameKey = breakpoints.indexOf(breakpointName);
-  const breakpointsBeforeName = breakpoints.slice(
+  const breakpointNameKey = nameBreakpoints.indexOf(breakpointName);
+  const breakpointsFirstOnCurrent = nameBreakpoints.slice(
     0,
-    breakpointsBeforeNameKey + 1,
+    breakpointNameKey + 1,
   );
-  return breakpointsBeforeName.includes(size);
+  return breakpointsFirstOnCurrent.includes(size);
 };
