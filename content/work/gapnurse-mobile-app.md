@@ -6,6 +6,7 @@ text: >-
   unexpected absences without breaking your budget.
 logo: /assets/logoGapNurse.svg
 thumbnail: /assets/PhoneGapNurse.png
+thumbnailSecond: /assets/PhoneGapNurse2.png
 Technologies: 'React, Vue'
 Languages: JS
 Time: 124
