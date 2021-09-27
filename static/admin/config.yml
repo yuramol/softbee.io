@@ -18,6 +18,27 @@ collections:
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
+  - name: work
+    label: Work
+    folder: content/work
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: title, label: Title }
+      - { name: text, label: Text, widget: text }
+      - { label: Logo, name: logo, widget: image }
+      - { label: Thumbnail, name: thumbnail, widget: image }
+      - { label: "Thumbnail second", name: thumbnailSecond, widget: image }
+      - { name: Technologies, label: technologies }
+      - { name: Languages, label: languages }
+      - { name: Time, label: time, widget: number }
+      - { label: Screenshots, name: screenshots, widget: image }
+      - label: Preview
+        name: preview
+        widget: object
+        fields:
+          - { label: Title, name: title }
+          - { label: Text, name: text, widget: text }
   - name: settings
     label: Settings
     files:
