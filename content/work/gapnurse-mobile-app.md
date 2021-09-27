@@ -8,9 +8,9 @@ text: >-
 logo: /assets/logoGapNurse.svg
 thumbnail: /assets/PhoneGapNurse.png
 thumbnailSecond: /assets/PhoneGapNurse2.png
-Technologies: 'React, Vue'
-Languages: JS
-Time: 124
+technologies: 'React, Vue'
+languages: JS
+time: 124
 screenshots: /assets/backgroundScreenshotsGapNurse.jpg
 preview:
   title: They really help to fight COVID-19 in US
