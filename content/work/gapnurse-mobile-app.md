@@ -1,4 +1,5 @@
 ---
+templateKey: workItem
 path: gapnurse-case
 title: GapNurse Mobile app
 text: >-
