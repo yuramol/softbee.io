@@ -7,6 +7,7 @@ text: >-
   team
 logo: /assets/logoMMO.png
 thumbnail: /assets/sectionMMO.png
+thumbnailSecond: /assets/sectionMMOMini.png
 technologies: React
 languages: TS
 time: 160
