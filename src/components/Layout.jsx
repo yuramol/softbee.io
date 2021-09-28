@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grommet, Box, ResponsiveContext } from 'grommet';
 
@@ -7,9 +7,15 @@ import { theme } from '../utils/theme';
 
 import { LetsTalk } from './LetsTalk';
 
+const loader = require('../utils/loader');
+
 export const Layout = ({ children, withBackground }) => {
   const image = size =>
     size === 'small' ? undefined : 'url(/assets/backgroundHeader.svg)';
+
+  useEffect(() => {
+    loader.hideLoader();
+  }, []);
 
   return (
     <Grommet theme={theme}>
