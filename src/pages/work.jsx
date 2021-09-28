@@ -5,21 +5,23 @@ import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { SiteHeader } from '../components/Header';
 import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
-import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
+import { WorkItemSection } from '../components/Work/WorkItemSection';
 import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
-import { MMOSection } from '../components/MMOSection/MMOSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { SiteFooter } from '../components/Footer';
 
 const WorkPage = ({ location, data }) => {
-  const { workPage, homePage } = data;
+  const { workPage, homePage, works } = data;
+
+  const firstWork = works.edges[0].node.frontmatter;
+  const otherWorks = works.edges.slice(1);
 
   const { meta, main } = workPage.edges[0].node.frontmatter;
 
   let { toolchain } = workPage.edges[0].node.frontmatter;
   toolchain = toolchain.map(item => ({ id: Math.random() * 1000, ...item }));
 
-  const { gapNurse, mmoCat, whatWeDo } = homePage.edges[0].node.frontmatter;
+  const { whatWeDo } = homePage.edges[0].node.frontmatter;
 
   return (
     <Layout location={location} title={meta.title} withBackground>
@@ -32,9 +34,25 @@ const WorkPage = ({ location, data }) => {
         whatWeDo={main.whatWeDo}
         withBackground
       />
-      <GapNurseSection title={gapNurse.title} text={gapNurse.text} />
+      <WorkItemSection
+        path={firstWork.path}
+        title={firstWork.preview.title}
+        text={firstWork.preview.text}
+        thumbnail={firstWork.thumbnail}
+        thumbnailSecond={firstWork.thumbnailSecond}
+      />
       <ToolchainSection toolchain={toolchain} />
-      <MMOSection title={mmoCat.title} text={mmoCat.text} />
+      {otherWorks.map(({ node: { frontmatter } }, index) => (
+        <WorkItemSection
+          key={frontmatter.path}
+          path={frontmatter.path}
+          title={frontmatter.preview.title}
+          text={frontmatter.preview.text}
+          thumbnail={frontmatter.thumbnail}
+          thumbnailSecond={frontmatter.thumbnailSecond}
+          reversedGrid={index % 2 === 0}
+        />
+      ))}
       <WhatWeDoSection title={whatWeDo.title} withBackground />
       <SiteFooter />
     </Layout>
@@ -85,6 +103,23 @@ export const pageQuery = graphql`
             }
             whatWeDo {
               title
+            }
+          }
+        }
+      }
+    }
+    works: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "workItem" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            path
+            thumbnail
+            thumbnailSecond
+            preview {
+              title
+              text
             }
           }
         }

@@ -23,15 +23,16 @@ collections:
     folder: content/work
     create: true
     fields:
+      - { label: Template Key, name: templateKey, widget: hidden, default: workItem }
       - { name: path, label: Path }
       - { name: title, label: Title }
       - { name: text, label: Text, widget: text }
       - { label: Logo, name: logo, widget: image }
       - { label: Thumbnail, name: thumbnail, widget: image }
-      - { label: "Thumbnail second", name: thumbnailSecond, widget: image }
-      - { name: Technologies, label: technologies }
-      - { name: Languages, label: languages }
-      - { name: Time, label: time, widget: number }
+      - { label: "Thumbnail second", name: thumbnailSecond, widget: image, required: false }
+      - { label: Technologies, name: technologies }
+      - { label: Languages, name: languages }
+      - { label: Time, name: time, widget: number }
       - { label: Screenshots, name: screenshots, widget: image }
       - label: Preview
         name: preview
