@@ -28,8 +28,10 @@ collections:
       - { name: title, label: Title }
       - { name: text, label: Text, widget: text }
       - { label: Logo, name: logo, widget: image }
+      - { label: Display two images, name: displayTwoImages, widget: boolean, default: true, required: false }
       - { label: Thumbnail, name: thumbnail, widget: image }
-      - { label: "Thumbnail second", name: thumbnailSecond, widget: image, required: false }
+      - { label: Thumbnail second, name: thumbnailSecond, widget: image, required: false }
+      - { label: Color, name: color, widget: color, allowInput: true }
       - { label: Technologies, name: technologies }
       - { label: Languages, name: languages }
       - { label: Time, name: time, widget: number }
@@ -101,8 +103,8 @@ collections:
             name: mmoCat
             widget: object
             fields:
-                - { label: Title, name: title, widget: string }
-                - { label: Text, name: text, widget: text }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
           - label: Looking
             name: looking
             widget: object
@@ -168,7 +170,7 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Subtitle, name: subtitle, widget: string }
               - { label: Text, name: text, widget: text }
-              - { label: What we do, name: whatWeDo, widget: list, field: {label: Name, name: name, widget: string} }
+              - { label: What we do, name: whatWeDo, widget: list, field: { label: Name, name: name, widget: string } }
           - label: Toolchain
             name: toolchain
             widget: list
