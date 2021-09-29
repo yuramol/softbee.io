@@ -13,6 +13,7 @@ export const WorkItemSection = ({
   path,
   title,
   text,
+  displayTwoImages,
   thumbnail,
   thumbnailSecond,
   reversedGrid,
@@ -64,25 +65,48 @@ export const WorkItemSection = ({
     </Box>
   );
 
-  const Thumbnails = (
-    <Grid columns={{ count: 2, size: 'auto' }}>
-      <Box align="center" justify="center">
+  const Thumbnails = displayTwoImages ? (
+    <Box align="center">
+      <Grid columns={{ count: 2, size: 'auto' }}>
+        <Box align="center" justify="center">
+          <img
+            style={{ height: 'auto', width: '100%' }}
+            src={thumbnail}
+            alt={title}
+          />
+        </Box>
+        {thumbnailSecond && (
+          <Box align="center" justify="center">
+            <img
+              style={{ height: 'auto', width: '100%' }}
+              src={thumbnailSecond}
+              alt={title}
+            />
+          </Box>
+        )}
+      </Grid>
+    </Box>
+  ) : (
+    <Box direction="row" justify="center" align="center">
+      <Box
+        justify="center"
+        align="start"
+        margin={{ left: 'xsmall', right: 'medium' }}
+      >
         <img
-          style={{ height: 'auto', width: '100%' }}
+          style={{ height: 'auto', width: '110%' }}
           src={thumbnail}
           alt={title}
         />
       </Box>
-      {thumbnailSecond && (
-        <Box align="center" justify="center">
-          <img
-            style={{ height: 'auto', width: '100%' }}
-            src={thumbnailSecond}
-            alt={title}
-          />
-        </Box>
-      )}
-    </Grid>
+      <Box justify="center" pad={{ left: 'large' }}>
+        <img
+          style={{ height: 'auto', width: '130%' }}
+          src={thumbnailSecond}
+          alt={title}
+        />
+      </Box>
+    </Box>
   );
 
   return (
@@ -121,11 +145,13 @@ WorkItemSection.propTypes = {
   path: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  displayTwoImages: PropTypes.bool,
   thumbnail: PropTypes.string.isRequired,
   thumbnailSecond: PropTypes.string.isRequired,
   reversedGrid: PropTypes.bool,
 };
 
 WorkItemSection.defaultProps = {
+  displayTwoImages: false,
   reversedGrid: false,
 };

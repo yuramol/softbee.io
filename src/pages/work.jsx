@@ -38,6 +38,7 @@ const WorkPage = ({ location, data }) => {
         path={firstWork.path}
         title={firstWork.preview.title}
         text={firstWork.preview.text}
+        displayTwoImages={firstWork.displayTwoImages}
         thumbnail={firstWork.thumbnail}
         thumbnailSecond={firstWork.thumbnailSecond}
       />
@@ -48,6 +49,7 @@ const WorkPage = ({ location, data }) => {
           path={frontmatter.path}
           title={frontmatter.preview.title}
           text={frontmatter.preview.text}
+          displayTwoImages={frontmatter.displayTwoImages}
           thumbnail={frontmatter.thumbnail}
           thumbnailSecond={frontmatter.thumbnailSecond}
           reversedGrid={index % 2 === 0}
@@ -115,6 +117,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             path
+            displayTwoImages
             thumbnail
             thumbnailSecond
             preview {

@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`);
-  graphql(
+  const blogPostsGeneration = graphql(
     `
       {
         allMdx(
@@ -53,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
   });
 
   const workItem = path.resolve(`./src/templates/work-case.js`);
-  graphql(
+  const workCasesGeneration = graphql(
     `
       {
         works: allMarkdownRemark(
@@ -63,19 +63,6 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               frontmatter {
                 path
-                title
-                text
-                logo
-                thumbnail
-                thumbnailSecond
-                technologies
-                languages
-                time
-                screenshots
-                preview {
-                  title
-                  text
-                }
               }
             }
           }
@@ -108,6 +95,8 @@ exports.createPages = ({ graphql, actions }) => {
 
     return null;
   });
+
+  return Promise.all([blogPostsGeneration, workCasesGeneration]);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {

@@ -50,7 +50,11 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
       <Box>
         <Box>
           <Box width="100%" align="center">
-            <Heading level={2} color="brand">
+            <Heading
+              level={isMobile ? 4 : 2}
+              color="brand"
+              style={{ textAlign: 'center' }}
+            >
               {title}
             </Heading>
           </Box>
