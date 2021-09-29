@@ -8,6 +8,7 @@ import { Close, Next, Previous } from 'grommet-icons';
 
 import { string } from 'yup';
 import { TextInput } from '../legos/TextInput/TextInput';
+import { sendForm } from '../utils/useForm';
 
 const StyledGrid = styled(Grid)`
   width: 100%;
@@ -101,11 +102,20 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
     return step === wizardSteps.length || formData[step].length === 0;
   }, [step, formData]);
 
+  const setNameFormData = data => ({
+    name: data[1],
+    website: data[2],
+    comment: data[3],
+    email: data[4],
+  });
+
   const navigate = to => {
     setStep(to);
 
     if (onClose && to === wizardSteps.length) {
-      setTimeout(() => onClose(), 3000);
+      sendForm('lets-started', setNameFormData(formData), () => {
+        setTimeout(() => onClose(), 3000);
+      });
     }
   };
 
@@ -137,6 +147,20 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
       borderRadius={isMobile ? 0 : '20px'}
       gap="small"
     >
+      <form
+        name="lets-started"
+        method="post"
+        action="/contact/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="hidden" name="form-name" value="lets-started" />
+        <input type="text" name="name" />
+        <input type="text" name="website" />
+        <input type="email" name="email" />
+        <textarea name="comment" />
+      </form>
       <Box
         style={{ textAlign: 'center', maxHeight: isMobile ? '377px' : 'auto' }}
         pad={isMobile ? { vertical: 'xlarge', horizontal: 'medium' } : 'medium'}
