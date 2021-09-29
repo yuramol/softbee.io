@@ -116,6 +116,8 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
       sendForm('lets-started', setNameFormData(formData), () => {
         setTimeout(() => onClose(), 3000);
       });
+    } else if (to === wizardSteps.length) {
+      sendForm('lets-started', setNameFormData(formData));
     }
   };
 

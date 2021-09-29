@@ -4,7 +4,7 @@ const encode = data => {
     .join('&');
 };
 
-export const sendForm = (formName, input, callback) => {
+export const sendForm = (formName, input, callback = () => {}) => {
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
