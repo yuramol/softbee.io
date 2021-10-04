@@ -1,6 +1,7 @@
 ---
 templateKey: workItem
 path: test-case
+order: 3
 title: App TestWork
 text: |-
   It's demonstration of cms-provided 
