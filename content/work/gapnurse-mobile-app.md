@@ -1,6 +1,7 @@
 ---
 templateKey: workItem
 path: gapnurse-case
+order: 1
 title: GapNurse Mobile app
 text: With GapNurse, facilities know they’re covered during critical moments and
   unexpected absences without breaking your budget.

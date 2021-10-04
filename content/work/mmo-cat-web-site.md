@@ -1,6 +1,7 @@
 ---
 templateKey: workItem
 path: mmo-case
+order: 2
 title: MMO.CAT Web-site
 text: |-
   We provided full-stack development service 

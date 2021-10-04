@@ -112,6 +112,7 @@ export const pageQuery = graphql`
     }
     works: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "workItem" } } }
+      sort: { fields: [frontmatter___order] }
     ) {
       edges {
         node {
