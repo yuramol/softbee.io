@@ -74,7 +74,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </ul>
         </Grid>
       </Box>
-      <Box background={{ color: '#F0F6F4' }}>
+      <Box background={{ color: '#f0f6f4' }}>
         <Grid
           columns={{ count: columnsCount, size: 'auto' }}
           pad={{ top: 'xlarge', bottom: 'xlarge' }}

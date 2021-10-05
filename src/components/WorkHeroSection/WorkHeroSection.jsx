@@ -46,7 +46,7 @@ export const WorkHeroSection = ({
               image: isMobile ? undefined : 'url(/assets/background-work.svg)',
             }
           : {
-              color: '#FFFFFF',
+              color: '#fff',
             }
       }
     >

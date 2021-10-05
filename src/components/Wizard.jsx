@@ -39,7 +39,7 @@ const StepButton = styled(Button)`
   padding: 0;
 
   &:disabled {
-    border-color: #ffffff;
+    border-color: #fff;
     opacity: 1;
   }
 `;

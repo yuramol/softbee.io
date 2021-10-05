@@ -21,7 +21,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
       background={
         withBackground
           ? {
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : undefined
       }

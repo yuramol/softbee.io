@@ -26,7 +26,7 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
                 : 'url(/assets/background-ourTeam.svg)',
             }
           : {
-              color: '#FFFFFF',
+              color: '#fff',
             }
       }
     >

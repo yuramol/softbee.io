@@ -46,7 +46,7 @@ export const OurTeamFollowSection = ({ text }) => {
         style={{
           background: theme.global.colors.brand,
           boxShadow,
-          color: '#FAE79F',
+          color: '#fae79f',
           borderRadius: '20px',
         }}
         round

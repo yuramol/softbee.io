@@ -31,7 +31,7 @@ export const Layout = ({ children, withBackground }) => {
                       size: 'small',
                       position: 'absolute',
                       image: image(size),
-                      color: '#F0F6F4',
+                      color: '#f0f6f4',
                     }
                   : {
                       size: 'small',

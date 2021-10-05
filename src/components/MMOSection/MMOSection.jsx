@@ -32,7 +32,7 @@ export const MMOSection = ({ title, text, withBackground }) => {
               image: shouldHaveBlueFigure
                 ? 'url(/assets/mmoBackground.svg)'
                 : undefined,
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : {
               color: 'white',

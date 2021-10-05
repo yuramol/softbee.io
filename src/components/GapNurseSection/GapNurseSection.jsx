@@ -34,7 +34,7 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
               image: shouldHaveBlueFigure
                 ? 'url(/assets/background-gapNurse.svg)'
                 : undefined,
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : {
               color: 'white',
