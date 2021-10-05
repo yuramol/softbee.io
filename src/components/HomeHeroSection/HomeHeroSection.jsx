@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
@@ -7,7 +8,7 @@ import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const HomeHeroSection = () => {
+export const HomeHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
   const isMobile = maxBreakpoints('mobile', size);
@@ -59,19 +60,16 @@ export const HomeHeroSection = () => {
               color="brand"
               textAlign={textAlignVariant}
             >
-              Your partners in new products creating
+              {title}
             </Heading>
           </Box>
           <Box width="300px" pad={{ bottom: 'large' }} align={textAlignVariant}>
             <Text
               size={textFontSizeVariant}
               color="brand"
-              style={{ lineHeight: '32px' }}
+              style={{ lineHeight: '32px', whiteSpace: 'pre-line' }}
             >
-              with a bear drinking afterwards.
-            </Text>
-            <Text color="brand" style={{ lineHeight: '32px' }}>
-              UPDATED: and staying at home =)
+              {text}
             </Text>
           </Box>
 
@@ -91,4 +89,14 @@ export const HomeHeroSection = () => {
       </Grid>
     </Box>
   );
+};
+
+HomeHeroSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  withBackground: PropTypes.bool,
+};
+
+HomeHeroSection.defaultProps = {
+  withBackground: undefined,
 };

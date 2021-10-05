@@ -1,8 +1,11 @@
 import React from 'react';
 import { Box, Grid, Image, ResponsiveContext } from 'grommet';
+import PropTypes from 'prop-types';
+
 
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+
 
 const toolchainItems = [
   { id: '1', label: 'React', icon: '/assets/icons/reactIcon.svg' },
@@ -18,7 +21,7 @@ const toolchainItems = [
   { id: '7', label: 'Ionic', icon: '/assets/icons/ionicIcon.svg' },
 ];
 
-export const ToolchainSection = () => {
+export const ToolchainSection = ({ toolchain }) => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = maxBreakpoints('xSmall', size);
   const headerLevel = isMobile ? 6 : 5;
@@ -40,20 +43,15 @@ export const ToolchainSection = () => {
           </Heading>
         </Box>
         <Box direction="row" justify="center" wrap>
-          {toolchainItems.map(toolchainItem => (
+          {toolchain.map(({ id, logo, name }) => (
             <Box
-              key={toolchainItem.id}
+              key={id}
               height="250px"
               width="150px"
               pad={{ horizontal: 'medium' }}
             >
               <Box height="90px" alignSelf="center">
-                <Image
-                  fill
-                  responsive={false}
-                  src={toolchainItem.icon}
-                  alt={toolchainItem.label}
-                />
+                <Image fill responsive={false} src={logo} alt={name} />
               </Box>
 
               <Heading
@@ -62,7 +60,7 @@ export const ToolchainSection = () => {
                 color="brand"
                 textAlign="center"
               >
-                {toolchainItem.label}
+                {name}
               </Heading>
             </Box>
           ))}
@@ -70,4 +68,13 @@ export const ToolchainSection = () => {
       </Grid>
     </Box>
   );
+};
+
+ToolchainSection.propTypes = {
+  toolchain: PropTypes.arrayOf(
+    PropTypes.shape({
+      logo: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };

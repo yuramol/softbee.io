@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { theme } from '../../utils/theme';
@@ -6,7 +9,13 @@ import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const OurTeamFollowSection = () => {
+const StyledMarkdown = styled(ReactMarkdown)`
+  a {
+    color: white;
+  }
+`;
+
+export const OurTeamFollowSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = 1;
   const isMobile = maxBreakpoints('mobile', size);
@@ -37,7 +46,7 @@ export const OurTeamFollowSection = () => {
         style={{
           background: theme.global.colors.brand,
           boxShadow,
-          color: '#FAE79F',
+          color: '#fae79f',
           borderRadius: '20px',
         }}
         round
@@ -53,24 +62,13 @@ export const OurTeamFollowSection = () => {
           }
           pad={{ vertical: 'xlarge' }}
         >
-          Follow us on{' '}
-          <RouterLink
-            to="our-Medium"
-            color="white"
-            style={{ textDecorationLine: 'underline' }}
-          >
-            Medium
-          </RouterLink>{' '}
-          and don’t forget to{' '}
-          <RouterLink
-            to=" Hire the team"
-            color="white"
-            style={{ textDecorationLine: 'underline' }}
-          >
-            Hire the team
-          </RouterLink>
+          <StyledMarkdown>{text}</StyledMarkdown>
         </Heading>
       </Grid>
     </Box>
   );
+};
+
+OurTeamFollowSection.propTypes = {
+  text: PropTypes.string.isRequired,
 };

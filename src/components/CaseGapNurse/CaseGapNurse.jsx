@@ -124,7 +124,7 @@ export const CaseGapNurse = () => {
           height={isMobile ? '130px' : '150px'}
           align="center"
           margin={isMobile ? { top: '30px' } : { top: '70px' }}
-          background={{ color: '#5E5999' }}
+          background={{ color: '#5e5999' }}
         >
           <Grid
             columns={['1/3', '1/3', '1/3']}

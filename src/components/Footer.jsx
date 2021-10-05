@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import {
   Box,
@@ -38,6 +38,31 @@ const StyledLink = styled(Link)`
 export const SiteFooter = () => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = maxBreakpoints('xSmall', size);
+  const {
+    footerData: { edges },
+  } = useStaticQuery(
+    graphql`
+      query {
+        footerData: allMarkdownRemark(
+          filter: { frontmatter: { templateKey: { eq: "common" } } }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                footer {
+                  message
+                  placeholder
+                  title
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+  const { title, message, placeholder } = edges[0].node.frontmatter.footer;
+
   const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
 
@@ -104,10 +129,10 @@ export const SiteFooter = () => {
             }
             fontWeight="400"
           >
-            Message us anything
+            {title}
           </Heading>
           <Text alignSelf="start" size="medium" weight="400">
-            Your message will be posted in one of our <br /> Slack channels.
+            {message}
           </Text>
           <Grid
             columns={{ count: 2, size: ['auto', 'auto'] }}
@@ -118,7 +143,7 @@ export const SiteFooter = () => {
               <FormField>
                 <Box>
                   <TextInput
-                    placeholder="Let’s create somethign dope!!! Xoxo"
+                    placeholder={placeholder}
                     size="medium"
                     style={{
                       lineHeight: '26px',

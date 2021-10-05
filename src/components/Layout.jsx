@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grommet, Box, ResponsiveContext } from 'grommet';
 
@@ -8,11 +8,17 @@ import { theme } from '../utils/theme';
 import { LetsTalk } from './LetsTalk';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 
+const loader = require('../utils/loader');
+
 export const Layout = ({ children, withBackground }) => {
   const image = size =>
     maxBreakpoints('small', size)
       ? undefined
       : 'url(/assets/backgroundHeader.svg)';
+
+  useEffect(() => {
+    loader.hideLoader();
+  }, []);
 
   return (
     <Grommet theme={theme}>
@@ -30,7 +36,7 @@ export const Layout = ({ children, withBackground }) => {
                       size: 'small',
                       position: 'absolute',
                       image: image(size),
-                      color: '#F0F6F4',
+                      color: '#f0f6f4',
                     }
                   : {
                       size: 'small',

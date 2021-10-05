@@ -5,7 +5,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const OurTeamHeroSection = ({ withBackground }) => {
+export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = maxBreakpoints('bMobile', size);
   const isTablet = maxBreakpoints('tabletOrMobile', size);
@@ -25,7 +25,7 @@ export const OurTeamHeroSection = ({ withBackground }) => {
                 : 'url(/assets/background-ourTeam.svg)',
             }
           : {
-              color: '#FFFFFF',
+              color: '#fff',
             }
       }
     >
@@ -50,16 +50,17 @@ export const OurTeamHeroSection = ({ withBackground }) => {
             }
             margin={{ vertical: '5px' }}
           >
-            About our team
+            {title}
           </Heading>
           <Text
             size={isMobile ? 'small' : 'medium'}
             color="brand"
-            style={isMobile ? { textAlign: 'center' } : undefined}
+            style={{
+              textAlign: isMobile ? 'center' : 'left',
+              whiteSpace: 'pre-line',
+            }}
           >
-            We help companies discover what makes them unique and channel it
-            into a memorable experience that outsells and outshines their
-            competition online.
+            {text}
           </Text>
         </Box>
 
@@ -78,6 +79,8 @@ export const OurTeamHeroSection = ({ withBackground }) => {
   );
 };
 OurTeamHeroSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 
