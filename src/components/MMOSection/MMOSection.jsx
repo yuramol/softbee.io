@@ -8,12 +8,10 @@ import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-
 export const MMOSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
-  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
   const isMobile = maxBreakpoints('mobile', size);
   const isTablet = maxBreakpoints('desktopOrTablet', size);
   const textAlignVariant = isMobile ? 'center' : 'start';

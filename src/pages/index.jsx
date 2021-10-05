@@ -13,6 +13,7 @@ import { LetsStarted } from '../components/LetsStarted/LetsStarted';
 import { BlogSection } from '../components/BlogSection/BlogSection';
 import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const IndexPage = ({ location, data }) => {
   const {
@@ -24,9 +25,6 @@ const IndexPage = ({ location, data }) => {
     looking,
     whatWeDo,
   } = data.homePage.edges[0].node.frontmatter;
-
-
-const IndexPage = ({ location }) => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = maxBreakpoints('desktopOrTablet', size);
 

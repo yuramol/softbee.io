@@ -1,14 +1,9 @@
 import React from 'react';
 import { Box, Grid, ResponsiveContext } from 'grommet';
+import PropTypes from 'prop-types';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
-import PropTypes from 'prop-types';
-import { Box, Grid } from 'grommet';
-
-import { Heading } from '../../legos/typography/Heading';
-import { Text } from '../../legos/typography/Text';
-
 
 export const OurTeamAboutTeam = ({ title, text, list }) => {
   const size = React.useContext(ResponsiveContext);

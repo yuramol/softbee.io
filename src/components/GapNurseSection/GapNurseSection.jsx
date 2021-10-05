@@ -14,7 +14,6 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
   const isMobile = maxBreakpoints('mobile', size);
   const isTablet = maxBreakpoints('tabletOrMobile', size);
-  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
   const heightSection = withBackground ? '700px' : '800px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
