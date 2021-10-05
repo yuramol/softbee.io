@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: soft-bee/softbee.tech
-  branch: feat/93-add-main-image-article-use-netlify-cms
+  branch: develop
 
 media_folder: static/assets
 public_folder: assets
@@ -14,7 +14,169 @@ collections:
     fields:
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
-      - { name: image, logo: Image, widget: image} 
+      - { name: image, logo: Image, widget: image}
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
+  - name: work
+    label: Work
+    folder: content/work
+    identifier_field: path
+    create: true
+    fields:
+      - { label: Template Key, name: templateKey, widget: hidden, default: workItem }
+      - { name: path, label: Path }
+      - { name: order, label: Order, widget: number }
+      - { name: title, label: Title }
+      - { name: text, label: Text, widget: text }
+      - { label: Logo, name: logo, widget: image }
+      - { label: Display two images, name: displayTwoImages, widget: boolean, default: true, required: false }
+      - { label: Thumbnail, name: thumbnail, widget: image }
+      - { label: Thumbnail second, name: thumbnailSecond, widget: image, required: false }
+      - { label: Color, name: color, widget: color, allowInput: true }
+      - { label: Technologies, name: technologies }
+      - { label: Languages, name: languages }
+      - { label: Time, name: time, widget: number }
+      - { label: Screenshots, name: screenshots, widget: image }
+      - label: Preview
+        name: preview
+        widget: object
+        fields:
+          - { label: Title, name: title }
+          - { label: Text, name: text, widget: text }
+  - name: settings
+    label: Settings
+    files:
+      - file: content/settings/common.md
+        name: common
+        label: Common
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: common }
+          - label: Footer
+            name: footer
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Message, name: message, widget: string }
+              - { label: Input placeholder, name: placeholder, widget: string }
+          - label: Let's talk form
+            name: form
+            widget: object
+            fields:
+              - label: List
+                name: list
+                widget: list
+                fields:
+                  - { label: Title, name: title, widget: text }
+                  - { label: Input placeholder, name: placeholder, widget: string }
+              - label: Thank you
+                name: submission
+                widget: text
+      - file: content/settings/home.md
+        name: home
+        label: Home
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: home }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
+          - label: Home hero
+            name: homeHero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: GapNurse
+            name: gapNurse
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Team
+            name: team
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: MMO.cat
+            name: mmoCat
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Looking
+            name: looking
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+          - label: What we do
+            name: whatWeDo
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+      - file: content/settings/team.md
+        name: team
+        label: Our team
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: team }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
+          - label: Main
+            name: main
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - label: Members
+            name: members
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - label: List
+                name: list
+                widget: list
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Position, name: position, widget: string }
+                  - { label: Photo, name: photo, widget: image }
+          - label: Let's talk
+            name: letsTalk
+            widget: text
+          - label: Follow
+            name: follow
+            widget: markdown
+      - file: content/settings/work.md
+        name: work
+        label: Work
+        fields:
+          - { label: Template Key, name: templateKey, widget: hidden, default: work }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: string }
+          - label: Main
+            name: main
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: What we do, name: whatWeDo, widget: list, field: { label: Name, name: name, widget: string } }
+          - label: Toolchain
+            name: toolchain
+            widget: list
+            fields:
+              - { label: Logo, name: logo, widget: image }
+              - { label: Name, name: name, widget: string }
+

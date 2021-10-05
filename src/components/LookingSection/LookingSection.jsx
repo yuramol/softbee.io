@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 
-export const LookingSection = () => {
+export const LookingSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 3;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
@@ -34,7 +35,7 @@ export const LookingSection = () => {
         width="1160px"
         style={{
           boxShadow: '0px 0px 30px 10px',
-          color: '#E5E5E5',
+          color: '#e5e5e5',
           borderRadius: '55px',
         }}
         round
@@ -62,10 +63,10 @@ export const LookingSection = () => {
               margin="xsmall"
               style={{ fontWeight: '600' }}
             >
-              Looking for a team willing to go the extra mile for you?
+              {title}
             </Heading>
             <Heading level={fontSizeTablet} color="brand">
-              You&apos;re in the right place.
+              {text}
             </Heading>
           </Box>
         )}
@@ -82,14 +83,14 @@ export const LookingSection = () => {
               margin="xsmall"
               style={{ fontWeight: '600' }}
             >
-              Looking for a team willing to go the extra mile for you?
+              {title}
             </Heading>
             <Heading
               level={fontSizeMobile}
               color="brand"
               style={{ fontWeight: '300' }}
             >
-              You&apos;re in the right place.
+              {text}
             </Heading>
           </Box>
         )}
@@ -99,4 +100,9 @@ export const LookingSection = () => {
       </Grid>
     </Box>
   );
+};
+
+LookingSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

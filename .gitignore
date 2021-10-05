@@ -72,3 +72,6 @@ yarn-error.log
 .idea
 # Local Netlify folder
 .netlify
+
+.graphqlconfig
+schema.graphql

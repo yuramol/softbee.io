@@ -36,7 +36,7 @@ export const CaseMMO = () => {
             align={textAlignVariant}
             pad={isTablet ? { top: 'large' } : { left: 'large', top: 'large' }}
           >
-            <Box background={{ color: '#241F43' }} pad="small">
+            <Box background={{ color: '#241f43' }} pad="small">
               <img src="/assets/logoMMO.png" alt="Logo of MMO.CAT project" />
             </Box>
             {isMobile || (
@@ -112,7 +112,7 @@ export const CaseMMO = () => {
           align="center"
           justify="center"
           margin={isMobile ? { top: '30px' } : undefined}
-          background={{ color: '#FF1B60' }}
+          background={{ color: '#ff1b60' }}
         >
           <Grid
             columns={['1/3', '1/3', '1/3']}

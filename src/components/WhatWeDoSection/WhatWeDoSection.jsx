@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 
-import PropTypes from 'prop-types';
 import { Box, ResponsiveContext, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 
-export const WhatWeDoSection = ({ withBackground }) => {
+export const WhatWeDoSection = ({ title, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
@@ -21,7 +21,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
       background={
         withBackground
           ? {
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : undefined
       }
@@ -38,7 +38,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
           margin={{ horizontal: 'medium' }}
         >
           <Heading level={headerLevel} margin={{ top: 'none' }} color="brand">
-            What we do?
+            {title}
           </Heading>
         </Box>
         {isMobile || (
@@ -176,6 +176,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
   );
 };
 WhatWeDoSection.propTypes = {
+  title: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 

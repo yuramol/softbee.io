@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
@@ -7,7 +8,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 
-export const TeamSection = () => {
+export const TeamSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
@@ -39,26 +40,17 @@ export const TeamSection = () => {
             color="brand"
             textAlign={textAlignVariant}
           >
-            We love taking products from vision to reality.
+            {title}
           </Heading>
         </Box>
-        <Box width="491px" pad={{ bottom: 'large' }}>
+        <Box
+          width="491px"
+          pad={{ bottom: 'large' }}
+          style={{ whiteSpace: 'pre-line' }}
+        >
           <Box pad={{ bottom: 'medium' }}>
             <Text size="medium" color="text-dark-grey">
-              Somethings about how we work.We do all sorts of programming:
-            </Text>
-            <Text size="medium" color="text-dark-grey">
-              Web, mobile, backend, desktop development.{' '}
-            </Text>
-            <Text size="medium" color="text-dark-grey">
-              JS is our lovest language.Blala something more.
-            </Text>
-          </Box>
-          <Box pad={{ bottom: 'medium' }}>
-            <Text size="medium" color="text-dark-grey">
-              re a team of passionated mobile and web developers who love y
-              do.Also we love being on the same page with our clients and to
-              deliver real cases to users.
+              {text}
             </Text>
           </Box>
           <Box
@@ -71,4 +63,9 @@ export const TeamSection = () => {
       </Box>
     </Grid>
   );
+};
+
+TeamSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

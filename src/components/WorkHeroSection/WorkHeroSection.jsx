@@ -8,20 +8,17 @@ import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
 
-const skillItems = [
-  'Branding',
-  'Visual Design',
-  'UI & interactions',
-  'Frontend',
-  'Backend',
-  'Mobile apps',
-];
-
 const StyledHeading = styled(Heading)`
   max-width: unset;
 `;
 
-export const WorkHeroSection = ({ withBackground }) => {
+export const WorkHeroSection = ({
+  title,
+  subtitle,
+  text,
+  whatWeDo,
+  withBackground,
+}) => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
   const columnsCount = isMobile ? 1 : 2;
@@ -49,7 +46,7 @@ export const WorkHeroSection = ({ withBackground }) => {
               image: isMobile ? undefined : 'url(/assets/background-work.svg)',
             }
           : {
-              color: '#FFFFFF',
+              color: '#fff',
             }
       }
     >
@@ -73,20 +70,20 @@ export const WorkHeroSection = ({ withBackground }) => {
               wordBreak="normal"
               margin={{ top: 'none' }}
             >
-              How we work and what we do. And a bit of our favorite projects and
-              the impact they&apos;ve made.
+              {title}
             </StyledHeading>
             <Box pad={{ bottom: 'small' }}>
               <Text size="medium" color="brand">
-                We work really well together but are awesome separately, too.
-                Hire only what you need, we’ll build our team around your
-                project.
+                {subtitle}
               </Text>
             </Box>
             <Box pad={{ bottom: 'large' }}>
-              <Text size="medium" color="brand">
-                From small HTML-template, to building entire applications, we’ve
-                worked on projects of all sizes.
+              <Text
+                size="medium"
+                color="brand"
+                style={{ whiteSpace: 'pre-line' }}
+              >
+                {text}
               </Text>
             </Box>
             <Box
@@ -131,7 +128,7 @@ export const WorkHeroSection = ({ withBackground }) => {
             columns={{ count: gridColumns, size: ['auto', 'auto'] }}
             pad={isMobile ? { bottom: 'large' } : undefined}
           >
-            {skillItems.map(skillItem => (
+            {whatWeDo.map(skillItem => (
               <Text
                 key={skillItem}
                 size={textFontSizeVariant}
@@ -149,6 +146,10 @@ export const WorkHeroSection = ({ withBackground }) => {
 };
 
 WorkHeroSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  whatWeDo: PropTypes.arrayOf(PropTypes.string).isRequired,
   withBackground: PropTypes.bool,
 };
 

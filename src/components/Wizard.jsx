@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import styled, { css } from 'styled-components';
@@ -38,31 +39,10 @@ const StepButton = styled(Button)`
   padding: 0;
 
   &:disabled {
-    border-color: #ffffff;
+    border-color: #fff;
     opacity: 1;
   }
 `;
-
-const wizardSteps = [
-  {
-    title: `Hey! Let’s get started. We’re SoftBee,\n and you are? 👋`,
-    placeholder: 'Lovely Person',
-  },
-  {
-    title: 'Hello, {name}! What do you want\n to make with us?',
-    placeholder: 'Apps, a website ?',
-  },
-  {
-    title: 'Is there any other information you can\n share?',
-    placeholder: 'Budget / Timeframe?',
-  },
-  {
-    title: 'Please provide your email\n 📧',
-    placeholder: 'best@customer.com',
-    type: 'email',
-  },
-  { title: 'Thank you for your submission! 🎉' },
-];
 
 const headingSizes = {
   large: '42px',
@@ -71,6 +51,35 @@ const headingSizes = {
 };
 
 export const Wizard = ({ style, needBoxShadow, onClose }) => {
+  const { data } = useStaticQuery(
+    graphql`
+      query {
+        data: allMarkdownRemark(
+          filter: { frontmatter: { templateKey: { eq: "common" } } }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                form {
+                  list {
+                    title
+                    placeholder
+                  }
+                  submission
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+  const { form } = data.edges[0].node.frontmatter;
+
+  const wizardSteps = [...form.list];
+  wizardSteps[Object.values(form.list).length - 1].type = 'email';
+  wizardSteps.push({ title: form.submission });
+
   const initialWizardState = {};
 
   for (let i = 1; i <= wizardSteps.length; i += 1) {
