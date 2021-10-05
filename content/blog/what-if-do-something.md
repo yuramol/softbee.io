@@ -1,4 +1,5 @@
 ---
+templateKey: blogItem
 path: what-if-do-something
 date: 2021-08-25T06:11:16.629Z
 image: /assets/AndriyGavriluk.png
