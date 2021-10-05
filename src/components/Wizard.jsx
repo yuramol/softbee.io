@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 import styled, { css } from 'styled-components';
 
 import { Box, Button, FormField, Grid, ResponsiveContext, Text } from 'grommet';
@@ -9,6 +8,8 @@ import { Close, Next, Previous } from 'grommet-icons';
 
 import { string } from 'yup';
 import { TextInput } from '../legos/TextInput/TextInput';
+
+import { maxBreakpoints } from '../utils/useBreakpoints';
 import { sendForm } from '../utils/useForm';
 
 const StyledGrid = styled(Grid)`
@@ -140,8 +141,8 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
   };
 
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 1;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const columnsCount = 1;
+  const isMobile = maxBreakpoints('mobile', size);
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
 
   const headingSize = headingSizes[size];

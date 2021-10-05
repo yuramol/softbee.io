@@ -1,13 +1,29 @@
 import React from 'react';
+import { Box, Grid, Image, ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
-import { Box, Grid, Image } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+
+
+const toolchainItems = [
+  { id: '1', label: 'React', icon: '/assets/icons/reactIcon.svg' },
+  { id: '2', label: 'Vue', icon: '/assets/icons/vueIcon.svg' },
+  {
+    id: '3',
+    label: 'React Native',
+    icon: '/assets/icons/reactNativeIcon.svg',
+  },
+  { id: '4', label: 'Angular', icon: '/assets/icons/angularIcon.svg' },
+  { id: '5', label: 'Flutter', icon: '/assets/icons/flutterIcon.svg' },
+  { id: '6', label: 'Node.js', icon: '/assets/icons/nodeJSIcon.svg' },
+  { id: '7', label: 'Ionic', icon: '/assets/icons/ionicIcon.svg' },
+];
 
 export const ToolchainSection = ({ toolchain }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = maxBreakpoints('xSmall', size);
   const headerLevel = isMobile ? 6 : 5;
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'large' }

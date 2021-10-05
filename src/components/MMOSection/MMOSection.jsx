@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+
 
 export const MMOSection = ({ title, text, withBackground }) => {
-  const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
+  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('desktopOrTablet', size);
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headerLevel = isMobile ? 4 : 2;
   const paddingVariant = isMobile
@@ -29,7 +31,7 @@ export const MMOSection = ({ title, text, withBackground }) => {
           ? {
               size: 'small',
               position: 'absolute',
-              image: shouldHaveBlueFigure
+              image: !shouldHaveBlueFigure
                 ? 'url(/assets/mmoBackground.svg)'
                 : undefined,
               color: '#f0f6f4',
@@ -113,10 +115,8 @@ export const MMOSection = ({ title, text, withBackground }) => {
           </Box>
         )}
         {isMobile && (
-          <Box pad={{ bottom: 'xlarge', top: 'large' }}>
-            <RouterLink align="center" to="/mmo-case">
-              See case study
-            </RouterLink>
+          <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
+            <RouterLink to="/mmo-case">See case study</RouterLink>
           </Box>
         )}
       </Grid>

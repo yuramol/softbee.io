@@ -1,19 +1,22 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 
-import { Box, Grid } from 'grommet';
+import { Box, Grid, Text, Heading, ResponsiveContext } from 'grommet';
+
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 import { BlogItem } from '../components/BlogItem/BlogItem';
 
 const Blog = ({ data, location }) => {
+  const size = React.useContext(ResponsiveContext);
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.allMdx.edges;
-  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('desktopOrTablet', size);
 
   return (
     <Layout location={location} title={siteTitle} withBackground>

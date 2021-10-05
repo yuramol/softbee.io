@@ -15,5 +15,16 @@ export const theme = {
       'text-white': '#fff',
       border: '#fff',
     },
+    breakpoints: {
+      xSmall: { value: 700 },
+      small: { value: 768 },
+      mobile: { value: 780 },
+      bMobile: { value: 900 },
+      sTablet: { value: 990 },
+      tablet: { value: 1050 },
+      tabletOrMobile: { value: 1110 },
+      desktopOrTablet: { value: 1210 },
+      large: {},
+    },
   },
 };

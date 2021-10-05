@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
-import { useMediaQuery } from 'react-responsive';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1100px)' });
-
+  const isMobile = maxBreakpoints('bMobile', size);
+  const isTablet = maxBreakpoints('tabletOrMobile', size);
   const columnsCount = isMobile ? 1 : 2;
 
   return (

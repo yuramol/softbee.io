@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { theme } from '../../utils/theme';
 import { Heading } from '../../legos/typography/Heading';
+import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 const StyledMarkdown = styled(ReactMarkdown)`
   a {
@@ -17,8 +17,8 @@ const StyledMarkdown = styled(ReactMarkdown)`
 
 export const OurTeamFollowSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 1;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const columnsCount = 1;
+  const isMobile = maxBreakpoints('mobile', size);
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }

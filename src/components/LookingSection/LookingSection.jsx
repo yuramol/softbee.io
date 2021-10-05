@@ -1,16 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
+import PropTypes from 'prop-types'
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const LookingSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 3;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 3;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('tablet', size);
   const fontSizeTablet = isTablet ? 4 : 2;
   const fontSizeMobile = isMobile ? 3 : 2;
   const paddingVariant = isMobile
@@ -48,7 +48,7 @@ export const LookingSection = ({ title, text }) => {
             alt="Gears"
           />
         </Box>
-        {isMobile || (
+        {!isMobile && (
           <Box
             style={{ textAlign: 'center' }}
             pad={{ vertical: 'large' }}

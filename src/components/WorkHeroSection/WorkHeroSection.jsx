@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Box, Grid, ResponsiveContext } from 'grommet';
-import { useMediaQuery } from 'react-responsive';
 
 import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 const StyledHeading = styled(Heading)`
   max-width: unset;
@@ -20,9 +20,9 @@ export const WorkHeroSection = ({
   withBackground,
 }) => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const isMobile = maxBreakpoints('bMobile', size);
   const columnsCount = isMobile ? 1 : 2;
-  const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
   const headingSize = isDesktopOrTablet ? 4 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
   const textMarginVariant = isMobile
@@ -39,7 +39,7 @@ export const WorkHeroSection = ({
       height={{ min: '695px' }}
       justify="center"
       background={
-        size !== 'small' && withBackground
+        !isMobile !== 'small' && withBackground
           ? {
               size: 'small',
               position: 'bottom right',

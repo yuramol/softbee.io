@@ -1,14 +1,18 @@
 import React from 'react';
+import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Heading } from '../../legos/typography/Heading';
+import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
-
 import { Box, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 
+
 export const OurTeamAboutTeam = ({ title, text, list }) => {
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = maxBreakpoints('bMobile', size);
   const columnsCount = isMobile ? 2 : 3;
 
   return (

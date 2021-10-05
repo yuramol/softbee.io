@@ -1,14 +1,15 @@
 import React from 'react';
-import { Box, Grid } from 'grommet';
-import { useMediaQuery } from 'react-responsive';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const CaseMMO = () => {
-  const isTablet = useMediaQuery({ query: '(max-width: 990px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isTablet = maxBreakpoints('sTablet', size);
+  const isMobile = maxBreakpoints('small', size);
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     <Box>

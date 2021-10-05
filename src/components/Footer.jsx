@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
-import { Box, Footer, Grid, Image, FormField } from 'grommet';
+import {
+  Box,
+  Footer,
+  Grid,
+  Image,
+  FormField,
+  ResponsiveContext,
+} from 'grommet';
 
 import { Button } from '../legos/Button/Button';
 import { Text } from '../legos/typography/Text';
@@ -11,6 +17,7 @@ import { Heading } from '../legos/typography/Heading';
 import { TextInput } from '../legos/TextInput/TextInput';
 import SendButtonIcon from '../../static/assets/sendButton.svg';
 import { RouterLink } from '../legos/RouterLink';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const linkFooterItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -29,6 +36,8 @@ const StyledLink = styled(Link)`
 `;
 
 export const SiteFooter = () => {
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = maxBreakpoints('xSmall', size);
   const {
     footerData: { edges },
   } = useStaticQuery(
@@ -54,7 +63,6 @@ export const SiteFooter = () => {
   );
   const { title, message, placeholder } = edges[0].node.frontmatter.footer;
 
-  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
   const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
 

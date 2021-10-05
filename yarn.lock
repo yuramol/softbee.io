@@ -8136,6 +8136,11 @@ gatsby-plugin-netlify-cms@^4.0.0:
     netlify-identity-widget "^1.5.5"
     webpack "^4.41.1"
 
+gatsby-plugin-no-index@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-no-index/-/gatsby-plugin-no-index-1.0.2.tgz#2e37e8ba381d398752581bc50d13c524efba65a0"
+  integrity sha512-gCRkGfhBBdfEf/jc+Mos9J70FtJcM/39SjxBWpO8KpOASZEre6lsuDFnF0u8bc44VExN76GNEmpUf271LHPH3Q==
+
 gatsby-plugin-offline@^2.0.25:
   version "2.2.10"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-2.2.10.tgz#ff57ce38f2ecd115af45005fcfd7c0c90a8f07f2"

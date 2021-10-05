@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `http://softbee.netlify.app`,
   },
   plugins: [
+    `gatsby-plugin-no-index`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
@@ -93,7 +94,7 @@ module.exports = {
         theme_color: `#104065`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/logo.png`,
+        // icon: `content/assets/logo.png`,
       },
     },
     {

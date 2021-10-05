@@ -6,12 +6,15 @@ import 'normalize.css';
 import { theme } from '../utils/theme';
 
 import { LetsTalk } from './LetsTalk';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const loader = require('../utils/loader');
 
 export const Layout = ({ children, withBackground }) => {
   const image = size =>
-    size === 'small' ? undefined : 'url(/assets/backgroundHeader.svg)';
+    maxBreakpoints('small', size)
+      ? undefined
+      : 'url(/assets/backgroundHeader.svg)';
 
   useEffect(() => {
     loader.hideLoader();
@@ -24,7 +27,9 @@ export const Layout = ({ children, withBackground }) => {
           <Box align="center">
             <Box
               fill
-              pad={{ top: size === 'small' ? '70px' : 'none' }}
+              pad={{
+                top: maxBreakpoints('small', size) ? '70px' : 'none',
+              }}
               background={
                 withBackground
                   ? {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
-
+import { ResponsiveContext } from 'grommet';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { HomeHeroSection } from '../components/HomeHeroSection/HomeHeroSection';
@@ -26,7 +25,11 @@ const IndexPage = ({ location, data }) => {
     whatWeDo,
   } = data.homePage.edges[0].node.frontmatter;
 
-  const isMobile = useMediaQuery({ query: '(max-width: 1210px)' });
+
+const IndexPage = ({ location }) => {
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = maxBreakpoints('desktopOrTablet', size);
+
   return (
     <Layout location={location} title={meta.title}>
       <SEO title={meta.title} description={meta.description} />
