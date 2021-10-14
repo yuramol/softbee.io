@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import {
@@ -18,6 +18,7 @@ import { TextInput } from '../legos/TextInput/TextInput';
 import SendButtonIcon from '../../static/assets/sendButton.svg';
 import { RouterLink } from '../legos/RouterLink';
 import { maxBreakpoints } from '../utils/useBreakpoints';
+import { sendSlack } from '../utils/useSlack';
 
 const linkFooterItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -65,6 +66,18 @@ export const SiteFooter = () => {
 
   const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
+
+  const [textSlack, setTextSlack] = useState('');
+
+  const handleTextChange = e => {
+    setTextSlack(e.target.value);
+  };
+  const send = () => {
+    if (textSlack.length > 3) {
+      sendSlack(textSlack);
+      setTextSlack('');
+    }
+  };
 
   return (
     <Footer background="brand" justify="stretch">
@@ -143,6 +156,8 @@ export const SiteFooter = () => {
               <FormField>
                 <Box>
                   <TextInput
+                    onChange={handleTextChange}
+                    value={textSlack}
                     placeholder={placeholder}
                     size="medium"
                     style={{
@@ -153,7 +168,7 @@ export const SiteFooter = () => {
               </FormField>
             </Box>
             <Box justify="start" align="start">
-              <StyledButton plain margin={{ left: 'medium' }}>
+              <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
                 <Image fill src={SendButtonIcon} alt="Send Button" />
               </StyledButton>
             </Box>
