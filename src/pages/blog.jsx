@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import { Box, Grid, Text, Heading, ResponsiveContext } from 'grommet';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
@@ -14,8 +14,7 @@ import { BlogItem } from '../components/BlogItem/BlogItem';
 const Blog = ({ data, location }) => {
   const size = React.useContext(ResponsiveContext);
   const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMdx.edges;
-  const isMobile = maxBreakpoints('mobile', size);
+  const posts = data.blogs.edges;
   const isTablet = maxBreakpoints('desktopOrTablet', size);
 
   return (
@@ -51,7 +50,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    blogs: allMdx(
+      filter: { frontmatter: { templateKey: { eq: "blogItem" } } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           excerpt
