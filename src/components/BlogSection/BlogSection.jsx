@@ -17,7 +17,11 @@ export const BlogSection = ({ withBackground }) => {
           title
         }
       }
-      allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 2) {
+      blogs: allMdx(
+        filter: { frontmatter: { templateKey: { eq: "blogItem" } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 2
+      ) {
         edges {
           node {
             excerpt
@@ -33,7 +37,7 @@ export const BlogSection = ({ withBackground }) => {
       }
     }
   `);
-  const posts = data.allMdx.edges;
+  const posts = data.blogs.edges;
   const size = React.useContext(ResponsiveContext);
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
   const isTablet = maxBreakpoints('tablet', size);

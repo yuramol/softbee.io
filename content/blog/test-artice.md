@@ -1,4 +1,5 @@
 ---
+templateKey: blogItem
 path: test-article
 date: 2020-04-15T09:54:06.427Z
 image: /assets/home-news.jpg

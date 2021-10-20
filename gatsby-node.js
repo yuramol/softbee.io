@@ -9,6 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMdx(
+          filter: { frontmatter: { templateKey: { eq: "blogItem" } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
