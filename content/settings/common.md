@@ -4,6 +4,7 @@ footer:
   message: Your message will be posted in one of our Slack channels.
   placeholder: Let’s create something dope!
   title: Message us anything
+  success: "Thank's for yours feedback \U0001F389"
 form:
   list:
     - placeholder: Lovely Person

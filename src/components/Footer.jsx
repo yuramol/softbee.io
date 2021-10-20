@@ -54,6 +54,7 @@ export const SiteFooter = () => {
                   message
                   placeholder
                   title
+                  success
                 }
               }
             }
@@ -62,12 +63,18 @@ export const SiteFooter = () => {
       }
     `,
   );
-  const { title, message, placeholder } = edges[0].node.frontmatter.footer;
+  const {
+    title,
+    message,
+    placeholder,
+    success,
+  } = edges[0].node.frontmatter.footer;
 
   const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
 
   const [textSlack, setTextSlack] = useState('');
+  const [successSendSlack, setSuccessSendSlack] = useState(false);
 
   const handleTextChange = e => {
     setTextSlack(e.target.value);
@@ -75,7 +82,9 @@ export const SiteFooter = () => {
   const send = () => {
     if (textSlack.length > 3) {
       sendSlack(textSlack);
+      setSuccessSendSlack(true);
       setTextSlack('');
+      setTimeout(() => setSuccessSendSlack(false), 3000);
     }
   };
 
@@ -153,19 +162,23 @@ export const SiteFooter = () => {
             margin={isMobile ? { top: 'large' } : { top: 'medium' }}
           >
             <Box>
-              <FormField>
-                <Box>
-                  <TextInput
-                    onChange={handleTextChange}
-                    value={textSlack}
-                    placeholder={placeholder}
-                    size="medium"
-                    style={{
-                      lineHeight: '26px',
-                    }}
-                  />
-                </Box>
-              </FormField>
+              {successSendSlack ? (
+                <Text alignSelf="start">{success}</Text>
+              ) : (
+                <FormField>
+                  <Box>
+                    <TextInput
+                      onChange={handleTextChange}
+                      value={textSlack}
+                      placeholder={placeholder}
+                      size="medium"
+                      style={{
+                        lineHeight: '26px',
+                      }}
+                    />
+                  </Box>
+                </FormField>
+              )}
             </Box>
             <Box justify="start" align="start">
               <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
