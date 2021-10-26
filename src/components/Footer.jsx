@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import {
@@ -18,6 +18,7 @@ import { TextInput } from '../legos/TextInput/TextInput';
 import SendButtonIcon from '../../static/assets/sendButton.svg';
 import { RouterLink } from '../legos/RouterLink';
 import { maxBreakpoints } from '../utils/useBreakpoints';
+import { sendSlack } from '../utils/useSlack';
 import { dispatch } from '../utils/useBus';
 
 const openModalLetsTalk = () => {
@@ -69,6 +70,7 @@ export const SiteFooter = () => {
                   message
                   placeholder
                   title
+                  success
                 }
               }
             }
@@ -77,10 +79,30 @@ export const SiteFooter = () => {
       }
     `,
   );
-  const { title, message, placeholder } = edges[0].node.frontmatter.footer;
+  const {
+    title,
+    message,
+    placeholder,
+    success,
+  } = edges[0].node.frontmatter.footer;
 
   const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
+
+  const [textSlack, setTextSlack] = useState('');
+  const [successSendSlack, setSuccessSendSlack] = useState(false);
+
+  const handleTextChange = e => {
+    setTextSlack(e.target.value);
+  };
+  const send = () => {
+    if (textSlack.length > 3) {
+      sendSlack(textSlack);
+      setSuccessSendSlack(true);
+      setTextSlack('');
+      setTimeout(() => setSuccessSendSlack(false), 3000);
+    }
+  };
 
   return (
     <Footer background="brand" justify="stretch">
@@ -151,20 +173,26 @@ export const SiteFooter = () => {
             margin={isMobile ? { top: 'large' } : { top: 'medium' }}
           >
             <Box>
-              <FormField>
-                <Box>
-                  <TextInput
-                    placeholder={placeholder}
-                    size="medium"
-                    style={{
-                      lineHeight: '26px',
-                    }}
-                  />
-                </Box>
-              </FormField>
+              {successSendSlack ? (
+                <Text alignSelf="start">{success}</Text>
+              ) : (
+                <FormField>
+                  <Box>
+                    <TextInput
+                      onChange={handleTextChange}
+                      value={textSlack}
+                      placeholder={placeholder}
+                      size="medium"
+                      style={{
+                        lineHeight: '26px',
+                      }}
+                    />
+                  </Box>
+                </FormField>
+              )}
             </Box>
             <Box justify="start" align="start">
-              <StyledButton plain margin={{ left: 'medium' }}>
+              <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
                 <Image fill src={SendButtonIcon} alt="Send Button" />
               </StyledButton>
             </Box>
