@@ -10,11 +10,11 @@ import {
   ResponsiveContext,
 } from 'grommet';
 import styled from 'styled-components';
-import { useMediaQuery } from 'react-responsive';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../legos/RouterLink';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const StyledBox = styled(Box)`
   top: 0;
@@ -36,12 +36,12 @@ const linkItems = [
 ];
 
 export const SiteHeader = () => {
-  const isDense = useMediaQuery({ query: '(max-width: 960px)' });
   const size = React.useContext(ResponsiveContext);
+  const isDense = maxBreakpoints('sTablet', size);
 
   return (
     <Header>
-      {size === 'small' ? (
+      {maxBreakpoints('small', size) ? (
         <StyledBox
           elevation="medium"
           pad="small"

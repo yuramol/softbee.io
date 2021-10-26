@@ -1,14 +1,15 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  return graphql(
+  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const blogPostsGeneration = graphql(
     `
       {
         allMdx(
+          filter: { frontmatter: { templateKey: { eq: "blogItem" } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -24,18 +25,19 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `
+    `,
   ).then(result => {
     if (result.errors) {
-      throw result.errors
+      throw result.errors;
     }
 
     // Create blog posts pages.
-    const posts = result.data.allMdx.edges
+    const posts = result.data.allMdx.edges;
 
     posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+      const previous =
+        index === posts.length - 1 ? null : posts[index + 1].node;
+      const next = index === 0 ? null : posts[index - 1].node;
 
       createPage({
         path: `blog${post.node.fields.slug}`,
@@ -45,22 +47,68 @@ exports.createPages = ({ graphql, actions }) => {
           previous,
           next,
         },
-      })
-    })
+      });
+    });
 
-    return null
-  })
-}
+    return null;
+  });
+
+  const workItem = path.resolve(`./src/templates/work-case.js`);
+  const workCasesGeneration = graphql(
+    `
+      {
+        works: allMarkdownRemark(
+          filter: { frontmatter: { templateKey: { eq: "workItem" } } }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                path
+              }
+            }
+          }
+        }
+      }
+    `,
+  ).then(result => {
+    if (result.errors) {
+      throw result.errors;
+    }
+
+    // Create work items pages.
+    const works = result.data.works.edges;
+
+    works.forEach((work, index) => {
+      const previous =
+        index === works.length - 1 ? null : works[index + 1].node;
+      const next = index === 0 ? null : works[index - 1].node;
+
+      createPage({
+        path: `work/${work.node.frontmatter.path}`,
+        component: workItem,
+        context: {
+          slug: work.node.frontmatter.path,
+          previous,
+          next,
+        },
+      });
+    });
+
+    return null;
+  });
+
+  return Promise.all([blogPostsGeneration, workCasesGeneration]);
+};
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
 
   if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode })
+    const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
       value,
-    })
+    });
   }
-}
+};

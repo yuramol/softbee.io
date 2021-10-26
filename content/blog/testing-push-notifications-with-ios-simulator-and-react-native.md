@@ -1,4 +1,5 @@
 ---
+templateKey: blogItem
 path: testing-push-notifications-on-ios-simulator
 date: 2020-04-15T08:22:31.703Z
 title: Testing Push Notifications with iOS simulator and React Native

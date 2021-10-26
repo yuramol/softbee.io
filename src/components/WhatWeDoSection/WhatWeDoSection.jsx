@@ -1,16 +1,17 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
 import PropTypes from 'prop-types';
+
 import { Box, ResponsiveContext, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const WhatWeDoSection = ({ withBackground }) => {
+export const WhatWeDoSection = ({ title, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const columnsCount = size === 'small' ? 2 : 4;
+  const columnsCount = maxBreakpoints('small', size) ? 2 : 4;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('tablet', size);
   const marginVariant = isTablet ? 'none' : 'xsmall';
   const headerLevel = isMobile ? 4 : 2;
 
@@ -21,7 +22,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
       background={
         withBackground
           ? {
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : undefined
       }
@@ -38,7 +39,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
           margin={{ horizontal: 'medium' }}
         >
           <Heading level={headerLevel} margin={{ top: 'none' }} color="brand">
-            What we do?
+            {title}
           </Heading>
         </Box>
         {isMobile || (
@@ -176,6 +177,7 @@ export const WhatWeDoSection = ({ withBackground }) => {
   );
 };
 WhatWeDoSection.propTypes = {
+  title: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { useMediaQuery } from 'react-responsive';
 
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
@@ -8,6 +7,7 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 import { BlogItem } from './BlogItem';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const BlogSection = ({ withBackground }) => {
   const data = useStaticQuery(graphql`
@@ -17,7 +17,11 @@ export const BlogSection = ({ withBackground }) => {
           title
         }
       }
-      allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 2) {
+      blogs: allMdx(
+        filter: { frontmatter: { templateKey: { eq: "blogItem" } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+        limit: 2
+      ) {
         edges {
           node {
             excerpt
@@ -33,11 +37,12 @@ export const BlogSection = ({ withBackground }) => {
       }
     }
   `);
-  const posts = data.allMdx.edges;
+  const posts = data.blogs.edges;
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isTablet = useMediaQuery({ query: '(max-width: 1050px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isTablet = maxBreakpoints('tablet', size);
+  const isMobile = maxBreakpoints('mobile', size);
+
   const fontSizeVariant = isMobile ? 6 : 2;
   const paddingVariant = isMobile
     ? 'large'
@@ -50,7 +55,7 @@ export const BlogSection = ({ withBackground }) => {
       background={
         withBackground
           ? {
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : undefined
       }

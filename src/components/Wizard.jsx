@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
 import styled, { css } from 'styled-components';
 
 import { Box, Button, FormField, Grid, ResponsiveContext, Text } from 'grommet';
@@ -8,6 +8,9 @@ import { Close, Next, Previous } from 'grommet-icons';
 
 import { string } from 'yup';
 import { TextInput } from '../legos/TextInput/TextInput';
+
+import { maxBreakpoints } from '../utils/useBreakpoints';
+import { sendForm } from '../utils/useForm';
 
 const StyledGrid = styled(Grid)`
   width: 100%;
@@ -37,31 +40,10 @@ const StepButton = styled(Button)`
   padding: 0;
 
   &:disabled {
-    border-color: #ffffff;
+    border-color: #fff;
     opacity: 1;
   }
 `;
-
-const wizardSteps = [
-  {
-    title: `Hey! Let’s get started. We’re SoftBee,\n and you are? 👋`,
-    placeholder: 'Lovely Person',
-  },
-  {
-    title: 'Hello, {name}! What do you want\n to make with us?',
-    placeholder: 'Apps, a website ?',
-  },
-  {
-    title: 'Is there any other information you can\n share?',
-    placeholder: 'Budget / Timeframe?',
-  },
-  {
-    title: 'Please provide your email\n 📧',
-    placeholder: 'best@customer.com',
-    type: 'email',
-  },
-  { title: 'Thank you for your submission! 🎉' },
-];
 
 const headingSizes = {
   large: '42px',
@@ -70,6 +52,35 @@ const headingSizes = {
 };
 
 export const Wizard = ({ style, needBoxShadow, onClose }) => {
+  const { data } = useStaticQuery(
+    graphql`
+      query {
+        data: allMarkdownRemark(
+          filter: { frontmatter: { templateKey: { eq: "common" } } }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                form {
+                  list {
+                    title
+                    placeholder
+                  }
+                  submission
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+  const { form } = data.edges[0].node.frontmatter;
+
+  const wizardSteps = [...form.list];
+  wizardSteps[Object.values(form.list).length - 1].type = 'email';
+  wizardSteps.push({ title: form.submission });
+
   const initialWizardState = {};
 
   for (let i = 1; i <= wizardSteps.length; i += 1) {
@@ -101,11 +112,22 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
     return step === wizardSteps.length || formData[step].length === 0;
   }, [step, formData]);
 
+  const setNameFormData = data => ({
+    name: data[1],
+    website: data[2],
+    comment: data[3],
+    email: data[4],
+  });
+
   const navigate = to => {
     setStep(to);
 
     if (onClose && to === wizardSteps.length) {
-      setTimeout(() => onClose(), 3000);
+      sendForm('lets-started', setNameFormData(formData), () => {
+        setTimeout(() => onClose(), 3000);
+      });
+    } else if (to === wizardSteps.length) {
+      sendForm('lets-started', setNameFormData(formData));
     }
   };
 
@@ -119,8 +141,8 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
   };
 
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 1;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const columnsCount = 1;
+  const isMobile = maxBreakpoints('mobile', size);
   const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
 
   const headingSize = headingSizes[size];
@@ -137,6 +159,20 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
       borderRadius={isMobile ? 0 : '20px'}
       gap="small"
     >
+      <form
+        name="lets-started"
+        method="post"
+        action="/contact/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        hidden
+      >
+        <input type="hidden" name="form-name" value="lets-started" />
+        <input type="text" name="name" />
+        <input type="text" name="website" />
+        <input type="email" name="email" />
+        <textarea name="comment" />
+      </form>
       <Box
         style={{ textAlign: 'center', maxHeight: isMobile ? '377px' : 'auto' }}
         pad={isMobile ? { vertical: 'xlarge', horizontal: 'medium' } : 'medium'}

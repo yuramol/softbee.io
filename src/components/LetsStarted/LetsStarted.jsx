@@ -1,12 +1,13 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
-import { Box } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 
 import { Wizard } from '../Wizard';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const LetsStarted = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = maxBreakpoints('mobile', size);
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
     : 'xlarge';

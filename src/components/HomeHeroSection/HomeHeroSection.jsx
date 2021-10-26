@@ -1,5 +1,4 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 import PropTypes from 'prop-types';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
@@ -7,12 +6,13 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const HomeHeroSection = ({ withBackground }) => {
+export const HomeHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isDesktopOrTablet = useMediaQuery({ query: '(max-width: 1210px)' });
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
   const headingSize = isDesktopOrTablet ? 2 : 1;
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headingFontSizeVariant = isMobile ? 3 : 1;
@@ -25,7 +25,7 @@ export const HomeHeroSection = ({ withBackground }) => {
     <Box
       height={isDesktopOrTablet ? 'auto' : '847px'}
       background={
-        withBackground
+        !isDesktopOrTablet
           ? {
               size: 'small',
               position: 'right',
@@ -60,19 +60,16 @@ export const HomeHeroSection = ({ withBackground }) => {
               color="brand"
               textAlign={textAlignVariant}
             >
-              Your partners in new products creating
+              {title}
             </Heading>
           </Box>
           <Box width="300px" pad={{ bottom: 'large' }} align={textAlignVariant}>
             <Text
               size={textFontSizeVariant}
               color="brand"
-              style={{ lineHeight: '32px' }}
+              style={{ lineHeight: '32px', whiteSpace: 'pre-line' }}
             >
-              with a bear drinking afterwards.
-            </Text>
-            <Text color="brand" style={{ lineHeight: '32px' }}>
-              UPDATED: and staying at home =)
+              {text}
             </Text>
           </Box>
 
@@ -95,6 +92,8 @@ export const HomeHeroSection = ({ withBackground }) => {
 };
 
 HomeHeroSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 

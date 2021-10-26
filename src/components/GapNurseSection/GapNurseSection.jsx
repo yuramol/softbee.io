@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useMediaQuery } from 'react-responsive';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const GapNurseSection = ({ withBackground }) => {
-  const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
+export const GapNurseSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1112px)' });
+  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('tabletOrMobile', size);
   const heightSection = withBackground ? '700px' : '800px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
@@ -31,10 +30,10 @@ export const GapNurseSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'top right',
-              image: shouldHaveBlueFigure
+              image: !shouldHaveBlueFigure
                 ? 'url(/assets/background-gapNurse.svg)'
                 : undefined,
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : {
               color: 'white',
@@ -57,7 +56,7 @@ export const GapNurseSection = ({ withBackground }) => {
               color="brand"
               textAlign={textAlignVariant}
             >
-              They really help to fight COVID-19 in US
+              {title}
             </Heading>
           </Box>
           <Box
@@ -70,10 +69,9 @@ export const GapNurseSection = ({ withBackground }) => {
             <Text
               size="medium"
               color="text-dark-grey"
-              style={{ fontFamily: 'HelveticaNeueCyr' }}
+              style={{ fontFamily: 'HelveticaNeueCyr', whiteSpace: 'pre-line' }}
             >
-              GapNurse, facilities know they’re covered during critical moments
-              and unexpected absences without breaking your budget.
+              {text}
             </Text>
           </Box>
           {isMobile || (
@@ -98,7 +96,7 @@ export const GapNurseSection = ({ withBackground }) => {
         </Grid>
         {isMobile && (
           <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-            <RouterLink to="gapnurse-case">See case study</RouterLink>
+            <RouterLink to="/gapnurse-case">See case study</RouterLink>
           </Box>
         )}
       </Grid>
@@ -107,6 +105,8 @@ export const GapNurseSection = ({ withBackground }) => {
 };
 
 GapNurseSection.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 

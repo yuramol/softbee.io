@@ -1,50 +1,13 @@
 import React from 'react';
-import { Box, Grid } from 'grommet';
-import { useMediaQuery } from 'react-responsive';
+import { Box, Grid, ResponsiveContext } from 'grommet';
+import PropTypes from 'prop-types';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-const teamMembers = [
-  {
-    name: 'Andriy Havriluk',
-    craft: 'programmer',
-    imageUrl: 'url(/assets/AndriyGavriluk.png)',
-  },
-  {
-    name: 'Artem Marochkanych',
-    craft: 'programmer',
-    imageUrl: 'url(/assets/ArtemMarochkanych.png)',
-  },
-  {
-    name: 'Vitaliy Hula',
-    craft: 'programmer',
-    imageUrl: 'url(/assets/VitaliyHula.png)',
-  },
-  {
-    name: 'Oleksandr Omelchenko',
-    craft: 'programmer',
-    imageUrl: 'url(/assets/OleksandrOmelchenko.png)',
-  },
-  {
-    name: 'Oleg Duma',
-    craft: 'programmer',
-    imageUrl: 'url(/assets/OlegDuma.png)',
-  },
-  {
-    name: 'Yuriy Moldavchuk',
-    craft: 'programmer',
-    imageUrl: 'url(/assets/YuriyMoldavchuk.png)',
-  },
-
-  {
-    name: 'Andriy Hula',
-    craft: 'designer',
-    imageUrl: 'url(/assets/YuriyMoldavchuk.png)',
-  },
-];
-
-export const OurTeamAboutTeam = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 900px)' });
+export const OurTeamAboutTeam = ({ title, text, list }) => {
+  const size = React.useContext(ResponsiveContext);
+  const isMobile = maxBreakpoints('bMobile', size);
   const columnsCount = isMobile ? 2 : 3;
 
   return (
@@ -64,22 +27,19 @@ export const OurTeamAboutTeam = () => {
           style={{ textAlign: 'center' }}
           margin={{ vertical: '15px' }}
         >
-          Real people creating real results
+          {title}
         </Heading>
       </Box>
       <Box align="center" width="100%">
         <Text
           size={isMobile ? 'small' : 'medium'}
           color="brand"
-          style={
-            isMobile
-              ? { textAlign: 'start', width: '80%' }
-              : { textAlign: 'center', width: '50%' }
-          }
+          style={{
+            textAlign: isMobile ? 'start' : 'center',
+            width: isMobile ? '80%' : '50%',
+          }}
         >
-          Working alone sucks, so we teamed up to kick ass together. We prove
-          that distance doesn’t matter when you love what you do, plus we don’t
-          have to share biscuits.
+          {text}
         </Text>
       </Box>
       <Box align="center">
@@ -93,7 +53,7 @@ export const OurTeamAboutTeam = () => {
             justify="center"
             justifyContent="around"
           >
-            {teamMembers.map(({ name, craft, imageUrl }) => (
+            {list.map(({ name, position, photo }) => (
               <Box
                 key={name}
                 style={
@@ -119,7 +79,7 @@ export const OurTeamAboutTeam = () => {
                 }
                 background={{
                   size: 'cover',
-                  image: imageUrl,
+                  image: `url(${photo})`,
                 }}
               >
                 <Box
@@ -146,7 +106,7 @@ export const OurTeamAboutTeam = () => {
                       {name}
                     </Heading>
                     <Text fontSize={isMobile ? '10px' : '14px'} color="brand">
-                      {craft}
+                      {position}
                     </Text>
                   </Box>
                 </Box>
@@ -157,4 +117,16 @@ export const OurTeamAboutTeam = () => {
       </Box>
     </Box>
   );
+};
+
+OurTeamAboutTeam.propTypes = {
+  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  list: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      position: PropTypes.string,
+      photo: PropTypes.string,
+    }),
+  ).isRequired,
 };

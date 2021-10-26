@@ -1,16 +1,17 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 
-import { Box, Grid } from 'grommet';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const CaseGapNurse = () => {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1110px)' });
+  const size = React.useContext(ResponsiveContext);
+  const isTabletOrMobile = maxBreakpoints('tabletOrMobile', size);
   const columnsCountTablet = isTabletOrMobile ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const isMobile = maxBreakpoints('small', size);
   const textAlignVariant = isMobile ? 'center' : 'start';
   return (
     <Box>
@@ -123,7 +124,7 @@ export const CaseGapNurse = () => {
           height={isMobile ? '130px' : '150px'}
           align="center"
           margin={isMobile ? { top: '30px' } : { top: '70px' }}
-          background={{ color: '#5E5999' }}
+          background={{ color: '#5e5999' }}
         >
           <Grid
             columns={['1/3', '1/3', '1/3']}

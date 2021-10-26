@@ -1,19 +1,19 @@
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-
 import PropTypes from 'prop-types';
+
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const MMOSection = ({ withBackground }) => {
-  const shouldHaveBlueFigure = useMediaQuery({ query: '(min-width: 1210px)' });
+export const MMOSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
+  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isMobile = maxBreakpoints('mobile', size);
+  const isTablet = maxBreakpoints('desktopOrTablet', size);
   const textAlignVariant = isMobile ? 'center' : 'start';
   const headerLevel = isMobile ? 4 : 2;
   const paddingVariant = isMobile
@@ -29,10 +29,10 @@ export const MMOSection = ({ withBackground }) => {
           ? {
               size: 'small',
               position: 'absolute',
-              image: shouldHaveBlueFigure
+              image: !shouldHaveBlueFigure
                 ? 'url(/assets/mmoBackground.svg)'
                 : undefined,
-              color: '#F0F6F4',
+              color: '#f0f6f4',
             }
           : {
               color: 'white',
@@ -77,7 +77,7 @@ export const MMOSection = ({ withBackground }) => {
               color="brand"
               textAlign={textAlignVariant}
             >
-              MMO.cat selling website
+              {title}
             </Heading>
           </Box>
           <Box width="491px" pad={{ bottom: 'small' }}>
@@ -86,15 +86,9 @@ export const MMOSection = ({ withBackground }) => {
                 size="medium"
                 color="text-dark-grey"
                 textAlign={textAlignVariant}
+                style={{ whiteSpace: 'pre-line' }}
               >
-                We provided full-stack development service
-              </Text>
-              <Text
-                size="medium"
-                color="text-dark-grey"
-                textAlign={textAlignVariant}
-              >
-                for end-to-end websites of MMO.cat team
+                {text}
               </Text>
             </Box>
             {isMobile || <RouterLink to="/mmo-case">See case study</RouterLink>}
@@ -119,10 +113,8 @@ export const MMOSection = ({ withBackground }) => {
           </Box>
         )}
         {isMobile && (
-          <Box pad={{ bottom: 'xlarge', top: 'large' }}>
-            <RouterLink align="center" to="/mmo-case">
-              See case study
-            </RouterLink>
+          <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
+            <RouterLink to="/mmo-case">See case study</RouterLink>
           </Box>
         )}
       </Grid>
@@ -131,6 +123,9 @@ export const MMOSection = ({ withBackground }) => {
 };
 
 MMOSection.propTypes = {
+  title: PropTypes.string.isRequired,
+
+  text: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
 };
 
