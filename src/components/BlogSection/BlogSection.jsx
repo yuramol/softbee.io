@@ -86,7 +86,7 @@ export const BlogSection = ({ withBackground }) => {
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="/assets/home-news.jpg"
+              src="/assets/home-news.webp"
               alt="On laptop open code editor"
             />
           </Box>

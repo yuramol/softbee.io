@@ -53,14 +53,14 @@ export const MMOSection = ({ title, text, withBackground }) => {
             >
               <img
                 style={{ height: 'auto', width: '110%' }}
-                src="/assets/sectionMMO.png"
+                src="/assets/sectionMMO.webp"
                 alt="screenshot of MMO website page"
               />
             </Box>
             <Box justify="center" pad={{ left: 'large' }}>
               <img
                 style={{ height: 'auto', width: '130%' }}
-                src="/assets/sectionMMOMini.png"
+                src="/assets/sectionMMOMini.webp"
                 alt="screenshot of MMO website page, mobile version"
               />
             </Box>

@@ -82,14 +82,14 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="/assets/PhoneGapNurse.png"
+              src="/assets/PhoneGapNurse.webp"
               alt="The iphone that shows the application GapNurse"
             />
           </Box>
           <Box align="center" justify="center">
             <img
               style={{ height: 'auto', width: '100%' }}
-              src="/assets/PhoneGapNurse2.png"
+              src="/assets/PhoneGapNurse2.webp"
               alt="The iphone that shows the application GapNurse"
             />
           </Box>
