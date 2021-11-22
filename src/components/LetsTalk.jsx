@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { Box, Layer } from 'grommet';
+import styled from 'styled-components';
 import { Wizard } from './Wizard';
 import useBus from '../utils/useBus';
+
+const StyledBoxTalk = styled(Box)`
+  max-width: 1220px;
+  height: 100%;
+`;
 
 export const LetsTalk = () => {
   const [show, setShow] = useState(false);
@@ -14,17 +20,13 @@ export const LetsTalk = () => {
     <Box>
       {show && (
         <Layer onEsc={hide} onClickOutside={hide} background={false}>
-          <Box
-            align="center"
-            justify="center"
-            style={{ width: '1220px', height: '100%' }}
-          >
+          <StyledBoxTalk align="center" justify="center">
             <Wizard
               onClose={hide}
               needBoxShadow={false}
               style={{ height: '100%' }}
             />
-          </Box>
+          </StyledBoxTalk>
         </Layer>
       )}
     </Box>

@@ -31,6 +31,8 @@ export const SiteHeader = () => {
   const size = React.useContext(ResponsiveContext);
   const isDense = maxBreakpoints('sTablet', size);
 
+  document.addEventListener('scroll', () => {});
+
   return (
     <Header>
       {maxBreakpoints('small', size) ? (

@@ -7,8 +7,9 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import Container from '../Layout/Container';
 
-export const HomeHeroSection = ({ title, text, withBackground }) => {
+export const HomeHeroSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
   const isMobile = maxBreakpoints('mobile', size);
@@ -34,59 +35,65 @@ export const HomeHeroSection = ({ title, text, withBackground }) => {
           : undefined
       }
     >
-      <Grid
-        columns={{ count: columnsCount, size: 'auto' }}
-        gap="small"
-        pad={paddingVariant}
-      >
-        {isMobile && (
-          <Box align="center">
-            <img
-              style={{ height: 'auto', width: '100%' }}
-              src="/assets/sectionHeader.svg"
-              alt="People create a website"
-            />
-          </Box>
-        )}
-        <Box
-          justify="center"
-          align={textAlignVariant}
-          pad={isMobile ? { bottom: 'medium' } : undefined}
+      <Container>
+        <Grid
+          columns={{ count: columnsCount, size: 'auto' }}
+          gap="small"
+          pad={paddingVariant}
         >
-          <Box pad={{ bottom: 'small' }}>
-            <Heading
-              level={headingFontSizeVariant && headingSize}
-              style={{ fontWeight: '800' }}
-              color="brand"
-              textAlign={textAlignVariant}
+          {isMobile && (
+            <Box align="center">
+              <img
+                style={{ height: 'auto', width: '100%' }}
+                src="/assets/sectionHeader.svg"
+                alt="People create a website"
+              />
+            </Box>
+          )}
+          <Box
+            justify="center"
+            align={textAlignVariant}
+            pad={isMobile ? { bottom: 'medium' } : undefined}
+          >
+            <Box pad={{ bottom: 'small' }}>
+              <Heading
+                level={headingFontSizeVariant && headingSize}
+                style={{ fontWeight: '800' }}
+                color="brand"
+                textAlign={textAlignVariant}
+              >
+                {title}
+              </Heading>
+            </Box>
+            <Box
+              width="300px"
+              pad={{ bottom: 'large' }}
+              align={textAlignVariant}
             >
-              {title}
-            </Heading>
-          </Box>
-          <Box width="300px" pad={{ bottom: 'large' }} align={textAlignVariant}>
-            <Text
-              size={textFontSizeVariant}
-              color="brand"
-              style={{ lineHeight: '32px', whiteSpace: 'pre-line' }}
-            >
-              {text}
-            </Text>
-          </Box>
+              <Text
+                size={textFontSizeVariant}
+                color="brand"
+                style={{ lineHeight: '32px', whiteSpace: 'pre-line' }}
+              >
+                {text}
+              </Text>
+            </Box>
 
-          <Box justify="center" align="center" height="60px" width="200px">
-            <ButtonLetsTalk label="Let’s talk" color="accent-1" />
+            <Box justify="center" align="center" height="60px" width="200px">
+              <ButtonLetsTalk label="Let’s talk" color="accent-1" />
+            </Box>
           </Box>
-        </Box>
-        {isMobile || (
-          <Box align="center" justify="center">
-            <img
-              style={{ height: 'auto', width: '100%' }}
-              src="/assets/sectionHeader.svg"
-              alt="People create a website"
-            />
-          </Box>
-        )}
-      </Grid>
+          {isMobile || (
+            <Box align="center" justify="center">
+              <img
+                style={{ height: 'auto', width: '100%' }}
+                src="/assets/sectionHeader.svg"
+                alt="People create a website"
+              />
+            </Box>
+          )}
+        </Grid>
+      </Container>
     </Box>
   );
 };
@@ -94,9 +101,9 @@ export const HomeHeroSection = ({ title, text, withBackground }) => {
 HomeHeroSection.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  withBackground: PropTypes.bool,
+  // withBackground: PropTypes.bool,
 };
 
 HomeHeroSection.defaultProps = {
-  withBackground: undefined,
+  // withBackground: undefined,
 };

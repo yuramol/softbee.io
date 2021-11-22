@@ -8,6 +8,7 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
+import Container from '../Layout/Container';
 
 export const WorkItemSection = ({
   path,
@@ -21,8 +22,6 @@ export const WorkItemSection = ({
   const size = React.useContext(ResponsiveContext);
   const columnsCount = size === 'small' ? 1 : 2;
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
-  const isTablet = useMediaQuery({ query: '(max-width: 1112px)' });
-  const heightSection = '700px';
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
   const paddingVariant = isMobile
@@ -110,33 +109,31 @@ export const WorkItemSection = ({
   );
 
   return (
-    <Box
-      height={isTablet ? undefined : heightSection}
-      justify="center"
-      background={{ color: 'white' }}
-    >
-      <Grid
-        columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-        gap="large"
-        pad={paddingVariant}
-      >
-        {reversedGrid ? (
-          <>
-            {Thumbnails}
-            {Info}
-          </>
-        ) : (
-          <>
-            {Info}
-            {Thumbnails}
-          </>
-        )}
-        {isMobile && (
-          <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-            <RouterLink to={link}>See case</RouterLink>
-          </Box>
-        )}
-      </Grid>
+    <Box justify="center" background={{ color: 'white' }}>
+      <Container>
+        <Grid
+          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
+          gap="large"
+          pad={paddingVariant}
+        >
+          {reversedGrid ? (
+            <>
+              {Thumbnails}
+              {Info}
+            </>
+          ) : (
+            <>
+              {Info}
+              {Thumbnails}
+            </>
+          )}
+          {isMobile && (
+            <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
+              <RouterLink to={link}>See case</RouterLink>
+            </Box>
+          )}
+        </Grid>
+      </Container>
     </Box>
   );
 };

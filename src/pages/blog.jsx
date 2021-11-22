@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Grid, ResponsiveContext } from 'grommet';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
@@ -10,6 +10,7 @@ import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 import { BlogItem } from '../components/BlogItem/BlogItem';
+import Container from '../components/Layout/Container';
 
 const Blog = ({ data, location }) => {
   const size = React.useContext(ResponsiveContext);
@@ -21,7 +22,7 @@ const Blog = ({ data, location }) => {
     <Layout location={location} title={siteTitle} withBackground>
       <SEO title="All posts" />
       <SiteHeader />
-      <Box>
+      <Container>
         <Grid
           columns={{ count: 1 }}
           gap="small"
@@ -35,7 +36,7 @@ const Blog = ({ data, location }) => {
             return <BlogItem post={node} key={node.fields.slug} />;
           })}
         </Grid>
-      </Box>
+      </Container>
       <SiteFooter />
     </Layout>
   );

@@ -7,6 +7,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import Container from '../Layout/Container';
 
 const StyledHeading = styled(Heading)`
   max-width: unset;
@@ -50,97 +51,104 @@ export const WorkHeroSection = ({
             }
       }
     >
-      <Heading alignSelf="center" level={1} color="brand" wordBreak="normal">
-        Work
-      </Heading>
-      <Grid
-        columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-        fill="horizontal"
-      >
-        <Box
-          pad={paddingVariant}
-          justify="center"
-          margin={isMobile ? { bottom: 'large' } : { paddingVariant }}
+      <Container>
+        <Heading alignSelf="center" level={1} color="brand" wordBreak="normal">
+          Work
+        </Heading>
+        <Grid
+          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
+          fill="horizontal"
         >
-          <Box>
-            <StyledHeading
-              level={headingSize}
-              color="brand"
-              textAlign="start"
-              wordBreak="normal"
-              margin={{ top: 'none' }}
-            >
-              {title}
-            </StyledHeading>
-            <Box pad={{ bottom: 'small' }}>
-              <Text size="medium" color="brand">
-                {subtitle}
-              </Text>
-            </Box>
-            <Box pad={{ bottom: 'large' }}>
-              <Text
-                size="medium"
+          <Box
+            pad={paddingVariant}
+            justify="center"
+            margin={isMobile ? { bottom: 'large' } : { paddingVariant }}
+          >
+            <Box>
+              <StyledHeading
+                level={headingSize}
                 color="brand"
-                style={{ whiteSpace: 'pre-line' }}
+                textAlign="start"
+                wordBreak="normal"
+                margin={{ top: 'none' }}
               >
-                {text}
-              </Text>
-            </Box>
-            <Box
-              pad={{ top: 'medium' }}
-              justify="center"
-              alignSelf={alignVariant}
-              height="60px"
-              width="200px"
-            >
-              <StyledButton label="How we work" fill color="accent-1" primary />
+                {title}
+              </StyledHeading>
+              <Box pad={{ bottom: 'small' }}>
+                <Text size="medium" color="brand">
+                  {subtitle}
+                </Text>
+              </Box>
+              <Box pad={{ bottom: 'large' }}>
+                <Text
+                  size="medium"
+                  color="brand"
+                  style={{ whiteSpace: 'pre-line' }}
+                >
+                  {text}
+                </Text>
+              </Box>
+              <Box
+                pad={{ top: 'medium' }}
+                justify="center"
+                alignSelf={alignVariant}
+                height="60px"
+                width="200px"
+              >
+                <StyledButton
+                  label="How we work"
+                  fill
+                  color="accent-1"
+                  primary
+                />
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <Box
-          justify="end"
-          pad={
-            !isMobile
-              ? { left: '200px', right: '40px', bottom: '50px' }
-              : { paddingVariant }
-          }
-          background={
-            isMobile
-              ? {
-                  color: 'brand',
-                }
-              : undefined
-          }
-        >
-          <Heading
-            level={headingSize}
-            alignSelf="center"
-            color="text-white"
-            wordBreak="normal"
-            fontWeight="normal"
-            margin={{ vertical: isMobile ? 'large' : 'small' }}
+          <Box
+            justify="end"
+            pad={
+              !isMobile
+                ? { left: '200px', right: '40px', bottom: '50px' }
+                : { paddingVariant }
+            }
+            background={
+              isMobile
+                ? {
+                    color: 'brand',
+                  }
+                : undefined
+            }
           >
-            What we do?
-          </Heading>
+            <Heading
+              level={headingSize}
+              alignSelf="center"
+              color="text-white"
+              wordBreak="normal"
+              fontWeight="normal"
+              margin={{ vertical: isMobile ? 'large' : 'small' }}
+            >
+              What we do?
+            </Heading>
 
-          <Grid
-            alignSelf={isMobile ? 'center' : undefined}
-            columns={{ count: gridColumns, size: ['auto', 'auto'] }}
-            pad={isMobile ? { bottom: 'large' } : undefined}
-          >
-            {whatWeDo.map(skillItem => (
-              <Text
-                key={skillItem}
-                size={textFontSizeVariant}
-                margin={textMarginVariant}
-                color="text-white"
-              >
-                {skillItem}
-              </Text>
-            ))}
-          </Grid>
-        </Box>
-      </Grid>
+            <Grid
+              alignSelf={isMobile ? 'center' : undefined}
+              columns={{ count: gridColumns, size: ['auto', 'auto'] }}
+              pad={isMobile ? { bottom: 'large' } : undefined}
+            >
+              {whatWeDo.map(skillItem => (
+                <Text
+                  key={skillItem}
+                  size={textFontSizeVariant}
+                  margin={textMarginVariant}
+                  color="text-white"
+                >
+                  {skillItem}
+                </Text>
+              ))}
+            </Grid>
+          </Box>
+        </Grid>
+      </Container>
     </Box>
   );
 };

@@ -8,6 +8,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 import { BlogItem } from './BlogItem';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import Container from '../Layout/Container';
 
 export const BlogSection = ({ withBackground }) => {
   const data = useStaticQuery(graphql`
@@ -60,49 +61,51 @@ export const BlogSection = ({ withBackground }) => {
           : undefined
       }
     >
-      <Grid
-        columns={{ count: columnsCount, size: 'auto' }}
-        gap="small"
-        pad={paddingVariant}
-        justify="center"
-      >
-        <Box justify="center">
-          <Box
-            pad={isTablet ? { horizontal: 'xsmall', top: 'xlarge' } : 'large'}
-            align="center"
-          >
-            {posts.map((item, index) => {
-              return (
-                <BlogItem
-                  post={item.node}
-                  first={index === 0}
-                  key={item.node.fields.slug}
-                />
-              );
-            })}
+      <Container>
+        <Grid
+          columns={{ count: columnsCount, size: 'auto' }}
+          gap="small"
+          pad={paddingVariant}
+          justify="center"
+        >
+          <Box justify="center">
+            <Box
+              pad={isTablet ? { horizontal: 'xsmall', top: 'xlarge' } : 'large'}
+              align="center"
+            >
+              {posts.map((item, index) => {
+                return (
+                  <BlogItem
+                    post={item.node}
+                    first={index === 0}
+                    key={item.node.fields.slug}
+                  />
+                );
+              })}
+            </Box>
           </Box>
+          {!isMobile && (
+            <Box align="center" justify="center">
+              <img
+                style={{ height: 'auto', width: '100%' }}
+                src="/assets/home-news.webp"
+                alt="On laptop open code editor"
+              />
+            </Box>
+          )}
+        </Grid>
+        <Box
+          justify="start"
+          align="center"
+          pad={isTablet ? { bottom: 'xlarge' } : undefined}
+        >
+          <RouterLink to="blog">
+            <Heading margin="large" level={fontSizeVariant}>
+              <RouterLink to="blog">See our blog</RouterLink>
+            </Heading>
+          </RouterLink>
         </Box>
-        {!isMobile && (
-          <Box align="center" justify="center">
-            <img
-              style={{ height: 'auto', width: '100%' }}
-              src="/assets/home-news.webp"
-              alt="On laptop open code editor"
-            />
-          </Box>
-        )}
-      </Grid>
-      <Box
-        justify="start"
-        align="center"
-        pad={isTablet ? { bottom: 'xlarge' } : undefined}
-      >
-        <RouterLink to="blog">
-          <Heading margin="large" level={fontSizeVariant}>
-            <RouterLink to="blog">See our blog</RouterLink>
-          </Heading>
-        </RouterLink>
-      </Box>
+      </Container>
     </Box>
   );
 };
