@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 export const LookingSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
@@ -68,6 +69,13 @@ export const LookingSection = ({ title, text }) => {
             <Heading level={fontSizeTablet} color="brand">
               {text}
             </Heading>
+            <Box
+              height="60px"
+              width="200px"
+              margin={{ top: 'medium', horizontal: 'auto' }}
+            >
+              <ButtonLetsTalk label="Let’s talk" color="accent-1" />
+            </Box>
           </Box>
         )}
         {isMobile && (
