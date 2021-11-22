@@ -1,14 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import {
-  Box,
-  Header,
-  Button,
-  Grid,
-  Image,
-  Nav,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Header, Grid, Image, Nav, ResponsiveContext } from 'grommet';
 import styled from 'styled-components';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
@@ -76,18 +68,8 @@ export const SiteHeader = () => {
           </Box>
           <Nav direction="row" align="center" justify="end">
             {linkItems.map(linkItem => (
-              <RouterLink to={linkItem.link} key={linkItem.id}>
-                <Button
-                  key={linkItem.id}
-                  plain
-                  label={linkItem.label}
-                  margin={{ horizontal: isDense ? 'none' : 'medium' }}
-                  style={{
-                    boxShadow: `none`,
-                    textDecoration: `none`,
-                    fontSize: '18px',
-                  }}
-                />
+              <RouterLink padding="10px" to={linkItem.link} key={linkItem.id}>
+                {linkItem.label}
               </RouterLink>
             ))}
             <Box height="60px" width={isDense ? '148px' : '200px'}>
