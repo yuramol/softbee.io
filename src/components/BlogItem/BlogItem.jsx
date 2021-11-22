@@ -5,10 +5,15 @@ import { Box, Grid, Text, Heading } from 'grommet';
 import { useMediaQuery } from 'react-responsive';
 import { RouterLink } from '../../legos/RouterLink';
 
+const BlogItemLink = ({ slug, children }) => (
+  <RouterLink to={`/blog${slug}`}>{children}</RouterLink>
+);
+
 export const BlogItem = ({ post }) => {
   const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const title = post.frontmatter.title || post.fields.slug;
+
   return (
     <Box
       key={post.fields.slug}
@@ -26,16 +31,13 @@ export const BlogItem = ({ post }) => {
         pad={isTablet ? { horizontal: 'medium' } : { horizontal: 'xlarge' }}
       >
         <Box pad={{ right: 'large' }}>
-          <RouterLink
-            style={{ boxShadow: `none` }}
-            to={`/blog${post.fields.slug}`}
-          >
+          <BlogItemLink slug={post.fields.slug}>
             <Box>
               <Heading level={4} margin={{ top: 'none', bottom: '15px' }}>
                 {title}
               </Heading>
             </Box>
-          </RouterLink>
+          </BlogItemLink>
           {/* <small>{post.frontmatter.date}</small> */}
           <Text
             size={isMobile ? 'small' : undefined}
@@ -62,11 +64,13 @@ export const BlogItem = ({ post }) => {
           justify="center"
           align="center"
         >
-          <img
-            style={{ height: 'auto', width: '100%' }}
-            src={post.frontmatter.image}
-            alt={title}
-          />
+          <BlogItemLink to={`/blog${post.fields.slug}`}>
+            <img
+              style={{ height: 'auto', width: '100%' }}
+              src={post.frontmatter.image}
+              alt={title}
+            />
+          </BlogItemLink>
         </Box>
       </Grid>
     </Box>
@@ -86,4 +90,8 @@ BlogItem.propTypes = {
       title: PropTypes.string,
     }),
   }).isRequired,
+};
+
+BlogItemLink.propTypes = {
+  slug: PropTypes.string.isRequired,
 };
