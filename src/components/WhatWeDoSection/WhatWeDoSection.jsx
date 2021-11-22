@@ -6,6 +6,7 @@ import { Box, ResponsiveContext, Grid } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import Container from '../Layout/Container';
 
 export const WhatWeDoSection = ({ title, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
@@ -27,7 +28,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
           : undefined
       }
     >
-      <Box
+      <Container
         justify="center"
         align="center"
         pad={isMobile ? { horizontal: 'large', vertical: 'xlarge' } : 'large'}
@@ -172,7 +173,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
             </Box>
           </Grid>
         )}
-      </Box>
+      </Container>
     </Box>
   );
 };

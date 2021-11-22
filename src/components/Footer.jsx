@@ -21,6 +21,8 @@ import { maxBreakpoints } from '../utils/useBreakpoints';
 import { sendSlack } from '../utils/useSlack';
 import { dispatch } from '../utils/useBus';
 
+import Container from './Layout/Container';
+
 const openModalLetsTalk = () => {
   dispatch('letsTalk/open');
 };
@@ -106,99 +108,105 @@ export const SiteFooter = () => {
 
   return (
     <Footer background="brand" justify="stretch">
-      <Grid
-        columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-        fill="horizontal"
-        pad={isMobile ? 'large' : { vertical: 'large', horizontal: 'xlarge' }}
-      >
-        <Box
-          align={alignVariant}
-          pad={
-            isMobile
-              ? { top: 'medium', right: 'none' }
-              : { left: 'large', right: 'xlarge' }
-          }
+      <Container>
+        <Grid
+          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
+          fill="horizontal"
+          pad={isMobile ? 'large' : { vertical: 'large', horizontal: 'xlarge' }}
         >
-          <StyledLink to="/">
-            <Image
-              src={Logo}
-              alt="Soft Bee"
-              margin={isMobile ? { bottom: 'small' } : { bottom: 'medium' }}
-            />
-          </StyledLink>
           <Box
-            width="100%"
-            justify="stretch"
-            direction={isMobile ? 'row' : 'column'}
             align={alignVariant}
-            pad={isMobile ? { vertical: 'none' } : { vertical: 'small' }}
-            style={{ justifyContent: 'space-between' }}
-          >
-            {linkFooterItems.map(linkItem =>
-              linkItem.routerLink ? (
-                <RouterLink to={linkItem.link} key={linkItem.id}>
-                  <StyledText>{linkItem.label}</StyledText>
-                </RouterLink>
-              ) : (
-                <StyledText key={linkItem.id} onClick={linkItem.click}>
-                  {linkItem.label}
-                </StyledText>
-              ),
-            )}
-          </Box>
-        </Box>
-        <Box
-          justify="center"
-          align="start"
-          pad={
-            isMobile ? { vertical: 'large', left: 'none' } : { left: 'xlarge' }
-          }
-        >
-          <Heading
-            alignSelf="start"
-            level={isMobile ? 3 : 2}
-            margin={
-              isMobile ? { bottom: 'large' } : { top: 'small', bottom: 'none' }
+            pad={
+              isMobile
+                ? { top: 'medium', right: 'none' }
+                : { left: 'large', right: 'xlarge' }
             }
-            fontWeight="400"
           >
-            {title}
-          </Heading>
-          <Text alignSelf="start" size="medium" weight="400">
-            {message}
-          </Text>
-          <Grid
-            columns={{ count: 2, size: ['auto', 'auto'] }}
-            fill="horizontal"
-            margin={isMobile ? { top: 'large' } : { top: 'medium' }}
-          >
-            <Box>
-              {successSendSlack ? (
-                <Text alignSelf="start">{success}</Text>
-              ) : (
-                <FormField>
-                  <Box>
-                    <TextInput
-                      onChange={handleTextChange}
-                      value={textSlack}
-                      placeholder={placeholder}
-                      size="medium"
-                      style={{
-                        lineHeight: '26px',
-                      }}
-                    />
-                  </Box>
-                </FormField>
+            <StyledLink to="/">
+              <Image
+                src={Logo}
+                alt="Soft Bee"
+                margin={isMobile ? { bottom: 'small' } : { bottom: 'medium' }}
+              />
+            </StyledLink>
+            <Box
+              width="100%"
+              justify="stretch"
+              direction={isMobile ? 'row' : 'column'}
+              align={alignVariant}
+              pad={isMobile ? { vertical: 'none' } : { vertical: 'small' }}
+              style={{ justifyContent: 'space-between' }}
+            >
+              {linkFooterItems.map(linkItem =>
+                linkItem.routerLink ? (
+                  <RouterLink to={linkItem.link} key={linkItem.id}>
+                    <StyledText>{linkItem.label}</StyledText>
+                  </RouterLink>
+                ) : (
+                  <StyledText key={linkItem.id} onClick={linkItem.click}>
+                    {linkItem.label}
+                  </StyledText>
+                ),
               )}
             </Box>
-            <Box justify="start" align="start">
-              <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
-                <Image fill src={SendButtonIcon} alt="Send Button" />
-              </StyledButton>
-            </Box>
-          </Grid>
-        </Box>
-      </Grid>
+          </Box>
+          <Box
+            justify="center"
+            align="start"
+            pad={
+              isMobile
+                ? { vertical: 'large', left: 'none' }
+                : { left: 'xlarge' }
+            }
+          >
+            <Heading
+              alignSelf="start"
+              level={isMobile ? 3 : 2}
+              margin={
+                isMobile
+                  ? { bottom: 'large' }
+                  : { top: 'small', bottom: 'none' }
+              }
+              fontWeight="400"
+            >
+              {title}
+            </Heading>
+            <Text alignSelf="start" size="medium" weight="400">
+              {message}
+            </Text>
+            <Grid
+              columns={{ count: 2, size: ['auto', 'auto'] }}
+              fill="horizontal"
+              margin={isMobile ? { top: 'large' } : { top: 'medium' }}
+            >
+              <Box>
+                {successSendSlack ? (
+                  <Text alignSelf="start">{success}</Text>
+                ) : (
+                  <FormField>
+                    <Box>
+                      <TextInput
+                        onChange={handleTextChange}
+                        value={textSlack}
+                        placeholder={placeholder}
+                        size="medium"
+                        style={{
+                          lineHeight: '26px',
+                        }}
+                      />
+                    </Box>
+                  </FormField>
+                )}
+              </Box>
+              <Box justify="start" align="start">
+                <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
+                  <Image fill src={SendButtonIcon} alt="Send Button" />
+                </StyledButton>
+              </Box>
+            </Grid>
+          </Box>
+        </Grid>
+      </Container>
     </Footer>
   );
 };

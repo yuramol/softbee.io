@@ -4,6 +4,7 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import Container from '../Layout/Container';
 
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
@@ -29,52 +30,54 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
             }
       }
     >
-      <Grid
-        columns={{ count: columnsCount, size: 'auto ' }}
-        gap="small"
-        pad={isMobile ? { horizontal: 'large' } : { horizontal: 'xlarge' }}
-        style={{ height: 'auto' }}
-      >
-        <Box
-          justify="center"
-          pad={isTablet ? { horizontal: 'small' } : { horizontal: 'large' }}
-          style={isMobile ? { order: '1' } : { order: '0' }}
+      <Container>
+        <Grid
+          columns={{ count: columnsCount, size: 'auto ' }}
+          gap="small"
+          pad={isMobile ? { horizontal: 'large' } : { horizontal: 'xlarge' }}
+          style={{ height: 'auto' }}
         >
-          <Heading
-            level={1}
-            color="brand"
-            style={
-              isMobile
-                ? { fontWeight: '700', fontSize: '24px', textAlign: 'center' }
-                : { fontWeight: '700' }
-            }
-            margin={{ vertical: '5px' }}
+          <Box
+            justify="center"
+            pad={isTablet ? { horizontal: 'small' } : { horizontal: 'large' }}
+            style={isMobile ? { order: '1' } : { order: '0' }}
           >
-            {title}
-          </Heading>
-          <Text
-            size={isMobile ? 'small' : 'medium'}
-            color="brand"
-            style={{
-              textAlign: isMobile ? 'center' : 'left',
-              whiteSpace: 'pre-line',
-            }}
-          >
-            {text}
-          </Text>
-        </Box>
+            <Heading
+              level={1}
+              color="brand"
+              style={
+                isMobile
+                  ? { fontWeight: '700', fontSize: '24px', textAlign: 'center' }
+                  : { fontWeight: '700' }
+              }
+              margin={{ vertical: '5px' }}
+            >
+              {title}
+            </Heading>
+            <Text
+              size={isMobile ? 'small' : 'medium'}
+              color="brand"
+              style={{
+                textAlign: isMobile ? 'center' : 'left',
+                whiteSpace: 'pre-line',
+              }}
+            >
+              {text}
+            </Text>
+          </Box>
 
-        <Box
-          justify="center"
-          style={isMobile ? { order: '0' } : { order: '1' }}
-        >
-          <img
-            style={{ height: 'auto', width: '100%' }}
-            src="/assets/ourTeamHerosection.svg"
-            alt="A group of people are developing a web site"
-          />
-        </Box>
-      </Grid>
+          <Box
+            justify="center"
+            style={isMobile ? { order: '0' } : { order: '1' }}
+          >
+            <img
+              style={{ height: 'auto', width: '100%' }}
+              src="/assets/ourTeamHerosection.svg"
+              alt="A group of people are developing a web site"
+            />
+          </Box>
+        </Grid>
+      </Container>
     </Box>
   );
 };
