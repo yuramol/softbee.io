@@ -64,7 +64,7 @@ export const BlogItem = ({ post }) => {
           justify="center"
           align="center"
         >
-          <BlogItemLink to={`/blog${post.fields.slug}`}>
+          <BlogItemLink slug={post.fields.slug}>
             <img
               style={{ height: 'auto', width: '100%' }}
               src={post.frontmatter.image}
