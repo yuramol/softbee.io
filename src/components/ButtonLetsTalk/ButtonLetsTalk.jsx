@@ -29,7 +29,7 @@ ButtonLetsTalk.propTypes = {
   onClick: func,
 };
 ButtonLetsTalk.defaultProps = {
-  color: 'yellow',
+  color: 'accent-1',
   primary: false,
   onClick: null,
 };

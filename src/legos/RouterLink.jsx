@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 import { theme } from '../utils/theme';
 
 const StyledLink = styled(LibLink)`
+  transition: color 0.3s ease-in-out;
   color: ${({ color, isActive }) => (isActive ? 'red' : color)};
   padding: ${({ padding }) => padding};
   ${({ disableUnderline }) =>
