@@ -31,8 +31,6 @@ export const SiteHeader = () => {
   const size = React.useContext(ResponsiveContext);
   const isDense = maxBreakpoints('sTablet', size);
 
-  document.addEventListener('scroll', () => {});
-
   return (
     <Header>
       {maxBreakpoints('small', size) ? (
@@ -70,7 +68,12 @@ export const SiteHeader = () => {
           </Box>
           <Nav direction="row" align="center" justify="end">
             {linkItems.map(linkItem => (
-              <RouterLink padding="10px" to={linkItem.link} key={linkItem.id}>
+              <RouterLink
+                padding="10px"
+                disableUnderline
+                to={linkItem.link}
+                key={linkItem.id}
+              >
                 {linkItem.label}
               </RouterLink>
             ))}

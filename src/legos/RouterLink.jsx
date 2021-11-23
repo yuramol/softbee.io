@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 import { Link as LibLink } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { theme } from '../utils/theme';
 
 const StyledLink = styled(LibLink)`
   color: ${({ color, isActive }) => (isActive ? 'red' : color)};
   padding: ${({ padding }) => padding};
+  ${({ disableUnderline }) =>
+    disableUnderline &&
+    css`
+      text-decoration: none;
+    `}
 `;
 
 export const RouterLink = ({ to, children, ...props }) => {
@@ -28,8 +33,10 @@ export const RouterLink = ({ to, children, ...props }) => {
 RouterLink.propTypes = {
   color: PropTypes.string,
   to: PropTypes.string.isRequired,
+  disableUnderline: PropTypes.bool,
 };
 
 RouterLink.defaultProps = {
   color: theme.global.colors['accent-2'],
+  disableUnderline: false,
 };
