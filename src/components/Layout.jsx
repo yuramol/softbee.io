@@ -44,7 +44,6 @@ export const Layout = ({ children, withBackground }) => {
                       image: image(size),
                     }
               }
-              width={{ max: '1440px' }}
             >
               {children}
               <LetsTalk />

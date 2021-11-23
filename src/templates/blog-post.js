@@ -11,6 +11,8 @@ import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 
+import Container from '../components/Layout/Container';
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
   const postsRecent = data.allMdx.edges;
@@ -28,7 +30,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <SiteHeader />
-      <Box>
+      <Container>
         <Grid
           columns={{ count: 1 }}
           gap="small"
@@ -74,86 +76,88 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             </li>
           </ul>
         </Grid>
-      </Box>
+      </Container>
       <Box background={{ color: '#f0f6f4' }}>
-        <Grid
-          columns={{ count: columnsCount, size: 'auto' }}
-          pad={{ top: 'xlarge', bottom: 'xlarge' }}
-          style={{ height: 'auto' }}
-          align="center"
-          justify="center"
-          justifyContent="around"
-        >
-          {postsRecent.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            return (
-              <Box key={node.fields.slug} pad={{ vertical: 'large' }}>
-                <Grid
-                  columns={['auto', 'auto']}
-                  gap="small"
-                  justify="center"
-                  justifyContent="between"
-                >
-                  <Box
-                    style={
-                      isTablet
-                        ? {
-                            width: '95%',
-                            height: '17vw',
-                          }
-                        : {
-                            width: '380px',
-                            height: '10vw',
-                          }
-                    }
-                    margin={
-                      isTablet
-                        ? {
-                            top: '75px',
-                            bottom: '75px',
-                          }
-                        : {
-                            top: 'auto',
-                          }
-                    }
+        <Container>
+          <Grid
+            columns={{ count: columnsCount, size: 'auto' }}
+            pad={{ top: 'xlarge', bottom: 'xlarge' }}
+            style={{ height: 'auto' }}
+            align="center"
+            justify="center"
+            justifyContent="around"
+          >
+            {postsRecent.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug;
+              return (
+                <Box key={node.fields.slug} pad={{ vertical: 'large' }}>
+                  <Grid
+                    columns={['auto', 'auto']}
+                    gap="small"
                     justify="center"
-                    align="center"
+                    justifyContent="between"
                   >
-                    <img
-                      style={{ height: 'auto', width: '100%' }}
-                      src="/assets/rectangle.png"
-                      alt="On laptop open code editor"
-                    />
-                    <RouterLink
-                      style={{ boxShadow: `none` }}
-                      to={`/blog${node.fields.slug}`}
+                    <Box
+                      style={
+                        isTablet
+                          ? {
+                              width: '95%',
+                              height: '17vw',
+                            }
+                          : {
+                              width: '380px',
+                              height: '10vw',
+                            }
+                      }
+                      margin={
+                        isTablet
+                          ? {
+                              top: '75px',
+                              bottom: '75px',
+                            }
+                          : {
+                              top: 'auto',
+                            }
+                      }
+                      justify="center"
+                      align="center"
                     >
-                      <Box pad={{ top: 'small' }}>
-                        <Heading
-                          level={4}
-                          margin={{ top: 'none', bottom: '15px' }}
-                          style={
-                            isTablet
-                              ? {
-                                  maxWidth: '250px',
-                                }
-                              : {
-                                  maxWidth: '380px',
-                                }
-                          }
-                          truncate
-                          color="#104065"
-                        >
-                          {title}
-                        </Heading>
-                      </Box>
-                    </RouterLink>
-                  </Box>
-                </Grid>
-              </Box>
-            );
-          })}
-        </Grid>
+                      <img
+                        style={{ height: 'auto', width: '100%' }}
+                        src="/assets/rectangle.png"
+                        alt="On laptop open code editor"
+                      />
+                      <RouterLink
+                        style={{ boxShadow: `none` }}
+                        to={`/blog${node.fields.slug}`}
+                      >
+                        <Box pad={{ top: 'small' }}>
+                          <Heading
+                            level={4}
+                            margin={{ top: 'none', bottom: '15px' }}
+                            style={
+                              isTablet
+                                ? {
+                                    maxWidth: '250px',
+                                  }
+                                : {
+                                    maxWidth: '380px',
+                                  }
+                            }
+                            truncate
+                            color="#104065"
+                          >
+                            {title}
+                          </Heading>
+                        </Box>
+                      </RouterLink>
+                    </Box>
+                  </Grid>
+                </Box>
+              );
+            })}
+          </Grid>
+        </Container>
       </Box>
       <SiteFooter />
     </Layout>

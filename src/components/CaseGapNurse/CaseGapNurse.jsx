@@ -7,6 +7,8 @@ import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
+import Container from '../Layout/Container';
+
 export const CaseGapNurse = () => {
   const size = React.useContext(ResponsiveContext);
   const isTabletOrMobile = maxBreakpoints('tabletOrMobile', size);
@@ -22,103 +24,105 @@ export const CaseGapNurse = () => {
             ? undefined
             : {
                 position: 'bottom',
-                size: 'contain',
+                size: 'cover',
                 image: 'url(/assets/backgroundCaseGapnurse.svg)',
               }
         }
       >
-        <Box width="100%" align="center">
-          <Heading level={2} color="brand">
-            Mobile app
-          </Heading>
-        </Box>
-        <Grid
-          columns={['auto', 'auto']}
-          pad={{ horizontal: 'xlarge' }}
-          style={isMobile ? { height: 'auto' } : { height: '480px' }}
-          align={textAlignVariant}
-        >
-          <Box align={textAlignVariant} pad={{ left: 'large', top: 'large' }}>
-            <Box>
-              <img src="/assets/logoGapNurse.svg" alt=" Gap Nurse " />
-            </Box>
-            {isMobile || (
-              <Box>
-                <Box width="470px" pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
-                  <Heading
-                    level={4}
-                    color="brand"
-                    style={{ lineHeight: '130%', fontSize: '24px' }}
-                    margin={{ vertical: '10px' }}
-                  >
-                    About client:
-                  </Heading>
-                </Box>
-
-                <Box width="380px">
-                  <Text
-                    size="medium"
-                    color="text-dark-grey"
-                    style={{
-                      fontFamily: 'HelveticaNeueCyr',
-                      lineHeight: '150%',
-                    }}
-                  >
-                    With GapNurse, facilities know they’re covered during
-                    critical moments and unexpected absences without breaking
-                    your budget.
-                  </Text>
-                </Box>
-              </Box>
-            )}
+        <Container>
+          <Box width="100%" align="center">
+            <Heading level={2} color="brand">
+              Mobile app
+            </Heading>
           </Box>
-          <Box align="center">
-            <Grid
-              columns={{ count: columnsCountTablet, size: 'auto' }}
-              gap="medium"
-            >
-              <Box align="center">
-                <img
-                  style={{ height: 'auto', width: '100%' }}
-                  src="/assets/PhoneGapNurse.png"
-                  alt="The iphone that shows the application GapNurse"
-                />
+          <Grid
+            columns={['auto', 'auto']}
+            pad={{ horizontal: 'xlarge' }}
+            style={isMobile ? { height: 'auto' } : { height: '480px' }}
+            align={textAlignVariant}
+          >
+            <Box align={textAlignVariant} pad={{ left: 'large', top: 'large' }}>
+              <Box>
+                <img src="/assets/logoGapNurse.svg" alt=" Gap Nurse " />
               </Box>
-              {isTabletOrMobile || (
+              {isMobile || (
+                <Box>
+                  <Box width="470px" pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
+                    <Heading
+                      level={4}
+                      color="brand"
+                      style={{ lineHeight: '130%', fontSize: '24px' }}
+                      margin={{ vertical: '10px' }}
+                    >
+                      About client:
+                    </Heading>
+                  </Box>
+
+                  <Box width="380px">
+                    <Text
+                      size="medium"
+                      color="text-dark-grey"
+                      style={{
+                        fontFamily: 'HelveticaNeueCyr',
+                        lineHeight: '150%',
+                      }}
+                    >
+                      With GapNurse, facilities know they’re covered during
+                      critical moments and unexpected absences without breaking
+                      your budget.
+                    </Text>
+                  </Box>
+                </Box>
+              )}
+            </Box>
+            <Box align="center">
+              <Grid
+                columns={{ count: columnsCountTablet, size: 'auto' }}
+                gap="medium"
+              >
                 <Box align="center">
                   <img
                     style={{ height: 'auto', width: '100%' }}
-                    src="/assets/PhoneGapNurse2.png"
+                    src="/assets/PhoneGapNurse.png"
                     alt="The iphone that shows the application GapNurse"
                   />
                 </Box>
-              )}
-            </Grid>
-          </Box>
-        </Grid>
-        {isMobile && (
-          <Box align="left" pad={{ horizontal: 'xlarge' }}>
-            <Box style={{ width: '100%' }}>
-              <Heading
-                level={6}
-                color="brand"
-                style={{ lineHeight: '100%' }}
-                margin={{ vertical: '10px' }}
-              >
-                About client:
-              </Heading>
+                {isTabletOrMobile || (
+                  <Box align="center">
+                    <img
+                      style={{ height: 'auto', width: '100%' }}
+                      src="/assets/PhoneGapNurse2.png"
+                      alt="The iphone that shows the application GapNurse"
+                    />
+                  </Box>
+                )}
+              </Grid>
             </Box>
-            <Box width="100%">
-              <Text
-                color="text-dark-grey"
-                style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
-              >
-                With GapNurse, facilities know they’re covered during critical
-                moments and unexpected absences without breaking your budget.
-              </Text>
+          </Grid>
+          {isMobile && (
+            <Box align="left" pad={{ horizontal: 'xlarge' }}>
+              <Box style={{ width: '100%' }}>
+                <Heading
+                  level={6}
+                  color="brand"
+                  style={{ lineHeight: '100%' }}
+                  margin={{ vertical: '10px' }}
+                >
+                  About client:
+                </Heading>
+              </Box>
+              <Box width="100%">
+                <Text
+                  color="text-dark-grey"
+                  style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
+                >
+                  With GapNurse, facilities know they’re covered during critical
+                  moments and unexpected absences without breaking your budget.
+                </Text>
+              </Box>
             </Box>
-          </Box>
-        )}
+          )}
+        </Container>
         <Box
           width="100%"
           height={isMobile ? '130px' : '150px'}

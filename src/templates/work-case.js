@@ -12,6 +12,8 @@ import { Heading } from '../legos/typography/Heading';
 import { Text } from '../legos/typography/Text';
 import { ButtonNextCase } from '../components/ButtonNextCase/ButtonNextCase';
 
+import Container from '../components/Layout/Container';
+
 const WorkCaseTemplate = ({ data, pageContext, location }) => {
   const {
     workCase: {
@@ -49,118 +51,126 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
       <SiteHeader />
       <Box>
         <Box>
-          <Box width="100%" align="center">
-            <Heading
-              level={isMobile ? 4 : 2}
-              color="brand"
-              style={{ textAlign: 'center' }}
-            >
-              {title}
-            </Heading>
-          </Box>
-          <Grid
-            columns={['auto', 'auto']}
-            pad={{ horizontal: 'xlarge' }}
-            style={isMobile ? { height: 'auto' } : { height: '480px' }}
-            align={textAlignVariant}
-          >
-            <Box align={textAlignVariant} pad={{ left: 'large', top: 'large' }}>
-              <Box>
-                <img src={logo} alt={title} />
-              </Box>
-              {isMobile || (
-                <Box>
-                  <Box width="470px" pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
-                    <Heading
-                      level={4}
-                      color="brand"
-                      style={{ lineHeight: '130%', fontSize: '24px' }}
-                      margin={{ vertical: '10px' }}
-                    >
-                      About client:
-                    </Heading>
-                  </Box>
-
-                  <Box width="380px">
-                    <Text
-                      size="medium"
-                      color="text-dark-grey"
-                      style={{
-                        fontFamily: 'HelveticaNeueCyr',
-                        lineHeight: '150%',
-                        whiteSpace: 'pre-line',
-                      }}
-                    >
-                      {text}
-                    </Text>
-                  </Box>
-                </Box>
-              )}
+          <Container>
+            <Box width="100%" align="center">
+              <Heading
+                level={isMobile ? 4 : 2}
+                color="brand"
+                style={{ textAlign: 'center' }}
+              >
+                {title}
+              </Heading>
             </Box>
-            {displayTwoImages ? (
-              <Box align="center">
-                <Grid
-                  columns={{ count: columnsCountTablet, size: 'auto' }}
-                  gap="medium"
-                >
-                  <Box align="center">
-                    <img
-                      style={{ height: 'auto', width: '100%' }}
-                      src={thumbnail}
-                      alt={title}
-                    />
+            <Grid
+              columns={['auto', 'auto']}
+              pad={{ horizontal: 'xlarge' }}
+              style={isMobile ? { height: 'auto' } : { height: '480px' }}
+              align={textAlignVariant}
+            >
+              <Box
+                align={textAlignVariant}
+                pad={{ left: 'large', top: 'large' }}
+              >
+                <Box>
+                  <img src={logo} alt={title} />
+                </Box>
+                {isMobile || (
+                  <Box>
+                    <Box
+                      width="470px"
+                      pad={{ bottom: 'xxsmall', top: 'xlarge' }}
+                    >
+                      <Heading
+                        level={4}
+                        color="brand"
+                        style={{ lineHeight: '130%', fontSize: '24px' }}
+                        margin={{ vertical: '10px' }}
+                      >
+                        About client:
+                      </Heading>
+                    </Box>
+
+                    <Box width="380px">
+                      <Text
+                        size="medium"
+                        color="text-dark-grey"
+                        style={{
+                          fontFamily: 'HelveticaNeueCyr',
+                          lineHeight: '150%',
+                          whiteSpace: 'pre-line',
+                        }}
+                      >
+                        {text}
+                      </Text>
+                    </Box>
                   </Box>
-                  {isTabletOrMobile || (
+                )}
+              </Box>
+              {displayTwoImages ? (
+                <Box align="center">
+                  <Grid
+                    columns={{ count: columnsCountTablet, size: 'auto' }}
+                    gap="medium"
+                  >
                     <Box align="center">
                       <img
                         style={{ height: 'auto', width: '100%' }}
-                        src={thumbnailSecond}
+                        src={thumbnail}
                         alt={title}
                       />
                     </Box>
-                  )}
-                </Grid>
-              </Box>
-            ) : (
-              <Box
-                align="center"
-                justify="center"
-                pad={isMobile ? { horizontal: 'large' } : undefined}
-              >
-                <img
-                  style={{ height: 'auto', width: '100%' }}
-                  src="/assets/sectionMMO.png"
-                  alt="Screenshot of MMO website page "
-                />
+                    {isTabletOrMobile || (
+                      <Box align="center">
+                        <img
+                          style={{ height: 'auto', width: '100%' }}
+                          src={thumbnailSecond}
+                          alt={title}
+                        />
+                      </Box>
+                    )}
+                  </Grid>
+                </Box>
+              ) : (
+                <Box
+                  align="center"
+                  justify="center"
+                  pad={isMobile ? { horizontal: 'large' } : undefined}
+                >
+                  <img
+                    style={{ height: 'auto', width: '100%' }}
+                    src="/assets/sectionMMO.png"
+                    alt="Screenshot of MMO website page "
+                  />
+                </Box>
+              )}
+            </Grid>
+            {isMobile && (
+              <Box align="left" pad={{ horizontal: 'xlarge' }}>
+                <Box style={{ width: '100%' }}>
+                  <Heading
+                    level={6}
+                    color="brand"
+                    style={{ lineHeight: '100%' }}
+                    margin={{ vertical: '10px' }}
+                  >
+                    About client:
+                  </Heading>
+                </Box>
+                <Box width="100%">
+                  <Text
+                    color="text-dark-grey"
+                    style={{
+                      fontFamily: 'HelveticaNeueCyr',
+                      lineHeight: '150%',
+                      whiteSpace: 'pre-line',
+                    }}
+                  >
+                    {text}
+                  </Text>
+                </Box>
               </Box>
             )}
-          </Grid>
-          {isMobile && (
-            <Box align="left" pad={{ horizontal: 'xlarge' }}>
-              <Box style={{ width: '100%' }}>
-                <Heading
-                  level={6}
-                  color="brand"
-                  style={{ lineHeight: '100%' }}
-                  margin={{ vertical: '10px' }}
-                >
-                  About client:
-                </Heading>
-              </Box>
-              <Box width="100%">
-                <Text
-                  color="text-dark-grey"
-                  style={{
-                    fontFamily: 'HelveticaNeueCyr',
-                    lineHeight: '150%',
-                    whiteSpace: 'pre-line',
-                  }}
-                >
-                  {text}
-                </Text>
-              </Box>
-            </Box>
-          )}
+          </Container>
           <Box
             width="100%"
             style={isMobile ? { height: '130px' } : { height: '210px' }}

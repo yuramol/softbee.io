@@ -6,6 +6,8 @@ import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
+import Container from '../Layout/Container';
+
 export const CaseMMO = () => {
   const size = React.useContext(ResponsiveContext);
   const isTablet = maxBreakpoints('sTablet', size);
@@ -14,99 +16,103 @@ export const CaseMMO = () => {
   return (
     <Box>
       <Box>
-        <Box width="100%" align="center">
-          <Heading
-            level={isMobile ? 4 : 2}
-            color="brand"
-            style={{ textAlign: 'center' }}
-          >
-            Web-site MMO.CAT
-          </Heading>
-        </Box>
-        <Grid
-          columns={['auto', 'auto']}
-          pad={
-            isTablet
-              ? { horizontal: 'large', vertical: 'large' }
-              : { horizontal: 'xlarge', vertical: 'large' }
-          }
-          style={isMobile ? { height: 'auto' } : { height: 'auto' }}
-          align={textAlignVariant}
-        >
-          <Box
+        <Container>
+          <Box width="100%" align="center">
+            <Heading
+              level={isMobile ? 4 : 2}
+              color="brand"
+              style={{ textAlign: 'center' }}
+            >
+              Web-site MMO.CAT
+            </Heading>
+          </Box>
+          <Grid
+            columns={['auto', 'auto']}
+            pad={
+              isTablet
+                ? { horizontal: 'large', vertical: 'large' }
+                : { horizontal: 'xlarge', vertical: 'large' }
+            }
+            style={isMobile ? { height: 'auto' } : { height: 'auto' }}
             align={textAlignVariant}
-            pad={isTablet ? { top: 'large' } : { left: 'large', top: 'large' }}
           >
-            <Box background={{ color: '#241f43' }} pad="small">
-              <img src="/assets/logoMMO.png" alt="Logo of MMO.CAT project" />
-            </Box>
-            {isMobile || (
-              <Box>
-                <Box pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
-                  <Heading
-                    level={5}
-                    color="brand"
-                    style={{ lineHeight: '130%' }}
-                    margin={{ vertical: 'xsmall' }}
-                  >
-                    About client:
-                  </Heading>
-                </Box>
-
-                <Box
-                  style={isTablet ? { width: '320px' } : { width: '370px' }}
-                  pad={{ right: 'large' }}
-                >
-                  <Text
-                    size="medium"
-                    color="text-dark-grey"
-                    style={{
-                      fontFamily: 'HelveticaNeueCyr',
-                      lineHeight: '150%',
-                    }}
-                  >
-                    We provided full-stack development service for end-to-end
-                    websites of MMO.cat team
-                  </Text>
-                </Box>
+            <Box
+              align={textAlignVariant}
+              pad={
+                isTablet ? { top: 'large' } : { left: 'large', top: 'large' }
+              }
+            >
+              <Box background={{ color: '#241f43' }} pad="small">
+                <img src="/assets/logoMMO.png" alt="Logo of MMO.CAT project" />
               </Box>
-            )}
-          </Box>
-          <Box
-            align="center"
-            justify="center"
-            pad={isMobile ? { horizontal: 'large' } : undefined}
-          >
-            <img
-              style={{ height: 'auto', width: '100%' }}
-              src="/assets/sectionMMO.png"
-              alt="Screenshot of MMO website page "
-            />
-          </Box>
-        </Grid>
-        {isMobile && (
-          <Box align="start" pad={{ horizontal: 'xlarge' }}>
-            <Box style={{ width: '100%' }}>
-              <Heading
-                level={6}
-                color="brand"
-                style={{ lineHeight: '130%' }}
-                margin={{ vertical: 'xsmall' }}
-              >
-                About client:
-              </Heading>
+              {isMobile || (
+                <Box>
+                  <Box pad={{ bottom: 'xxsmall', top: 'xlarge' }}>
+                    <Heading
+                      level={5}
+                      color="brand"
+                      style={{ lineHeight: '130%' }}
+                      margin={{ vertical: 'xsmall' }}
+                    >
+                      About client:
+                    </Heading>
+                  </Box>
+
+                  <Box
+                    style={isTablet ? { width: '320px' } : { width: '370px' }}
+                    pad={{ right: 'large' }}
+                  >
+                    <Text
+                      size="medium"
+                      color="text-dark-grey"
+                      style={{
+                        fontFamily: 'HelveticaNeueCyr',
+                        lineHeight: '150%',
+                      }}
+                    >
+                      We provided full-stack development service for end-to-end
+                      websites of MMO.cat team
+                    </Text>
+                  </Box>
+                </Box>
+              )}
             </Box>
-            <Box width="100%">
-              <Text
-                color="text-dark-grey"
-                style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
-              >
-                We provided full-stack development service for end-to-end
-                websites of MMO.cat team
-              </Text>
+            <Box
+              align="center"
+              justify="center"
+              pad={isMobile ? { horizontal: 'large' } : undefined}
+            >
+              <img
+                style={{ height: 'auto', width: '100%' }}
+                src="/assets/sectionMMO.png"
+                alt="Screenshot of MMO website page "
+              />
             </Box>
-          </Box>
-        )}
+          </Grid>
+          {isMobile && (
+            <Box align="start" pad={{ horizontal: 'xlarge' }}>
+              <Box style={{ width: '100%' }}>
+                <Heading
+                  level={6}
+                  color="brand"
+                  style={{ lineHeight: '130%' }}
+                  margin={{ vertical: 'xsmall' }}
+                >
+                  About client:
+                </Heading>
+              </Box>
+              <Box width="100%">
+                <Text
+                  color="text-dark-grey"
+                  style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
+                >
+                  We provided full-stack development service for end-to-end
+                  websites of MMO.cat team
+                </Text>
+              </Box>
+            </Box>
+          )}
+        </Container>
         <Box
           width="100%"
           style={isMobile ? { height: '130px' } : { height: '210px' }}
