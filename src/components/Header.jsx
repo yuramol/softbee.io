@@ -3,6 +3,8 @@ import { Link } from 'gatsby';
 import { Box, Header, Grid, Image, Nav, ResponsiveContext } from 'grommet';
 import styled from 'styled-components';
 
+import useStickyElement from '../utils/useStickyElement';
+
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../legos/RouterLink';
@@ -28,61 +30,70 @@ const linkItems = [
 ];
 
 export const SiteHeader = () => {
+  const { elRef, isSticky } = useStickyElement();
   const size = React.useContext(ResponsiveContext);
   const isDense = maxBreakpoints('sTablet', size);
 
+  console.log(isSticky);
+
   return (
-    <Header>
-      {maxBreakpoints('small', size) ? (
-        <StyledBox
-          elevation="medium"
-          pad="small"
-          width="100%"
-          background={{ color: 'brand' }}
-        >
-          <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
-            <HeaderMenu />
-            <Box align="center" justify="center" pad={{ right: '54px' }}>
-              <StyledLink to="/">
-                <Image src="/assets/logo.svg" alt="Soft Bee" />
-              </StyledLink>
+    <div ref={elRef}>
+      <Header>
+        {maxBreakpoints('small', size) ? (
+          <StyledBox
+            elevation="medium"
+            pad="small"
+            width="100%"
+            background={{ color: 'brand' }}
+          >
+            <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
+              <HeaderMenu />
+              <Box align="center" justify="center" pad={{ right: '54px' }}>
+                <StyledLink to="/">
+                  <Image src="/assets/logo.svg" alt="Soft Bee" />
+                </StyledLink>
+              </Box>
+            </Grid>
+          </StyledBox>
+        ) : (
+          <Grid
+            pad={{
+              left: 'large',
+              right: 'large',
+              top: 'medium',
+              bottom: 'medium',
+            }}
+            fill
+            rows={['auto', 'flex']}
+            columns={['auto', 'flex']}
+          >
+            <Box align="start" justify="center" pad={{ right: '150px' }}>
+              <Link to="/">
+                <Image
+                  src="/assets/logo.svg"
+                  alt="Soft Bee"
+                  alignSelf="start"
+                />
+              </Link>
             </Box>
+            <Nav direction="row" align="center" justify="end">
+              {linkItems.map(linkItem => (
+                <RouterLink
+                  padding="10px"
+                  disableUnderline
+                  to={linkItem.link}
+                  key={linkItem.id}
+                >
+                  {linkItem.label}
+                </RouterLink>
+              ))}
+              <Box height="60px" width={isDense ? '148px' : '200px'}>
+                <ButtonLetsTalk label="Let’s talk 👋" />
+              </Box>
+            </Nav>
           </Grid>
-        </StyledBox>
-      ) : (
-        <Grid
-          pad={{
-            left: 'large',
-            right: 'large',
-            top: 'medium',
-            bottom: 'medium',
-          }}
-          fill
-          rows={['auto', 'flex']}
-          columns={['auto', 'flex']}
-        >
-          <Box align="start" justify="center" pad={{ right: '150px' }}>
-            <Link to="/">
-              <Image src="/assets/logo.svg" alt="Soft Bee" alignSelf="start" />
-            </Link>
-          </Box>
-          <Nav direction="row" align="center" justify="end">
-            {linkItems.map(linkItem => (
-              <RouterLink
-                padding="10px"
-                disableUnderline
-                to={linkItem.link}
-                key={linkItem.id}
-              >
-                {linkItem.label}
-              </RouterLink>
-            ))}
-            <Box height="60px" width={isDense ? '148px' : '200px'}>
-              <ButtonLetsTalk label="Let’s talk 👋" />
-            </Box>
-          </Nav>
-        </Grid>
-      )}
-    </Header>
+        )}
+      </Header>
+    </div>
   );
 };
