@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Box, Header, Grid, Image, Nav, ResponsiveContext } from 'grommet';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { theme } from '../utils/theme';
 
@@ -17,6 +17,8 @@ const StyledLink = styled(Link)`
   align-items: center;
 `;
 
+const headerColor = theme.global.colors.brand;
+
 const StyledHeader = styled(Header)`
   position: fixed;
   top: 0;
@@ -24,8 +26,19 @@ const StyledHeader = styled(Header)`
   right: 0;
   z-index: 9;
   transition: background-color 0.15s ease-in-out;
-  background-color: ${({ isSticky, bgColor }) =>
-    isSticky ? bgColor : undefined};
+
+  ${({ isSticky }) =>
+    isSticky &&
+    css`
+      background-color: ${headerColor};
+    `}
+
+  ${({ isMobile }) =>
+    isMobile &&
+    css`
+      background: ${headerColor};
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
+    `}
 `;
 
 const StyledHeaderWrapper = styled(Grid)`
@@ -46,23 +59,21 @@ export const SiteHeader = () => {
 
   return (
     <div ref={elRef}>
-      <StyledHeader isSticky={!isMobile ? isSticky : false}>
+      <StyledHeader isMobile={isMobile} isSticky={!isMobile ? isSticky : false}>
         {isMobile ? (
-          <Box
-            elevation="medium"
+          <Grid
             pad="small"
-            width="100%"
-            background={{ color: 'brand' }}
+            fill
+            rows={['auto', 'flex']}
+            columns={['auto', 'flex']}
           >
-            <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
-              <HeaderMenu />
-              <Box align="center" justify="center" pad={{ right: '54px' }}>
-                <StyledLink to="/">
-                  <Image src="/assets/logo.svg" alt="Soft Bee" />
-                </StyledLink>
-              </Box>
-            </Grid>
-          </Box>
+            <HeaderMenu />
+            <Box align="center" justify="center" pad={{ right: '54px' }}>
+              <StyledLink to="/">
+                <Image src="/assets/logo.svg" alt="Soft Bee" />
+              </StyledLink>
+            </Box>
+          </Grid>
         ) : (
           <StyledHeaderWrapper
             pad={{
@@ -98,7 +109,7 @@ export const SiteHeader = () => {
                 height={isSticky ? '50px' : '60px'}
                 width={isDense ? '148px' : '200px'}
               >
-                <ButtonLetsTalk primary={!!isSticky} label="Let’s talk 👋" />
+                <ButtonLetsTalk primary={isSticky} label="Let’s talk 👋" />
               </Box>
             </Nav>
           </StyledHeaderWrapper>
