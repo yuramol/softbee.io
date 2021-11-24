@@ -1,26 +1,20 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const useStickyElement = (defaultSticky = false) => {
   const [isSticky, setIsSticky] = useState(defaultSticky);
   const elRef = useRef(null);
 
-  const toggleSticky = useCallback(() => {
-    if (window.pageYOffset > elRef.current.offsetHeight) {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
-    }
-  }, [isSticky]);
-
   useEffect(() => {
-    const handleScroll = () => {
-      toggleSticky();
+    const toggleSticky = () => {
+      setIsSticky(window.pageYOffset > elRef.current.offsetHeight);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', toggleSticky);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', toggleSticky);
     };
-  }, [toggleSticky]);
+  }, []);
+
   return { elRef, isSticky };
 };
 
