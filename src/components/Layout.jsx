@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Grommet, Box, ResponsiveContext } from 'grommet';
 
@@ -7,8 +7,7 @@ import { theme } from '../utils/theme';
 
 import { LetsTalk } from './LetsTalk';
 import { maxBreakpoints } from '../utils/useBreakpoints';
-
-const loader = require('../utils/loader');
+import { GlobalStyle } from '../utils/globalStyles';
 
 export const Layout = ({ children, withBackground }) => {
   const image = size =>
@@ -16,12 +15,9 @@ export const Layout = ({ children, withBackground }) => {
       ? undefined
       : 'url(/assets/backgroundHeader.svg)';
 
-  useEffect(() => {
-    loader.hideLoader();
-  }, []);
-
   return (
     <Grommet theme={theme}>
+      <GlobalStyle />
       <ResponsiveContext.Consumer>
         {size => (
           <Box align="center">
