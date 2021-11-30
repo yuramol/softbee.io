@@ -10,7 +10,7 @@ export const onInitialClientRender = () => {
       setTimeout(() => {
         document.body.classList.remove('loaded_hiding');
         document.getElementById('___loader').remove();
-      }, 500);
+      }, 1000);
     }
   };
   const checkFontName = arr =>
