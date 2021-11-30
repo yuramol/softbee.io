@@ -118,11 +118,3 @@ export const SiteHeader = () => {
     </div>
   );
 };
-
-StyledHeader.propTypes = {
-  bgColor: PropTypes.string,
-};
-
-StyledHeader.defaultProps = {
-  bgColor: theme.global.colors.brand,
-};
