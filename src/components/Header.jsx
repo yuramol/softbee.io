@@ -1,24 +1,48 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Box, Header, Grid, Image, Nav, ResponsiveContext } from 'grommet';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
+import { theme } from '../utils/theme';
+
+import useStickyElement from '../utils/useStickyElement';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../legos/RouterLink';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 
-const StyledBox = styled(Box)`
-  top: 0;
-  right: 0;
-  left: 0;
-  position: fixed;
-  max-width: 100vw;
-`;
-
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+`;
+
+const headerColor = theme.global.colors.brand;
+
+const StyledHeader = styled(Header)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  transition: background-color 0.15s ease-in-out;
+
+  ${({ isSticky }) =>
+    isSticky &&
+    css`
+      background-color: ${headerColor};
+    `}
+
+  ${({ isMobile }) =>
+    isMobile &&
+    css`
+      background: ${headerColor};
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
+    `}
+`;
+
+const StyledHeaderWrapper = styled(Grid)`
+  transition: padding 0.15s ease;
 `;
 
 const linkItems = [
@@ -28,19 +52,21 @@ const linkItems = [
 ];
 
 export const SiteHeader = () => {
+  const { elRef, isSticky } = useStickyElement();
   const size = React.useContext(ResponsiveContext);
   const isDense = maxBreakpoints('sTablet', size);
+  const isMobile = maxBreakpoints('small', size);
 
   return (
-    <Header>
-      {maxBreakpoints('small', size) ? (
-        <StyledBox
-          elevation="medium"
-          pad="small"
-          width="100%"
-          background={{ color: 'brand' }}
-        >
-          <Grid fill rows={['auto', 'flex']} columns={['auto', 'flex']}>
+    <div ref={elRef}>
+      <StyledHeader isMobile={isMobile} isSticky={!isMobile ? isSticky : false}>
+        {isMobile ? (
+          <Grid
+            pad="small"
+            fill
+            rows={['auto', 'flex']}
+            columns={['auto', 'flex']}
+          >
             <HeaderMenu />
             <Box align="center" justify="center" pad={{ right: '54px' }}>
               <StyledLink to="/">
@@ -48,41 +74,47 @@ export const SiteHeader = () => {
               </StyledLink>
             </Box>
           </Grid>
-        </StyledBox>
-      ) : (
-        <Grid
-          pad={{
-            left: 'large',
-            right: 'large',
-            top: 'medium',
-            bottom: 'medium',
-          }}
-          fill
-          rows={['auto', 'flex']}
-          columns={['auto', 'flex']}
-        >
-          <Box align="start" justify="center" pad={{ right: '150px' }}>
-            <Link to="/">
-              <Image src="/assets/logo.svg" alt="Soft Bee" alignSelf="start" />
-            </Link>
-          </Box>
-          <Nav direction="row" align="center" justify="end">
-            {linkItems.map(linkItem => (
-              <RouterLink
-                padding="10px"
-                disableUnderline
-                to={linkItem.link}
-                key={linkItem.id}
-              >
-                {linkItem.label}
-              </RouterLink>
-            ))}
-            <Box height="60px" width={isDense ? '148px' : '200px'}>
-              <ButtonLetsTalk label="Let’s talk 👋" />
+        ) : (
+          <StyledHeaderWrapper
+            pad={{
+              horizontal: 'large',
+              vertical: isSticky ? '10px' : 'medium',
+            }}
+            fill
+            rows={['auto', 'flex']}
+            columns={['auto', 'flex']}
+          >
+            <Box align="start" justify="center" pad={{ right: '150px' }}>
+              <Link to="/">
+                <Image
+                  src="/assets/logo.svg"
+                  alt="Soft Bee"
+                  alignSelf="start"
+                />
+              </Link>
             </Box>
-          </Nav>
-        </Grid>
-      )}
-    </Header>
+            <Nav direction="row" align="center" justify="end">
+              {linkItems.map(linkItem => (
+                <RouterLink
+                  padding="10px"
+                  color={isSticky ? '#fff' : undefined}
+                  disableUnderline
+                  to={linkItem.link}
+                  key={linkItem.id}
+                >
+                  {linkItem.label}
+                </RouterLink>
+              ))}
+              <Box
+                height={isSticky ? '50px' : '60px'}
+                width={isDense ? '148px' : '200px'}
+              >
+                <ButtonLetsTalk primary={isSticky} label="Let’s talk 👋" />
+              </Box>
+            </Nav>
+          </StyledHeaderWrapper>
+        )}
+      </StyledHeader>
+    </div>
   );
 };

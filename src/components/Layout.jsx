@@ -28,7 +28,7 @@ export const Layout = ({ children, withBackground }) => {
             <Box
               fill
               pad={{
-                top: maxBreakpoints('small', size) ? '70px' : 'none',
+                top: maxBreakpoints('small', size) ? '58px' : '108px',
               }}
               background={
                 withBackground
