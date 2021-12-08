@@ -1,8 +1,6 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 import { Box, ResponsiveContext } from 'grommet';
-
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
@@ -24,7 +22,7 @@ export const BlogItem = ({ post, first }) => {
           level={isMobile ? 3 : 2}
           color="brand"
           margin={{ vertical: 'small' }}
-          style={isMobile ? { fontWeight: '400' } : undefined}
+          fontWeight={isMobile ? '400' : undefined}
         >
           {post.frontmatter.title}
         </Heading>

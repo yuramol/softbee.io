@@ -15,11 +15,17 @@ const StyledMarkdown = styled(ReactMarkdown)`
   }
 `;
 
+const StyledGrid = styled(Grid)`
+  background-color: ${theme.global.colors.brand};
+  box-shadow: ${({ isMobile }) =>
+    isMobile ? '10px 10px 2px 1px #fae79f' : '25px 25px 2px 1px #fae79f'};
+  border-radius: 20px;
+`;
+
 export const OurTeamFollowSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = 1;
   const isMobile = maxBreakpoints('mobile', size);
-  const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
   const paddingVariant = isMobile
     ? { horizontal: 'large', vertical: 'xlarge' }
     : 'xlarge';
@@ -33,38 +39,27 @@ export const OurTeamFollowSection = ({ text }) => {
       gap="medium"
       background={{ color: '#fff' }}
     >
-      <Grid
+      <StyledGrid
+        isMobile={isMobile}
         columns={{ count: columnsCount, size: 'auto' }}
         pad={
           !isMobile
             ? { vertical: 'large', horizontal: 'xlarge' }
             : { vertical: 'xlarge' }
         }
-        margin={isMobile ? 'medium' : undefined}
         justify="center"
-        width="1000px"
-        style={{
-          background: theme.global.colors.brand,
-          boxShadow,
-          color: '#fae79f',
-          borderRadius: '20px',
-        }}
         round
         gap="small"
       >
         <Heading
           color="text-white"
           level={isMobile ? 5 : 2}
-          style={
-            isMobile
-              ? { textAlign: 'center', lineHeight: '130%' }
-              : { textAlign: 'center' }
-          }
-          pad={{ vertical: 'xlarge' }}
+          textAlign="center"
+          margin={{ vertical: '0' }}
         >
           <StyledMarkdown>{text}</StyledMarkdown>
         </Heading>
-      </Grid>
+      </StyledGrid>
     </Box>
   );
 };

@@ -34,12 +34,13 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
         pad={isMobile ? { horizontal: 'large', vertical: 'xlarge' } : 'large'}
         gap="medium"
       >
-        <Box
-          style={{ textAlign: 'center' }}
-          justify="center"
-          margin={{ horizontal: 'medium' }}
-        >
-          <Heading level={headerLevel} margin={{ top: 'none' }} color="brand">
+        <Box justify="center" margin={{ horizontal: 'medium' }}>
+          <Heading
+            textAlign="center"
+            level={headerLevel}
+            margin={{ top: 'none' }}
+            color="brand"
+          >
             {title}
           </Heading>
         </Box>
@@ -57,7 +58,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={3}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Research
               </Heading>
@@ -76,7 +77,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={3}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Design
               </Heading>
@@ -93,7 +94,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={3}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Build
               </Heading>
@@ -110,7 +111,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={3}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Support
               </Heading>
@@ -127,7 +128,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={6}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Research
               </Heading>
@@ -140,7 +141,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={6}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Design
               </Heading>
@@ -153,7 +154,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={6}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Build
               </Heading>
@@ -166,7 +167,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
                 level={6}
                 color="brand"
                 margin={marginVariant}
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 Support
               </Heading>

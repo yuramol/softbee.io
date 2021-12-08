@@ -8,6 +8,12 @@ import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
+import styled from 'styled-components';
+
+const GridInfo = styled(Grid)`
+  width: ${({ isMobile }) => (isMobile ? '100%' : 'auto')};
+`;
 
 export const CaseGapNurse = () => {
   const size = React.useContext(ResponsiveContext);
@@ -18,7 +24,7 @@ export const CaseGapNurse = () => {
   return (
     <Box>
       <Box
-        style={isMobile ? { height: 'auto' } : { height: '835px' }}
+        height={isMobile ? 'auto' : '835px'}
         background={
           isMobile
             ? undefined
@@ -38,7 +44,6 @@ export const CaseGapNurse = () => {
           <Grid
             columns={['auto', 'auto']}
             pad={{ horizontal: 'xlarge' }}
-            style={isMobile ? { height: 'auto' } : { height: '480px' }}
             align={textAlignVariant}
           >
             <Box align={textAlignVariant} pad={{ left: 'large', top: 'large' }}>
@@ -51,7 +56,8 @@ export const CaseGapNurse = () => {
                     <Heading
                       level={4}
                       color="brand"
-                      style={{ lineHeight: '130%', fontSize: '24px' }}
+                      lineHeight="130%"
+                      fontSize="24px"
                       margin={{ vertical: '10px' }}
                     >
                       About client:
@@ -59,14 +65,7 @@ export const CaseGapNurse = () => {
                   </Box>
 
                   <Box width="380px">
-                    <Text
-                      size="medium"
-                      color="text-dark-grey"
-                      style={{
-                        fontFamily: 'HelveticaNeueCyr',
-                        lineHeight: '150%',
-                      }}
-                    >
+                    <Text size="medium" color="text-dark-grey">
                       With GapNurse, facilities know they’re covered during
                       critical moments and unexpected absences without breaking
                       your budget.
@@ -81,16 +80,14 @@ export const CaseGapNurse = () => {
                 gap="medium"
               >
                 <Box align="center">
-                  <img
-                    style={{ height: 'auto', width: '100%' }}
+                  <ImgFluid
                     src="/assets/PhoneGapNurse.png"
                     alt="The iphone that shows the application GapNurse"
                   />
                 </Box>
                 {isTabletOrMobile || (
                   <Box align="center">
-                    <img
-                      style={{ height: 'auto', width: '100%' }}
+                    <ImgFluid
                       src="/assets/PhoneGapNurse2.png"
                       alt="The iphone that shows the application GapNurse"
                     />
@@ -101,21 +98,13 @@ export const CaseGapNurse = () => {
           </Grid>
           {isMobile && (
             <Box align="left" pad={{ horizontal: 'xlarge' }}>
-              <Box style={{ width: '100%' }}>
-                <Heading
-                  level={6}
-                  color="brand"
-                  style={{ lineHeight: '100%' }}
-                  margin={{ vertical: '10px' }}
-                >
+              <Box>
+                <Heading level={6} color="brand" margin={{ vertical: '10px' }}>
                   About client:
                 </Heading>
               </Box>
               <Box width="100%">
-                <Text
-                  color="text-dark-grey"
-                  style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
-                >
+                <Text color="text-dark-grey">
                   With GapNurse, facilities know they’re covered during critical
                   moments and unexpected absences without breaking your budget.
                 </Text>
@@ -127,24 +116,18 @@ export const CaseGapNurse = () => {
           width="100%"
           height={isMobile ? '130px' : '150px'}
           align="center"
+          justify="center"
           margin={isMobile ? { top: '30px' } : { top: '70px' }}
           background={{ color: '#5e5999' }}
         >
-          <Grid
+          <GridInfo
             columns={['1/3', '1/3', '1/3']}
-            style={
-              isMobile
-                ? { width: '100%', height: isMobile ? '130px' : '150px' }
-                : { width: 'auto' }
-            }
+            isMobile={isMobile}
             pad="small"
           >
             <Box
-              style={
-                isMobile
-                  ? { width: 'auto', justifyContent: 'center' }
-                  : { width: '250px' }
-              }
+              width={isMobile ? 'auto' : '250px'}
+              justify={isMobile ? 'center' : undefined}
               align="center"
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
@@ -159,18 +142,16 @@ export const CaseGapNurse = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                style={{ fontWeight: '700', lineHeight: '16px' }}
+                fontWeight="700"
+                lineHeight="16px"
                 margin={{ vertical: 'small' }}
               >
                 React, Vue
               </Heading>
             </Box>
             <Box
-              style={
-                isMobile
-                  ? { width: 'auto', justifyContent: 'center' }
-                  : { width: '250px' }
-              }
+              width={isMobile ? 'auto' : '250px'}
+              justify={isMobile ? 'center' : undefined}
               align="center"
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
@@ -184,18 +165,16 @@ export const CaseGapNurse = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                style={{ fontWeight: '700', lineHeight: '16px' }}
+                fontWeight="700"
+                lineHeight="16px"
                 margin={{ vertical: 'small' }}
               >
                 JS
               </Heading>
             </Box>
             <Box
-              style={
-                isMobile
-                  ? { width: 'auto', justifyContent: 'center' }
-                  : { width: '250px' }
-              }
+              width={isMobile ? 'auto' : '250px'}
+              justify={isMobile ? 'center' : undefined}
               align="center"
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
@@ -209,18 +188,18 @@ export const CaseGapNurse = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                style={{ fontWeight: '700', lineHeight: '16px' }}
+                fontWeight="700"
+                lineHeight="16px"
                 margin={{ vertical: 'small' }}
               >
                 124 h
               </Heading>
             </Box>
-          </Grid>
+          </GridInfo>
         </Box>
       </Box>
       <Box>
-        <img
-          style={{ width: '100%', height: 'auto' }}
+        <ImgFluid
           src="/assets/backgroundScreenshotsGapNurse.jpg"
           alt="screenshots GapNurse"
         />

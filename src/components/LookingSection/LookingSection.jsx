@@ -6,8 +6,20 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
+import styled from 'styled-components';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import Container from '../Layout/Container';
+
+const StyledGrid = styled(Grid)`
+  box-shadow: 0 0 30px 10px;
+  color: #e5e5e5;
+  border-radius: 55px;
+`;
+
+//це тимчасове рішення, краще відповідну картинку, одразу а не крутити
+const LookingSettingImg = styled.img`
+  transform: rotate(-15.26deg);
+`;
 
 export const LookingSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
@@ -29,47 +41,34 @@ export const LookingSection = ({ title, text }) => {
       gap="medium"
     >
       <Container>
-        <Grid
+        <StyledGrid
           columns={{ count: columnsCount, size: 'auto' }}
           pad="medium"
           margin={isMobile ? 'medium' : undefined}
           justify="center"
           alignContent="center"
-          height="414px"
-          width="1160px"
-          style={{
-            boxShadow: '0px 0px 30px 10px',
-            color: '#e5e5e5',
-            borderRadius: '55px',
-          }}
           round
           gap="small"
         >
           <Box justify="center" pad={{ vertical: 'large' }}>
-            <img
-              style={{ transform: 'rotate(-15.26deg)' }}
-              src="/assets/gears.svg"
-              alt="Gears"
-            />
+            <LookingSettingImg src="/assets/gears.svg" alt="Gears" />
           </Box>
           {!isMobile && (
             <Box
-              style={{ textAlign: 'center' }}
               pad={{ vertical: 'large' }}
-              justify="center"
               margin={{ vertical: 'medium' }}
               width={isTablet ? '24em' : '34em'}
             >
               <Heading
-                justify="center"
+                textAlign="center"
                 level={fontSizeTablet}
                 color="brand"
                 margin="xsmall"
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 {title}
               </Heading>
-              <Heading level={fontSizeTablet} color="brand">
+              <Heading textAlign="center" level={fontSizeTablet} color="brand">
                 {text}
               </Heading>
               <Box
@@ -82,24 +81,21 @@ export const LookingSection = ({ title, text }) => {
             </Box>
           )}
           {isMobile && (
-            <Box
-              style={{ textAlign: 'center' }}
-              pad={{ vertical: 'small' }}
-              justify="center"
-            >
+            <Box pad={{ vertical: 'small' }} justify="center">
               <Heading
-                justify="center"
+                textAlign="center"
                 level={fontSizeMobile}
                 color="brand"
                 margin="xsmall"
-                style={{ fontWeight: '600' }}
+                fontWeight="600"
               >
                 {title}
               </Heading>
               <Heading
+                textAlign="center"
                 level={fontSizeMobile}
                 color="brand"
-                style={{ fontWeight: '300' }}
+                fontWeight="300"
               >
                 {text}
               </Heading>
@@ -115,7 +111,7 @@ export const LookingSection = ({ title, text }) => {
           <Box justify="center" pad={{ vertical: 'large' }}>
             <img src="/assets/arrow.svg" alt="Arrows" />
           </Box>
-        </Grid>
+        </StyledGrid>
       </Container>
     </Box>
   );

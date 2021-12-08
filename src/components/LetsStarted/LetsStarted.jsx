@@ -20,7 +20,7 @@ export const LetsStarted = () => {
       pad={paddingVariant}
       gap="medium"
     >
-      <Wizard style={{ maxWidth: '1030px' }} />
+      <Wizard maxWidth="1030px" />
     </Box>
   );
 };
