@@ -8,6 +8,8 @@ import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
+import { theme } from '../../utils/theme';
 
 export const GapNurseSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
@@ -68,32 +70,28 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
                   : { bottom: 'medium' }
               }
             >
-              <Text
-                size="medium"
-                color="text-dark-grey"
-                style={{
-                  fontFamily: 'HelveticaNeueCyr',
-                  whiteSpace: 'pre-line',
-                }}
-              >
+              <Text size="medium" color="text-dark-grey" whiteSpace="pre-line">
                 {text}
               </Text>
             </Box>
             {isMobile || (
-              <RouterLink to="/gapnurse-case">See case study</RouterLink>
+              <RouterLink
+                hoveredColor={theme.global.colors.brand}
+                to="/gapnurse-case"
+              >
+                See case study
+              </RouterLink>
             )}
           </Box>
           <Grid columns={{ count: 2, size: 'auto' }}>
             <Box align="center" justify="center">
-              <img
-                style={{ height: 'auto', width: '100%' }}
+              <ImgFluid
                 src="/assets/PhoneGapNurse.webp"
                 alt="The iphone that shows the application GapNurse"
               />
             </Box>
             <Box align="center" justify="center">
-              <img
-                style={{ height: 'auto', width: '100%' }}
+              <ImgFluid
                 src="/assets/PhoneGapNurse2.webp"
                 alt="The iphone that shows the application GapNurse"
               />
@@ -101,7 +99,12 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
           </Grid>
           {isMobile && (
             <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-              <RouterLink to="/gapnurse-case">See case study</RouterLink>
+              <RouterLink
+                hoveredColor={theme.global.colors.brand}
+                to="/gapnurse-case"
+              >
+                See case study
+              </RouterLink>
             </Box>
           )}
         </Grid>

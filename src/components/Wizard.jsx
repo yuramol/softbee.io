@@ -18,6 +18,8 @@ const StyledGrid = styled(Grid)`
   box-shadow: ${props => props.boxShadow};
   color: #fae79f;
   border-radius: ${props => props.borderRadius};
+  height: ${({ inModal }) => (inModal ? '100%' : undefined)};
+  max-width: ${({ maxWidth }) => maxWidth};
 `;
 const StyledHeading = styled(Text)`
   font-weight: 600;
@@ -51,7 +53,8 @@ const headingSizes = {
   small: '22px',
 };
 
-export const Wizard = ({ style, needBoxShadow, onClose }) => {
+export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
+  console.log(maxWidth);
   const { data } = useStaticQuery(
     graphql`
       query {
@@ -151,12 +154,12 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
     <StyledGrid
       columns={{ count: columnsCount, size: 'auto' }}
       pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'small'}
-      margin="none"
       justify="center"
       boxShadow={needBoxShadow ? boxShadow : null}
       round
-      style={style}
-      borderRadius={isMobile ? 0 : '20px'}
+      inModal
+      maxWidth={maxWidth}
+      borderRadius={isMobile && inModal ? undefined : '20px'}
       gap="small"
     >
       <form
@@ -174,11 +177,9 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
         <textarea name="comment" />
       </form>
       <Box
-        style={{ textAlign: 'center', maxHeight: isMobile ? '377px' : 'auto' }}
+        width="100%"
         pad={isMobile ? { vertical: 'xlarge', horizontal: 'medium' } : 'medium'}
         justify="center"
-        align="start"
-        fill
       >
         <StyledHeading
           justify="center"
@@ -192,8 +193,8 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
         </StyledHeading>
         {currentStep.placeholder && (
           <>
-            <Box pad={{ top: 'large' }} height="xlarge" fill>
-              <FormField style={{ minHeight: 'auto' }}>
+            <Box pad={{ top: 'large' }}>
+              <FormField>
                 <TextInput
                   onChange={handleTextChange}
                   onKeyDown={handleKeyEvent}
@@ -209,7 +210,6 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
               direction="row"
               justify="center"
               margin={{ vertical: isMobile ? 'large' : 'medium' }}
-              fill
             >
               <NavigationButton
                 onClick={() => navigate(step - 1)}
@@ -228,12 +228,7 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
                 disabled={moveForwardIsDisabled}
               />
             </Box>
-            <Box
-              direction="row"
-              justify="center"
-              fill
-              margin={{ top: 'medium' }}
-            >
+            <Box direction="row" justify="center" margin={{ top: 'medium' }}>
               {wizardSteps.map(
                 (s, i) =>
                   i < wizardSteps.length - 1 && (
@@ -250,7 +245,7 @@ export const Wizard = ({ style, needBoxShadow, onClose }) => {
           </>
         )}
         {onClose && isMobile && (
-          <Box align="center" fill>
+          <Box align="center" margin={{ top: '30px' }}>
             <Button
               onClick={onClose}
               label="Close"

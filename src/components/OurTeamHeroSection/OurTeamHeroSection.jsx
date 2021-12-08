@@ -5,6 +5,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
 
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
@@ -35,21 +36,17 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
           columns={{ count: columnsCount, size: 'auto ' }}
           gap="small"
           pad={isMobile ? { horizontal: 'large' } : { horizontal: 'xlarge' }}
-          style={{ height: 'auto' }}
         >
           <Box
             justify="center"
             pad={isTablet ? { horizontal: 'small' } : { horizontal: 'large' }}
-            style={isMobile ? { order: '1' } : { order: '0' }}
           >
             <Heading
               level={1}
               color="brand"
-              style={
-                isMobile
-                  ? { fontWeight: '700', fontSize: '24px', textAlign: 'center' }
-                  : { fontWeight: '700' }
-              }
+              fontWeight="700"
+              fontSize={isMobile ? '24px' : undefined}
+              textAlign={isMobile ? 'center' : undefined}
               margin={{ vertical: '5px' }}
             >
               {title}
@@ -57,21 +54,15 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
             <Text
               size={isMobile ? 'small' : 'medium'}
               color="brand"
-              style={{
-                textAlign: isMobile ? 'center' : 'left',
-                whiteSpace: 'pre-line',
-              }}
+              whiteSpace="pre-line"
+              textAlign={isMobile ? 'center' : undefined}
             >
               {text}
             </Text>
           </Box>
 
-          <Box
-            justify="center"
-            style={isMobile ? { order: '0' } : { order: '1' }}
-          >
-            <img
-              style={{ height: 'auto', width: '100%' }}
+          <Box justify="center">
+            <ImgFluid
               src="/assets/ourTeamHerosection.svg"
               alt="A group of people are developing a web site"
             />

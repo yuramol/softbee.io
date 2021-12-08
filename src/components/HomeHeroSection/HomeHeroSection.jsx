@@ -7,7 +7,9 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
 
 export const HomeHeroSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
@@ -43,8 +45,7 @@ export const HomeHeroSection = ({ title, text }) => {
         >
           {isMobile && (
             <Box align="center">
-              <img
-                style={{ height: 'auto', width: '100%' }}
+              <ImgFluid
                 src="/assets/sectionHeader.svg"
                 alt="People create a website"
               />
@@ -58,7 +59,7 @@ export const HomeHeroSection = ({ title, text }) => {
             <Box pad={{ bottom: 'small' }}>
               <Heading
                 level={headingFontSizeVariant && headingSize}
-                style={{ fontWeight: '800' }}
+                fontWeight="800"
                 color="brand"
                 textAlign={textAlignVariant}
               >
@@ -72,8 +73,9 @@ export const HomeHeroSection = ({ title, text }) => {
             >
               <Text
                 size={textFontSizeVariant}
+                lineHeight="32px"
+                whiteSpace="pre-line"
                 color="brand"
-                style={{ lineHeight: '32px', whiteSpace: 'pre-line' }}
               >
                 {text}
               </Text>
@@ -85,8 +87,7 @@ export const HomeHeroSection = ({ title, text }) => {
           </Box>
           {isMobile || (
             <Box align="center" justify="center">
-              <img
-                style={{ height: 'auto', width: '100%' }}
+              <ImgFluid
                 src="/assets/sectionHeader.svg"
                 alt="People create a website"
               />

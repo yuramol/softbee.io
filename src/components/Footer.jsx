@@ -15,11 +15,11 @@ import { Text } from '../legos/typography/Text';
 import Logo from '../../static/assets/logo.svg';
 import { Heading } from '../legos/typography/Heading';
 import { TextInput } from '../legos/TextInput/TextInput';
-import SendButtonIcon from '../../static/assets/sendButton.svg';
 import { RouterLink } from '../legos/RouterLink';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 import { sendSlack } from '../utils/useSlack';
 import { dispatch } from '../utils/useBus';
+import { theme } from '../utils/theme';
 
 import Container from './Layout/Container';
 
@@ -35,7 +35,16 @@ const linkFooterItems = [
 ];
 
 const StyledButton = styled(Button)`
-  border-radius: unset;
+  border-radius: 5px;
+  border: 2px solid ${theme.global.colors['accent-1']};
+  width: 57px;
+  height: 35px;
+  color: ${theme.global.colors['accent-1']};
+
+  &:hover {
+    background-color: ${theme.global.colors['accent-1']};
+    color: ${theme.global.colors.brand};
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -43,11 +52,13 @@ const StyledLink = styled(Link)`
   align-items: center;
 `;
 
+const StyledFooterInput = styled(TextInput)`
+  line-height: 26px;
+`;
+
 const StyledText = styled(Text)`
   text-decoration: underline;
   color: #25bbc5;
-  font-size: 18px;
-  line-height: 40px;
   font-weight: 500;
   &:hover {
     cursor: pointer;
@@ -131,19 +142,25 @@ export const SiteFooter = () => {
             </StyledLink>
             <Box
               width="100%"
-              justify="stretch"
+              justify={isMobile ? 'between' : 'stretch'}
               direction={isMobile ? 'row' : 'column'}
               align={alignVariant}
               pad={isMobile ? { vertical: 'none' } : { vertical: 'small' }}
-              style={{ justifyContent: 'space-between' }}
             >
               {linkFooterItems.map(linkItem =>
                 linkItem.routerLink ? (
                   <RouterLink to={linkItem.link} key={linkItem.id}>
-                    <StyledText>{linkItem.label}</StyledText>
+                    <StyledText fontSize="18px" lineHeight="40px">
+                      {linkItem.label}
+                    </StyledText>
                   </RouterLink>
                 ) : (
-                  <StyledText key={linkItem.id} onClick={linkItem.click}>
+                  <StyledText
+                    fontSize="18px"
+                    lineHeight="40px"
+                    key={linkItem.id}
+                    onClick={linkItem.click}
+                  >
                     {linkItem.label}
                   </StyledText>
                 ),
@@ -185,14 +202,11 @@ export const SiteFooter = () => {
                 ) : (
                   <FormField>
                     <Box>
-                      <TextInput
+                      <StyledFooterInput
                         onChange={handleTextChange}
                         value={textSlack}
                         placeholder={placeholder}
                         size="medium"
-                        style={{
-                          lineHeight: '26px',
-                        }}
                       />
                     </Box>
                   </FormField>
@@ -200,7 +214,24 @@ export const SiteFooter = () => {
               </Box>
               <Box justify="start" align="start">
                 <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
-                  <Image fill src={SendButtonIcon} alt="Send Button" />
+                  <svg
+                    width="23"
+                    height="16"
+                    viewBox="0 0 23 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.6665 8H21.6665"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M22.3736 8.70711C22.7641 8.31658 22.7641 7.68342 22.3736 7.29289L16.0096 0.928932C15.6191 0.538408 14.986 0.538408 14.5954 0.928932C14.2049 1.31946 14.2049 1.95262 14.5954 2.34315L20.2523 8L14.5954 13.6569C14.2049 14.0474 14.2049 14.6805 14.5954 15.0711C14.986 15.4616 15.6191 15.4616 16.0096 15.0711L22.3736 8.70711ZM1.6665 9H21.6665V7H1.6665V9Z"
+                      fill="currentColor"
+                    />
+                  </svg>
                 </StyledButton>
               </Box>
             </Grid>

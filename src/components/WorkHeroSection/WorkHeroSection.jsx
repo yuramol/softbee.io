@@ -9,6 +9,7 @@ import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
 
+//its realy needed ?
 const StyledHeading = styled(Heading)`
   max-width: unset;
 `;
@@ -80,11 +81,7 @@ export const WorkHeroSection = ({
                 </Text>
               </Box>
               <Box pad={{ bottom: 'large' }}>
-                <Text
-                  size="medium"
-                  color="brand"
-                  style={{ whiteSpace: 'pre-line' }}
-                >
+                <Text size="medium" color="brand" whiteSpace="pre-line">
                   {text}
                 </Text>
               </Box>

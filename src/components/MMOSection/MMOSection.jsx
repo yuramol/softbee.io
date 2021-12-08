@@ -7,7 +7,9 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { theme } from '../../utils/theme';
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
 
 export const MMOSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
@@ -53,15 +55,13 @@ export const MMOSection = ({ title, text, withBackground }) => {
                 align="start"
                 margin={{ left: 'xsmall', right: 'medium' }}
               >
-                <img
-                  style={{ height: 'auto', width: '110%' }}
+                <ImgFluid
                   src="/assets/sectionMMO.webp"
                   alt="screenshot of MMO website page"
                 />
               </Box>
               <Box justify="center" pad={{ left: 'large' }}>
-                <img
-                  style={{ height: 'auto', width: '130%' }}
+                <ImgFluid
                   src="/assets/sectionMMOMini.webp"
                   alt="screenshot of MMO website page, mobile version"
                 />
@@ -88,28 +88,31 @@ export const MMOSection = ({ title, text, withBackground }) => {
                   size="medium"
                   color="text-dark-grey"
                   textAlign={textAlignVariant}
-                  style={{ whiteSpace: 'pre-line' }}
+                  whiteSpace="pre-line"
                 >
                   {text}
                 </Text>
               </Box>
               {isMobile || (
-                <RouterLink to="/mmo-case">See case study</RouterLink>
+                <RouterLink
+                  hoveredColor={theme.global.colors.brand}
+                  to="/mmo-case"
+                >
+                  See case study
+                </RouterLink>
               )}
             </Box>
           </Box>
           {isMobile && (
             <Box direction="column" gap="medium" justify="end" align="center">
               <Box align="center">
-                <img
-                  style={{ height: 'auto', width: '100%' }}
+                <ImgFluid
                   src="/assets/sectionMMOMini.webp"
                   alt="screenshot of MMO website page, mobile version"
                 />
               </Box>
               <Box>
-                <img
-                  style={{ height: 'auto', width: '100%' }}
+                <ImgFluid
                   src="/assets/sectionMMO.webp"
                   alt="screenshot of MMO website page"
                 />
@@ -118,7 +121,12 @@ export const MMOSection = ({ title, text, withBackground }) => {
           )}
           {isMobile && (
             <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-              <RouterLink to="/mmo-case">See case study</RouterLink>
+              <RouterLink
+                hoveredColor={theme.global.colors.brand}
+                to="/mmo-case"
+              >
+                See case study
+              </RouterLink>
             </Box>
           )}
         </Grid>

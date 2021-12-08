@@ -4,7 +4,44 @@ import PropTypes from 'prop-types';
 import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { flexImgWrapper } from '../../utils/globalStyles';
 import Container from '../Layout/Container';
+import { ImgCover } from '../Layout/ImgCover';
+import styled from 'styled-components';
+
+const CardTeam = styled(Grid)`
+  width: 100%;
+  overflow: hidden;
+  box-shadow: rgba(200, 200, 200, 0.3) 0 0 22px;
+  border-radius: 20px;
+
+  &::before {
+    content: '';
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 1;
+    user-select: none;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 56.77%,
+      rgba(255, 255, 255, 0.650602) 78.12%,
+      #ffffff 100%
+    );
+  }
+`;
+
+const CardTeamImageWrapper = styled(Box)`
+  ${({ bottomFlex }) => bottomFlex && flexImgWrapper(bottomFlex)}
+  grid-column: 1;
+  grid-row: 1;
+`;
+
+const CardTeamFooter = styled(Box)`
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 2;
+`;
 
 export const OurTeamAboutTeam = ({ title, text, list }) => {
   const size = React.useContext(ResponsiveContext);
@@ -26,93 +63,57 @@ export const OurTeamAboutTeam = ({ title, text, list }) => {
           <Heading
             level={isMobile ? 5 : 2}
             color="brand"
-            style={{ textAlign: 'center' }}
+            textAlign="center"
             margin={{ vertical: '15px' }}
           >
             {title}
           </Heading>
         </Box>
-        <Box align="center" width="100%">
+        <Box
+          align="center"
+          margin={{ horizontal: 'auto' }}
+          width={isMobile ? '80%' : '50%'}
+        >
           <Text
             size={isMobile ? 'small' : 'medium'}
             color="brand"
-            style={{
-              textAlign: isMobile ? 'start' : 'center',
-              width: isMobile ? '80%' : '50%',
-            }}
+            textAlign="center"
           >
             {text}
           </Text>
         </Box>
         <Box align="center">
-          <Box maxWidth="1100px">
+          <Box width="100%">
             <Grid
               columns={{ count: columnsCount, size: 'auto' }}
               pad={{ horizontal: 'small', top: 'xlarge' }}
               gap={isMobile ? 'medium' : 'xlarge'}
-              style={{ height: 'auto' }}
               align="center"
               justify="center"
               justifyContent="around"
             >
               {list.map(({ name, position, photo }) => (
-                <Box
-                  key={name}
-                  style={
-                    isMobile
-                      ? {
-                          width: '30vw',
-                          height: '30vw',
-                          minWidth: '150px',
-                          minHeight: '150px',
-                          boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
-                          borderRadius: '22px',
-                        }
-                      : {
-                          width: '17vw',
-                          height: '17vw',
-                          maxWidth: '320px',
-                          maxHeight: '320px',
-                          minWidth: '190px',
-                          minHeight: '190px',
-                          boxShadow: ' 0px 0px 22px rgba(200,200,200,0.3)',
-                          borderRadius: '22px',
-                        }
-                  }
-                  background={{
-                    size: 'cover',
-                    image: `url(${photo})`,
-                  }}
-                >
-                  <Box
-                    justify="end"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                    }}
-                    background={{
-                      size: 'cover',
-                      image: 'url(/assets/Rectangle69.svg)',
-                    }}
-                  >
-                    <Box pad="small">
-                      <Heading
-                        level={5}
-                        color="brand"
-                        textAlign="bottom"
-                        margin={
-                          isMobile ? { vertical: '0' } : { vertical: '5px' }
-                        }
-                        style={isMobile ? { fontSize: '14px' } : undefined}
-                      >
-                        {name}
-                      </Heading>
-                      <Text fontSize={isMobile ? '10px' : '14px'} color="brand">
-                        {position}
-                      </Text>
-                    </Box>
-                  </Box>
-                </Box>
+                <CardTeam key={name}>
+                  <CardTeamImageWrapper bottomFlex="100%">
+                    <ImgCover src={photo} />
+                  </CardTeamImageWrapper>
+                  <CardTeamFooter pad="small" justify="end" alignSelf="end">
+                    <Heading
+                      level={5}
+                      color="brand"
+                      textAlign="bottom"
+                      fontSize={isMobile ? '14px' : undefined}
+                      margin={
+                        isMobile ? { vertical: '0' } : { vertical: '5px' }
+                      }
+                    >
+                      {name}
+                    </Heading>
+                    <Text fontSize={isMobile ? '10px' : '14px'} color="brand">
+                      {position}
+                    </Text>
+                  </CardTeamFooter>
+                </CardTeam>
               ))}
             </Grid>
           </Box>

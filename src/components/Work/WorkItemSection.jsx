@@ -8,7 +8,9 @@ import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { RouterLink } from '../../legos/RouterLink';
+import { theme } from '../../utils/theme';
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
 
 export const WorkItemSection = ({
   path,
@@ -52,15 +54,15 @@ export const WorkItemSection = ({
             : { bottom: 'medium' }
         }
       >
-        <Text
-          size="medium"
-          color="text-dark-grey"
-          style={{ fontFamily: 'HelveticaNeueCyr', whiteSpace: 'pre-line' }}
-        >
+        <Text size="medium" color="text-dark-grey" whiteSpace="pre-line">
           {text}
         </Text>
       </Box>
-      {isMobile || <RouterLink to={link}>See case</RouterLink>}
+      {isMobile || (
+        <RouterLink hoveredColor={theme.global.colors.brand} to={link}>
+          See case
+        </RouterLink>
+      )}
     </Box>
   );
 
@@ -68,19 +70,11 @@ export const WorkItemSection = ({
     <Box align="center">
       <Grid columns={{ count: 2, size: 'auto' }}>
         <Box align="center" justify="center">
-          <img
-            style={{ height: 'auto', width: '100%' }}
-            src={thumbnail}
-            alt={title}
-          />
+          <ImgFluid src={thumbnail} alt={title} />
         </Box>
         {thumbnailSecond && (
           <Box align="center" justify="center">
-            <img
-              style={{ height: 'auto', width: '100%' }}
-              src={thumbnailSecond}
-              alt={title}
-            />
+            <ImgFluid src={thumbnailSecond} alt={title} />
           </Box>
         )}
       </Grid>
@@ -92,18 +86,10 @@ export const WorkItemSection = ({
         align="start"
         margin={{ left: 'xsmall', right: 'medium' }}
       >
-        <img
-          style={{ height: 'auto', width: '110%' }}
-          src={thumbnail}
-          alt={title}
-        />
+        <ImgFluid src={thumbnail} alt={title} />
       </Box>
       <Box justify="center" pad={{ left: 'large' }}>
-        <img
-          style={{ height: 'auto', width: '130%' }}
-          src={thumbnailSecond}
-          alt={title}
-        />
+        <ImgFluid src={thumbnailSecond} alt={title} />
       </Box>
     </Box>
   );
@@ -129,7 +115,9 @@ export const WorkItemSection = ({
           )}
           {isMobile && (
             <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-              <RouterLink to={link}>See case</RouterLink>
+              <RouterLink hoveredColor={theme.global.colors.brand} to={link}>
+                See case
+              </RouterLink>
             </Box>
           )}
         </Grid>

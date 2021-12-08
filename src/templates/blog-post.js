@@ -3,15 +3,26 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { Box, Grid, Heading, ResponsiveContext } from 'grommet';
+import { Box, Grid, Heading, ResponsiveContext, Nav } from 'grommet';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { RouterLink } from '../legos/RouterLink';
 import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { maxBreakpoints } from '../utils/useBreakpoints';
+import { theme } from '../utils/theme';
+import { flexImgWrapper } from '../utils/globalStyles';
 
 import Container from '../components/Layout/Container';
+import { ImgCover } from '../components/Layout/ImgCover';
+import styled from 'styled-components';
+
+const BlogItem = styled(Box)`
+  max-width: 364px;
+  width: 100%;
+  margin: 0 auto;
+  ${({ bottomFlex }) => bottomFlex && flexImgWrapper(bottomFlex)}
+`;
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
@@ -41,48 +52,38 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           }
         >
           <h1>{post.frontmatter.title}</h1>
-          <p
-            style={{
-              display: `block`,
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <p>{post.frontmatter.date}</p>
           <MDXRenderer>{post.body}</MDXRenderer>
           <hr />
-
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <RouterLink to={`/blog${previous.fields.slug}`} rel="prev">
-                  ← {previous.frontmatter.title}
-                </RouterLink>
-              )}
-            </li>
-            <li>
-              {next && (
-                <RouterLink to={`/blog${next.fields.slug}`} rel="next">
-                  {next.frontmatter.title} →
-                </RouterLink>
-              )}
-            </li>
-          </ul>
+          <Nav direction="row" justify="between" pad={{ vertical: 'small' }}>
+            {previous && (
+              <RouterLink
+                hoveredColor={theme.global.colors.brand}
+                to={`/blog${previous.fields.slug}`}
+                rel="prev"
+              >
+                ← {previous.frontmatter.title}
+              </RouterLink>
+            )}
+            {next && (
+              <RouterLink
+                hoveredColor={theme.global.colors.brand}
+                to={`/blog${next.fields.slug}`}
+                rel="next"
+              >
+                {next.frontmatter.title} →
+              </RouterLink>
+            )}
+          </Nav>
         </Grid>
       </Container>
       <Box background={{ color: '#f0f6f4' }}>
         <Container>
           <Grid
             columns={{ count: columnsCount, size: 'auto' }}
-            pad={{ top: 'xlarge', bottom: 'xlarge' }}
-            style={{ height: 'auto' }}
+            gap={isTablet ? 'small' : 'large'}
+            pad={{ vertical: 'large' }}
+            // style={{ height: 'auto' }}
             align="center"
             justify="center"
             justifyContent="around"
@@ -90,69 +91,35 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             {postsRecent.map(({ node }) => {
               const title = node.frontmatter.title || node.fields.slug;
               return (
-                <Box key={node.fields.slug} pad={{ vertical: 'large' }}>
-                  <Grid
-                    columns={['auto', 'auto']}
-                    gap="small"
-                    justify="center"
-                    justifyContent="between"
-                  >
-                    <Box
-                      style={
-                        isTablet
-                          ? {
-                              width: '95%',
-                              height: '17vw',
-                            }
-                          : {
-                              width: '380px',
-                              height: '10vw',
-                            }
-                      }
-                      margin={
-                        isTablet
-                          ? {
-                              top: '75px',
-                              bottom: '75px',
-                            }
-                          : {
-                              top: 'auto',
-                            }
-                      }
-                      justify="center"
-                      align="center"
-                    >
-                      <img
-                        style={{ height: 'auto', width: '100%' }}
+                <Box
+                  width="100%"
+                  key={node.fields.slug}
+                  pad={{ vertical: 'large' }}
+                >
+                  <RouterLink to={`/blog${node.fields.slug}`}>
+                    <BlogItem bottomFlex="56.476%">
+                      <ImgCover
                         src="/assets/rectangle.png"
                         alt="On laptop open code editor"
                       />
-                      <RouterLink
-                        style={{ boxShadow: `none` }}
-                        to={`/blog${node.fields.slug}`}
-                      >
-                        <Box pad={{ top: 'small' }}>
-                          <Heading
-                            level={4}
-                            margin={{ top: 'none', bottom: '15px' }}
-                            style={
-                              isTablet
-                                ? {
-                                    maxWidth: '250px',
-                                  }
-                                : {
-                                    maxWidth: '380px',
-                                  }
-                            }
-                            truncate
-                            color="#104065"
-                          >
-                            {title}
-                          </Heading>
-                        </Box>
-                      </RouterLink>
-                    </Box>
-                  </Grid>
+                    </BlogItem>
+                  </RouterLink>
+
+                  <RouterLink
+                    to={`/blog${node.fields.slug}`}
+                    disableUnderline
+                    color={theme.global.colors.brand}
+                    hoveredColor={theme.global.colors['accent-2']}
+                  >
+                    <Heading
+                      level={4}
+                      margin={{ top: '20px', bottom: '15px' }}
+                      truncate
+                      textAlign="center"
+                    >
+                      {title}
+                    </Heading>
+                  </RouterLink>
                 </Box>
               );
             })}
