@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { Box, Header, Grid, Image, Nav, ResponsiveContext } from 'grommet';
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
 import { theme } from '../utils/theme';
 
 import useStickyElement from '../utils/useStickyElement';
