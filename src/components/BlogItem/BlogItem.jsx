@@ -1,28 +1,10 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-import { Box, Grid, Text, Heading } from 'grommet';
 import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
-import { RouterLink } from '../../legos/RouterLink';
+import { Box, Grid, Text, Heading } from 'grommet';
+
 import { theme } from '../../utils/theme';
-
-const BlogItemLink = ({ slug, ...props }) => (
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  <RouterLink to={`/blog${slug}`} {...props} />
-);
-
-const ImgLink = styled(BlogItemLink)`
-  display: block;
-  width: 136px;
-  height: 136px;
-`;
-
-const Img = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-`;
+import { ImgLink, BlogItemLink, Img } from './styled';
 
 export const BlogItem = ({ post }) => {
   const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
