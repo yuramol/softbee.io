@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Grid, ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
+
+import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { maxBreakpoints } from '../../utils/useBreakpoints';

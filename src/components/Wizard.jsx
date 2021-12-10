@@ -1,9 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
 
-import { Box, Button, FormField, Grid, ResponsiveContext, Text } from 'grommet';
+import { Box, Button, FormField, ResponsiveContext } from 'grommet';
 import { Close, Next, Previous } from 'grommet-icons';
 
 import { string } from 'yup';
@@ -11,50 +10,15 @@ import { TextInput } from '../legos/TextInput/TextInput';
 
 import { maxBreakpoints } from '../utils/useBreakpoints';
 import { sendForm } from '../utils/useForm';
-
-const StyledGrid = styled(Grid)`
-  width: 100%;
-  background-color: #104065;
-  box-shadow: ${props => props.boxShadow};
-  color: #fae79f;
-  border-radius: ${props => props.borderRadius};
-  height: ${({ inModal }) => (inModal ? '100%' : undefined)};
-  max-width: ${({ maxWidth }) => maxWidth};
-`;
-const StyledHeading = styled(Text)`
-  font-weight: 600;
-  ${props =>
-    props.preLine &&
-    css`
-      white-space: pre-line;
-    `}
-`;
-const NavigationButton = styled(Button)`
-  height: 42px;
-  display: flex;
-  align-items: center;
-  border-radius: 2px;
-`;
-const StepButton = styled(Button)`
-  width: 66px;
-  height: 0;
-  margin: 0 7px;
-  padding: 0;
-
-  &:disabled {
-    border-color: #fff;
-    opacity: 1;
-  }
-`;
-
-const headingSizes = {
-  large: '42px',
-  medium: '30px',
-  small: '22px',
-};
+import {
+  StyledGrid,
+  StyledHeading,
+  NavigationButton,
+  StepButton,
+  headingSizes,
+} from './styledWizard';
 
 export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
-  console.log(maxWidth);
   const { data } = useStaticQuery(
     graphql`
       query {
@@ -115,11 +79,11 @@ export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
     return step === wizardSteps.length || formData[step].length === 0;
   }, [step, formData]);
 
-  const setNameFormData = data => ({
-    name: data[1],
-    website: data[2],
-    comment: data[3],
-    email: data[4],
+  const setNameFormData = dataForm => ({
+    name: dataForm[1],
+    website: dataForm[2],
+    comment: dataForm[3],
+    email: dataForm[4],
   });
 
   const navigate = to => {
@@ -183,7 +147,7 @@ export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
       >
         <StyledHeading
           justify="center"
-          textAlign="start"
+          textAlign="center"
           size={headingSize}
           color="white"
           margin="xsmall"
@@ -261,16 +225,15 @@ export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
 };
 
 Wizard.propTypes = {
-  style: PropTypes.shape({
-    maxWidth: PropTypes.string,
-    height: PropTypes.string,
-  }),
+  maxWidth: PropTypes.string,
+  inModal: PropTypes.bool,
   needBoxShadow: PropTypes.bool,
   onClose: PropTypes.func,
 };
 
 Wizard.defaultProps = {
-  style: {},
+  maxWidth: undefined,
   needBoxShadow: true,
+  inModal: false,
   onClose: null,
 };

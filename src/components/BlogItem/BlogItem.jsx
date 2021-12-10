@@ -7,8 +7,9 @@ import styled from 'styled-components';
 import { RouterLink } from '../../legos/RouterLink';
 import { theme } from '../../utils/theme';
 
-const BlogItemLink = ({ slug, ...rest }) => (
-  <RouterLink {...rest} to={`/blog${slug}`} />
+const BlogItemLink = ({ slug, ...props }) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <RouterLink to={`/blog${slug}`} {...props} />
 );
 
 const ImgLink = styled(BlogItemLink)`

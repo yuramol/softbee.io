@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+import { useStaticQuery, graphql } from 'gatsby';
 import {
   Box,
   Footer,
@@ -10,17 +9,21 @@ import {
   ResponsiveContext,
 } from 'grommet';
 
-import { Button } from '../legos/Button/Button';
 import { Text } from '../legos/typography/Text';
 import Logo from '../../static/assets/logo.svg';
 import { Heading } from '../legos/typography/Heading';
-import { TextInput } from '../legos/TextInput/TextInput';
+
 import { RouterLink } from '../legos/RouterLink';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 import { sendSlack } from '../utils/useSlack';
 import { dispatch } from '../utils/useBus';
-import { theme } from '../utils/theme';
 
+import {
+  StyledButton,
+  StyledLink,
+  StyledFooterInput,
+  StyledText,
+} from './styledFooter';
 import Container from './Layout/Container';
 
 const openModalLetsTalk = () => {
@@ -33,37 +36,6 @@ const linkFooterItems = [
   { id: '3', label: 'Contacts', routerLink: false, click: openModalLetsTalk },
   { id: '4', label: 'Blog', routerLink: true, link: '/blog' },
 ];
-
-const StyledButton = styled(Button)`
-  border-radius: 5px;
-  border: 2px solid ${theme.global.colors['accent-1']};
-  width: 57px;
-  height: 35px;
-  color: ${theme.global.colors['accent-1']};
-
-  &:hover {
-    background-color: ${theme.global.colors['accent-1']};
-    color: ${theme.global.colors.brand};
-  }
-`;
-
-const StyledLink = styled(Link)`
-  display: flex;
-  align-items: center;
-`;
-
-const StyledFooterInput = styled(TextInput)`
-  line-height: 26px;
-`;
-
-const StyledText = styled(Text)`
-  text-decoration: underline;
-  color: #25bbc5;
-  font-weight: 500;
-  &:hover {
-    cursor: pointer;
-  }
-`;
 
 export const SiteFooter = () => {
   const size = React.useContext(ResponsiveContext);
@@ -224,8 +196,8 @@ export const SiteFooter = () => {
                     <path
                       d="M1.6665 8H21.6665"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
                     />
                     <path
                       d="M22.3736 8.70711C22.7641 8.31658 22.7641 7.68342 22.3736 7.29289L16.0096 0.928932C15.6191 0.538408 14.986 0.538408 14.5954 0.928932C14.2049 1.31946 14.2049 1.95262 14.5954 2.34315L20.2523 8L14.5954 13.6569C14.2049 14.0474 14.2049 14.6805 14.5954 15.0711C14.986 15.4616 15.6191 15.4616 16.0096 15.0711L22.3736 8.70711ZM1.6665 9H21.6665V7H1.6665V9Z"

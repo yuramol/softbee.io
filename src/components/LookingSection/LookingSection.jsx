@@ -1,25 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Box, Grid, ResponsiveContext } from 'grommet';
-
+import { Box, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
-
-import styled from 'styled-components';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import Container from '../Layout/Container';
-
-const StyledGrid = styled(Grid)`
-  box-shadow: 0 0 30px 10px;
-  color: #e5e5e5;
-  border-radius: 55px;
-`;
-
-//це тимчасове рішення, краще відповідну картинку, одразу а не крутити
-const LookingSettingImg = styled.img`
-  transform: rotate(-15.26deg);
-`;
+import { StyledGrid, LookingSettingImg } from './styled';
 
 export const LookingSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);

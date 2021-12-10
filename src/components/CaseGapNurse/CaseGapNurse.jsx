@@ -1,19 +1,13 @@
 import React from 'react';
 
 import { Box, Grid, ResponsiveContext } from 'grommet';
-
 import { Text } from '../../legos/typography/Text';
 import { Heading } from '../../legos/typography/Heading';
 import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
-
 import Container from '../Layout/Container';
 import { ImgFluid } from '../Layout/ImgFluid';
-import styled from 'styled-components';
-
-const GridInfo = styled(Grid)`
-  width: ${({ isMobile }) => (isMobile ? '100%' : 'auto')};
-`;
+import { GridInfo } from './styled';
 
 export const CaseGapNurse = () => {
   const size = React.useContext(ResponsiveContext);
