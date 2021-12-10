@@ -1,22 +1,20 @@
+import { string } from 'yup';
+import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
-
-import { Box, Button, FormField, ResponsiveContext } from 'grommet';
 import { Close, Next, Previous } from 'grommet-icons';
+import { Box, Button, FormField, ResponsiveContext } from 'grommet';
 
-import { string } from 'yup';
-import { TextInput } from '../legos/TextInput/TextInput';
-
-import { maxBreakpoints } from '../utils/useBreakpoints';
-import { sendForm } from '../utils/useForm';
 import {
   StyledGrid,
-  StyledHeading,
-  NavigationButton,
   StepButton,
   headingSizes,
+  StyledHeading,
+  NavigationButton,
 } from './styledWizard';
+import { sendForm } from '../../utils/useForm';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { TextInput } from '../../legos/TextInput/TextInput';
 
 export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
   const { data } = useStaticQuery(

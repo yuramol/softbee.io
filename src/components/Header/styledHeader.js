@@ -1,7 +1,8 @@
-import styled, { css } from 'styled-components';
 import { Link } from 'gatsby';
 import { Header, Grid } from 'grommet';
-import { theme } from '../utils/theme';
+import styled, { css } from 'styled-components';
+
+import { theme } from '../../utils/theme';
 
 export const StyledLink = styled(Link)`
   display: flex;

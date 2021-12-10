@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { Box, ResponsiveContext } from 'grommet';
 
-import { Wizard } from '../Wizard';
+import { Wizard } from '../Wizard/Wizard';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const LetsStarted = () => {

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-
 import { Link } from 'gatsby';
-import { Text } from '../legos/typography/Text';
-import { Button } from '../legos/Button/Button';
-import { TextInput } from '../legos/TextInput/TextInput';
-import { theme } from '../utils/theme';
+
+import { theme } from '../../utils/theme';
+import { Text } from '../../legos/typography/Text';
+import { Button } from '../../legos/Button/Button';
+import { TextInput } from '../../legos/TextInput/TextInput';
 
 export const StyledButton = styled(Button)`
   border-radius: 5px;
