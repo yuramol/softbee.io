@@ -86,6 +86,13 @@ export const LookingSection = ({ title, text }) => {
               >
                 {text}
               </Heading>
+              <Box
+                height="60px"
+                width="200px"
+                margin={{ top: 'medium', horizontal: 'auto' }}
+              >
+                <ButtonLetsTalk label="Let’s talk" color="accent-1" />
+              </Box>
             </Box>
           )}
           <Box justify="center" pad={{ vertical: 'large' }}>
