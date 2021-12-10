@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { Box, Grid, Image, Nav, ResponsiveContext } from 'grommet';
 
-import HeaderMenu from './HeaderMenu/HeaderMenu';
-import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
-import { RouterLink } from '../legos/RouterLink';
-import { maxBreakpoints } from '../utils/useBreakpoints';
-import useStickyElement from '../utils/useStickyElement';
+import HeaderMenu from '../HeaderMenu/HeaderMenu';
+import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+import useStickyElement from '../../utils/useStickyElement';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { StyledLink, StyledHeader, StyledHeaderWrapper } from './styledHeader';
 
 const linkItems = [

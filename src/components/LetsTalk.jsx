@@ -1,8 +1,9 @@
+import styled from 'styled-components';
 import React, { useState } from 'react';
 import { Box, Layer, ResponsiveContext } from 'grommet';
-import styled from 'styled-components';
-import { Wizard } from './Wizard';
+
 import useBus from '../utils/useBus';
+import { Wizard } from './Wizard/Wizard';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const LayerBoxTalk = styled(Layer)`
