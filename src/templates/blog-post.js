@@ -75,7 +75,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             columns={{ count: columnsCount, size: 'auto' }}
             gap={isTablet ? 'small' : 'large'}
             pad={{ vertical: 'large' }}
-            // style={{ height: 'auto' }}
             align="center"
             justify="center"
             justifyContent="around"
