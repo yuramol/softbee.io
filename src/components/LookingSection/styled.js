@@ -8,7 +8,7 @@ export const StyledGrid = styled(Grid)`
   border-radius: 55px;
 `;
 
-// це тимчасове рішення, краще відповідну картинку, одразу а не крутити
+//  TODO: це тимчасове рішення, краще відповідну картинку, одразу а не крутити
 export const LookingSettingImg = styled.img`
   transform: rotate(-15.26deg);
 `;
