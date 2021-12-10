@@ -11,8 +11,9 @@ import { SiteFooter } from '../components/Footer';
 import { Heading } from '../legos/typography/Heading';
 import { Text } from '../legos/typography/Text';
 import { ButtonNextCase } from '../components/ButtonNextCase/ButtonNextCase';
-
 import Container from '../components/Layout/Container';
+import { ImgFluid } from '../components/Layout/ImgFluid';
+import { GridInfo } from './styled';
 
 const WorkCaseTemplate = ({ data, pageContext, location }) => {
   const {
@@ -41,7 +42,6 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
 
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
-
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1110px)' });
   const columnsCountTablet = isTabletOrMobile ? 1 : 2;
 
@@ -55,16 +55,19 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
             <Box width="100%" align="center">
               <Heading
                 level={isMobile ? 4 : 2}
+                textAlign="center"
                 color="brand"
-                style={{ textAlign: 'center' }}
               >
                 {title}
               </Heading>
             </Box>
             <Grid
               columns={['auto', 'auto']}
-              pad={{ horizontal: 'xlarge' }}
-              style={isMobile ? { height: 'auto' } : { height: '480px' }}
+              pad={
+                isTabletOrMobile
+                  ? { horizontal: 'large', vertical: 'large' }
+                  : { horizontal: 'xlarge', vertical: 'large' }
+              }
               align={textAlignVariant}
             >
               <Box
@@ -81,10 +84,10 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
                       pad={{ bottom: 'xxsmall', top: 'xlarge' }}
                     >
                       <Heading
-                        level={4}
+                        level={5}
                         color="brand"
-                        style={{ lineHeight: '130%', fontSize: '24px' }}
-                        margin={{ vertical: '10px' }}
+                        lineHeight="130%"
+                        margin={{ vertical: 'xsmall' }}
                       >
                         About client:
                       </Heading>
@@ -94,11 +97,7 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
                       <Text
                         size="medium"
                         color="text-dark-grey"
-                        style={{
-                          fontFamily: 'HelveticaNeueCyr',
-                          lineHeight: '150%',
-                          whiteSpace: 'pre-line',
-                        }}
+                        whiteSpace="pre-line"
                       >
                         {text}
                       </Text>
@@ -113,19 +112,11 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
                     gap="medium"
                   >
                     <Box align="center">
-                      <img
-                        style={{ height: 'auto', width: '100%' }}
-                        src={thumbnail}
-                        alt={title}
-                      />
+                      <ImgFluid src={thumbnail} alt={title} />
                     </Box>
                     {isTabletOrMobile || (
                       <Box align="center">
-                        <img
-                          style={{ height: 'auto', width: '100%' }}
-                          src={thumbnailSecond}
-                          alt={title}
-                        />
+                        <ImgFluid src={thumbnailSecond} alt={title} />
                       </Box>
                     )}
                   </Grid>
@@ -136,8 +127,7 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
                   justify="center"
                   pad={isMobile ? { horizontal: 'large' } : undefined}
                 >
-                  <img
-                    style={{ height: 'auto', width: '100%' }}
+                  <ImgFluid
                     src="/assets/sectionMMO.png"
                     alt="Screenshot of MMO website page "
                   />
@@ -145,26 +135,19 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
               )}
             </Grid>
             {isMobile && (
-              <Box align="left" pad={{ horizontal: 'xlarge' }}>
-                <Box style={{ width: '100%' }}>
+              <Box align="start" pad={{ horizontal: 'xlarge' }}>
+                <Box>
                   <Heading
                     level={6}
                     color="brand"
-                    style={{ lineHeight: '100%' }}
-                    margin={{ vertical: '10px' }}
+                    lineHeight="130%"
+                    margin={{ vertical: 'xsmall' }}
                   >
                     About client:
                   </Heading>
                 </Box>
                 <Box width="100%">
-                  <Text
-                    color="text-dark-grey"
-                    style={{
-                      fontFamily: 'HelveticaNeueCyr',
-                      lineHeight: '150%',
-                      whiteSpace: 'pre-line',
-                    }}
-                  >
+                  <Text color="text-dark-grey" whiteSpace="pre-line">
                     {text}
                   </Text>
                 </Box>
@@ -173,27 +156,20 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
           </Container>
           <Box
             width="100%"
-            style={isMobile ? { height: '130px' } : { height: '210px' }}
+            height={isMobile ? '130px' : '210px'}
             align="center"
             justify="center"
             margin={isMobile ? { top: '30px' } : undefined}
             background={{ color }}
           >
-            <Grid
+            <GridInfo
+              isMobile={isMobile}
               columns={['1/3', '1/3', '1/3']}
-              style={
-                isMobile
-                  ? { width: '100%', height: isMobile ? '130px' : '150px' }
-                  : { width: 'auto' }
-              }
               pad="small"
             >
               <Box
-                style={
-                  isMobile
-                    ? { width: 'auto', justifyContent: 'center' }
-                    : { width: '250px' }
-                }
+                width={isMobile ? 'auto' : '250px'}
+                justify={isMobile ? 'center' : undefined}
                 align="center"
                 pad={
                   isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }
@@ -210,18 +186,16 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
                 <Heading
                   level={isMobile ? undefined : 5}
                   color="white"
-                  style={{ fontWeight: '700', lineHeight: '16px' }}
+                  fontWeight="700"
+                  lineHeight="16px"
                   margin={{ vertical: 'small' }}
                 >
                   {technologies}
                 </Heading>
               </Box>
               <Box
-                style={
-                  isMobile
-                    ? { width: 'auto', justifyContent: 'center' }
-                    : { width: '250px' }
-                }
+                width={isMobile ? 'auto' : '250px'}
+                justify={isMobile ? 'center' : undefined}
                 align="center"
                 pad={
                   isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }
@@ -237,18 +211,16 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
                 <Heading
                   level={isMobile ? undefined : 5}
                   color="white"
-                  style={{ fontWeight: '700', lineHeight: '16px' }}
+                  fontWeight="700"
+                  lineHeight="16px"
                   margin={{ vertical: 'small' }}
                 >
                   {languages}
                 </Heading>
               </Box>
               <Box
-                style={
-                  isMobile
-                    ? { width: 'auto', justifyContent: 'center' }
-                    : { width: '250px' }
-                }
+                width={isMobile ? 'auto' : '250px'}
+                justify={isMobile ? 'center' : undefined}
                 align="center"
                 pad={
                   isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }
@@ -264,21 +236,18 @@ const WorkCaseTemplate = ({ data, pageContext, location }) => {
                 <Heading
                   level={isMobile ? undefined : 5}
                   color="white"
-                  style={{ fontWeight: '700', lineHeight: '16px' }}
+                  fontWeight="700"
+                  lineHeight="16px"
                   margin={{ vertical: 'small' }}
                 >
                   {time} h
                 </Heading>
               </Box>
-            </Grid>
+            </GridInfo>
           </Box>
         </Box>
         <Box>
-          <img
-            style={{ width: '100%', height: 'auto' }}
-            src={screenshots}
-            alt={title}
-          />
+          <ImgFluid src={screenshots} alt={title} />
         </Box>
         <ButtonNextCase url={nextLink} />
       </Box>

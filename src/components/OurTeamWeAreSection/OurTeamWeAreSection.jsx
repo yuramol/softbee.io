@@ -1,10 +1,12 @@
 import React from 'react';
-import { Box, Grid, ResponsiveContext } from 'grommet';
 import PropTypes from 'prop-types';
+
+import { Box, Grid, ResponsiveContext } from 'grommet';
 import { Text } from '../../legos/typography/Text';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
 
 export const OurTeamWeAreSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
@@ -22,11 +24,9 @@ export const OurTeamWeAreSection = ({ text }) => {
           columns={{ count: columnsCount, size: 'auto' }}
           pad={{ horizontal: 'small', vertical: 'xlarge' }}
           gap="medium"
-          style={{ height: 'auto' }}
         >
           <Box pad={{ horizontal: 'large' }}>
-            <img
-              style={{ height: 'auto', width: '100%' }}
+            <ImgFluid
               src="/assets/sectionHeader.svg"
               alt="People are creating a website"
             />
@@ -46,7 +46,7 @@ export const OurTeamWeAreSection = ({ text }) => {
               color="brand"
               size={isMobile ? 'small' : 'medium'}
               align="center"
-              style={{ whiteSpace: 'pre-line' }}
+              whiteSpace="pre-line"
             >
               {text}
             </Text>

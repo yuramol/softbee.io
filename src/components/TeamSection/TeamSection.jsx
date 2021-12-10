@@ -7,7 +7,9 @@ import { Heading } from '../../legos/typography/Heading';
 import { Text } from '../../legos/typography/Text';
 import { RouterLink } from '../../legos/RouterLink';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { theme } from '../../utils/theme';
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
 
 export const TeamSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
@@ -29,8 +31,7 @@ export const TeamSection = ({ title, text }) => {
           justify="center"
           align="center"
         >
-          <img
-            style={{ height: 'auto', width: '100%' }}
+          <ImgFluid
             src="/assets/section.svg"
             alt="Man working at the computer"
           />
@@ -45,13 +46,9 @@ export const TeamSection = ({ title, text }) => {
               {title}
             </Heading>
           </Box>
-          <Box
-            width="491px"
-            pad={{ bottom: 'large' }}
-            style={{ whiteSpace: 'pre-line' }}
-          >
+          <Box width="491px" pad={{ bottom: 'large' }}>
             <Box pad={{ bottom: 'medium' }}>
-              <Text size="medium" color="text-dark-grey">
+              <Text whiteSpace="pre-line" size="medium" color="text-dark-grey">
                 {text}
               </Text>
             </Box>
@@ -59,7 +56,12 @@ export const TeamSection = ({ title, text }) => {
               align={isMobile ? 'center' : 'start'}
               pad={isTablet ? { top: 'large' } : { vertical: 'medium' }}
             >
-              <RouterLink to="our-team">Meet our team &#128074;</RouterLink>
+              <RouterLink
+                to="our-team"
+                hoveredColor={theme.global.colors.brand}
+              >
+                Meet our team &#128074;
+              </RouterLink>
             </Box>
           </Box>
         </Box>

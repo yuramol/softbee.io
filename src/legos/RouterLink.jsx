@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 
 import styled, { css } from 'styled-components';
 import { theme } from '../utils/theme';
+import { hoveredLink } from '../utils/globalStyles';
 
 const StyledLink = styled(LibLink)`
   transition: color 0.3s ease-in-out;
+  font-size: ${({ fontSize }) => fontSize};
+  line-height: ${({ lineHeight }) => lineHeight};
   color: ${({ color, isActive }) => (isActive ? 'red' : color)};
   padding: ${({ padding }) => padding};
   ${({ disableUnderline }) =>
@@ -14,6 +17,7 @@ const StyledLink = styled(LibLink)`
     css`
       text-decoration: none;
     `}
+  ${({ hoveredColor }) => hoveredColor && hoveredLink(hoveredColor)}
 `;
 
 export const RouterLink = ({ to, children, ...props }) => {

@@ -9,6 +9,8 @@ import { RouterLink } from '../../legos/RouterLink';
 import { BlogItem } from './BlogItem';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
+import { theme } from '../../utils/theme';
 
 export const BlogSection = ({ withBackground }) => {
   const data = useStaticQuery(graphql`
@@ -86,8 +88,7 @@ export const BlogSection = ({ withBackground }) => {
           </Box>
           {!isMobile && (
             <Box align="center" justify="center">
-              <img
-                style={{ height: 'auto', width: '100%' }}
+              <ImgFluid
                 src="/assets/home-news.webp"
                 alt="On laptop open code editor"
               />
@@ -101,7 +102,13 @@ export const BlogSection = ({ withBackground }) => {
         >
           <RouterLink to="blog">
             <Heading margin="large" level={fontSizeVariant}>
-              <RouterLink to="blog">See our blog</RouterLink>
+              <RouterLink
+                to="blog"
+                hoveredColor={theme.global.colors['accent-2']}
+                color={theme.global.colors.brand}
+              >
+                See our blog
+              </RouterLink>
             </Heading>
           </RouterLink>
         </Box>

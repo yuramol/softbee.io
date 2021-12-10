@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Box, ResponsiveContext } from 'grommet';
 
 import { Wizard } from '../Wizard';
@@ -20,7 +19,7 @@ export const LetsStarted = () => {
       pad={paddingVariant}
       gap="medium"
     >
-      <Wizard style={{ maxWidth: '1030px' }} />
+      <Wizard maxWidth="1030px" />
     </Box>
   );
 };

@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
 import {
   Box,
-  Footer,
   Grid,
   Image,
+  Footer,
   FormField,
   ResponsiveContext,
 } from 'grommet';
+import React, { useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import { Button } from '../legos/Button/Button';
-import { Text } from '../legos/typography/Text';
-import Logo from '../../static/assets/logo.svg';
-import { Heading } from '../legos/typography/Heading';
-import { TextInput } from '../legos/TextInput/TextInput';
-import SendButtonIcon from '../../static/assets/sendButton.svg';
-import { RouterLink } from '../legos/RouterLink';
-import { maxBreakpoints } from '../utils/useBreakpoints';
-import { sendSlack } from '../utils/useSlack';
-import { dispatch } from '../utils/useBus';
-
-import Container from './Layout/Container';
+import {
+  StyledLink,
+  StyledText,
+  StyledButton,
+  StyledFooterInput,
+} from './styled';
+import { ArrowIcon } from './ArrowIcon';
+import Container from '../Layout/Container';
+import { dispatch } from '../../utils/useBus';
+import { sendSlack } from '../../utils/useSlack';
+import { Text } from '../../legos/typography/Text';
+import Logo from '../../../static/assets/logo.svg';
+import { RouterLink } from '../../legos/RouterLink';
+import { Heading } from '../../legos/typography/Heading';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 const openModalLetsTalk = () => {
   dispatch('letsTalk/open');
@@ -33,26 +35,6 @@ const linkFooterItems = [
   { id: '3', label: 'Contacts', routerLink: false, click: openModalLetsTalk },
   { id: '4', label: 'Blog', routerLink: true, link: '/blog' },
 ];
-
-const StyledButton = styled(Button)`
-  border-radius: unset;
-`;
-
-const StyledLink = styled(Link)`
-  display: flex;
-  align-items: center;
-`;
-
-const StyledText = styled(Text)`
-  text-decoration: underline;
-  color: #25bbc5;
-  font-size: 18px;
-  line-height: 40px;
-  font-weight: 500;
-  &:hover {
-    cursor: pointer;
-  }
-`;
 
 export const SiteFooter = () => {
   const size = React.useContext(ResponsiveContext);
@@ -131,19 +113,25 @@ export const SiteFooter = () => {
             </StyledLink>
             <Box
               width="100%"
-              justify="stretch"
+              justify={isMobile ? 'between' : 'stretch'}
               direction={isMobile ? 'row' : 'column'}
               align={alignVariant}
               pad={isMobile ? { vertical: 'none' } : { vertical: 'small' }}
-              style={{ justifyContent: 'space-between' }}
             >
               {linkFooterItems.map(linkItem =>
                 linkItem.routerLink ? (
                   <RouterLink to={linkItem.link} key={linkItem.id}>
-                    <StyledText>{linkItem.label}</StyledText>
+                    <StyledText fontSize="18px" lineHeight="40px">
+                      {linkItem.label}
+                    </StyledText>
                   </RouterLink>
                 ) : (
-                  <StyledText key={linkItem.id} onClick={linkItem.click}>
+                  <StyledText
+                    fontSize="18px"
+                    lineHeight="40px"
+                    key={linkItem.id}
+                    onClick={linkItem.click}
+                  >
                     {linkItem.label}
                   </StyledText>
                 ),
@@ -185,14 +173,11 @@ export const SiteFooter = () => {
                 ) : (
                   <FormField>
                     <Box>
-                      <TextInput
+                      <StyledFooterInput
                         onChange={handleTextChange}
                         value={textSlack}
                         placeholder={placeholder}
                         size="medium"
-                        style={{
-                          lineHeight: '26px',
-                        }}
                       />
                     </Box>
                   </FormField>
@@ -200,7 +185,7 @@ export const SiteFooter = () => {
               </Box>
               <Box justify="start" align="start">
                 <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
-                  <Image fill src={SendButtonIcon} alt="Send Button" />
+                  <ArrowIcon />
                 </StyledButton>
               </Box>
             </Grid>

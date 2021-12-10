@@ -13,11 +13,12 @@ const linkItems = [
 ];
 
 const StyledLayer = styled(Layer)`
-  bottom: 0;
   top: 0;
-  max-height: 100vh;
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
   background-color: ${theme.global.colors.brand};
-  border-radius: unset;
+  border-radius: 0;
 `;
 
 const HeaderMenu = () => {
@@ -41,7 +42,6 @@ const HeaderMenu = () => {
       {open && (
         <StyledLayer
           responsive={false}
-          margin={{ top: 'large' }}
           position="left"
           full="vertical"
           onClickOutside={onClose}
@@ -51,25 +51,25 @@ const HeaderMenu = () => {
             pad={{ left: 'large', top: 'large', right: 'large' }}
             background="brand"
           >
-            <Nav direction="column" justify="center">
+            <Nav
+              direction="column"
+              justify="center"
+              pad={{ vertical: 'medium' }}
+            >
               {linkItems.map(linkItem => (
-                <RouterLink to={linkItem.link} key={linkItem.id}>
-                  <Button
-                    plain
-                    size="large"
-                    key={linkItem.id}
-                    margin={{ vertical: 'xsmall' }}
-                    label={linkItem.label}
-                    onClick={onClose}
-                    style={{
-                      textAlign: 'center',
-                      fontSize: '18px',
-                      lineHeight: '40px',
-                    }}
-                  />
+                <RouterLink
+                  color="#fff"
+                  disableUnderline
+                  fontSize="20px"
+                  padding="15px 0"
+                  to={linkItem.link}
+                  key={linkItem.id}
+                  onClick={onClose}
+                >
+                  {linkItem.label}
                 </RouterLink>
               ))}
-              <Box height="60px" width="200px">
+              <Box height="60px" width="200px" margin={{ top: 'medium' }}>
                 <ButtonLetsTalk label="Let’s talk 👋" onClickButton={onClose} />
               </Box>
             </Nav>

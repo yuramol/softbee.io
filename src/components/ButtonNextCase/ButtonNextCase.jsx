@@ -1,24 +1,17 @@
 import React from 'react';
+
 import { Box } from 'grommet';
 import { string } from 'prop-types';
 import { RouterLink } from '../../legos/RouterLink';
+import { theme } from '../../utils/theme';
 
 export const ButtonNextCase = ({ url }) => (
-  <Box
-    height="220px"
-    style={{
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: 'nowrap',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}
-  >
+  <Box height="220px" align="center" justify="center">
     <RouterLink
-      style={{
-        fontSize: '48px',
-        lineHeight: '56px',
-      }}
+      lineHeight="72px"
+      fontSize="48px"
+      hoveredColor={theme.global.colors['accent-2']}
+      color={theme.global.colors.brand}
       to={url}
     >
       Next case

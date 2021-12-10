@@ -7,6 +7,8 @@ import { ButtonNextCase } from '../ButtonNextCase/ButtonNextCase';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 import Container from '../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
+import { GridInfo } from './styled';
 
 export const CaseMMO = () => {
   const size = React.useContext(ResponsiveContext);
@@ -18,11 +20,7 @@ export const CaseMMO = () => {
       <Box>
         <Container>
           <Box width="100%" align="center">
-            <Heading
-              level={isMobile ? 4 : 2}
-              color="brand"
-              style={{ textAlign: 'center' }}
-            >
+            <Heading level={isMobile ? 4 : 2} color="brand" textAlign="center">
               Web-site MMO.CAT
             </Heading>
           </Box>
@@ -33,7 +31,6 @@ export const CaseMMO = () => {
                 ? { horizontal: 'large', vertical: 'large' }
                 : { horizontal: 'xlarge', vertical: 'large' }
             }
-            style={isMobile ? { height: 'auto' } : { height: 'auto' }}
             align={textAlignVariant}
           >
             <Box
@@ -51,7 +48,7 @@ export const CaseMMO = () => {
                     <Heading
                       level={5}
                       color="brand"
-                      style={{ lineHeight: '130%' }}
+                      lineHeight="130%"
                       margin={{ vertical: 'xsmall' }}
                     >
                       About client:
@@ -59,17 +56,10 @@ export const CaseMMO = () => {
                   </Box>
 
                   <Box
-                    style={isTablet ? { width: '320px' } : { width: '370px' }}
+                    width={isTablet ? '320px' : '370px'}
                     pad={{ right: 'large' }}
                   >
-                    <Text
-                      size="medium"
-                      color="text-dark-grey"
-                      style={{
-                        fontFamily: 'HelveticaNeueCyr',
-                        lineHeight: '150%',
-                      }}
-                    >
+                    <Text size="medium" color="text-dark-grey">
                       We provided full-stack development service for end-to-end
                       websites of MMO.cat team
                     </Text>
@@ -82,8 +72,7 @@ export const CaseMMO = () => {
               justify="center"
               pad={isMobile ? { horizontal: 'large' } : undefined}
             >
-              <img
-                style={{ height: 'auto', width: '100%' }}
+              <ImgFluid
                 src="/assets/sectionMMO.png"
                 alt="Screenshot of MMO website page "
               />
@@ -91,21 +80,18 @@ export const CaseMMO = () => {
           </Grid>
           {isMobile && (
             <Box align="start" pad={{ horizontal: 'xlarge' }}>
-              <Box style={{ width: '100%' }}>
+              <Box>
                 <Heading
                   level={6}
                   color="brand"
-                  style={{ lineHeight: '130%' }}
+                  lineHeight="130%"
                   margin={{ vertical: 'xsmall' }}
                 >
                   About client:
                 </Heading>
               </Box>
               <Box width="100%">
-                <Text
-                  color="text-dark-grey"
-                  style={{ fontFamily: 'HelveticaNeueCyr', lineHeight: '150%' }}
-                >
+                <Text color="text-dark-grey">
                   We provided full-stack development service for end-to-end
                   websites of MMO.cat team
                 </Text>
@@ -115,27 +101,20 @@ export const CaseMMO = () => {
         </Container>
         <Box
           width="100%"
-          style={isMobile ? { height: '130px' } : { height: '210px' }}
+          height={isMobile ? '130px' : '210px'}
           align="center"
           justify="center"
           margin={isMobile ? { top: '30px' } : undefined}
           background={{ color: '#ff1b60' }}
         >
-          <Grid
+          <GridInfo
             columns={['1/3', '1/3', '1/3']}
-            style={
-              isMobile
-                ? { width: '100%', height: isMobile ? '130px' : '150px' }
-                : { width: 'auto' }
-            }
+            isMobile={isMobile}
             pad="small"
           >
             <Box
-              style={
-                isMobile
-                  ? { width: 'auto', justifyContent: 'center' }
-                  : { width: '250px' }
-              }
+              width={isMobile ? 'auto' : '250px'}
+              justify={isMobile ? 'center' : undefined}
               align="center"
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
@@ -150,18 +129,16 @@ export const CaseMMO = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                style={{ fontWeight: '700', lineHeight: '16px' }}
+                fontWeight="700"
+                lineHeight="16px"
                 margin={{ vertical: 'small' }}
               >
                 React, Vue
               </Heading>
             </Box>
             <Box
-              style={
-                isMobile
-                  ? { width: 'auto', justifyContent: 'center' }
-                  : { width: '250px' }
-              }
+              width={isMobile ? 'auto' : '250px'}
+              justify={isMobile ? 'center' : undefined}
               align="center"
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
@@ -175,18 +152,16 @@ export const CaseMMO = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                style={{ fontWeight: '700', lineHeight: '16px' }}
+                fontWeight="700"
+                lineHeight="16px"
                 margin={{ vertical: 'small' }}
               >
                 JS
               </Heading>
             </Box>
             <Box
-              style={
-                isMobile
-                  ? { width: 'auto', justifyContent: 'center' }
-                  : { width: '250px' }
-              }
+              width={isMobile ? 'auto' : '250px'}
+              justify={isMobile ? 'center' : undefined}
               align="center"
               pad={isMobile ? { horizontal: 'xsmall' } : { horizontal: '2em' }}
             >
@@ -200,18 +175,18 @@ export const CaseMMO = () => {
               <Heading
                 level={isMobile ? undefined : 5}
                 color="white"
-                style={{ fontWeight: '700', lineHeight: '16px' }}
+                fontWeight="700"
+                lineHeight="16px"
                 margin={{ vertical: 'small' }}
               >
                 124 h
               </Heading>
             </Box>
-          </Grid>
+          </GridInfo>
         </Box>
       </Box>
       <Box>
-        <img
-          style={{ width: '100%', height: 'auto' }}
+        <ImgFluid
           src="/assets/backgroundCaseMMO.png"
           alt="Screenshots of MMO.CAT website"
         />
