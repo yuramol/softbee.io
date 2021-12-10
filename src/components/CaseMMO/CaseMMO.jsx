@@ -8,11 +8,7 @@ import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 import Container from '../Layout/Container';
 import { ImgFluid } from '../Layout/ImgFluid';
-import styled from 'styled-components';
-
-const GridInfo = styled(Grid)`
-  width: ${({ isMobile }) => (isMobile ? '100%' : 'auto')};
-`;
+import { GridInfo } from './styled';
 
 export const CaseMMO = () => {
   const size = React.useContext(ResponsiveContext);

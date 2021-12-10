@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { Box, Grid, Heading, ResponsiveContext, Nav } from 'grommet';
+
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { RouterLink } from '../legos/RouterLink';
@@ -11,18 +12,9 @@ import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 import { theme } from '../utils/theme';
-import { flexImgWrapper } from '../utils/globalStyles';
-
 import Container from '../components/Layout/Container';
 import { ImgCover } from '../components/Layout/ImgCover';
-import styled from 'styled-components';
-
-const BlogItem = styled(Box)`
-  max-width: 364px;
-  width: 100%;
-  margin: 0 auto;
-  ${({ bottomFlex }) => bottomFlex && flexImgWrapper(bottomFlex)}
-`;
+import { BlogItem } from './styled';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;

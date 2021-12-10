@@ -1,48 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Box, Header, Grid, Image, Nav, ResponsiveContext } from 'grommet';
-import styled, { css } from 'styled-components';
-import { theme } from '../utils/theme';
-
-import useStickyElement from '../utils/useStickyElement';
+import { Box, Grid, Image, Nav, ResponsiveContext } from 'grommet';
 
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import { ButtonLetsTalk } from './ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../legos/RouterLink';
 import { maxBreakpoints } from '../utils/useBreakpoints';
-
-const StyledLink = styled(Link)`
-  display: flex;
-  align-items: center;
-`;
-
-const headerColor = theme.global.colors.brand;
-
-const StyledHeader = styled(Header)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9;
-  transition: background-color 0.15s ease-in-out;
-
-  ${({ isSticky }) =>
-    isSticky &&
-    css`
-      background-color: ${headerColor};
-    `}
-
-  ${({ isMobile }) =>
-    isMobile &&
-    css`
-      background: ${headerColor};
-      box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px;
-    `}
-`;
-
-const StyledHeaderWrapper = styled(Grid)`
-  transition: padding 0.15s ease;
-`;
+import useStickyElement from '../utils/useStickyElement';
+import { StyledLink, StyledHeader, StyledHeaderWrapper } from './styledHeader';
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },

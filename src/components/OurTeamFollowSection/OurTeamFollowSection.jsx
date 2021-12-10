@@ -1,26 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactMarkdown from 'react-markdown';
-import styled from 'styled-components';
-import { Box, Grid, ResponsiveContext } from 'grommet';
 
-import { theme } from '../../utils/theme';
+import { Box, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
-import { RouterLink } from '../../legos/RouterLink';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
-
-const StyledMarkdown = styled(ReactMarkdown)`
-  a {
-    color: white;
-  }
-`;
-
-const StyledGrid = styled(Grid)`
-  background-color: ${theme.global.colors.brand};
-  box-shadow: ${({ isMobile }) =>
-    isMobile ? '10px 10px 2px 1px #fae79f' : '25px 25px 2px 1px #fae79f'};
-  border-radius: 20px;
-`;
+import { StyledMarkdown, StyledGrid } from './styled';
 
 export const OurTeamFollowSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);

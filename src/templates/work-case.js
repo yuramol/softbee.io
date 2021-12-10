@@ -11,14 +11,9 @@ import { SiteFooter } from '../components/Footer';
 import { Heading } from '../legos/typography/Heading';
 import { Text } from '../legos/typography/Text';
 import { ButtonNextCase } from '../components/ButtonNextCase/ButtonNextCase';
-
 import Container from '../components/Layout/Container';
 import { ImgFluid } from '../components/Layout/ImgFluid';
-import styled from 'styled-components';
-
-const GridInfo = styled(Grid)`
-  width: ${({ isMobile }) => (isMobile ? '100%' : 'auto')};
-`;
+import { GridInfo } from './styled';
 
 const WorkCaseTemplate = ({ data, pageContext, location }) => {
   const {

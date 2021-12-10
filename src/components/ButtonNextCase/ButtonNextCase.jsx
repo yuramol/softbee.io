@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { Box } from 'grommet';
 import { string } from 'prop-types';
 import { RouterLink } from '../../legos/RouterLink';
-import { theme } from '../../utils/theme.js';
+import { theme } from '../../utils/theme';
 
 export const ButtonNextCase = ({ url }) => (
   <Box height="220px" align="center" justify="center">

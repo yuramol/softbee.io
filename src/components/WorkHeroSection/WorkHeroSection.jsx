@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import { Heading } from '../../legos/typography/Heading';
@@ -8,11 +7,6 @@ import { StyledButton } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
-
-//its realy needed ?
-const StyledHeading = styled(Heading)`
-  max-width: unset;
-`;
 
 export const WorkHeroSection = ({
   title,
@@ -66,7 +60,7 @@ export const WorkHeroSection = ({
             margin={isMobile ? { bottom: 'large' } : { paddingVariant }}
           >
             <Box>
-              <StyledHeading
+              <Heading
                 level={headingSize}
                 color="brand"
                 textAlign="start"
@@ -74,7 +68,7 @@ export const WorkHeroSection = ({
                 margin={{ top: 'none' }}
               >
                 {title}
-              </StyledHeading>
+              </Heading>
               <Box pad={{ bottom: 'small' }}>
                 <Text size="medium" color="brand">
                   {subtitle}
