@@ -14,7 +14,7 @@ import {
   StyledText,
   StyledButton,
   StyledFooterInput,
-} from './styledFooter';
+} from './styled';
 import { ArrowIcon } from './ArrowIcon';
 import Container from '../Layout/Container';
 import { dispatch } from '../../utils/useBus';

@@ -7,7 +7,7 @@ import { RouterLink } from '../../legos/RouterLink';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import useStickyElement from '../../utils/useStickyElement';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
-import { StyledLink, StyledHeader, StyledHeaderWrapper } from './styledHeader';
+import { StyledLink, StyledHeader, StyledHeaderWrapper } from './styled';
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },

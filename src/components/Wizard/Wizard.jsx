@@ -11,7 +11,7 @@ import {
   headingSizes,
   StyledHeading,
   NavigationButton,
-} from './styledWizard';
+} from './styled';
 import { sendForm } from '../../utils/useForm';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import { TextInput } from '../../legos/TextInput/TextInput';
