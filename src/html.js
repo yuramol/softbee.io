@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PreloaderLogo } from './PreloaderLogo';
+import { PreloaderLogo } from './legos/PreloaderLogo';
 
 export default function HTML(props) {
   return (
