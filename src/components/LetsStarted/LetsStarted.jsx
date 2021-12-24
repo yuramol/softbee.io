@@ -1,25 +1,21 @@
 import React from 'react';
-import { Box, ResponsiveContext } from 'grommet';
+import { Box } from 'grommet';
 
+import Container from '../Layout/Container';
 import { Wizard } from '../Wizard';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const LetsStarted = () => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('mobile', size);
-  const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'xlarge' }
-    : 'xlarge';
-
   return (
-    <Box
-      direction="row-responsive"
-      justify="center"
-      align="center"
-      pad={paddingVariant}
-      gap="medium"
-    >
-      <Wizard maxWidth="1030px" />
-    </Box>
+    <Container>
+      <Box
+        direction="row-responsive"
+        justify="center"
+        align="center"
+        pad={{ vertical: 'xlarge' }}
+        gap="medium"
+      >
+        <Wizard maxWidth="1000px" />
+      </Box>
+    </Container>
   );
 };
