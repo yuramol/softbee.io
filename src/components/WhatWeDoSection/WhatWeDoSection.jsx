@@ -1,12 +1,10 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import { Box, ResponsiveContext, Grid } from 'grommet';
 
+import Container from '../Layout/Container';
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
-import Container from '../Layout/Container';
 
 export const WhatWeDoSection = ({ title, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
@@ -28,12 +26,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
           : undefined
       }
     >
-      <Container
-        justify="center"
-        align="center"
-        pad={isMobile ? { horizontal: 'large', vertical: 'xlarge' } : 'large'}
-        gap="medium"
-      >
+      <Container justify="center" align="center">
         <Box justify="center" margin={{ horizontal: 'medium' }}>
           <Heading
             textAlign="center"

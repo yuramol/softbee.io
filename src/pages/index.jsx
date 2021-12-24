@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { ResponsiveContext } from 'grommet';
+
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { HomeHeroSection } from '../components/HomeHeroSection/HomeHeroSection';

@@ -53,7 +53,7 @@ export const OurTeamAboutTeam = ({ title, text, list }) => {
           <Box width="100%">
             <Grid
               columns={{ count: columnsCount, size: 'auto' }}
-              pad={{ horizontal: 'small', top: 'xlarge' }}
+              pad={{ top: 'xlarge' }}
               gap={isMobile ? 'medium' : 'xlarge'}
               align="center"
               justify="center"

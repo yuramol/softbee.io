@@ -5,45 +5,40 @@ import { Box, ResponsiveContext } from 'grommet';
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import { StyledMarkdown, StyledGrid } from './styled';
+import Container from '../Layout/Container';
 
 export const OurTeamFollowSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = 1;
   const isMobile = maxBreakpoints('mobile', size);
-  const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'xlarge' }
-    : 'xlarge';
 
   return (
     <Box
       direction="row-responsive"
       justify="center"
       align="center"
-      pad={paddingVariant}
-      gap="medium"
+      pad={{ vertical: 'xlarge' }}
       background={{ color: '#fff' }}
     >
-      <StyledGrid
-        isMobile={isMobile}
-        columns={{ count: columnsCount, size: 'auto' }}
-        pad={
-          !isMobile
-            ? { vertical: 'large', horizontal: 'xlarge' }
-            : { vertical: 'xlarge' }
-        }
-        justify="center"
-        round
-        gap="small"
-      >
-        <Heading
-          color="text-white"
-          level={isMobile ? 5 : 2}
-          textAlign="center"
-          margin={{ vertical: '0' }}
+      <Container align="center">
+        <StyledGrid
+          isMobile={isMobile}
+          columns={{ count: columnsCount, size: 'auto' }}
+          pad={{ vertical: 'large', horizontal: 'xlarge' }}
+          justify="center"
+          round
+          gap="small"
         >
-          <StyledMarkdown>{text}</StyledMarkdown>
-        </Heading>
-      </StyledGrid>
+          <Heading
+            color="text-white"
+            level={isMobile ? 4 : 2}
+            textAlign="center"
+            margin={{ vertical: '0' }}
+          >
+            <StyledMarkdown>{text}</StyledMarkdown>
+          </Heading>
+        </StyledGrid>
+      </Container>
     </Box>
   );
 };

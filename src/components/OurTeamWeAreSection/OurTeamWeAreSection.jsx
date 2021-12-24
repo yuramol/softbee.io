@@ -12,36 +12,22 @@ export const OurTeamWeAreSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
   const isMobile = maxBreakpoints('bMobile', size);
-  const isTablet = maxBreakpoints('tabletOrMobile', size);
 
   return (
-    <Box
-      height="auto"
-      pad={isTablet ? { horizontal: 'medium' } : { horizontal: 'xlarge' }}
-    >
+    <Box height="auto">
       <Container>
         <Grid
           columns={{ count: columnsCount, size: 'auto' }}
-          pad={{ horizontal: 'small', vertical: 'xlarge' }}
-          gap="medium"
+          pad={{ vertical: 'xlarge' }}
+          gap="large"
         >
-          <Box pad={{ horizontal: 'large' }}>
+          <Box>
             <ImgFluid
               src="/assets/sectionHeader.svg"
               alt="People are creating a website"
             />
           </Box>
-          <Box
-            width="100%"
-            height="auto"
-            align="center"
-            justify="center"
-            pad={
-              isTablet
-                ? { horizontal: 'small', vertical: 'large' }
-                : { left: 'xlarge', right: 'large' }
-            }
-          >
+          <Box width="100%" height="auto" align="center" justify="center">
             <Text
               color="brand"
               size={isMobile ? 'small' : 'medium'}

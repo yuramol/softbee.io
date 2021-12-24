@@ -1,15 +1,14 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-
 import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
-import { Heading } from '../../legos/typography/Heading';
-import { RouterLink } from '../../legos/RouterLink';
-import { BlogItem } from './BlogItem';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
+import { BlogItem } from './BlogItem';
+import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
+import { RouterLink } from '../../legos/RouterLink';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 import { theme } from '../../utils/theme';
 
 export const BlogSection = ({ withBackground }) => {
@@ -43,18 +42,13 @@ export const BlogSection = ({ withBackground }) => {
   const posts = data.blogs.edges;
   const size = React.useContext(ResponsiveContext);
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
-  const isTablet = maxBreakpoints('tablet', size);
   const isMobile = maxBreakpoints('mobile', size);
-
   const fontSizeVariant = isMobile ? 6 : 2;
-  const paddingVariant = isMobile
-    ? 'large'
-    : { horizontal: 'xlarge', top: 'xlarge' };
 
   return (
     <Box
       justify="center"
-      height={isTablet ? undefined : '800px'}
+      pad={{ vertical: 'xlarge' }}
       background={
         withBackground
           ? {
@@ -66,15 +60,11 @@ export const BlogSection = ({ withBackground }) => {
       <Container>
         <Grid
           columns={{ count: columnsCount, size: 'auto' }}
-          gap="small"
-          pad={paddingVariant}
+          gap="large"
           justify="center"
         >
           <Box justify="center">
-            <Box
-              pad={isTablet ? { horizontal: 'xsmall', top: 'xlarge' } : 'large'}
-              align="center"
-            >
+            <Box align="center">
               {posts.map((item, index) => {
                 return (
                   <BlogItem
@@ -95,13 +85,12 @@ export const BlogSection = ({ withBackground }) => {
             </Box>
           )}
         </Grid>
-        <Box
-          justify="start"
-          align="center"
-          pad={isTablet ? { bottom: 'xlarge' } : undefined}
-        >
+        <Box justify="start" align="center">
           <RouterLink to="blog">
-            <Heading margin="large" level={fontSizeVariant}>
+            <Heading
+              margin={{ top: 'large', bottom: '0' }}
+              level={fontSizeVariant}
+            >
               <RouterLink
                 to="blog"
                 hoveredColor={theme.global.colors['accent-2']}
