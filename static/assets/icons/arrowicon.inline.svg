@@ -1,6 +1,3 @@
-import React from 'react';
-
-export const ArrowIcon = () => (
   <svg
     width="23"
     height="16"
@@ -19,4 +16,3 @@ export const ArrowIcon = () => (
       fill="currentColor"
     />
   </svg>
-);

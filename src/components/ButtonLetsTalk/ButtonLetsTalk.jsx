@@ -1,9 +1,16 @@
 import React from 'react';
-import { Button } from 'grommet';
 import { string, bool, func } from 'prop-types';
+import { Button } from '../../legos/Button/Button';
 import { dispatch } from '../../utils/useBus';
 
-export const ButtonLetsTalk = ({ label, color, primary, onClick }) => {
+export const ButtonLetsTalk = ({
+  label,
+  primary,
+  color,
+  outline,
+  onClick,
+  colorText,
+}) => {
   const openModal = () => {
     if (onClick) {
       onClick(true);
@@ -13,23 +20,29 @@ export const ButtonLetsTalk = ({ label, color, primary, onClick }) => {
 
   return (
     <Button
+      colorText={colorText}
+      outline={outline}
+      color={color}
       label={label}
       onClick={openModal}
       fill
-      color={color}
       primary={primary}
     />
   );
 };
 
 ButtonLetsTalk.propTypes = {
-  color: string,
   label: string.isRequired,
   primary: bool,
   onClick: func,
+  colorText: string,
+  color: string,
+  outline: bool,
 };
 ButtonLetsTalk.defaultProps = {
-  color: 'accent-1',
   primary: false,
   onClick: null,
+  colorText: undefined,
+  color: 'accent-1',
+  outline: false,
 };

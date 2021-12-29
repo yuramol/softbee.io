@@ -10,20 +10,25 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import {
-  StyledLink,
-  StyledText,
-  StyledButton,
-  StyledFooterInput,
-} from './styled';
-import { ArrowIcon } from './ArrowIcon';
+  IconArrow,
+  IconFacebook,
+  IconInsta,
+  IconLinkedin,
+  IconTelegram,
+  IconTwitter,
+} from '../../legos/Icons';
 import Container from '../Layout/Container';
-import { dispatch } from '../../utils/useBus';
-import { sendSlack } from '../../utils/useSlack';
-import { Text } from '../../legos/typography/Text';
 import Logo from '../../../static/assets/logo.svg';
-import { RouterLink } from '../../legos/RouterLink';
 import { Heading } from '../../legos/typography/Heading';
+import { Paragraph } from '../../legos/typography/Paragraph';
+import { RouterLink } from '../../legos/RouterLink';
+import { StyledLink, StyledButton, SocialLink, StyledText } from './styled';
+import { Text } from '../../legos/typography/Text';
+import { TextInput } from '../../legos/TextInput/TextInput';
+import { dispatch } from '../../utils/useBus';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { sendSlack } from '../../utils/useSlack';
+import { theme } from '../../utils/theme';
 
 const openModalLetsTalk = () => {
   dispatch('letsTalk/open');
@@ -38,7 +43,13 @@ const linkFooterItems = [
 
 export const SiteFooter = () => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('xSmall', size);
+  const isMobile = maxBreakpoints('small', size);
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+
+  const columnsSize = isMobile
+    ? ['2.5rem', '2.5rem']
+    : ['3.125rem', '3.125rem'];
+
   const {
     footerData: { edges },
   } = useStaticQuery(
@@ -70,8 +81,9 @@ export const SiteFooter = () => {
     success,
   } = edges[0].node.frontmatter.footer;
 
-  const columnsCount = isMobile ? 1 : 2;
   const alignVariant = isMobile ? 'center' : 'start';
+  const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
+  const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   const [textSlack, setTextSlack] = useState('');
   const [successSendSlack, setSuccessSendSlack] = useState(false);
@@ -89,90 +101,146 @@ export const SiteFooter = () => {
   };
 
   return (
-    <Footer background="brand" justify="stretch">
+    <Footer background="brand">
       <Container>
         <Grid
-          columns={{ count: columnsCount, size: ['auto', '1fr'] }}
-          gap="medium"
+          columns={columnsCount}
+          gap={gapVariant}
           pad={{ vertical: 'large' }}
         >
-          <Box align={alignVariant}>
-            <StyledLink to="/">
-              <Image
-                src={Logo}
-                alt="Soft Bee"
-                margin={isMobile ? { bottom: 'small' } : { bottom: 'medium' }}
-              />
-            </StyledLink>
+          <Box justify="between">
             <Box
-              width="100%"
-              justify={isMobile ? 'between' : 'stretch'}
-              direction={isMobile ? 'row' : 'column'}
+              direction={isDesktopOrTablet ? 'column' : 'row'}
               align={alignVariant}
-              pad={isMobile ? { vertical: 'none' } : { vertical: 'small' }}
             >
-              {linkFooterItems.map(linkItem =>
-                linkItem.routerLink ? (
-                  <RouterLink to={linkItem.link} key={linkItem.id}>
-                    <StyledText fontSize="18px" lineHeight="40px">
+              <StyledLink to="/">
+                <Image src={Logo} alt="Soft Bee" />
+              </StyledLink>
+              <Box
+                width="100%"
+                justify={isMobile && 'center'}
+                direction="row"
+                gap={isMobile ? '1.2rem' : '1.875rem'}
+                align={alignVariant}
+                margin={{
+                  left: !isDesktopOrTablet && 'xlarge',
+                  top: isDesktopOrTablet && 'medium',
+                }}
+              >
+                {linkFooterItems.map(linkItem =>
+                  linkItem.routerLink ? (
+                    <RouterLink
+                      color="#fff"
+                      fontSize={isMobile ? '1rem' : '1.125rem'}
+                      padding="0 0 0.5rem 0"
+                      disableUnderline
+                      activeColor={theme.global.colors['accent-1']}
+                      to={linkItem.link}
+                      key={linkItem.id}
+                    >
+                      {linkItem.label}
+                    </RouterLink>
+                  ) : (
+                    <StyledText
+                      size={isMobile ? 'medium' : 'large'}
+                      color="#fff"
+                      padding="0 0 0.5rem 0"
+                      key={linkItem.id}
+                      onClick={linkItem.click}
+                    >
                       {linkItem.label}
                     </StyledText>
-                  </RouterLink>
-                ) : (
-                  <StyledText
-                    fontSize="18px"
-                    lineHeight="40px"
-                    key={linkItem.id}
-                    onClick={linkItem.click}
-                  >
-                    {linkItem.label}
-                  </StyledText>
-                ),
-              )}
+                  ),
+                )}
+              </Box>
             </Box>
+            <Grid
+              margin={{
+                top: isMobile && 'large',
+              }}
+              width="100%"
+              justifyContent={isMobile && 'center'}
+              gap={isDesktopOrTablet ? '1rem' : 'large'}
+              columns={{ count: 'fit', size: columnsSize }}
+            >
+              <SocialLink
+                color="#fff"
+                activeColor={theme.global.colors['accent-1']}
+                icon={<IconInsta />}
+                to="/a"
+              />
+              <SocialLink
+                color="#fff"
+                activeColor={theme.global.colors['accent-1']}
+                icon={<IconLinkedin />}
+                to="/d"
+              />
+              <SocialLink
+                color="#fff"
+                activeColor={theme.global.colors['accent-1']}
+                icon={<IconTelegram />}
+                to="/s"
+              />
+              <SocialLink
+                color="#fff"
+                activeColor={theme.global.colors['accent-1']}
+                icon={<IconFacebook />}
+                to="/d"
+              />
+              <SocialLink
+                color="#fff"
+                activeColor={theme.global.colors['accent-1']}
+                icon={<IconTwitter />}
+                to="/w"
+              />
+            </Grid>
           </Box>
-          <Box justify="center" align="start">
+
+          <Box justify="center" align={isMobile && 'center'}>
             <Heading
-              alignSelf="start"
-              level={isMobile ? 3 : 2}
-              margin={
-                isMobile
-                  ? { bottom: 'large' }
-                  : { top: 'small', bottom: 'none' }
-              }
-              fontWeight="400"
+              level={2}
+              textAlign={alignVariant}
+              color="#fff"
+              margin={{ top: 'none', bottom: 'medium' }}
             >
               {title}
             </Heading>
-            <Text alignSelf="start" size="medium" weight="400">
+            <Paragraph
+              size="xlarge"
+              color="#fff"
+              textAlign={alignVariant}
+              margin={{ top: 'none', bottom: 'medium' }}
+            >
               {message}
-            </Text>
+            </Paragraph>
             <Grid
+              justifyContent={isMobile && 'center'}
               columns={{ count: 2, size: ['auto', 'auto'] }}
               fill="horizontal"
-              margin={isMobile ? { top: 'large' } : { top: 'medium' }}
             >
               <Box>
                 {successSendSlack ? (
                   <Text alignSelf="start">{success}</Text>
                 ) : (
-                  <FormField>
-                    <Box>
-                      <StyledFooterInput
-                        onChange={handleTextChange}
-                        value={textSlack}
-                        placeholder={placeholder}
-                        size="medium"
-                      />
-                    </Box>
+                  <FormField margin="none">
+                    <TextInput
+                      onChange={handleTextChange}
+                      value={textSlack}
+                      placeholder={placeholder}
+                      size="xlarge"
+                    />
                   </FormField>
                 )}
               </Box>
-              <Box justify="start" align="start">
-                <StyledButton onClick={send} plain margin={{ left: 'medium' }}>
-                  <ArrowIcon />
-                </StyledButton>
-              </Box>
+
+              <StyledButton
+                plain={false}
+                disabled
+                outline
+                icon={<IconArrow />}
+                onClick={send}
+                margin={{ left: 'medium' }}
+              />
             </Grid>
           </Box>
         </Grid>

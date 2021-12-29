@@ -7,13 +7,7 @@ import { Wizard } from '../Wizard';
 export const LetsStarted = () => {
   return (
     <Container>
-      <Box
-        direction="row-responsive"
-        justify="center"
-        align="center"
-        pad={{ vertical: 'xlarge' }}
-        gap="medium"
-      >
+      <Box justify="center" direction="row" pad={{ bottom: 'xlarge' }}>
         <Wizard maxWidth="1000px" />
       </Box>
     </Container>

@@ -6,19 +6,18 @@ import useBus from '../utils/useBus';
 import { Wizard } from './Wizard/Wizard';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 
-const LayerBoxTalk = styled(Layer)`
-  width: 100%;
-  max-width: 1200px;
-`;
-
 export const LetsTalk = () => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('mobile', size);
+  const isMobile = maxBreakpoints('small', size);
   const [show, setShow] = useState(false);
 
   useBus('letsTalk/open', () => setShow(true));
 
   const hide = () => setShow(false);
+
+  const LayerBoxTalk = styled(Layer)`
+    width: 100%;
+  `;
 
   return (
     <Box>
@@ -28,9 +27,9 @@ export const LetsTalk = () => {
             align="center"
             justify="center"
             height="100%"
-            margin={isMobile ? undefined : { horizontal: '15px' }}
+            margin={{ horizontal: !isMobile && '1rem' }}
           >
-            <Wizard onClose={hide} inModal needBoxShadow={false} />
+            <Wizard maxWidth="1000px" onClose={hide} needBoxShadow={false} />
           </Box>
         </LayerBoxTalk>
       )}

@@ -1,98 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { Box, Grid, ResponsiveContext } from 'grommet';
-
-import { Heading } from '../../legos/typography/Heading';
-import { Text } from '../../legos/typography/Text';
-import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { Box, Grid, ResponsiveContext, Heading } from 'grommet';
 
 import Container from '../Layout/Container';
+import { BoxOrder } from '../../legos/Box/BoxOrder';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
+// import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
+import { Paragraph } from '../../legos/typography/Paragraph';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const HomeHeroSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
-  const isMobile = maxBreakpoints('mobile', size);
+  const isMobile = maxBreakpoints('small', size);
+  const isDense = maxBreakpoints('sTablet', size);
   const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
-  const headingSize = isDesktopOrTablet ? 2 : 1;
-  const textAlignVariant = isMobile ? 'center' : 'start';
-  const headingFontSizeVariant = isMobile ? 3 : 1;
-  const textFontSizeVariant = isMobile ? 'medium' : undefined;
-  const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'xlarge' }
-    : 'xlarge';
+
+  const columnsCount = isDense ? 'full' : ['auto', '1/2'];
+  const textAlignVariant = isDense ? 'center' : 'start';
+  const textFontSizeVariant = isDense ? 'large' : 'xxlarge';
+  const gapvariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   return (
     <Box
-      height={isDesktopOrTablet ? 'auto' : '847px'}
+      pad={{ vertical: 'xlarge' }}
+      height={{ min: isDesktopOrTablet ? 'auto' : '847px' }}
       background={
-        !isDesktopOrTablet
-          ? {
-              size: 'small',
-              position: 'right',
-              image: 'url(/assets/background-home.svg)',
-            }
-          : undefined
+        !isDesktopOrTablet && {
+          size: 'auto',
+          position: 'top right',
+          image: 'url(/assets/background-home.svg)',
+        }
       }
     >
       <Container>
-        <Grid
-          columns={{ count: columnsCount, size: 'auto' }}
-          gap="small"
-          pad={paddingVariant}
-        >
-          {isMobile && (
-            <Box align="center">
-              <ImgFluid
-                src="/assets/sectionHeader.svg"
-                alt="People create a website"
-              />
-            </Box>
-          )}
-          <Box
-            justify="center"
-            align={textAlignVariant}
-            pad={isMobile ? { bottom: 'medium' } : undefined}
-          >
-            <Box pad={{ bottom: 'small' }}>
-              <Heading
-                level={headingFontSizeVariant && headingSize}
-                fontWeight="800"
-                color="brand"
-                textAlign={textAlignVariant}
-              >
-                {title}
-              </Heading>
-            </Box>
-            <Box
-              width="300px"
-              pad={{ bottom: 'large' }}
-              align={textAlignVariant}
+        <Grid columns={columnsCount} gap={gapvariant} align="center">
+          <Box align={textAlignVariant}>
+            <Heading
+              margin={{ bottom: 'large', top: 'none' }}
+              level={1}
+              textAlign={textAlignVariant}
             >
-              <Text
-                size={textFontSizeVariant}
-                lineHeight="32px"
-                whiteSpace="pre-line"
-                color="brand"
-              >
-                {text}
-              </Text>
-            </Box>
+              {title}
+            </Heading>
 
-            <Box justify="center" align="center" height="60px" width="200px">
-              <ButtonLetsTalk label="Let’s talk" color="accent-1" />
+            <Paragraph
+              margin={{ bottom: 'large', top: 'none' }}
+              size={textFontSizeVariant}
+              color="brand"
+            >
+              {text}
+            </Paragraph>
+
+            <Box align-items="center" height="60px" width="200px">
+              <ButtonLetsTalk primary label="Let’s talk" />
             </Box>
           </Box>
-          {isMobile || (
-            <Box align="center" justify="center">
-              <ImgFluid
-                src="/assets/sectionHeader.svg"
-                alt="People create a website"
-              />
-            </Box>
-          )}
+          <BoxOrder order={isDense && '-1'} align="center">
+            <ImgFluid
+              mobileWidth={isMobile && '80%'}
+              src="/assets/sectionHeader.svg"
+              alt="People create a website"
+            />
+          </BoxOrder>
         </Grid>
       </Container>
     </Box>
@@ -102,9 +72,4 @@ export const HomeHeroSection = ({ title, text }) => {
 HomeHeroSection.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  // withBackground: PropTypes.bool,
-};
-
-HomeHeroSection.defaultProps = {
-  // withBackground: undefined,
 };

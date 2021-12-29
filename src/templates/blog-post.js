@@ -35,7 +35,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SiteHeader />
       <Container>
         <Grid
-          columns={{ count: 1 }}
+          //  columns={{ count: 1 }}
           gap="small"
           pad={
             isTablet
@@ -50,7 +50,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <Nav direction="row" justify="between" pad={{ vertical: 'small' }}>
             {previous && (
               <RouterLink
-                hoveredColor={theme.global.colors.brand}
+                //  hoveredColor={theme.global.colors.brand}
                 to={`/blog${previous.fields.slug}`}
                 rel="prev"
               >
@@ -59,7 +59,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             )}
             {next && (
               <RouterLink
-                hoveredColor={theme.global.colors.brand}
+                //  hoveredColor={theme.global.colors.brand}
                 to={`/blog${next.fields.slug}`}
                 rel="next"
               >
