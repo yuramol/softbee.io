@@ -92,18 +92,11 @@ export const SiteFooter = () => {
     <Footer background="brand" justify="stretch">
       <Container>
         <Grid
-          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-          fill="horizontal"
-          pad={isMobile ? 'large' : { vertical: 'large', horizontal: 'xlarge' }}
+          columns={{ count: columnsCount, size: ['auto', '1fr'] }}
+          gap="medium"
+          pad={{ vertical: 'large' }}
         >
-          <Box
-            align={alignVariant}
-            pad={
-              isMobile
-                ? { top: 'medium', right: 'none' }
-                : { left: 'large', right: 'xlarge' }
-            }
-          >
+          <Box align={alignVariant}>
             <StyledLink to="/">
               <Image
                 src={Logo}
@@ -138,15 +131,7 @@ export const SiteFooter = () => {
               )}
             </Box>
           </Box>
-          <Box
-            justify="center"
-            align="start"
-            pad={
-              isMobile
-                ? { vertical: 'large', left: 'none' }
-                : { left: 'xlarge' }
-            }
-          >
+          <Box justify="center" align="start">
             <Heading
               alignSelf="start"
               level={isMobile ? 3 : 2}

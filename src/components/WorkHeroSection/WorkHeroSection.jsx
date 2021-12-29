@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
+import Container from '../Layout/Container';
 import { Heading } from '../../legos/typography/Heading';
 import { StyledButton } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
-import Container from '../Layout/Container';
 
 export const WorkHeroSection = ({
   title,
@@ -27,8 +27,8 @@ export const WorkHeroSection = ({
   const gridColumns = isMobile ? 2 : 1;
   const textFontSizeVariant = isMobile ? 'small' : 'xlarge';
   const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'medium' }
-    : { horizontal: 'xlarge', vertical: 'medium' };
+    ? { vertical: 'medium' }
+    : { vertical: 'medium' };
 
   return (
     <Box

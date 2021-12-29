@@ -3,12 +3,12 @@ import { graphql } from 'gatsby';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
+import { SiteFooter } from '../components/Footer';
 import { SiteHeader } from '../components/Header';
-import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
-import { WorkItemSection } from '../components/Work/WorkItemSection';
 import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
-import { SiteFooter } from '../components/Footer';
+import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
+import { WorkItemSection } from '../components/Work/WorkItemSection';
 
 const WorkPage = ({ location, data }) => {
   const { workPage, homePage, works } = data;

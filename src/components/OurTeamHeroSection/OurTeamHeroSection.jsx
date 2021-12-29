@@ -10,7 +10,7 @@ import { ImgFluid } from '../Layout/ImgFluid';
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = maxBreakpoints('bMobile', size);
-  const isTablet = maxBreakpoints('tabletOrMobile', size);
+  //   const isTablet = maxBreakpoints('tabletOrMobile', size);
   const columnsCount = isMobile ? 1 : 2;
 
   return (
@@ -20,7 +20,7 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
       background={
         size !== 'small' && withBackground
           ? {
-              size: 'small',
+              size: 'contain',
               position: 'bottom right',
               image: isMobile
                 ? undefined
@@ -32,15 +32,8 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
       }
     >
       <Container>
-        <Grid
-          columns={{ count: columnsCount, size: 'auto ' }}
-          gap="small"
-          pad={isMobile ? { horizontal: 'large' } : { horizontal: 'xlarge' }}
-        >
-          <Box
-            justify="center"
-            pad={isTablet ? { horizontal: 'small' } : { horizontal: 'large' }}
-          >
+        <Grid columns={{ count: columnsCount, size: 'auto ' }} gap="medium">
+          <Box justify="center">
             <Heading
               level={1}
               color="brand"

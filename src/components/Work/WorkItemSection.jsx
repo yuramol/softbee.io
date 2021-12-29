@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { useMediaQuery } from 'react-responsive';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
-import { Text } from '../../legos/typography/Text';
-import { Heading } from '../../legos/typography/Heading';
-import { RouterLink } from '../../legos/RouterLink';
-import { theme } from '../../utils/theme';
 import Container from '../Layout/Container';
+import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
+import { RouterLink } from '../../legos/RouterLink';
+import { Text } from '../../legos/typography/Text';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { theme } from '../../utils/theme';
 
 export const WorkItemSection = ({
   path,
@@ -22,22 +20,18 @@ export const WorkItemSection = ({
   reversedGrid,
 }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = size === 'small' ? 1 : 2;
-  const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
+  //   const columnsCount = size === 'small' ? 1 : 2;
+  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
+  const isMobile = maxBreakpoints('small', size);
+  //   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
-  const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'large' }
-    : 'xlarge';
+  const paddingVariant = isMobile ? 'large' : 'xlarge';
 
   const link = `/work/${path}`;
 
   const Info = (
-    <Box
-      justify="center"
-      align={isMobile ? 'center' : 'start'}
-      pad={{ horizontal: 'large' }}
-    >
+    <Box justify="center" align={isMobile ? 'center' : 'start'}>
       <Box pad={{ bottom: 'small' }}>
         <Heading
           level={fontSizeVariant}
@@ -100,7 +94,7 @@ export const WorkItemSection = ({
         <Grid
           columns={{ count: columnsCount, size: ['auto', 'auto'] }}
           gap="large"
-          pad={paddingVariant}
+          pad={{ vertical: paddingVariant }}
         >
           {reversedGrid ? (
             <>
