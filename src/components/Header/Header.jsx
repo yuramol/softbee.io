@@ -3,11 +3,12 @@ import { Link } from 'gatsby';
 import { Box, Grid, Image, Nav, ResponsiveContext } from 'grommet';
 
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
-import { RouterLink } from '../../legos/RouterLink';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
 import useStickyElement from '../../utils/useStickyElement';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
+import { RouterLink } from '../../legos/RouterLink';
 import { StyledLink, StyledHeader, StyledHeaderWrapper } from './styled';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { theme } from '../../utils/theme';
 
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
@@ -41,14 +42,14 @@ export const SiteHeader = () => {
         ) : (
           <StyledHeaderWrapper
             pad={{
-              horizontal: 'large',
-              vertical: isSticky ? '10px' : 'medium',
+              horizontal: isDense ? 'medium' : 'large',
+              vertical: isSticky ? 'small' : 'medium',
             }}
             fill
             rows={['auto', 'flex']}
             columns={['auto', 'flex']}
           >
-            <Box align="start" justify="center" pad={{ right: '150px' }}>
+            <Box align="start" justify="center">
               <Link to="/">
                 <Image
                   src="/assets/logo.svg"
@@ -61,7 +62,15 @@ export const SiteHeader = () => {
               {linkItems.map(linkItem => (
                 <RouterLink
                   padding="10px"
-                  color={isSticky ? '#fff' : undefined}
+                  fontWeight="500"
+                  fontSize="20px"
+                  activeColor={
+                    isSticky
+                      ? theme.global.colors['accent-1']
+                      : theme.global.colors.brand
+                  }
+                  isSticky={isSticky}
+                  color={isSticky ? '#fff' : '#606060'}
                   disableUnderline
                   to={linkItem.link}
                   key={linkItem.id}
@@ -70,10 +79,14 @@ export const SiteHeader = () => {
                 </RouterLink>
               ))}
               <Box
-                height={isSticky ? '50px' : '60px'}
-                width={isDense ? '148px' : '200px'}
+                height={{ min: '50px' }}
+                width={{ min: isDense ? '148px' : '200px' }}
               >
-                <ButtonLetsTalk primary={isSticky} label="Let’s talk 👋" />
+                <ButtonLetsTalk
+                  outline
+                  colorText={isSticky ? '#fff' : '#54575A'}
+                  label="Let’s talk 👋"
+                />
               </Box>
             </Nav>
           </StyledHeaderWrapper>

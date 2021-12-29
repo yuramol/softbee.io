@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
 export const ImgFluid = styled.img`
-  max-width: 100%;
+  max-width: ${({ mobileWidth }) => mobileWidth || '100%'};
   height: auto;
 `;

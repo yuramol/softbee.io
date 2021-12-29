@@ -1,43 +1,20 @@
-import styled, { css } from 'styled-components';
-import { Button, Grid, Text } from 'grommet';
+import styled from 'styled-components';
+import { Box } from 'grommet';
+import { Button } from '../../legos/Button/Button';
 
-export const StyledGrid = styled(Grid)`
-  width: 100%;
-  background-color: #104065;
+export const WrapperWizard = styled(Box)`
   box-shadow: ${props => props.boxShadow};
-  color: #fae79f;
-  border-radius: ${props => props.borderRadius};
-  height: ${({ inModal }) => (inModal ? '100%' : undefined)};
-  max-width: ${({ maxWidth }) => maxWidth};
 `;
-export const StyledHeading = styled(Text)`
-  font-weight: 600;
-  ${props =>
-    props.preLine &&
-    css`
-      white-space: pre-line;
-    `}
-`;
-export const NavigationButton = styled(Button)`
-  height: 42px;
-  display: flex;
-  align-items: center;
-  border-radius: 2px;
-`;
-export const StepButton = styled(Button)`
-  width: 66px;
-  height: 0;
-  margin: 0 7px;
-  padding: 0;
 
-  &:disabled {
-    border-color: #fff;
-    opacity: 1;
+export const ButtonClose = styled(Button)`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+`;
+
+export const NavigationButton = styled(Button)`
+  flex-shrink: 0;
+  &:hover {
+    color: #fff;
   }
 `;
-
-export const headingSizes = {
-  large: '42px',
-  medium: '30px',
-  small: '22px',
-};

@@ -2,18 +2,17 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { ResponsiveContext } from 'grommet';
 
-import { Layout } from '../components/Layout';
-import { SEO } from '../components/SEO';
-import { HomeHeroSection } from '../components/HomeHeroSection/HomeHeroSection';
+// import { BlogSection } from '../components/BlogSection/BlogSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
-import { TeamSection } from '../components/TeamSection/TeamSection';
-import { MMOSection } from '../components/MMOSection/MMOSection';
-import { LookingSection } from '../components/LookingSection/LookingSection';
-import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
+import { HomeHeroSection } from '../components/HomeHeroSection/HomeHeroSection';
+import { Layout } from '../components/Layout';
 import { LetsStarted } from '../components/LetsStarted/LetsStarted';
-import { BlogSection } from '../components/BlogSection/BlogSection';
-import { SiteHeader } from '../components/Header';
+import { MMOSection } from '../components/MMOSection/MMOSection';
+import { SEO } from '../components/SEO';
 import { SiteFooter } from '../components/Footer';
+import { SiteHeader } from '../components/Header';
+import { TeamSection } from '../components/TeamSection/TeamSection';
+import { BoxLookingSection } from '../components/BoxLookingSection/BoxLookingSection';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const IndexPage = ({ location, data }) => {
@@ -45,10 +44,13 @@ const IndexPage = ({ location, data }) => {
       />
       <TeamSection title={team.title} text={team.text} />
       <MMOSection title={mmoCat.title} text={mmoCat.text} withBackground />
-      <LookingSection title={looking.title} text={looking.text} />
-      <WhatWeDoSection title={whatWeDo.title} />
+      <BoxLookingSection
+        titleLooking={looking.title}
+        textLooking={looking.text}
+        titleWeDo={whatWeDo.title}
+      />
       <LetsStarted />
-      <BlogSection withBackground />
+      {/* <BlogSection withBackground /> */}
       <SiteFooter />
     </Layout>
   );

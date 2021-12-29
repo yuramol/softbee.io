@@ -1,22 +1,20 @@
-import { string } from 'yup';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
+import { Box, FormField, ResponsiveContext } from 'grommet';
+import { Close } from 'grommet-icons';
+import { string } from 'yup';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Close, Next, Previous } from 'grommet-icons';
-import { Box, Button, FormField, ResponsiveContext } from 'grommet';
 
-import {
-  StyledGrid,
-  StepButton,
-  headingSizes,
-  StyledHeading,
-  NavigationButton,
-} from './styled';
-import { sendForm } from '../../utils/useForm';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { BoxOrder } from '../../legos/Box/BoxOrder';
+import { Heading } from '../../legos/typography/Heading';
+import { IconArrowStepPrev, IconArrowStepNext } from '../../legos/Icons';
 import { TextInput } from '../../legos/TextInput/TextInput';
+import { WrapperWizard, NavigationButton, ButtonClose } from './styled';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { sendForm } from '../../utils/useForm';
+import { theme } from '../../utils/theme';
 
-export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
+export const Wizard = ({ needBoxShadow, onClose, maxWidth }) => {
   const { data } = useStaticQuery(
     graphql`
       query {
@@ -106,24 +104,25 @@ export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
   };
 
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = 1;
-  const isMobile = maxBreakpoints('mobile', size);
-  const boxShadow = isMobile ? '10px 10px 2px 1px' : '25px 25px 2px 1px';
-
-  const headingSize = headingSizes[size];
+  const isMobile = maxBreakpoints('small', size);
+  const boxShadow = isMobile
+    ? '10px 10px 2px 1px #fae79f'
+    : '25px 25px 2px 1px #fae79f';
 
   return (
-    <StyledGrid
-      columns={{ count: columnsCount, size: 'auto' }}
-      pad={!isMobile ? { vertical: 'medium', horizontal: 'xlarge' } : 'small'}
-      justify="center"
+    <WrapperWizard
+      pad={{ vertical: 'xlarge', horizontal: 'large' }}
       boxShadow={needBoxShadow ? boxShadow : null}
-      round
-      inModal
-      maxWidth={maxWidth}
-      borderRadius={isMobile && inModal ? undefined : '20px'}
-      gap="small"
+      background="brand"
+      justify="center"
+      width={{ max: maxWidth, width: '100%' }}
+      round={!needBoxShadow && isMobile ? undefined : '20px'}
+      height="100%"
     >
+      {onClose && isMobile && (
+        <ButtonClose onClick={onClose} plain icon={<Close color="#fff" />} />
+      )}
+
       <form
         name="lets-started"
         method="post"
@@ -140,91 +139,62 @@ export const Wizard = ({ inModal, needBoxShadow, onClose, maxWidth }) => {
       </form>
       <Box
         width="100%"
-        pad={isMobile ? { vertical: 'xlarge', horizontal: 'medium' } : 'medium'}
-        justify="center"
+        direction="row"
+        wrap={isMobile}
+        align="center"
+        justify={isMobile ? 'center' : 'between'}
       >
-        <StyledHeading
-          justify="center"
-          textAlign="center"
-          size={headingSize}
-          color="white"
-          margin="xsmall"
-          preLine={size === 'large'}
+        <NavigationButton
+          onClick={() => navigate(step - 1)}
+          icon={<IconArrowStepPrev />}
+          margin={{ right: 'medium' }}
+          plain
+          colorText={theme.global.colors['accent-1']}
+          disabled={step === 1}
+        />
+        <BoxOrder
+          margin={{ bottom: isMobile && 'medium' }}
+          order={isMobile && '-1'}
+          width={{ max: isMobile ? '100%' : '660px', width: '100%' }}
         >
-          {currentTitle}
-        </StyledHeading>
-        {currentStep.placeholder && (
-          <>
-            <Box pad={{ top: 'large' }}>
-              <FormField>
-                <TextInput
-                  onChange={handleTextChange}
-                  onKeyDown={handleKeyEvent}
-                  value={formData[step]}
-                  type={currentStep.type || 'text'}
-                  placeholder={currentStep.placeholder}
-                  dropHeight="xlarge"
-                  size="medium"
-                />
-              </FormField>
-            </Box>
-            <Box
-              direction="row"
-              justify="center"
-              margin={{ vertical: isMobile ? 'large' : 'medium' }}
-            >
-              <NavigationButton
-                onClick={() => navigate(step - 1)}
-                label={<Previous color="brand" />}
-                margin={{ right: 'medium' }}
-                color="accent-1"
-                primary
-                disabled={step === 1}
+          <Heading
+            color="#fff"
+            level={2}
+            fill
+            margin={{ top: 'none', bottom: 'medium' }}
+            textAlign={isMobile && 'center'}
+          >
+            {currentTitle}
+          </Heading>
+          {currentStep.placeholder && (
+            <FormField>
+              <TextInput
+                onChange={handleTextChange}
+                onKeyDown={handleKeyEvent}
+                value={formData[step]}
+                type={currentStep.type || 'text'}
+                placeholder={currentStep.placeholder}
+                dropHeight="xlarge"
+                size="large"
               />
-              <NavigationButton
-                onClick={() => navigate(step + 1)}
-                label={<Next color="brand" />}
-                margin={{ left: 'medium' }}
-                color="accent-1"
-                primary
-                disabled={moveForwardIsDisabled}
-              />
-            </Box>
-            <Box direction="row" justify="center" margin={{ top: 'medium' }}>
-              {wizardSteps.map(
-                (s, i) =>
-                  i < wizardSteps.length - 1 && (
-                    <StepButton
-                      onClick={() => navigate(i + 1)}
-                      disabled={step <= i}
-                      color="accent-1"
-                      primary
-                      key={s.title}
-                    />
-                  ),
-              )}
-            </Box>
-          </>
-        )}
-        {onClose && isMobile && (
-          <Box align="center" margin={{ top: '30px' }}>
-            <Button
-              onClick={onClose}
-              label="Close"
-              primary
-              color="accent-1"
-              icon={<Close color="brand" />}
-            />
-          </Box>
-        )}
+            </FormField>
+          )}
+        </BoxOrder>
+        <NavigationButton
+          onClick={() => navigate(step + 1)}
+          icon={<IconArrowStepNext />}
+          plain
+          margin={{ left: 'medium' }}
+          colorText={theme.global.colors['accent-1']}
+          disabled={moveForwardIsDisabled}
+        />
       </Box>
-    </StyledGrid>
+    </WrapperWizard>
   );
 };
 
 Wizard.propTypes = {
   maxWidth: PropTypes.string,
-  inModal: PropTypes.bool,
   needBoxShadow: PropTypes.bool,
   onClose: PropTypes.func,
 };
@@ -232,6 +202,5 @@ Wizard.propTypes = {
 Wizard.defaultProps = {
   maxWidth: undefined,
   needBoxShadow: true,
-  inModal: false,
   onClose: null,
 };

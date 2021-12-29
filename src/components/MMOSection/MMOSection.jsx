@@ -1,40 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
-import { Heading } from '../../legos/typography/Heading';
-import { Text } from '../../legos/typography/Text';
-import { RouterLink } from '../../legos/RouterLink';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
-import { theme } from '../../utils/theme';
 import Container from '../Layout/Container';
+import { BoxOrder } from '../../legos/Box/BoxOrder';
+import { Button } from '../../legos/Button/Button';
+import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
+import { Paragraph } from '../../legos/typography/Paragraph';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const MMOSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
-  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
-  const isMobile = maxBreakpoints('mobile', size);
+  const isMobile = maxBreakpoints('small', size);
   const isTablet = maxBreakpoints('desktopOrTablet', size);
-  const textAlignVariant = isMobile ? 'center' : 'start';
-  const headerLevel = isMobile ? 4 : 2;
-  const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'xlarge' }
-    : 'xlarge';
+  const isTabletIpad = maxBreakpoints('tablet', size);
+
+  const columnsCount = isTabletIpad ? 'full' : ['auto', '1/3'];
+  const textFontSizeVariant = isMobile ? 'large' : 'xlarge';
+  const textAlignVariant = isTabletIpad ? 'center' : 'start';
+  const gapVariant = isTablet ? 'medium' : 'large';
 
   return (
     <Box
-      height={isMobile ? '850px' : '800px'}
+      pad={{ vertical: 'xlarge' }}
+      height={{ min: isTablet ? undefined : '800px' }}
       justify="center"
       background={
         withBackground
           ? {
-              size: 'small',
-              position: 'absolute',
-              image: !shouldHaveBlueFigure
-                ? 'url(/assets/mmoBackground.svg)'
-                : undefined,
+              size: 'contain',
+              position: 'left top',
+              image: !isTablet && 'url(/assets/mmoBackground.svg)',
               color: '#f0f6f4',
             }
           : {
@@ -43,90 +40,69 @@ export const MMOSection = ({ title, text, withBackground }) => {
       }
     >
       <Container>
-        <Grid
-          columns={{ count: columnsCount, size: 'auto' }}
-          gap={isTablet ? 'large' : 'medium'}
-          pad={paddingVariant}
-        >
-          {isMobile || (
-            <Box direction="row" justify="center" align="center">
-              <Box
-                justify="center"
-                align="start"
-                margin={{ left: 'xsmall', right: 'medium' }}
-              >
+        <Grid columns={columnsCount} gap={gapVariant} align="center">
+          <Box direction="row" justify="center" align="center">
+            <Box>
+              <picture>
+                <source srcSet="/assets/sectionMMO.webp" type="image/webp" />
                 <ImgFluid
-                  src="/assets/sectionMMO.webp"
-                  alt="screenshot of MMO website page"
-                />
-              </Box>
-              <Box justify="center" pad={{ left: 'large' }}>
-                <ImgFluid
-                  src="/assets/sectionMMOMini.webp"
+                  src="/assets/sectionMMO.png"
                   alt="screenshot of MMO website page, mobile version"
                 />
-              </Box>
+              </picture>
             </Box>
-          )}
-          <Box
-            justify="center"
-            pad={isTablet ? undefined : { left: 'xlarge', right: 'xlarge' }}
-            align={textAlignVariant}
-          >
-            <Box>
-              <Heading
-                level={headerLevel}
-                color="brand"
-                textAlign={textAlignVariant}
-              >
-                {title}
-              </Heading>
-            </Box>
-            <Box width="491px" pad={{ bottom: 'small' }}>
-              <Box pad={{ bottom: 'large' }}>
-                <Text
-                  size="medium"
-                  color="text-dark-grey"
-                  textAlign={textAlignVariant}
-                  whiteSpace="pre-line"
-                >
-                  {text}
-                </Text>
-              </Box>
-              {isMobile || (
-                <RouterLink
-                  hoveredColor={theme.global.colors.brand}
-                  to="/mmo-case"
-                >
-                  See case study
-                </RouterLink>
-              )}
+            <Box pad={{ left: 'medium' }}>
+              <picture>
+                <source
+                  srcSet="/assets/sectionMMOMini.webp"
+                  type="image/webp"
+                />
+                <ImgFluid
+                  src="/assets/sectionMMOMini.png"
+                  alt="screenshot of MMO website page, mobile version"
+                />
+              </picture>
             </Box>
           </Box>
-          {isMobile && (
-            <Box direction="column" gap="medium" justify="end" align="center">
-              <Box align="center">
-                <ImgFluid
-                  src="/assets/sectionMMOMini.webp"
-                  alt="screenshot of MMO website page, mobile version"
-                />
+
+          <BoxOrder
+            order={isTabletIpad && '-1'}
+            justify="center"
+            align={textAlignVariant}
+          >
+            <Heading
+              margin={{ bottom: 'large', top: 'none' }}
+              level={2}
+              textAlign={textAlignVariant}
+            >
+              {title}
+            </Heading>
+
+            <Paragraph
+              margin={{
+                bottom: isTabletIpad ? 'none' : 'large',
+                top: 'none',
+              }}
+              size={textFontSizeVariant}
+              color="text-dark-grey"
+            >
+              {text}
+            </Paragraph>
+
+            {isTabletIpad || (
+              <Box height={{ min: '60px' }} width={{ min: '244px' }}>
+                <Button primary fill label="See case study" href="/mmo-case" />
               </Box>
-              <Box>
-                <ImgFluid
-                  src="/assets/sectionMMO.webp"
-                  alt="screenshot of MMO website page"
-                />
-              </Box>
-            </Box>
-          )}
-          {isMobile && (
-            <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-              <RouterLink
-                hoveredColor={theme.global.colors.brand}
-                to="/mmo-case"
-              >
-                See case study
-              </RouterLink>
+            )}
+          </BoxOrder>
+
+          {isTabletIpad && (
+            <Box
+              margin={{ horizontal: 'auto' }}
+              height={{ min: '60px' }}
+              width={{ min: '244px' }}
+            >
+              <Button primary fill label="See case study" href="/mmo-case" />
             </Box>
           )}
         </Grid>

@@ -1,41 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
 
-import { Text } from '../../legos/typography/Text';
-import { Heading } from '../../legos/typography/Heading';
-import { RouterLink } from '../../legos/RouterLink';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
 import Container from '../Layout/Container';
+import { Button } from '../../legos/Button/Button';
+import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
-import { theme } from '../../utils/theme';
+import { Paragraph } from '../../legos/typography/Paragraph';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const GapNurseSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const shouldHaveBlueFigure = maxBreakpoints('desktopOrTablet', size);
-  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
-  const isMobile = maxBreakpoints('mobile', size);
-  const isTablet = maxBreakpoints('tabletOrMobile', size);
+  const isMobile = maxBreakpoints('small', size);
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+
+  const columnsCount = isMobile ? 'full' : ['auto', '58.33333%'];
   const heightSection = withBackground ? '700px' : '800px';
   const textAlignVariant = isMobile ? 'center' : 'start';
-  const fontSizeVariant = isMobile ? 4 : 2;
-  const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'large' }
-    : 'xlarge';
+  const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
+  const textFontSizeVariant = isMobile ? 'large' : 'xlarge';
 
   return (
     <Box
-      height={isTablet ? undefined : heightSection}
-      justify="center"
+      pad={{ vertical: 'xlarge' }}
+      height={{ min: isDesktopOrTablet ? undefined : heightSection }}
       background={
         withBackground
           ? {
-              size: 'small',
+              size: 'auto',
               position: 'top right',
-              image: !shouldHaveBlueFigure
-                ? 'url(/assets/background-gapNurse.svg)'
-                : undefined,
+              image:
+                !isDesktopOrTablet && 'url(/assets/background-gapNurse.svg)',
+
               color: '#f0f6f4',
             }
           : {
@@ -44,67 +40,74 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
       }
     >
       <Container>
-        <Grid
-          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-          gap="large"
-          pad={paddingVariant}
-        >
-          <Box
-            justify="center"
-            align={isMobile ? 'center' : 'start'}
-            pad={{ horisontal: 'large' }}
-          >
-            <Box pad={{ bottom: 'small' }}>
-              <Heading
-                level={fontSizeVariant}
-                color="brand"
-                textAlign={textAlignVariant}
-              >
-                {title}
-              </Heading>
-            </Box>
-            <Box
-              pad={
-                isMobile
-                  ? { bottom: 'medium', horizontal: 'medium' }
-                  : { bottom: 'medium' }
-              }
+        <Grid columns={columnsCount} gap={gapVariant} align="center">
+          <Box align={isMobile ? 'center' : 'start'}>
+            <Heading
+              margin={{ bottom: 'large', top: 'none' }}
+              level={2}
+              textAlign={textAlignVariant}
             >
-              <Text size="medium" color="text-dark-grey" whiteSpace="pre-line">
-                {text}
-              </Text>
-            </Box>
+              {title}
+            </Heading>
+
+            <Paragraph
+              margin={{ bottom: isMobile ? 'none' : 'large', top: 'none' }}
+              size={textFontSizeVariant}
+              color="text-dark-grey"
+            >
+              {text}
+            </Paragraph>
+
             {isMobile || (
-              <RouterLink
-                hoveredColor={theme.global.colors.brand}
-                to="/gapnurse-case"
-              >
-                See case study
-              </RouterLink>
+              <Box height={{ min: '60px' }} width={{ min: '244px' }}>
+                <Button
+                  href="/gapnurse-case"
+                  label="See case study"
+                  primary
+                  fill
+                />
+              </Box>
             )}
           </Box>
-          <Grid columns={{ count: 2, size: 'auto' }}>
-            <Box align="center" justify="center">
+          <Box
+            justify={isMobile ? 'center' : 'between'}
+            gap="small"
+            direction="row"
+            align="center"
+          >
+            <Box align={isMobile && 'center'}>
               <ImgFluid
-                src="/assets/PhoneGapNurse.webp"
+                mobileWidth={isMobile && '80%'}
+                src="/assets/PhoneGapNurse.svg"
                 alt="The iphone that shows the application GapNurse"
               />
             </Box>
-            <Box align="center" justify="center">
-              <ImgFluid
-                src="/assets/PhoneGapNurse2.webp"
-                alt="The iphone that shows the application GapNurse"
-              />
+            <Box align={isMobile && 'center'}>
+              <picture>
+                <source
+                  srcSet="/assets/PhoneGapNurse2new.webp"
+                  type="image/webp"
+                />
+                <ImgFluid
+                  mobileWidth={isMobile && '80%'}
+                  src="/assets/PhoneGapNurse2.png"
+                  alt="The iphone that shows the application GapNurse"
+                />
+              </picture>
             </Box>
-          </Grid>
+          </Box>
           {isMobile && (
-            <Box align="center" pad={{ top: 'medium', bottom: 'xlarge' }}>
-              <RouterLink
-                hoveredColor={theme.global.colors.brand}
-                to="/gapnurse-case"
-              >
-                See case study
-              </RouterLink>
+            <Box
+              margin={{ horizontal: 'auto' }}
+              height={{ min: '60px' }}
+              width={{ min: '244px' }}
+            >
+              <Button
+                href="/gapnurse-case"
+                label="See case study"
+                primary
+                fill
+              />
             </Box>
           )}
         </Grid>

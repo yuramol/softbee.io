@@ -3,13 +3,20 @@ import { Header, Grid } from 'grommet';
 import styled, { css } from 'styled-components';
 
 import { theme } from '../../utils/theme';
+import { RouterLink } from '../../legos/RouterLink';
+
+const headerColor = theme.global.colors.brand;
 
 export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+  color: ${({ isActive, isSticky }) =>
+    isActive && !isSticky ? headerColor : '#606060'};
 `;
 
-const headerColor = theme.global.colors.brand;
+export const HeaderLink = styled(RouterLink)`
+  color: ${({ isSticky }) => isSticky && '#fff'};
+`;
 
 export const StyledHeader = styled(Header)`
   position: fixed;
