@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext, Heading } from 'grommet';
+import { Box, Grid, ResponsiveContext } from 'grommet';
 
 import Container from '../Layout/Container';
-import { BoxOrder } from '../../legos/Box/BoxOrder';
-import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
-// import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
-import { Paragraph } from '../../legos/typography/Paragraph';
+import { BoxOrder } from '../../legos/Box/BoxOrder';
+import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { Paragraph } from '../../legos/typography/Paragraph';
+import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 export const HomeHeroSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
