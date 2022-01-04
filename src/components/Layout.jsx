@@ -7,7 +7,6 @@ import { theme } from '../utils/theme';
 
 import { LetsTalk } from './LetsTalk';
 import { maxBreakpoints } from '../utils/useBreakpoints';
-import { GlobalStyle } from '../utils/globalStyles';
 
 export const Layout = ({ children, withBackground }) => {
   const image = size =>
@@ -17,7 +16,6 @@ export const Layout = ({ children, withBackground }) => {
 
   return (
     <Grommet theme={theme}>
-      <GlobalStyle />
       <ResponsiveContext.Consumer>
         {size => (
           <Box
