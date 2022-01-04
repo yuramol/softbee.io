@@ -7,20 +7,42 @@ import { theme } from '../utils/theme';
 import { hoveredLink } from '../utils/globalStyles';
 
 const StyledLink = styled(LibLink)`
-  transition: color 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
+  font-weight: ${({ fontWeight }) => fontWeight};
   font-size: ${({ fontSize }) => fontSize};
   line-height: ${({ lineHeight }) => lineHeight};
-  color: ${({ color, isActive }) => (isActive ? 'red' : color)};
+  color: ${({ color, isActive, activeColor }) =>
+    isActive ? activeColor : color};
   padding: ${({ padding }) => padding};
   ${({ disableUnderline }) =>
     disableUnderline &&
     css`
       text-decoration: none;
     `}
-  ${({ hoveredColor }) => hoveredColor && hoveredLink(hoveredColor)}
+  ${({ activeColor }) => activeColor && hoveredLink(activeColor)}
+
+${({ isActive, activeColor }) =>
+  isActive &&
+  css`
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: ${activeColor};
+    }
+  `}
 `;
 
-export const RouterLink = ({ to, children, ...props }) => {
+export const RouterLink = ({ to, children, icon, ...props }) => {
+  const Icon = icon || null;
+
   const [isActive, setIsActive] = useState(false);
 
   const activeLink = ({ isCurrent }) => {
@@ -31,6 +53,7 @@ export const RouterLink = ({ to, children, ...props }) => {
     // eslint-disable-next-line react/jsx-props-no-spreading
     <StyledLink isActive={isActive} getProps={activeLink} to={to} {...props}>
       {children}
+      {Icon && <span> {Icon}</span>}
     </StyledLink>
   );
 };
@@ -39,9 +62,11 @@ RouterLink.propTypes = {
   color: PropTypes.string,
   to: PropTypes.string.isRequired,
   disableUnderline: PropTypes.bool,
+  icon: PropTypes.func,
 };
 
 RouterLink.defaultProps = {
   color: theme.global.colors['accent-2'],
   disableUnderline: false,
+  icon: null,
 };

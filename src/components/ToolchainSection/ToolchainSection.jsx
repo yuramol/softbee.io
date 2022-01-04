@@ -24,14 +24,15 @@ export const ToolchainSection = ({ toolchain }) => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = maxBreakpoints('xSmall', size);
   const headerLevel = isMobile ? 6 : 5;
-  const paddingVariant = isMobile
-    ? { horizontal: 'large', vertical: 'large' }
-    : 'xlarge';
+  const paddingVariant = isMobile ? 'large' : 'xlarge';
 
   return (
     <Box>
       <Container>
-        <Grid rows={{ count: 2, size: ['auto', 'flex'] }} pad={paddingVariant}>
+        <Grid
+          rows={{ count: 2, size: ['auto', 'flex'] }}
+          pad={{ vertical: paddingVariant }}
+        >
           <Box align="center">
             <Heading
               textAlign="center"
@@ -46,7 +47,7 @@ export const ToolchainSection = ({ toolchain }) => {
             {toolchain.map(({ id, logo, name }) => (
               <Box
                 key={id}
-                height="250px"
+                //  height="250px"
                 width="150px"
                 pad={{ horizontal: 'medium' }}
               >
@@ -56,6 +57,7 @@ export const ToolchainSection = ({ toolchain }) => {
 
                 <Heading
                   level={headerLevel}
+                  lineHeight="1.2"
                   alignSelf="center"
                   color="brand"
                   textAlign="center"

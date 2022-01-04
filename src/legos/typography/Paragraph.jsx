@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text as LibText } from 'grommet';
+import { Paragraph as LibParagraph } from 'grommet';
 
-const StyledText = styled(LibText)`
+const StyledParagraph = styled(LibParagraph)`
   line-height: ${({ lineHeight }) => lineHeight};
   white-space: ${({ whiteSpace }) => whiteSpace};
-  padding: ${({ padding }) => padding};
 `;
-export const Text = ({ children, ...props }) => (
+export const Paragraph = ({ children, ...props }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <StyledText fill {...props}>
+  <StyledParagraph fill responsive {...props}>
     {children}
-  </StyledText>
+  </StyledParagraph>
 );

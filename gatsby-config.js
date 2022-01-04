@@ -98,11 +98,18 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        custom: {
-          families: ['Gilroy', 'HelveticaNeueCyr'],
-          urls: ['/fonts/fonts.css'],
+        // eslint-disable-next-line no-useless-escape
+        fonts: [`Poppins\:300,400,500,600,700`],
+        display: 'swap',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
         },
       },
     },

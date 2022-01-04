@@ -7,7 +7,6 @@ import { theme } from '../utils/theme';
 
 import { LetsTalk } from './LetsTalk';
 import { maxBreakpoints } from '../utils/useBreakpoints';
-import { GlobalStyle } from '../utils/globalStyles';
 
 export const Layout = ({ children, withBackground }) => {
   const image = size =>
@@ -17,33 +16,30 @@ export const Layout = ({ children, withBackground }) => {
 
   return (
     <Grommet theme={theme}>
-      <GlobalStyle />
       <ResponsiveContext.Consumer>
         {size => (
-          <Box align="center">
-            <Box
-              fill
-              pad={{
-                top: maxBreakpoints('small', size) ? '58px' : '108px',
-              }}
-              background={
-                withBackground
-                  ? {
-                      size: 'small',
-                      position: 'absolute',
-                      image: image(size),
-                      color: '#f0f6f4',
-                    }
-                  : {
-                      size: 'small',
-                      position: 'top left',
-                      image: image(size),
-                    }
-              }
-            >
-              {children}
-              <LetsTalk />
-            </Box>
+          <Box
+            fill
+            pad={{
+              top: maxBreakpoints('small', size) ? '58px' : '98px',
+            }}
+            background={
+              withBackground
+                ? {
+                    size: 'auto',
+                    position: 'top left',
+                    image: image(size),
+                    color: '#f0f6f4',
+                  }
+                : {
+                    size: maxBreakpoints('sTablet', size) ? '35%' : 'auto',
+                    position: 'top left',
+                    image: image(size),
+                  }
+            }
+          >
+            {children}
+            <LetsTalk />
           </Box>
         )}
       </ResponsiveContext.Consumer>

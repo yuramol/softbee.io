@@ -24,7 +24,7 @@ const Blog = ({ data, location }) => {
       <SiteHeader />
       <Container>
         <Grid
-          columns={{ count: 1 }}
+          //  columns={{ count: 1 }}
           gap="small"
           pad={
             isTablet
