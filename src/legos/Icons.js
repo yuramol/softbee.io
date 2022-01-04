@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-default */
 export {
   default as IconArrow,
 } from '../../static/assets/icons/arrowicon.inline.svg';
