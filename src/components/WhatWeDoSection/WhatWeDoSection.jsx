@@ -32,7 +32,6 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
         >
           {title}
         </Heading>
-
         <Grid
           columns={{ count: isMobile ? 2 : 4, size: 'auto' }}
           gap="medium"
@@ -44,7 +43,6 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               src="/assets/icons/research.svg"
               alt="Research"
             />
-
             <Heading
               level={3}
               fontWeight="700"
@@ -60,7 +58,6 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               src="/assets/icons/design.svg"
               alt="Desing"
             />
-
             <Heading
               level={3}
               fontWeight="700"
@@ -76,7 +73,6 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               src="/assets/icons/build.svg"
               alt="Arrows"
             />
-
             <Heading
               level={3}
               fontWeight="700"
@@ -92,7 +88,6 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               src="/assets/icons/support.svg"
               alt="Small gears"
             />
-
             <Heading
               level={3}
               fontWeight="700"
@@ -107,6 +102,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
     </Box>
   );
 };
+
 WhatWeDoSection.propTypes = {
   title: PropTypes.string.isRequired,
   withBackground: PropTypes.bool,
