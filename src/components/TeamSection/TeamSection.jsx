@@ -37,7 +37,6 @@ export const TeamSection = ({ title, text }) => {
           >
             {title}
           </Heading>
-
           <Paragraph
             margin={{ bottom: 'large', top: 'none' }}
             whiteSpace="pre-line"
@@ -46,7 +45,6 @@ export const TeamSection = ({ title, text }) => {
           >
             {text}
           </Paragraph>
-
           <Box
             margin={{ horizontal: isMobile && 'auto' }}
             height={{ min: '60px' }}
