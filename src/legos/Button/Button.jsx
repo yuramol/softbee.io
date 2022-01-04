@@ -14,7 +14,6 @@ export const StyledButton = styled(LibButton)`
   border-radius: 0.625rem;
   color: ${({ colorText }) => colorText || theme.global.colors.brand};
 
-
   ${({ primary }) =>
     primary &&
     css`
