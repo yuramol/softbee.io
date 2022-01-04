@@ -4,12 +4,12 @@ const encode = data => {
     .join('&');
 };
 
-export const sendForm = (formName, input, callback = () => {}) => {
-  fetch('/', {
+export const sendForm = (formName, input) => {
+  return fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({ 'form-name': formName, ...input }),
   })
-    .then(() => callback())
-    .catch(error => console.log(error));
+    .then(response => response)
+    .catch(error => error);
 };

@@ -3,11 +3,13 @@ import {
   Grid,
   Image,
   Footer,
+  Form,
   FormField,
   ResponsiveContext,
 } from 'grommet';
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import {
   IconArrow,
@@ -28,6 +30,7 @@ import { TextInput } from '../../legos/TextInput/TextInput';
 import { dispatch } from '../../utils/useBus';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 import { sendSlack } from '../../utils/useSlack';
+import { sendForm } from '../../utils/useForm';
 import { theme } from '../../utils/theme';
 
 const openModalLetsTalk = () => {
@@ -85,19 +88,42 @@ export const SiteFooter = () => {
   const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
-  const [textSlack, setTextSlack] = useState('');
+  const reCaptchaRef = React.createRef();
+
+  const [formValue, setFormValue] = useState({});
+  const [isMsgNotEmpty, setMsgNotEmpty] = useState(false);
+  const [isReCaptchaCheck, setReCaptchaCheck] = useState(false);
   const [successSendSlack, setSuccessSendSlack] = useState(false);
 
-  const handleTextChange = e => {
-    setTextSlack(e.target.value);
+  const onChangeForm = value => {
+    setFormValue(value);
+    setMsgNotEmpty(
+      Object.keys(value).length !== 0 && value.textSlack.length > 20,
+    );
   };
-  const send = () => {
-    if (textSlack.length > 3) {
-      sendSlack(textSlack);
+
+  const onSubmitForm = async ({ value }) => {
+    const reCaptchaToken = reCaptchaRef.current.getValue();
+
+    const res = await sendForm('slack-form', {
+      'g-recaptcha-response': reCaptchaToken,
+      ...value,
+    });
+
+    if (!res.redirected && res.ok) {
+      sendSlack(value.textSlack);
+      setFormValue({});
+      setMsgNotEmpty(false);
+      setReCaptchaCheck(false);
       setSuccessSendSlack(true);
-      setTextSlack('');
-      setTimeout(() => setSuccessSendSlack(false), 3000);
+      setTimeout(() => {
+        setSuccessSendSlack(false);
+      }, 5000);
     }
+  };
+
+  const onChangeReCaptcha = value => {
+    setReCaptchaCheck(value !== null);
   };
 
   return (
@@ -213,35 +239,51 @@ export const SiteFooter = () => {
             >
               {message}
             </Paragraph>
-            <Grid
-              justifyContent={isMobile && 'center'}
-              columns={{ count: 2, size: ['auto', 'auto'] }}
-              fill="horizontal"
-            >
-              <Box>
-                {successSendSlack ? (
-                  <Text alignSelf="start">{success}</Text>
-                ) : (
-                  <FormField margin="none">
-                    <TextInput
-                      onChange={handleTextChange}
-                      value={textSlack}
-                      placeholder={placeholder}
-                      size="xlarge"
-                    />
-                  </FormField>
-                )}
-              </Box>
 
-              <StyledButton
-                plain={false}
-                disabled
-                outline
-                icon={<IconArrow />}
-                onClick={send}
-                margin={{ left: 'medium' }}
-              />
-            </Grid>
+            <Form
+              name="slack-form"
+              value={formValue}
+              onChange={onChangeForm}
+              onSubmit={onSubmitForm}
+              data-netlify="true"
+              data-netlify-recaptcha="true"
+            >
+              <Grid
+                justifyContent={isMobile && 'center'}
+                columns={{ count: 2, size: ['auto', 'auto'] }}
+                fill="horizontal"
+              >
+                <Box>
+                  {successSendSlack ? (
+                    <Text alignSelf="start">{success}</Text>
+                  ) : (
+                    <>
+                      <FormField>
+                        <TextInput
+                          name="textSlack"
+                          placeholder={placeholder}
+                          size="xlarge"
+                        />
+                      </FormField>
+                      <ReCAPTCHA
+                        ref={reCaptchaRef}
+                        onChange={onChangeReCaptcha}
+                        sitekey="6LfDpSIdAAAAADCDsN9ssiA59NDd-y-I3Z-1uNGI"
+                      />
+                    </>
+                  )}
+                </Box>
+
+                <StyledButton
+                  type="submit"
+                  disabled={!isMsgNotEmpty || !isReCaptchaCheck}
+                  plain={false}
+                  outline
+                  icon={<IconArrow />}
+                  margin={{ left: 'medium' }}
+                />
+              </Grid>
+            </Form>
           </Box>
         </Grid>
       </Container>
