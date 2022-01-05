@@ -40,6 +40,7 @@ letsTalk: We’re designers, developers, illustrators, copywriters and coders, b
   work with us while we need the money.
 follow: Follow us on
   [Medium](https://medium.com/front-end-weekly/loading-components-asynchronously-in-react-app-with-an-hoc-61ca27c4fda7)
+  and don’t forget to [Hire the team](https://www.upwork.com/ag/softbee/)
 ---
 
 
