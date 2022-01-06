@@ -9,6 +9,8 @@ const useStickyElement = (defaultSticky = false) => {
       setIsSticky(window.pageYOffset > elRef.current.offsetHeight);
     };
 
+    toggleSticky();
+
     window.addEventListener('scroll', toggleSticky);
     return () => {
       window.removeEventListener('scroll', toggleSticky);
