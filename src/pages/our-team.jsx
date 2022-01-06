@@ -29,7 +29,7 @@ const WorkPage = ({ location, data }) => {
         text={members.text}
         list={members.list}
       />
-      <OurTeamWeAreSection text={letsTalk} />
+      <OurTeamWeAreSection text={letsTalk.text} title={letsTalk.title} />
       <OurTeamFollowSection text={follow} />
       <SiteFooter />
     </Layout>
@@ -63,7 +63,10 @@ export const pageQuery = graphql`
                 photo
               }
             }
-            letsTalk
+            letsTalk {
+              title
+              text
+            }
             follow
           }
         }

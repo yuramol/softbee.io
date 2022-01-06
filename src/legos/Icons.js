@@ -22,3 +22,6 @@ export {
 export {
   default as IconArrowStepPrev,
 } from '../../static/assets/icons/arrowStepPrev.inline.svg';
+export {
+  default as IconArrowDown,
+} from '../../static/assets/icons/arrowDown.inline.svg';
