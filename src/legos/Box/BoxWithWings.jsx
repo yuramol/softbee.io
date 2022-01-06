@@ -1,7 +1,7 @@
 import { Box } from 'grommet';
 import styled, { css } from 'styled-components';
 
-export const BoxSection = styled(Box)`
+export const BoxWithWings = styled(Box)`
   position: relative;
   ${({ isdesktopOrTablet }) =>
     !isdesktopOrTablet &&
@@ -14,6 +14,7 @@ export const BoxSection = styled(Box)`
         top: 0;
         height: 100%;
         width: 8%;
+        max-width: 175px;
       }
 
       &::after {

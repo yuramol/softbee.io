@@ -118,13 +118,13 @@ export const SiteFooter = () => {
               </StyledLink>
               <Box
                 width="100%"
-                justify={isMobile && 'center'}
+                justify={isMobile ? 'center' : undefined}
                 direction="row"
                 gap={isMobile ? '1.2rem' : '1.875rem'}
                 align={alignVariant}
                 margin={{
-                  left: !isDesktopOrTablet && 'xlarge',
-                  top: isDesktopOrTablet && 'medium',
+                  left: !isDesktopOrTablet ? 'xlarge' : undefined,
+                  top: isDesktopOrTablet ? 'medium' : undefined,
                 }}
               >
                 {linkFooterItems.map(linkItem =>
@@ -156,10 +156,10 @@ export const SiteFooter = () => {
             </Box>
             <Grid
               margin={{
-                top: isMobile && 'large',
+                top: isMobile ? 'large' : undefined,
               }}
               width="100%"
-              justifyContent={isMobile && 'center'}
+              justifyContent={isMobile ? 'center' : undefined}
               gap={isDesktopOrTablet ? '1rem' : 'large'}
               columns={{ count: 'fit', size: columnsSize }}
             >
@@ -196,7 +196,7 @@ export const SiteFooter = () => {
             </Grid>
           </Box>
 
-          <Box justify="center" align={isMobile && 'center'}>
+          <Box justify="center" align={isMobile ? 'center' : undefined}>
             <Heading
               level={2}
               textAlign={alignVariant}
@@ -214,7 +214,7 @@ export const SiteFooter = () => {
               {message}
             </Paragraph>
             <Grid
-              justifyContent={isMobile && 'center'}
+              justifyContent={isMobile ? 'center' : undefined}
               columns={{ count: 2, size: ['auto', 'auto'] }}
               fill="horizontal"
             >

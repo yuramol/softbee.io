@@ -27,7 +27,7 @@ export const LetsTalk = () => {
             align="center"
             justify="center"
             height="100%"
-            margin={{ horizontal: !isMobile && '1rem' }}
+            margin={{ horizontal: !isMobile ? '1rem' : undefined }}
           >
             <Wizard maxWidth="1000px" onClose={hide} needBoxShadow={false} />
           </Box>

@@ -22,7 +22,7 @@ export const TeamSection = ({ title, text }) => {
   return (
     <Container pad={{ vertical: 'xlarge' }}>
       <Grid columns={columnsCount} gap={gapVariant} align="center">
-        <Box align={isMobile && 'center'}>
+        <Box align={isMobile ? 'center' : undefined}>
           <ImgFluid
             mobileWidth={isMobile && '80%'}
             src="/assets/section.svg"
@@ -46,7 +46,7 @@ export const TeamSection = ({ title, text }) => {
             {text}
           </Paragraph>
           <Box
-            margin={{ horizontal: isMobile && 'auto' }}
+            margin={{ horizontal: isMobile ? 'auto' : undefined }}
             height={{ min: '60px' }}
             width={{ min: '260px' }}
           >

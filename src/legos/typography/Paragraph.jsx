@@ -4,6 +4,7 @@ import { Paragraph as LibParagraph } from 'grommet';
 
 const StyledParagraph = styled(LibParagraph)`
   line-height: ${({ lineHeight }) => lineHeight};
+  font-weight: ${({ fontWeight }) => fontWeight};
   white-space: ${({ whiteSpace }) => whiteSpace};
 `;
 export const Paragraph = ({ children, ...props }) => (
