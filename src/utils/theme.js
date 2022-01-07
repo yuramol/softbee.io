@@ -24,7 +24,7 @@ export const theme = {
     elevation: {
       light: {
         custom: '0 0 30px 10px #e5e5e5',
-        yellowPCShadow: '25px 25px 2px 1px #fae79f',
+        yellowDesktopShadow: '25px 25px 2px 1px #fae79f',
         yellowMobileShadow: '10px 10px 2px 1px #fae79f',
       },
     },

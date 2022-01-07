@@ -39,7 +39,7 @@ export const OurTeamFollowSection = ({ text }) => {
     >
       <Container align="center">
         <Box
-          elevation={isMobile ? 'yellowMobileShadow' : 'yellowPCShadow'}
+          elevation={isMobile ? 'yellowMobileShadow' : 'yellowDesktopShadow'}
           background="brand"
           width={{ max: '1000px', width: '100%' }}
           pad={{
