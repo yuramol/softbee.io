@@ -8,7 +8,7 @@ import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
 
-export const OurTeamWeAreSection = ({ text, title }) => {
+export const OurTeamWeAreSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
   const isMobile = maxBreakpoints('small', size);
   const isDense = maxBreakpoints('sTablet', size);
