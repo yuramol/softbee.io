@@ -14,6 +14,14 @@ export const StyledButton = styled(LibButton)`
   border-radius: 0.625rem;
   color: ${({ colorText }) => colorText || theme.global.colors.brand};
 
+  ${({ hoveredIconBtn }) =>
+    hoveredIconBtn &&
+    css`
+      &:hover {
+        color: ${hoveredIconBtn};
+      }
+    `};
+
   ${({ primary }) =>
     primary &&
     css`

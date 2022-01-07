@@ -1,45 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
+import { ResponsiveContext, Box } from 'grommet';
 
-import { Box, ResponsiveContext } from 'grommet';
+import Container from '../Layout/Container';
+import { BoxWithWings } from '../../legos/Box/BoxWithWings';
 import { Heading } from '../../legos/typography/Heading';
 import { maxBreakpoints } from '../../utils/useBreakpoints';
-import { StyledMarkdown, StyledGrid } from './styled';
-import Container from '../Layout/Container';
+import { theme } from '../../utils/theme';
+
+const StyledMarkdown = styled(ReactMarkdown)`
+  a {
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: ${theme.global.colors['accent-1']};
+    }
+  }
+`;
 
 export const OurTeamFollowSection = ({ text }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = 1;
-  const isMobile = maxBreakpoints('mobile', size);
+  const isMobile = maxBreakpoints('small', size);
+  const isdesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const isTablet = maxBreakpoints('sTablet', size);
+
+  const padVariant = !isdesktopOrTablet ? 'xlarge' : 'large';
 
   return (
-    <Box
-      direction="row-responsive"
+    <BoxWithWings
+      background="text-white"
+      isdesktopOrTablet={isdesktopOrTablet}
+      pad={{ vertical: isdesktopOrTablet ? 'xlarge' : '8.75rem' }}
       justify="center"
-      align="center"
-      pad={{ vertical: 'xlarge' }}
-      background={{ color: '#fff' }}
+      height={{ min: !isdesktopOrTablet ? '900px' : undefined }}
     >
       <Container align="center">
-        <StyledGrid
-          isMobile={isMobile}
-          columns={{ count: columnsCount, size: 'auto' }}
-          pad={{ vertical: 'large', horizontal: 'xlarge' }}
-          justify="center"
-          round
-          gap="small"
+        <Box
+          elevation={isMobile ? 'yellowMobileShadow' : 'yellowDesktopShadow'}
+          background="brand"
+          width={{ max: '1000px', width: '100%' }}
+          pad={{
+            vertical: padVariant,
+            horizontal: padVariant,
+          }}
+          round="20px"
         >
           <Heading
             color="text-white"
-            level={isMobile ? 4 : 2}
+            level={3}
+            size={isTablet ? '2.125rem' : '2.5rem'}
+            fontWeight="400"
             textAlign="center"
-            margin={{ vertical: '0' }}
+            margin={{ vertical: 'none' }}
           >
             <StyledMarkdown>{text}</StyledMarkdown>
           </Heading>
-        </StyledGrid>
+        </Box>
       </Container>
-    </Box>
+    </BoxWithWings>
   );
 };
 

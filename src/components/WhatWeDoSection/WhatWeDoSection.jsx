@@ -18,9 +18,11 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
     <Box
       pad={{ vertical: 'xlarge' }}
       background={
-        withBackground && {
-          color: '#f0f6f4',
-        }
+        withBackground
+          ? {
+              color: '#f0f6f4',
+            }
+          : undefined
       }
     >
       <Container>
@@ -47,7 +49,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               level={3}
               fontWeight="700"
               margin={{ left: 'medium', vertical: 'none' }}
-              size={isXsmall && '1rem'}
+              size={isXsmall ? '1rem' : undefined}
             >
               Research
             </Heading>
@@ -62,7 +64,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               level={3}
               fontWeight="700"
               margin={{ left: 'medium', vertical: 'none' }}
-              size={isXsmall && '1rem'}
+              size={isXsmall ? '1rem' : undefined}
             >
               Design
             </Heading>
@@ -77,7 +79,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               level={3}
               fontWeight="700"
               margin={{ left: 'medium', vertical: 'none' }}
-              size={isXsmall && '1rem'}
+              size={isXsmall ? '1rem' : undefined}
             >
               Build
             </Heading>
@@ -92,7 +94,7 @@ export const WhatWeDoSection = ({ title, withBackground }) => {
               level={3}
               fontWeight="700"
               margin={{ left: 'medium', vertical: 'none' }}
-              size={isXsmall && '1rem'}
+              size={isXsmall ? '1rem' : undefined}
             >
               Support
             </Heading>

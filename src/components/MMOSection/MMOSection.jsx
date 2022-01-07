@@ -31,7 +31,7 @@ export const MMOSection = ({ title, text, withBackground }) => {
           ? {
               size: 'contain',
               position: 'left top',
-              image: !isTablet && 'url(/assets/mmoBackground.svg)',
+              image: !isTablet ? 'url(/assets/mmoBackground.svg)' : undefined,
               color: '#f0f6f4',
             }
           : {
@@ -44,9 +44,13 @@ export const MMOSection = ({ title, text, withBackground }) => {
           <Box direction="row" justify="center" align="center">
             <Box>
               <picture>
-                <source srcSet="/assets/sectionMMO.webp" type="image/webp" />
+                <source
+                  srcSet="/assets/sectionMMO.webp, /assets/sectionMMO@2x.webp 2x"
+                  type="image/webp"
+                />
                 <ImgFluid
                   src="/assets/sectionMMO.png"
+                  srcSet="/assets/sectionMMO@2x.png 2x"
                   alt="screenshot of MMO website page, mobile version"
                 />
               </picture>
@@ -54,10 +58,11 @@ export const MMOSection = ({ title, text, withBackground }) => {
             <Box pad={{ left: 'medium' }}>
               <picture>
                 <source
-                  srcSet="/assets/sectionMMOMini.webp"
+                  srcSet="/assets/sectionMMOMini.webp, /assets/sectionMMOMini@2x.webp 2x"
                   type="image/webp"
                 />
                 <ImgFluid
+                  srcSet="/assets/sectionMMOMini@2x.png 2x"
                   src="/assets/sectionMMOMini.png"
                   alt="screenshot of MMO website page, mobile version"
                 />
@@ -66,7 +71,7 @@ export const MMOSection = ({ title, text, withBackground }) => {
           </Box>
 
           <BoxOrder
-            order={isTabletIpad && '-1'}
+            order={isTabletIpad ? '-1' : undefined}
             justify="center"
             align={textAlignVariant}
           >

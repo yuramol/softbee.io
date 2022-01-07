@@ -26,7 +26,7 @@ export const Layout = ({ children, withBackground }) => {
             background={
               withBackground
                 ? {
-                    size: 'auto',
+                    size: maxBreakpoints('sTablet', size) ? '35%' : 'auto',
                     position: 'top left',
                     image: image(size),
                     color: '#f0f6f4',

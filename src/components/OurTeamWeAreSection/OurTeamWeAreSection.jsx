@@ -1,54 +1,62 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Box, Grid, ResponsiveContext } from 'grommet';
-import { Text } from '../../legos/typography/Text';
-import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
-import Container from '../Layout/Container';
-import { ImgFluid } from '../Layout/ImgFluid';
 
-export const OurTeamWeAreSection = ({ text }) => {
+import Container from '../Layout/Container';
+import { Heading } from '../../legos/typography/Heading';
+import { ImgFluid } from '../Layout/ImgFluid';
+import { Paragraph } from '../../legos/typography/Paragraph';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
+
+export const OurTeamWeAreSection = ({ title, text }) => {
   const size = React.useContext(ResponsiveContext);
-  const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
-  const isMobile = maxBreakpoints('bMobile', size);
+  const isMobile = maxBreakpoints('small', size);
+  const isDense = maxBreakpoints('sTablet', size);
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+
+  const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
+  const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
+  const textFontSizeVariant = isDense ? 'large' : 'xlarge';
+  const textAlignVariant = isMobile ? 'center' : undefined;
 
   return (
-    <Box height="auto">
+    <Box
+      height={{ min: isDesktopOrTablet ? undefined : '800px' }}
+      pad={{ vertical: 'xlarge' }}
+      justify="center"
+      background={{
+        size: 'contain',
+        position: 'left top',
+        image: !isDesktopOrTablet
+          ? 'url(/assets/mmoBackground.svg)'
+          : undefined,
+      }}
+    >
       <Container>
-        <Grid
-          columns={{ count: columnsCount, size: 'auto' }}
-          pad={{ vertical: 'xlarge' }}
-          gap="large"
-        >
-          <Box>
+        <Grid columns={columnsCount} gap={gapVariant} align="center">
+          <Box align={isMobile ? 'center' : undefined}>
             <ImgFluid
-              src="/assets/sectionHeader.svg"
+              mobileWidth={isMobile && '80%'}
+              src="/assets/ourTeamAboutSection.svg"
               alt="People are creating a website"
             />
           </Box>
-          <Box width="100%" height="auto" align="center" justify="center">
-            <Text
-              color="brand"
-              size={isMobile ? 'small' : 'medium'}
-              align="center"
+          <Box>
+            <Heading
+              level={2}
+              margin={{ top: 'none', bottom: 'large' }}
+              textAlign={textAlignVariant}
+            >
+              {title}
+            </Heading>
+            <Paragraph
+              size={textFontSizeVariant}
               whiteSpace="pre-line"
+              color="brand"
+              margin={{ top: 'none', bottom: 'none' }}
             >
               {text}
-            </Text>
-            <Box
-              justify="center"
-              align="center"
-              height="50px"
-              width="194px"
-              margin={{ top: '50px' }}
-            >
-              <ButtonLetsTalk
-                label="Let’s talk4   &#128075;"
-                color="accent-1"
-                primary
-              />
-            </Box>
+            </Paragraph>
           </Box>
         </Grid>
       </Container>
@@ -57,5 +65,6 @@ export const OurTeamWeAreSection = ({ text }) => {
 };
 
 OurTeamWeAreSection.propTypes = {
+  title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };

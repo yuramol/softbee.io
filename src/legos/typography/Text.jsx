@@ -9,7 +9,5 @@ const StyledText = styled(LibText)`
 `;
 export const Text = ({ children, ...props }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
-  <StyledText fill {...props}>
-    {children}
-  </StyledText>
+  <StyledText {...props}>{children}</StyledText>
 );
