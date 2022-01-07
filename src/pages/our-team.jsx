@@ -29,7 +29,7 @@ const WorkPage = ({ location, data }) => {
         text={members.text}
         list={members.list}
       />
-      <OurTeamWeAreSection text={letsTalk.text} title={letsTalk.title} />
+      <OurTeamWeAreSection title={letsTalk.title} text={letsTalk.text} />
       <OurTeamFollowSection text={follow} />
       <SiteFooter />
     </Layout>
