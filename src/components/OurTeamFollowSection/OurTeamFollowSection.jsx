@@ -27,7 +27,7 @@ export const OurTeamFollowSection = ({ text }) => {
   const isdesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
   const isTablet = maxBreakpoints('sTablet', size);
 
-  const paddVariant = !isdesktopOrTablet ? 'xlarge' : 'large';
+  const padVariant = !isdesktopOrTablet ? 'xlarge' : 'large';
 
   return (
     <BoxWithWings
@@ -43,8 +43,8 @@ export const OurTeamFollowSection = ({ text }) => {
           background="brand"
           width={{ max: '1000px', width: '100%' }}
           pad={{
-            vertical: paddVariant,
-            horizontal: paddVariant,
+            vertical: padVariant,
+            horizontal: padVariant,
           }}
           round="20px"
         >
