@@ -65,6 +65,6 @@ export const OurTeamWeAreSection = ({ title, text }) => {
 };
 
 OurTeamWeAreSection.propTypes = {
-  text: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
