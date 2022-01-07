@@ -153,8 +153,8 @@ export const Wizard = ({ needBoxShadow, onClose, maxWidth }) => {
           disabled={step === 1}
         />
         <BoxOrder
-          margin={{ bottom: isMobile && 'medium' }}
-          order={isMobile && '-1'}
+          margin={{ bottom: isMobile ? 'medium' : undefined }}
+          order={isMobile ? '-1' : undefined}
           width={{ max: isMobile ? '100%' : '660px', width: '100%' }}
         >
           <Heading
@@ -162,7 +162,7 @@ export const Wizard = ({ needBoxShadow, onClose, maxWidth }) => {
             level={2}
             fill
             margin={{ top: 'none', bottom: 'medium' }}
-            textAlign={isMobile && 'center'}
+            textAlign={isMobile ? 'center' : undefined}
           >
             {currentTitle}
           </Heading>

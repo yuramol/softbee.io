@@ -29,8 +29,9 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
           ? {
               size: 'auto',
               position: 'top right',
-              image:
-                !isDesktopOrTablet && 'url(/assets/background-gapNurse.svg)',
+              image: !isDesktopOrTablet
+                ? 'url(/assets/background-gapNurse.svg)'
+                : undefined,
 
               color: '#f0f6f4',
             }
@@ -75,22 +76,30 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
             direction="row"
             align="center"
           >
-            <Box align={isMobile && 'center'}>
-              <ImgFluid
-                mobileWidth={isMobile && '80%'}
-                src="/assets/PhoneGapNurse.svg"
-                alt="The iphone that shows the application GapNurse"
-              />
-            </Box>
-            <Box align={isMobile && 'center'}>
+            <Box align={isMobile ? 'center' : undefined}>
               <picture>
                 <source
-                  srcSet="/assets/PhoneGapNurse2new.webp"
+                  srcSet="/assets/PhoneGapNurse.webp, /assets/PhoneGapNurse@2x.webp 2x"
+                  type="image/webp"
+                />
+                <ImgFluid
+                  mobileWidth={isMobile && '80%'}
+                  srcSet="/assets/PhoneGapNurse@2x.png 2x"
+                  src="/assets/PhoneGapNurse.png"
+                  alt="The iphone that shows the application GapNurse"
+                />
+              </picture>
+            </Box>
+            <Box align={isMobile ? 'center' : undefined}>
+              <picture>
+                <source
+                  srcSet="/assets/PhoneGapNurse2.webp, /assets/PhoneGapNurse2@2x.webp 2x"
                   type="image/webp"
                 />
                 <ImgFluid
                   mobileWidth={isMobile && '80%'}
                   src="/assets/PhoneGapNurse2.png"
+                  srcSet="/assets/PhoneGapNurse2@2x.png 2x"
                   alt="The iphone that shows the application GapNurse"
                 />
               </picture>

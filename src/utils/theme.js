@@ -24,9 +24,12 @@ export const theme = {
     elevation: {
       light: {
         custom: '0 0 30px 10px #e5e5e5',
+        yellowDesktopShadow: '25px 25px 2px 1px #fae79f',
+        yellowMobileShadow: '10px 10px 2px 1px #fae79f',
       },
     },
     breakpoints: {
+      extraSmall: { value: 576 },
       xSmall: { value: 700 },
       small: { value: 768 },
       mobile: { value: 780 },
@@ -134,7 +137,7 @@ export const theme = {
       },
       4: {
         font: {
-          weight: 500,
+          weight: 400,
         },
         medium: {
           size: '1.5rem',

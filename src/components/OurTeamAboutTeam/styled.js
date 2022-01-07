@@ -6,8 +6,8 @@ import { flexImgWrapper } from '../../utils/globalStyles';
 export const CardTeam = styled(Grid)`
   width: 100%;
   overflow: hidden;
-  box-shadow: rgba(200, 200, 200, 0.3) 0 0 22px;
-  border-radius: 20px;
+  border-radius: ${({ isMobileSmall }) =>
+    isMobileSmall ? '0.9rem' : '1.25rem'};
 
   &::before {
     content: '';
@@ -17,10 +17,8 @@ export const CardTeam = styled(Grid)`
     user-select: none;
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 56.77%,
-      rgba(255, 255, 255, 0.650602) 78.12%,
-      #ffffff 100%
+      rgba(16, 64, 101, 0) 64.06%,
+      #104065 89.06%
     );
   }
 `;

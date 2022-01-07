@@ -12,10 +12,15 @@ collections:
     folder: content/blog
     create: true
     fields:
-      - { label: Template Key, name: templateKey, widget: hidden, default: blogItem }
+      - {
+          label: Template Key,
+          name: templateKey,
+          widget: hidden,
+          default: blogItem,
+        }
       - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
-      - { name: image, logo: Image, widget: image}
+      - { name: image, logo: Image, widget: image }
       - { name: title, label: Title }
       - { name: description, label: Description }
       - { name: body, label: Body, widget: markdown }
@@ -25,15 +30,31 @@ collections:
     identifier_field: path
     create: true
     fields:
-      - { label: Template Key, name: templateKey, widget: hidden, default: workItem }
+      - {
+          label: Template Key,
+          name: templateKey,
+          widget: hidden,
+          default: workItem,
+        }
       - { name: path, label: Path }
       - { name: order, label: Order, widget: number }
       - { name: title, label: Title }
       - { name: text, label: Text, widget: text }
       - { label: Logo, name: logo, widget: image }
-      - { label: Display two images, name: displayTwoImages, widget: boolean, default: true, required: false }
+      - {
+          label: Display two images,
+          name: displayTwoImages,
+          widget: boolean,
+          default: true,
+          required: false,
+        }
       - { label: Thumbnail, name: thumbnail, widget: image }
-      - { label: Thumbnail second, name: thumbnailSecond, widget: image, required: false }
+      - {
+          label: Thumbnail second,
+          name: thumbnailSecond,
+          widget: image,
+          required: false,
+        }
       - { label: Color, name: color, widget: color, allowInput: true }
       - { label: Technologies, name: technologies }
       - { label: Languages, name: languages }
@@ -52,7 +73,12 @@ collections:
         name: common
         label: Common
         fields:
-          - { label: Template Key, name: templateKey, widget: hidden, default: common }
+          - {
+              label: Template Key,
+              name: templateKey,
+              widget: hidden,
+              default: common,
+            }
           - label: Footer
             name: footer
             widget: object
@@ -69,7 +95,11 @@ collections:
                 widget: list
                 fields:
                   - { label: Title, name: title, widget: text }
-                  - { label: Input placeholder, name: placeholder, widget: string }
+                  - {
+                      label: Input placeholder,
+                      name: placeholder,
+                      widget: string,
+                    }
               - label: Thank you
                 name: submission
                 widget: text
@@ -77,7 +107,12 @@ collections:
         name: home
         label: Home
         fields:
-          - { label: Template Key, name: templateKey, widget: hidden, default: home }
+          - {
+              label: Template Key,
+              name: templateKey,
+              widget: hidden,
+              default: home,
+            }
           - label: Meta
             name: meta
             widget: object
@@ -123,7 +158,12 @@ collections:
         name: team
         label: Our team
         fields:
-          - { label: Template Key, name: templateKey, widget: hidden, default: team }
+          - {
+              label: Template Key,
+              name: templateKey,
+              widget: hidden,
+              default: team,
+            }
           - label: Meta
             name: meta
             widget: object
@@ -151,7 +191,10 @@ collections:
                   - { label: Photo, name: photo, widget: image }
           - label: Let's talk
             name: letsTalk
-            widget: text
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
           - label: Follow
             name: follow
             widget: markdown
@@ -159,7 +202,12 @@ collections:
         name: work
         label: Work
         fields:
-          - { label: Template Key, name: templateKey, widget: hidden, default: work }
+          - {
+              label: Template Key,
+              name: templateKey,
+              widget: hidden,
+              default: work,
+            }
           - label: Meta
             name: meta
             widget: object
@@ -173,11 +221,15 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Subtitle, name: subtitle, widget: string }
               - { label: Text, name: text, widget: text }
-              - { label: What we do, name: whatWeDo, widget: list, field: { label: Name, name: name, widget: string } }
+              - {
+                  label: What we do,
+                  name: whatWeDo,
+                  widget: list,
+                  field: { label: Name, name: name, widget: string },
+                }
           - label: Toolchain
             name: toolchain
             widget: list
             fields:
               - { label: Logo, name: logo, widget: image }
               - { label: Name, name: name, widget: string }
-

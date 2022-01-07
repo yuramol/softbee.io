@@ -1,65 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid, ResponsiveContext } from 'grommet';
-import { Heading } from '../../legos/typography/Heading';
-import { Text } from '../../legos/typography/Text';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+
 import Container from '../Layout/Container';
+import { BoxOrder } from '../../legos/Box/BoxOrder';
+import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
+import { Paragraph } from '../../legos/typography/Paragraph';
+import { maxBreakpoints } from '../../utils/useBreakpoints';
 
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('bMobile', size);
-  //   const isTablet = maxBreakpoints('tabletOrMobile', size);
-  const columnsCount = isMobile ? 1 : 2;
+  const isMobile = maxBreakpoints('small', size);
+  const isDense = maxBreakpoints('sTablet', size);
+  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+
+  const columnsCount = isDense ? 'full' : ['auto', '58.33333%'];
+  const textAlignVariant = isDense ? 'center' : undefined;
+  const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
+  const textFontSizeVariant = isDense ? 'large' : 'xxlarge';
 
   return (
     <Box
-      height="auto"
       pad={{ vertical: 'xlarge' }}
+      justify="center"
+      height={{ min: isDesktopOrTablet ? 'auto' : '800px' }}
       background={
-        size !== 'small' && withBackground
-          ? {
-              size: 'contain',
-              position: 'bottom right',
-              image: isMobile
-                ? undefined
-                : 'url(/assets/background-ourTeam.svg)',
-            }
-          : {
-              color: '#fff',
-            }
+        size !== 'small' &&
+        withBackground && {
+          size: 'contain',
+          position: 'bottom right',
+          image: !isDesktopOrTablet
+            ? 'url(/assets/background-ourTeam.svg)'
+            : undefined,
+        }
       }
     >
       <Container>
-        <Grid columns={{ count: columnsCount, size: 'auto ' }} gap="medium">
-          <Box justify="center">
+        <Grid columns={columnsCount} gap={gapVariant} align="center">
+          <Box>
             <Heading
               level={1}
-              color="brand"
-              fontWeight="700"
-              fontSize={isMobile ? '24px' : undefined}
-              textAlign={isMobile ? 'center' : undefined}
-              margin={{ vertical: '5px' }}
+              textAlign={textAlignVariant}
+              margin={{ top: 'none', bottom: 'large' }}
             >
               {title}
             </Heading>
-            <Text
-              size={isMobile ? 'small' : 'medium'}
+            <Paragraph
+              margin={{ bottom: 'none', top: 'none' }}
+              textAlign={textAlignVariant}
+              size={textFontSizeVariant}
               color="brand"
-              whiteSpace="pre-line"
-              textAlign={isMobile ? 'center' : undefined}
             >
               {text}
-            </Text>
+            </Paragraph>
           </Box>
 
-          <Box justify="center">
+          <BoxOrder order={isDense ? '-1' : undefined} align="center">
             <ImgFluid
+              mobileWidth={isMobile && '80%'}
               src="/assets/ourTeamHerosection.svg"
               alt="A group of people are developing a web site"
             />
-          </Box>
+          </BoxOrder>
         </Grid>
       </Container>
     </Box>
