@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { BoxOrder } from '../../legos/Box/BoxOrder';
 import { Heading } from '../../legos/typography/Heading';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 import { Paragraph } from '../../legos/typography/Paragraph';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 export const HomeHeroSection = ({ title, text }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isDense = maxBreakpoints('sTablet', size);
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isMobile, isSTablet, isDesktopOrTablet } = useBreakpoint();
 
-  const columnsCount = isDense ? 'full' : ['auto', '1/2'];
-  const textAlignVariant = isDense ? 'center' : 'start';
-  const textFontSizeVariant = isDense ? 'large' : 'xxlarge';
+  const columnsCount = isSTablet ? 'full' : ['auto', '1/2'];
+  const textAlignVariant = isSTablet ? 'center' : 'start';
+  const textFontSizeVariant = isSTablet ? 'large' : 'xxlarge';
   const gapvariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   return (
@@ -58,7 +55,7 @@ export const HomeHeroSection = ({ title, text }) => {
               <ButtonLetsTalk primary label="Let’s talk" />
             </Box>
           </Box>
-          <BoxOrder order={isDense ? '-1' : undefined} align="center">
+          <BoxOrder order={isSTablet ? '-1' : undefined} align="center">
             <ImgFluid
               mobileWidth={isMobile && '80%'}
               src="/assets/sectionHeader.svg"

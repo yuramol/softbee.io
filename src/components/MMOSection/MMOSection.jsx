@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { BoxOrder } from '../../legos/Box/BoxOrder';
@@ -8,30 +8,29 @@ import { Button } from '../../legos/Button/Button';
 import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const MMOSection = ({ title, text, withBackground }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isTablet = maxBreakpoints('desktopOrTablet', size);
-  const isTabletIpad = maxBreakpoints('tablet', size);
+  const { isMobile, isDesktopOrTablet, isTablet } = useBreakpoint();
 
-  const columnsCount = isTabletIpad ? 'full' : ['auto', '1/3'];
+  const columnsCount = isTablet ? 'full' : ['auto', '1/3'];
   const textFontSizeVariant = isMobile ? 'large' : 'xlarge';
-  const textAlignVariant = isTabletIpad ? 'center' : 'start';
-  const gapVariant = isTablet ? 'medium' : 'large';
+  const textAlignVariant = isTablet ? 'center' : 'start';
+  const gapVariant = isDesktopOrTablet ? 'medium' : 'large';
 
   return (
     <Box
       pad={{ vertical: 'xlarge' }}
-      height={{ min: isTablet ? undefined : '800px' }}
+      height={{ min: isDesktopOrTablet ? undefined : '800px' }}
       justify="center"
       background={
         withBackground
           ? {
               size: 'contain',
               position: 'left top',
-              image: !isTablet ? 'url(/assets/mmoBackground.svg)' : undefined,
+              image: !isDesktopOrTablet
+                ? 'url(/assets/mmoBackground.svg)'
+                : undefined,
               color: '#f0f6f4',
             }
           : {
@@ -71,7 +70,7 @@ export const MMOSection = ({ title, text, withBackground }) => {
           </Box>
 
           <BoxOrder
-            order={isTabletIpad ? '-1' : undefined}
+            order={isTablet ? '-1' : undefined}
             justify="center"
             align={textAlignVariant}
           >
@@ -85,7 +84,7 @@ export const MMOSection = ({ title, text, withBackground }) => {
 
             <Paragraph
               margin={{
-                bottom: isTabletIpad ? 'none' : 'large',
+                bottom: isTablet ? 'none' : 'large',
                 top: 'none',
               }}
               size={textFontSizeVariant}
@@ -94,14 +93,14 @@ export const MMOSection = ({ title, text, withBackground }) => {
               {text}
             </Paragraph>
 
-            {isTabletIpad || (
+            {isTablet || (
               <Box height={{ min: '60px' }} width={{ min: '244px' }}>
                 <Button primary fill label="See case study" href="/mmo-case" />
               </Box>
             )}
           </BoxOrder>
 
-          {isTabletIpad && (
+          {isTablet && (
             <Box
               margin={{ horizontal: 'auto' }}
               height={{ min: '60px' }}

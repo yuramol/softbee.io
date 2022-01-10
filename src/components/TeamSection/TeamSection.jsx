@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { Button } from '../../legos/Button/Button';
 import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const TeamSection = ({ title, text }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isMobile, isDesktopOrTablet } = useBreakpoint();
 
   const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
   const textAlignVariant = isMobile ? 'center' : 'start';

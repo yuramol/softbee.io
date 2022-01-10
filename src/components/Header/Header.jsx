@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Box, Grid, Image, Nav, ResponsiveContext } from 'grommet';
+import { Box, Grid, Image, Nav } from 'grommet';
 
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
 import useStickyElement from '../../utils/useStickyElement';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../../legos/RouterLink';
 import { StyledLink, StyledHeader, StyledHeaderWrapper } from './styled';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 import { theme } from '../../utils/theme';
 
 const linkItems = [
@@ -18,9 +18,10 @@ const linkItems = [
 
 export const SiteHeader = () => {
   const { elRef, isSticky } = useStickyElement();
-  const size = React.useContext(ResponsiveContext);
-  const isDense = maxBreakpoints('sTablet', size);
-  const isMobile = maxBreakpoints('small', size);
+  // const size = React.useContext(ResponsiveContext);
+  // const isDense = maxBreakpoints('sTablet', size);
+  // const isMobile = maxBreakpoints('small', size);
+  const { isMobile, isSTablet } = useBreakpoint();
 
   return (
     <div ref={elRef}>
@@ -42,7 +43,7 @@ export const SiteHeader = () => {
         ) : (
           <StyledHeaderWrapper
             pad={{
-              horizontal: isDense ? 'medium' : 'large',
+              horizontal: isSTablet ? 'medium' : 'large',
               vertical: isSticky ? 'small' : 'medium',
             }}
             fill
@@ -80,7 +81,7 @@ export const SiteHeader = () => {
               ))}
               <Box
                 height={{ min: '50px' }}
-                width={{ min: isDense ? '148px' : '200px' }}
+                width={{ min: isSTablet ? '148px' : '200px' }}
               >
                 <ButtonLetsTalk
                   outline
