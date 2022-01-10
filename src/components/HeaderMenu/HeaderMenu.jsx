@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Box, Layer, Image, Nav } from 'grommet';
-import { RouterLink } from '../../legos/RouterLink';
 
 import { Button } from '../../legos/Button/Button';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
+import { RouterLink } from '../../legos/RouterLink';
 import { theme } from '../../utils/theme';
 
 const linkItems = [
@@ -56,6 +56,8 @@ const HeaderMenu = () => {
                   disableUnderline
                   fontSize="20px"
                   padding="1rem 0"
+                  isMobileNavigation
+                  activeColor={theme.global.colors['accent-1']}
                   to={linkItem.link}
                   key={linkItem.id}
                   onClick={onClose}

@@ -26,11 +26,13 @@ export const HomeHeroSection = ({ title, text }) => {
       pad={{ vertical: 'xlarge' }}
       height={{ min: isDesktopOrTablet ? 'auto' : '847px' }}
       background={
-        !isDesktopOrTablet && {
-          size: 'auto',
-          position: 'top right',
-          image: 'url(/assets/background-home.svg)',
-        }
+        !isDesktopOrTablet
+          ? {
+              size: 'auto',
+              position: 'top right',
+              image: 'url(/assets/background-home.svg)',
+            }
+          : undefined
       }
     >
       <Container>
@@ -56,7 +58,7 @@ export const HomeHeroSection = ({ title, text }) => {
               <ButtonLetsTalk primary label="Let’s talk" />
             </Box>
           </Box>
-          <BoxOrder order={isDense && '-1'} align="center">
+          <BoxOrder order={isDense ? '-1' : undefined} align="center">
             <ImgFluid
               mobileWidth={isMobile && '80%'}
               src="/assets/sectionHeader.svg"

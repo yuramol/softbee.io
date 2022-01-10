@@ -21,8 +21,9 @@ const StyledLink = styled(LibLink)`
     `}
   ${({ activeColor }) => activeColor && hoveredLink(activeColor)}
 
-${({ isActive, activeColor }) =>
+${({ isActive, activeColor, isMobileNavigation }) =>
   isActive &&
+  !isMobileNavigation &&
   css`
     position: relative;
 

@@ -15,7 +15,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const HeaderLink = styled(RouterLink)`
-  color: ${({ isSticky }) => isSticky && '#fff'};
+  color: ${({ isSticky }) => (isSticky ? '#fff' : undefined)};
 `;
 
 export const StyledHeader = styled(Header)`
