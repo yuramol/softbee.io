@@ -247,7 +247,7 @@ export const SiteFooter = () => {
               data-netlify-recaptcha="true"
             >
               <Grid
-                justifyContent={isMobile && 'center'}
+                justifyContent={isMobile ? 'center' : undefined}
                 columns={{ count: 2, size: ['auto', 'auto'] }}
                 fill="horizontal"
               >
