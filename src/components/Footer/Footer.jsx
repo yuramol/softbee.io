@@ -88,32 +88,30 @@ export const SiteFooter = () => {
   const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
-  const reCaptchaRef = React.createRef();
+  const reCaptchaRef = React.useRef();
 
-  const [formValue, setFormValue] = useState({});
-  const [isMsgNotEmpty, setMsgNotEmpty] = useState(false);
-  const [isReCaptchaCheck, setReCaptchaCheck] = useState(false);
+  const [formValues, setFormValues] = useState({});
+  const [reCaptchaIsChecked, setReCaptchaCheck] = useState(false);
   const [successSendSlack, setSuccessSendSlack] = useState(false);
 
+  const isMessageNotEmpty =
+    !!formValues.textSlack && formValues.textSlack.length > 20;
+
   const onChangeForm = value => {
-    setFormValue(value);
-    setMsgNotEmpty(
-      Object.keys(value).length !== 0 && value.textSlack.length > 20,
-    );
+    setFormValues(value);
   };
 
   const onSubmitForm = async ({ value }) => {
     const reCaptchaToken = reCaptchaRef.current.getValue();
 
-    const res = await sendForm('slack-form', {
+    const { redirected, ok } = await sendForm('slack-form', {
       'g-recaptcha-response': reCaptchaToken,
       ...value,
     });
 
-    if (!res.redirected && res.ok) {
+    if (!redirected && ok) {
       sendSlack(value.textSlack);
-      setFormValue({});
-      setMsgNotEmpty(false);
+      setFormValues({});
       setReCaptchaCheck(false);
       setSuccessSendSlack(true);
       setTimeout(() => {
@@ -242,7 +240,7 @@ export const SiteFooter = () => {
 
             <Form
               name="slack-form"
-              value={formValue}
+              value={formValues}
               onChange={onChangeForm}
               onSubmit={onSubmitForm}
               data-netlify="true"
@@ -265,10 +263,15 @@ export const SiteFooter = () => {
                           size="xlarge"
                         />
                       </FormField>
+                      {!isMessageNotEmpty && (
+                        <Text size="small" margin={{ bottom: 'small' }}>
+                          You must enter at least 20 characters
+                        </Text>
+                      )}
                       <ReCAPTCHA
                         ref={reCaptchaRef}
                         onChange={onChangeReCaptcha}
-                        sitekey="6LfDpSIdAAAAADCDsN9ssiA59NDd-y-I3Z-1uNGI"
+                        sitekey={process.env.SITE_RECAPTCHA_KEY}
                       />
                     </>
                   )}
@@ -276,7 +279,7 @@ export const SiteFooter = () => {
 
                 <StyledButton
                   type="submit"
-                  disabled={!isMsgNotEmpty || !isReCaptchaCheck}
+                  disabled={!isMessageNotEmpty || !reCaptchaIsChecked}
                   plain={false}
                   outline
                   icon={<IconArrow />}

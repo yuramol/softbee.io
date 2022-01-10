@@ -9,7 +9,5 @@ export const sendForm = (formName, input) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({ 'form-name': formName, ...input }),
-  })
-    .then(response => response)
-    .catch(error => error);
+  });
 };
