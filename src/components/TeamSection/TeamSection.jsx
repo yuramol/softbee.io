@@ -10,19 +10,19 @@ import { Paragraph } from '../../legos/typography/Paragraph';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const TeamSection = ({ title, text }) => {
-  const { isMobile, isDesktopOrTablet } = useBreakpoint();
+  const { isSmall, isDesktopOrTablet } = useBreakpoint();
 
-  const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
-  const textAlignVariant = isMobile ? 'center' : 'start';
-  const textFontSizeVariant = isMobile ? 'large' : 'xlarge';
+  const columnsCount = isSmall ? 'full' : ['1/2', 'auto'];
+  const textAlignVariant = isSmall ? 'center' : 'start';
+  const textFontSizeVariant = isSmall ? 'large' : 'xlarge';
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   return (
     <Container pad={{ vertical: 'xlarge' }}>
       <Grid columns={columnsCount} gap={gapVariant} align="center">
-        <Box align={isMobile ? 'center' : undefined}>
+        <Box align={isSmall ? 'center' : undefined}>
           <ImgFluid
-            mobileWidth={isMobile && '80%'}
+            mobileWidth={isSmall && '80%'}
             src="/assets/section.svg"
             alt="Man working at the computer"
           />
@@ -44,7 +44,7 @@ export const TeamSection = ({ title, text }) => {
             {text}
           </Paragraph>
           <Box
-            margin={{ horizontal: isMobile ? 'auto' : undefined }}
+            margin={{ horizontal: isSmall ? 'auto' : undefined }}
             height={{ min: '60px' }}
             width={{ min: '260px' }}
           >

@@ -18,15 +18,12 @@ const linkItems = [
 
 export const SiteHeader = () => {
   const { elRef, isSticky } = useStickyElement();
-  // const size = React.useContext(ResponsiveContext);
-  // const isDense = maxBreakpoints('sTablet', size);
-  // const isMobile = maxBreakpoints('small', size);
-  const { isMobile, isSTablet } = useBreakpoint();
+  const { isSmall, isSTablet } = useBreakpoint();
 
   return (
     <div ref={elRef}>
-      <StyledHeader isMobile={isMobile} isSticky={!isMobile ? isSticky : false}>
-        {isMobile ? (
+      <StyledHeader isMobile={isSmall} isSticky={!isSmall ? isSticky : false}>
+        {isSmall ? (
           <Grid
             pad="small"
             fill

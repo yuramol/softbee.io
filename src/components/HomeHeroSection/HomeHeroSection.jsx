@@ -11,7 +11,7 @@ import { Paragraph } from '../../legos/typography/Paragraph';
 import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 
 export const HomeHeroSection = ({ title, text }) => {
-  const { isMobile, isSTablet, isDesktopOrTablet } = useBreakpoint();
+  const { isSmall, isSTablet, isDesktopOrTablet } = useBreakpoint();
 
   const columnsCount = isSTablet ? 'full' : ['auto', '1/2'];
   const textAlignVariant = isSTablet ? 'center' : 'start';
@@ -57,7 +57,7 @@ export const HomeHeroSection = ({ title, text }) => {
           </Box>
           <BoxOrder order={isSTablet ? '-1' : undefined} align="center">
             <ImgFluid
-              mobileWidth={isMobile && '80%'}
+              mobileWidth={isSmall && '80%'}
               src="/assets/sectionHeader.svg"
               alt="People create a website"
             />

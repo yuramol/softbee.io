@@ -1,23 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const OurTeamWeAreSection = ({ title, text }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isDense = maxBreakpoints('sTablet', size);
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isSmall, isSTablet, isDesktopOrTablet } = useBreakpoint();
 
-  const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
+  const columnsCount = isSmall ? 'full' : ['1/2', 'auto'];
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
-  const textFontSizeVariant = isDense ? 'large' : 'xlarge';
-  const textAlignVariant = isMobile ? 'center' : undefined;
+  const textFontSizeVariant = isSTablet ? 'large' : 'xlarge';
+  const textAlignVariant = isSmall ? 'center' : undefined;
 
   return (
     <Box
@@ -34,9 +31,9 @@ export const OurTeamWeAreSection = ({ title, text }) => {
     >
       <Container>
         <Grid columns={columnsCount} gap={gapVariant} align="center">
-          <Box align={isMobile ? 'center' : undefined}>
+          <Box align={isSmall ? 'center' : undefined}>
             <ImgFluid
-              mobileWidth={isMobile && '80%'}
+              mobileWidth={isSmall && '80%'}
               src="/assets/ourTeamAboutSection.svg"
               alt="People are creating a website"
             />

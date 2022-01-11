@@ -11,10 +11,10 @@ import { Paragraph } from '../../legos/typography/Paragraph';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const MMOSection = ({ title, text, withBackground }) => {
-  const { isMobile, isDesktopOrTablet, isTablet } = useBreakpoint();
+  const { isSmall, isDesktopOrTablet, isTablet } = useBreakpoint();
 
   const columnsCount = isTablet ? 'full' : ['auto', '1/3'];
-  const textFontSizeVariant = isMobile ? 'large' : 'xlarge';
+  const textFontSizeVariant = isSmall ? 'large' : 'xlarge';
   const textAlignVariant = isTablet ? 'center' : 'start';
   const gapVariant = isDesktopOrTablet ? 'medium' : 'large';
 

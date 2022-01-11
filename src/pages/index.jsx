@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { ResponsiveContext } from 'grommet';
 
 // import { BlogSection } from '../components/BlogSection/BlogSection';
 import { GapNurseSection } from '../components/GapNurseSection/GapNurseSection';
@@ -13,7 +12,7 @@ import { SiteFooter } from '../components/Footer';
 import { SiteHeader } from '../components/Header';
 import { TeamSection } from '../components/TeamSection/TeamSection';
 import { BoxLookingSection } from '../components/BoxLookingSection/BoxLookingSection';
-import { maxBreakpoints } from '../utils/useBreakpoints';
+import { useBreakpoint } from '../utils/useBreakpoint';
 
 const IndexPage = ({ location, data }) => {
   const {
@@ -25,8 +24,8 @@ const IndexPage = ({ location, data }) => {
     looking,
     whatWeDo,
   } = data.homePage.edges[0].node.frontmatter;
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('desktopOrTablet', size);
+  // const isMobile = maxBreakpoints('desktopOrTablet', size);
+  const { isDesktopOrTablet } = useBreakpoint();
 
   return (
     <Layout location={location} title={meta.title}>
@@ -35,7 +34,7 @@ const IndexPage = ({ location, data }) => {
       <HomeHeroSection
         title={homeHero.title}
         text={homeHero.text}
-        withBackground={!isMobile}
+        withBackground={!isDesktopOrTablet}
       />
       <GapNurseSection
         title={gapNurse.title}
