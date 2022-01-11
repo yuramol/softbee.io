@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ResponsiveContext } from 'grommet';
 
 import { BoxWithWings } from '../../legos/Box/BoxWithWings';
 import { LookingSection } from '../LookingSection/LookingSection';
 import { WhatWeDoSection } from '../WhatWeDoSection/WhatWeDoSection';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const BoxLookingSection = ({ titleLooking, textLooking, titleWeDo }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isdesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isDesktopOrTablet } = useBreakpoint();
 
   return (
     <BoxWithWings
-      margin={{ top: isdesktopOrTablet ? 'xlarge' : '8.75rem' }}
-      isdesktopOrTablet={isdesktopOrTablet}
-      height={{ min: !isdesktopOrTablet ? '800px' : undefined }}
+      margin={{ top: isDesktopOrTablet ? 'xlarge' : '8.75rem' }}
+      isdesktopOrTablet={isDesktopOrTablet}
+      height={{ min: !isDesktopOrTablet ? '800px' : undefined }}
     >
       <LookingSection title={titleLooking} text={textLooking} />
       <WhatWeDoSection title={titleWeDo} />

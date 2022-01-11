@@ -1,30 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { Button } from '../../legos/Button/Button';
 import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const TeamSection = ({ title, text }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isSmall, isDesktopOrTablet } = useBreakpoint();
 
-  const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
-  const textAlignVariant = isMobile ? 'center' : 'start';
-  const textFontSizeVariant = isMobile ? 'large' : 'xlarge';
+  const columnsCount = isSmall ? 'full' : ['1/2', 'auto'];
+  const textAlignVariant = isSmall ? 'center' : 'start';
+  const textFontSizeVariant = isSmall ? 'large' : 'xlarge';
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   return (
     <Container pad={{ vertical: 'xlarge' }}>
       <Grid columns={columnsCount} gap={gapVariant} align="center">
-        <Box align={isMobile ? 'center' : undefined}>
+        <Box align={isSmall ? 'center' : undefined}>
           <ImgFluid
-            mobileWidth={isMobile && '80%'}
+            mobileWidth={isSmall && '80%'}
             src="/assets/section.svg"
             alt="Man working at the computer"
           />
@@ -46,7 +44,7 @@ export const TeamSection = ({ title, text }) => {
             {text}
           </Paragraph>
           <Box
-            margin={{ horizontal: isMobile ? 'auto' : undefined }}
+            margin={{ horizontal: isSmall ? 'auto' : undefined }}
             height={{ min: '60px' }}
             width={{ min: '260px' }}
           >
