@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { BoxOrder } from '../../legos/Box/BoxOrder';
 import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isDense = maxBreakpoints('sTablet', size);
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isSmall, isDesktopOrTablet, isSTablet } = useBreakpoint();
 
-  const columnsCount = isDense ? 'full' : ['auto', '58.33333%'];
-  const textAlignVariant = isDense ? 'center' : undefined;
+  const columnsCount = isSTablet ? 'full' : ['auto', '58.33333%'];
+  const textAlignVariant = isSTablet ? 'center' : undefined;
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
-  const textFontSizeVariant = isDense ? 'large' : 'xxlarge';
+  const textFontSizeVariant = isSTablet ? 'large' : 'xxlarge';
 
   return (
     <Box
@@ -26,7 +23,6 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
       justify="center"
       height={{ min: isDesktopOrTablet ? 'auto' : '800px' }}
       background={
-        size !== 'small' &&
         withBackground && {
           size: 'contain',
           position: 'bottom right',
@@ -56,9 +52,9 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
             </Paragraph>
           </Box>
 
-          <BoxOrder order={isDense ? '-1' : undefined} align="center">
+          <BoxOrder order={isSTablet ? '-1' : undefined} align="center">
             <ImgFluid
-              mobileWidth={isMobile && '80%'}
+              mobileWidth={isSmall && '80%'}
               src="/assets/ourTeamHerosection.svg"
               alt="A group of people are developing a web site"
             />

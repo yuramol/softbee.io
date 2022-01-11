@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { Button } from '../../legos/Button/Button';
 import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const GapNurseSection = ({ title, text, withBackground }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isSmall, isDesktopOrTablet } = useBreakpoint();
 
-  const columnsCount = isMobile ? 'full' : ['auto', '58.33333%'];
+  const columnsCount = isSmall ? 'full' : ['auto', '58.33333%'];
   const heightSection = withBackground ? '700px' : '800px';
-  const textAlignVariant = isMobile ? 'center' : 'start';
+  const textAlignVariant = isSmall ? 'center' : 'start';
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
-  const textFontSizeVariant = isMobile ? 'large' : 'xlarge';
+  const textFontSizeVariant = isSmall ? 'large' : 'xlarge';
 
   return (
     <Box
@@ -42,7 +40,7 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
     >
       <Container>
         <Grid columns={columnsCount} gap={gapVariant} align="center">
-          <Box align={isMobile ? 'center' : 'start'}>
+          <Box align={isSmall ? 'center' : 'start'}>
             <Heading
               margin={{ bottom: 'large', top: 'none' }}
               level={2}
@@ -52,14 +50,14 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
             </Heading>
 
             <Paragraph
-              margin={{ bottom: isMobile ? 'none' : 'large', top: 'none' }}
+              margin={{ bottom: isSmall ? 'none' : 'large', top: 'none' }}
               size={textFontSizeVariant}
               color="text-dark-grey"
             >
               {text}
             </Paragraph>
 
-            {isMobile || (
+            {isSmall || (
               <Box height={{ min: '60px' }} width={{ min: '244px' }}>
                 <Button
                   href="/gapnurse-case"
@@ -71,33 +69,33 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
             )}
           </Box>
           <Box
-            justify={isMobile ? 'center' : 'between'}
+            justify={isSmall ? 'center' : 'between'}
             gap="small"
             direction="row"
             align="center"
           >
-            <Box align={isMobile ? 'center' : undefined}>
+            <Box align={isSmall ? 'center' : undefined}>
               <picture>
                 <source
                   srcSet="/assets/PhoneGapNurse.webp, /assets/PhoneGapNurse@2x.webp 2x"
                   type="image/webp"
                 />
                 <ImgFluid
-                  mobileWidth={isMobile && '80%'}
+                  mobileWidth={isSmall && '80%'}
                   srcSet="/assets/PhoneGapNurse@2x.png 2x"
                   src="/assets/PhoneGapNurse.png"
                   alt="The iphone that shows the application GapNurse"
                 />
               </picture>
             </Box>
-            <Box align={isMobile ? 'center' : undefined}>
+            <Box align={isSmall ? 'center' : undefined}>
               <picture>
                 <source
                   srcSet="/assets/PhoneGapNurse2.webp, /assets/PhoneGapNurse2@2x.webp 2x"
                   type="image/webp"
                 />
                 <ImgFluid
-                  mobileWidth={isMobile && '80%'}
+                  mobileWidth={isSmall && '80%'}
                   src="/assets/PhoneGapNurse2.png"
                   srcSet="/assets/PhoneGapNurse2@2x.png 2x"
                   alt="The iphone that shows the application GapNurse"
@@ -105,7 +103,7 @@ export const GapNurseSection = ({ title, text, withBackground }) => {
               </picture>
             </Box>
           </Box>
-          {isMobile && (
+          {isSmall && (
             <Box
               margin={{ horizontal: 'auto' }}
               height={{ min: '60px' }}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { Button } from '../../legos/Button/Button';
@@ -9,7 +9,7 @@ import { Heading } from '../../legos/typography/Heading';
 import { IconArrowDown } from '../../legos/Icons';
 import { ImgCover } from '../Layout/ImgCover';
 import { Paragraph } from '../../legos/typography/Paragraph';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 import { theme } from '../../utils/theme';
 
 export const OurTeamAboutTeam = ({ title, text, list }) => {
@@ -17,14 +17,10 @@ export const OurTeamAboutTeam = ({ title, text, list }) => {
   const maxPages = Math.ceil(list.length / 6);
   const loadMoreMembers = () => setTeamPage(teamPage + 1);
 
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isTabletIpad = maxBreakpoints('tablet', size);
-  const isDense = maxBreakpoints('sTablet', size);
-  const isMobileSmall = maxBreakpoints('extraSmall', size);
+  const { isSmall, isSTablet, isTablet, isExtraSmall } = useBreakpoint();
 
-  const textFontSizeVariant = isDense ? 'large' : 'xlarge';
-  const gapVariant = isTabletIpad ? 'medium' : 'xlarge';
+  const textFontSizeVariant = isSTablet ? 'large' : 'xlarge';
+  const gapVariant = isTablet ? 'medium' : 'xlarge';
 
   return (
     <Box pad={{ vertical: 'large' }} background={{ color: '#fff' }}>
@@ -46,15 +42,15 @@ export const OurTeamAboutTeam = ({ title, text, list }) => {
         </Paragraph>
 
         <Grid
-          columns={{ count: isMobile ? 2 : 3, size: ['auto', '300px'] }}
+          columns={{ count: isSmall ? 2 : 3, size: ['auto', '300px'] }}
           pad={{ top: 'large' }}
           gap={{ column: 'medium', row: gapVariant }}
-          justifyContent={isMobile ? 'center' : 'between'}
+          justifyContent={isSmall ? 'center' : 'between'}
         >
           {list
             .filter((_, idx) => idx < teamPage * 6)
             .map(({ name, position, photo }) => (
-              <CardTeam isMobileSmall={isMobileSmall} key={name}>
+              <CardTeam isMobileSmall={isExtraSmall} key={name}>
                 <CardTeamImageWrapper bottomFlex="100%">
                   <ImgCover src={photo} />
                 </CardTeamImageWrapper>
@@ -65,7 +61,7 @@ export const OurTeamAboutTeam = ({ title, text, list }) => {
                 >
                   <Heading
                     level={4}
-                    size={isMobileSmall ? '1rem' : undefined}
+                    size={isExtraSmall ? '1rem' : undefined}
                     color="#fff"
                     lineHeight="1"
                     margin={{ top: 'none', bottom: 'xsmall' }}
@@ -75,7 +71,7 @@ export const OurTeamAboutTeam = ({ title, text, list }) => {
                   <Paragraph
                     margin={{ top: 'none', bottom: 'none' }}
                     color="#fff"
-                    size={isMobileSmall ? '0.85rem' : undefined}
+                    size={isExtraSmall ? '0.85rem' : undefined}
                     lineHeight="1"
                     fontWeight="300"
                   >

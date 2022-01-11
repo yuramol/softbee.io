@@ -1,12 +1,4 @@
-import {
-  Box,
-  Grid,
-  Image,
-  Footer,
-  Form,
-  FormField,
-  ResponsiveContext,
-} from 'grommet';
+import { Box, Grid, Image, Footer, Form, FormField } from 'grommet';
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -28,7 +20,7 @@ import { StyledLink, StyledButton, SocialLink, StyledText } from './styled';
 import { Text } from '../../legos/typography/Text';
 import { TextInput } from '../../legos/TextInput/TextInput';
 import { dispatch } from '../../utils/useBus';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
 import { sendSlack } from '../../utils/useSlack';
 import { sendForm } from '../../utils/useForm';
 import { theme } from '../../utils/theme';
@@ -45,13 +37,9 @@ const linkFooterItems = [
 ];
 
 export const SiteFooter = () => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('small', size);
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
+  const { isSmall, isDesktopOrTablet } = useBreakpoint();
 
-  const columnsSize = isMobile
-    ? ['2.5rem', '2.5rem']
-    : ['3.125rem', '3.125rem'];
+  const columnsSize = isSmall ? ['2.5rem', '2.5rem'] : ['3.125rem', '3.125rem'];
 
   const {
     footerData: { edges },
@@ -84,8 +72,8 @@ export const SiteFooter = () => {
     success,
   } = edges[0].node.frontmatter.footer;
 
-  const alignVariant = isMobile ? 'center' : 'start';
-  const columnsCount = isMobile ? 'full' : ['1/2', 'auto'];
+  const alignVariant = isSmall ? 'center' : 'start';
+  const columnsCount = isSmall ? 'full' : ['1/2', 'auto'];
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   const reCaptchaRef = React.useRef();
@@ -142,9 +130,9 @@ export const SiteFooter = () => {
               </StyledLink>
               <Box
                 width="100%"
-                justify={isMobile ? 'center' : undefined}
+                justify={isSmall ? 'center' : undefined}
                 direction="row"
-                gap={isMobile ? '1.2rem' : '1.875rem'}
+                gap={isSmall ? '1.2rem' : '1.875rem'}
                 align={alignVariant}
                 margin={{
                   left: !isDesktopOrTablet ? 'xlarge' : undefined,
@@ -155,7 +143,7 @@ export const SiteFooter = () => {
                   linkItem.routerLink ? (
                     <RouterLink
                       color="#fff"
-                      fontSize={isMobile ? '1rem' : '1.125rem'}
+                      fontSize={isSmall ? '1rem' : '1.125rem'}
                       padding="0 0 0.5rem 0"
                       disableUnderline
                       activeColor={theme.global.colors['accent-1']}
@@ -166,7 +154,7 @@ export const SiteFooter = () => {
                     </RouterLink>
                   ) : (
                     <StyledText
-                      size={isMobile ? 'medium' : 'large'}
+                      size={isSmall ? 'medium' : 'large'}
                       color="#fff"
                       padding="0 0 0.5rem 0"
                       key={linkItem.id}
@@ -180,10 +168,10 @@ export const SiteFooter = () => {
             </Box>
             <Grid
               margin={{
-                top: isMobile ? 'large' : undefined,
+                top: isSmall ? 'large' : undefined,
               }}
               width="100%"
-              justifyContent={isMobile ? 'center' : undefined}
+              justifyContent={isSmall ? 'center' : undefined}
               gap={isDesktopOrTablet ? '1rem' : 'large'}
               columns={{ count: 'fit', size: columnsSize }}
             >
@@ -220,7 +208,7 @@ export const SiteFooter = () => {
             </Grid>
           </Box>
 
-          <Box justify="center" align={isMobile ? 'center' : undefined}>
+          <Box justify="center" align={isSmall ? 'center' : undefined}>
             <Heading
               level={2}
               textAlign={alignVariant}
@@ -246,7 +234,7 @@ export const SiteFooter = () => {
               data-netlify-recaptcha="true"
             >
               <Grid
-                justifyContent={isMobile ? 'center' : undefined}
+                justifyContent={isSmall ? 'center' : undefined}
                 columns={{ count: 2, size: ['auto', 'auto'] }}
                 fill="horizontal"
               >
