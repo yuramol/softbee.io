@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { PreloaderLogo } from './legos/PreloaderLogo';
 
 export default function HTML(props) {
+    console.log(props)
   return (
     <html {...props.htmlAttributes}>
       <head>
