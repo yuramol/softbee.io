@@ -16,7 +16,7 @@ export const HomeHeroSection = ({ title, text }) => {
   const columnsCount = isSTablet ? 'full' : ['auto', '1/2'];
   const textAlignVariant = isSTablet ? 'center' : 'start';
   const textFontSizeVariant = isSTablet ? 'large' : 'xxlarge';
-  const gapvariant = isDesktopOrTablet ? 'medium' : 'xlarge';
+  const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   return (
     <Box
@@ -33,7 +33,7 @@ export const HomeHeroSection = ({ title, text }) => {
       }
     >
       <Container>
-        <Grid columns={columnsCount} gap={gapvariant} align="center">
+        <Grid columns={columnsCount} gap={gapVariant} align="center">
           <Box align={textAlignVariant}>
             <Heading
               margin={{ bottom: 'large', top: 'none' }}

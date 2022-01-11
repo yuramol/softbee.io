@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
 
 import Container from '../Layout/Container';
 import { BoxOrder } from '../../legos/Box/BoxOrder';
@@ -10,8 +10,6 @@ import { Paragraph } from '../../legos/typography/Paragraph';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
-  const size = React.useContext(ResponsiveContext);
-
   const { isSmall, isDesktopOrTablet, isSTablet } = useBreakpoint();
 
   const columnsCount = isSTablet ? 'full' : ['auto', '58.33333%'];
@@ -25,7 +23,6 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
       justify="center"
       height={{ min: isDesktopOrTablet ? 'auto' : '800px' }}
       background={
-        size !== 'small' &&
         withBackground && {
           size: 'contain',
           position: 'bottom right',
