@@ -31,6 +31,7 @@ const WorkPage = ({ location, data }) => {
         title={main.title}
         subtitle={main.subtitle}
         text={main.text}
+        textSecond={main.textSecond}
         whatWeDo={main.whatWeDo}
         withBackground
       />
@@ -78,6 +79,7 @@ export const pageQuery = graphql`
             main {
               title
               subtitle
+              textSecond
               text
               whatWeDo
             }

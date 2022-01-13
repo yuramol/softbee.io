@@ -1,109 +1,89 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, Grid, ResponsiveContext } from 'grommet';
+import { Box, Grid } from 'grommet';
+import styled from 'styled-components';
 
 import Container from '../Layout/Container';
 import { Heading } from '../../legos/typography/Heading';
-import { StyledButton } from '../../legos/Button/Button';
+import { Button } from '../../legos/Button/Button';
 import { Text } from '../../legos/typography/Text';
-import { maxBreakpoints } from '../../utils/useBreakpoints';
+import { useBreakpoint } from '../../utils/useBreakpoint';
+import { Paragraph } from '../../legos/typography/Paragraph';
+
+const StyledList = styled('ul')`
+  color: #fff;
+  padding: 0;
+`;
 
 export const WorkHeroSection = ({
-  title,
   subtitle,
+  textSecond,
   text,
   whatWeDo,
   withBackground,
 }) => {
-  const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('bMobile', size);
-  const columnsCount = isMobile ? 1 : 2;
-  const isDesktopOrTablet = maxBreakpoints('desktopOrTablet', size);
-  const headingSize = isDesktopOrTablet ? 4 : 2;
-  const alignVariant = isMobile ? 'center' : 'start';
-  const textMarginVariant = isMobile
-    ? { horizontal: 'medium', vertical: 'xsmall' }
-    : { vertical: 'xsmall' };
-  const gridColumns = isMobile ? 2 : 1;
-  const textFontSizeVariant = isMobile ? 'small' : 'xlarge';
-  const paddingVariant = isMobile
-    ? { vertical: 'medium' }
-    : { vertical: 'medium' };
+  const { isSmall, isDesktopOrTablet } = useBreakpoint();
+  const columnsCount = isSmall ? 'full' : ['58.33333%', 'auto'];
+  const textAlignVariant = isSmall ? 'center' : 'start';
+  const textFontSizeVariant = isSmall ? 'large' : 'xlarge';
 
   return (
     <Box
-      height={{ min: '695px' }}
+      pad={{ vertical: 'xlarge' }}
       justify="center"
+      height={{ min: isDesktopOrTablet ? 'auto' : '800px' }}
       background={
-        !isMobile !== 'small' && withBackground
-          ? {
-              size: 'small',
-              position: 'bottom right',
-              image: isMobile ? undefined : 'url(/assets/background-work.svg)',
-            }
-          : {
-              color: '#fff',
-            }
+        withBackground && {
+          size: 'contain',
+          position: 'bottom right',
+          image: !isDesktopOrTablet
+            ? 'url(/assets/background-ourTeam.svg)'
+            : undefined,
+        }
       }
     >
       <Container>
-        <Heading alignSelf="center" level={1} color="brand" wordBreak="normal">
-          Work
-        </Heading>
-        <Grid
-          columns={{ count: columnsCount, size: ['auto', 'auto'] }}
-          fill="horizontal"
-        >
-          <Box
-            pad={paddingVariant}
-            justify="center"
-            margin={isMobile ? { bottom: 'large' } : { paddingVariant }}
-          >
-            <Box>
-              <Heading
-                level={headingSize}
-                color="brand"
-                textAlign="start"
-                wordBreak="normal"
-                margin={{ top: 'none' }}
-              >
-                {title}
-              </Heading>
-              <Box pad={{ bottom: 'small' }}>
-                <Text size="medium" color="brand">
-                  {subtitle}
-                </Text>
-              </Box>
-              <Box pad={{ bottom: 'large' }}>
-                <Text size="medium" color="brand" whiteSpace="pre-line">
-                  {text}
-                </Text>
-              </Box>
-              <Box
-                pad={{ top: 'medium' }}
-                justify="center"
-                alignSelf={alignVariant}
-                height="60px"
-                width="200px"
-              >
-                <StyledButton
-                  label="How we work"
-                  fill
-                  color="accent-1"
-                  primary
-                />
-              </Box>
+        <Grid align="end" columns={columnsCount}>
+          <Box>
+            <Heading
+              level={1}
+              textAlign={textAlignVariant}
+              margin={{ top: 'none', bottom: 'large' }}
+            >
+              {subtitle}
+            </Heading>
+            <Paragraph
+              size={textFontSizeVariant}
+              textAlign={textAlignVariant}
+              color="brand"
+              whiteSpace="pre-line"
+              margin={{ top: 'none', bottom: 'medium' }}
+            >
+              {text}
+            </Paragraph>
+            <Paragraph
+              size={textFontSizeVariant}
+              textAlign={textAlignVariant}
+              color="brand"
+              whiteSpace="pre-line"
+              margin={{ top: 'none', bottom: 'large' }}
+            >
+              {textSecond}
+            </Paragraph>
+            <Box
+              justify="center"
+              alignSelf={textAlignVariant}
+              height={{ min: '60px' }}
+              width={{ min: '200px' }}
+            >
+              <Button label="How we work" href="#" fill primary />
             </Box>
           </Box>
           <Box
-            justify="end"
-            pad={
-              !isMobile
-                ? { left: '200px', right: '40px', bottom: '50px' }
-                : { paddingVariant }
-            }
+            align="end"
+            pad={{ left: '100px' }}
             background={
-              isMobile
+              isSmall
                 ? {
                     color: 'brand',
                   }
@@ -111,32 +91,21 @@ export const WorkHeroSection = ({
             }
           >
             <Heading
-              level={headingSize}
-              alignSelf="center"
+              level={2}
               color="text-white"
-              wordBreak="normal"
-              fontWeight="normal"
-              margin={{ vertical: isMobile ? 'large' : 'small' }}
+              margin={{ top: 'none', bottom: 'large' }}
             >
               What we do?
             </Heading>
-
-            <Grid
-              alignSelf={isMobile ? 'center' : undefined}
-              columns={{ count: gridColumns, size: ['auto', 'auto'] }}
-              pad={isMobile ? { bottom: 'large' } : undefined}
-            >
+            <StyledList>
               {whatWeDo.map(skillItem => (
-                <Text
-                  key={skillItem}
-                  size={textFontSizeVariant}
-                  margin={textMarginVariant}
-                  color="text-white"
-                >
-                  {skillItem}
-                </Text>
+                <li key={skillItem}>
+                  <Text color="text-white" size={textFontSizeVariant}>
+                    {skillItem}
+                  </Text>
+                </li>
               ))}
-            </Grid>
+            </StyledList>
           </Box>
         </Grid>
       </Container>
@@ -145,9 +114,9 @@ export const WorkHeroSection = ({
 };
 
 WorkHeroSection.propTypes = {
-  title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  textSecond: PropTypes.string.isRequired,
   whatWeDo: PropTypes.arrayOf(PropTypes.string).isRequired,
   withBackground: PropTypes.bool,
 };
