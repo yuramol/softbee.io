@@ -10,8 +10,7 @@ main:
   text: >-
     We work really well together but are awesome separately, too. Hire only what
     you need, we’ll build our team around your project.
-
-
+  textSecond: >-
     From small HTML-template, to building entire applications, we’ve worked on
     projects of all sizes.
   title: Work
