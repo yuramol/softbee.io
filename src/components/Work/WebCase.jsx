@@ -10,12 +10,24 @@ import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
-export const WebCase = ({ data }) => {
+export const WebCase = ({
+  data: {
+    preview: { title, text },
+    thumbnail,
+    thumbnailRetina,
+    thumbnailSecond,
+    thumbnailSecondRetina,
+    thumbnailSecondWebp,
+    thumbnailSecondWebpRetina,
+
+    thumbnailWebpRetina,
+    thumbnailWebp,
+  },
+}) => {
   const { isSmall, isDesktopOrTablet, isTablet } = useBreakpoint();
-  const { title, text } = data.preview;
 
   const textAlignVariant = isTablet ? 'center' : 'start';
-
+  const altWebCase = 'Web case image ';
   return (
     <Container>
       <Grid
@@ -27,26 +39,26 @@ export const WebCase = ({ data }) => {
           <Box>
             <picture>
               <source
-                srcSet={`${data.thumbnailWebp}, ${data.thumbnailWebpRetina}`}
+                srcSet={`${thumbnailWebp}, ${thumbnailWebpRetina}`}
                 type="image/webp"
               />
               <ImgFluid
-                src={data.thumbnail}
-                srcSet={data.thumbnailRetina}
-                alt="screenshot of MMO website page, mobile version"
+                src={thumbnail}
+                srcSet={thumbnailRetina}
+                alt={altWebCase}
               />
             </picture>
           </Box>
           <Box pad={{ left: 'medium' }}>
             <picture>
               <source
-                srcSet={`${data.thumbnailSecondWebp}, ${data.thumbnailSecondWebpRetina}`}
+                srcSet={`${thumbnailSecondWebp}, ${thumbnailSecondWebpRetina}`}
                 type="image/webp"
               />
               <ImgFluid
-                srcSet={data.thumbnailSecondRetina}
-                src={data.thumbnailSecond}
-                alt="screenshot of MMO website page, mobile version"
+                srcSet={thumbnailSecondRetina}
+                src={thumbnailSecond}
+                alt={altWebCase}
               />
             </picture>
           </Box>
@@ -99,5 +111,18 @@ export const WebCase = ({ data }) => {
 };
 
 WebCase.propTypes = {
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.shape({
+    thumbnail: PropTypes.string.isRequired,
+    thumbnailRetina: PropTypes.string.isRequired,
+    thumbnailSecond: PropTypes.string.isRequired,
+    thumbnailSecondRetina: PropTypes.string.isRequired,
+    thumbnailSecondWebp: PropTypes.string.isRequired,
+    thumbnailSecondWebpRetina: PropTypes.string.isRequired,
+    thumbnailWebpRetina: PropTypes.string.isRequired,
+    thumbnailWebp: PropTypes.string.isRequired,
+    preview: PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };

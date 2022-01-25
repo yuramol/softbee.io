@@ -9,10 +9,22 @@ import { Paragraph } from '../../legos/typography/Paragraph';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 import { ImgFluid } from '../Layout/ImgFluid';
 
-export const MobileCase = ({ data }) => {
-  const { isSmall, isDesktopOrTablet } = useBreakpoint();
-  const { title, text } = data.preview;
+export const MobileCase = ({
+  data: {
+    preview: { title, text },
+    thumbnail,
+    thumbnailRetina,
+    thumbnailSecond,
+    thumbnailSecondRetina,
+    thumbnailSecondWebp,
+    thumbnailSecondWebpRetina,
 
+    thumbnailWebpRetina,
+    thumbnailWebp,
+  },
+}) => {
+  const { isSmall, isDesktopOrTablet } = useBreakpoint();
+  const altMobileCase = 'Mobile case image';
   return (
     <Container>
       <Grid
@@ -57,28 +69,28 @@ export const MobileCase = ({ data }) => {
           <Box align={isSmall ? 'center' : undefined}>
             <picture>
               <source
-                srcSet={`${data.thumbnailWebp}, ${data.thumbnailWebpRetina}`}
+                srcSet={`${thumbnailWebp}, ${thumbnailWebpRetina}`}
                 type="image/webp"
               />
               <ImgFluid
                 mobileWidth={isSmall && '80%'}
-                srcSet={data.thumbnailRetina}
-                src={data.thumbnail}
-                alt="The iphone that shows the application GapNurse"
+                srcSet={thumbnailRetina}
+                src={thumbnail}
+                alt={altMobileCase}
               />
             </picture>
           </Box>
           <Box align={isSmall ? 'center' : undefined}>
             <picture>
               <source
-                srcSet={`${data.thumbnailSecondWebp}, ${data.thumbnailSecondWebpRetina}`}
+                srcSet={`${thumbnailSecondWebp}, ${thumbnailSecondWebpRetina}`}
                 type="image/webp"
               />
               <ImgFluid
                 mobileWidth={isSmall && '80%'}
-                src={data.thumbnailSecond}
-                srcSet={data.thumbnailSecondRetina}
-                alt="The iphone that shows the application GapNurse"
+                src={thumbnailSecond}
+                srcSet={thumbnailSecondRetina}
+                alt={altMobileCase}
               />
             </picture>
           </Box>
@@ -98,5 +110,18 @@ export const MobileCase = ({ data }) => {
 };
 
 MobileCase.propTypes = {
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
+  data: PropTypes.shape({
+    thumbnail: PropTypes.string.isRequired,
+    thumbnailRetina: PropTypes.string.isRequired,
+    thumbnailSecond: PropTypes.string.isRequired,
+    thumbnailSecondRetina: PropTypes.string.isRequired,
+    thumbnailSecondWebp: PropTypes.string.isRequired,
+    thumbnailSecondWebpRetina: PropTypes.string.isRequired,
+    thumbnailWebpRetina: PropTypes.string.isRequired,
+    thumbnailWebp: PropTypes.string.isRequired,
+    preview: PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
