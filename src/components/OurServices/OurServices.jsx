@@ -5,6 +5,16 @@ import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
+const getSizeForBox = (isSmall, index) => {
+  if (isSmall) {
+    return '50%';
+  }
+  if (index % 2 === 0) {
+    return '60%';
+  }
+  return '40%';
+};
+
 export const OurServices = ({ services }) => {
   const { isSmall } = useBreakpoint();
   const itemsPosition = isSmall ? 'center' : 'start';
@@ -12,15 +22,6 @@ export const OurServices = ({ services }) => {
   const marginItems = isSmall
     ? { left: 'none', top: '10px', bottom: 'none' }
     : { left: '20px', right: 'none', vertical: 'none' };
-  const mobileSizeServiceBox = index => {
-    if (isSmall) {
-      return '50%';
-    }
-    if (index % 2 === 0) {
-      return '60%';
-    }
-    return '40%';
-  };
 
   return (
     <Box
@@ -32,18 +33,18 @@ export const OurServices = ({ services }) => {
       wrap
       margin={{ horizontal: 'auto', bottom: 'xlarge' }}
     >
-      {services.map((el, index) => (
+      {services.map(({ name, logo }, index) => (
         <Box
-          key={el.name}
+          key={name}
           margin={{ bottom: 'medium', top: 'medium' }}
           direction={rowOrColumn}
-          width={mobileSizeServiceBox(index)}
+          width={getSizeForBox(isSmall, index)}
           align={itemsPosition}
         >
           <ImgFluid
             mobileWidth={isSmall ? '3rem' : '5rem'}
-            src={el.logo}
-            alt={el.name}
+            src={logo}
+            alt={name}
           />
           <Heading
             fontWeight={isSmall ? '400' : '600'}
@@ -54,7 +55,7 @@ export const OurServices = ({ services }) => {
             level={4}
             color="#fffff"
           >
-            {el.name}
+            {name}
           </Heading>
         </Box>
       ))}

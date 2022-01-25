@@ -8,6 +8,12 @@ import { ImgFluid } from '../Layout/ImgFluid';
 import { Heading } from '../../legos/typography/Heading';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
+const whatWeDoInfo = [
+  { text: 'Research', img: '/assets/icons/research.svg' },
+  { text: 'Design', img: '/assets/icons/design.svg' },
+  { text: 'Build', img: '/assets/icons/build.svg' },
+  { text: 'Support', img: '/assets/icons/support.svg' },
+];
 export const WhatWeDoSection = ({ title }) => {
   const { isSTablet, isSmall } = useBreakpoint();
   const isXSmall = useMediaQuery({ query: '(max-width: 400px)' });
@@ -27,66 +33,23 @@ export const WhatWeDoSection = ({ title }) => {
         gap="medium"
         justify="center"
       >
-        <Box direction="row" align="center" justify="center">
-          <ImgFluid
-            mobileWidth={isXSmall ? '25px' : isSTablet && '40px'}
-            src="/assets/icons/research.svg"
-            alt="Research"
-          />
-          <Heading
-            level={3}
-            fontWeight="700"
-            margin={{ left: 'medium', vertical: 'none' }}
-            size={isXSmall ? '1rem' : undefined}
-          >
-            Research
-          </Heading>
-        </Box>
-        <Box direction="row" align="center" justify="center">
-          <ImgFluid
-            mobileWidth={isXSmall ? '25px' : isSTablet && '40px'}
-            src="/assets/icons/design.svg"
-            alt="Desing"
-          />
-          <Heading
-            level={3}
-            fontWeight="700"
-            margin={{ left: 'medium', vertical: 'none' }}
-            size={isXSmall ? '1rem' : undefined}
-          >
-            Design
-          </Heading>
-        </Box>
-        <Box direction="row" align="center" justify="center">
-          <ImgFluid
-            mobileWidth={isXSmall ? '25px' : isSTablet && '40px'}
-            src="/assets/icons/build.svg"
-            alt="Arrows"
-          />
-          <Heading
-            level={3}
-            fontWeight="700"
-            margin={{ left: 'medium', vertical: 'none' }}
-            size={isXSmall ? '1rem' : undefined}
-          >
-            Build
-          </Heading>
-        </Box>
-        <Box direction="row" align="center" justify="center">
-          <ImgFluid
-            mobileWidth={isXSmall ? '25px' : isSTablet && '40px'}
-            src="/assets/icons/support.svg"
-            alt="Small gears"
-          />
-          <Heading
-            level={3}
-            fontWeight="700"
-            margin={{ left: 'medium', vertical: 'none' }}
-            size={isXSmall ? '1rem' : undefined}
-          >
-            Support
-          </Heading>
-        </Box>
+        {whatWeDoInfo.map(({ text, img }) => (
+          <Box key={img} direction="row" align="center" justify="center">
+            <ImgFluid
+              mobileWidth={isXSmall ? '25px' : isSTablet && '40px'}
+              src={img}
+              alt="Research"
+            />
+            <Heading
+              level={3}
+              fontWeight="700"
+              margin={{ left: 'medium', vertical: 'none' }}
+              size={isXSmall ? '1rem' : undefined}
+            >
+              {text}
+            </Heading>
+          </Box>
+        ))}
       </Grid>
     </Container>
   );
