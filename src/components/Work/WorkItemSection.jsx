@@ -20,10 +20,8 @@ export const WorkItemSection = ({
   reversedGrid,
 }) => {
   const size = React.useContext(ResponsiveContext);
-  //   const columnsCount = size === 'small' ? 1 : 2;
   const columnsCount = maxBreakpoints('small', size) ? 1 : 2;
   const isMobile = maxBreakpoints('small', size);
-  //   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const textAlignVariant = isMobile ? 'center' : 'start';
   const fontSizeVariant = isMobile ? 4 : 2;
   const paddingVariant = isMobile ? 'large' : 'xlarge';

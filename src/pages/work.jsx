@@ -8,13 +8,15 @@ import { SiteHeader } from '../components/Header';
 import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
-import { WorkItemSection } from '../components/Work/WorkItemSection';
+import { MobileCase } from '../components/Work/MobileCase';
+import { CaseWrapper } from '../components/Work/CaseWrapper';
+import { WebCase } from '../components/Work/WebCase';
 
 const WorkPage = ({ location, data }) => {
-  const { workPage, homePage, works } = data;
+  const { workPage, homePage } = data;
 
-  const firstWork = works.edges[0].node.frontmatter;
-  const otherWorks = works.edges.slice(1);
+  const GapNurseData = data.works.edges[0].node.frontmatter;
+  const MMOdata = data.works.edges[1].node.frontmatter;
 
   const { meta, main } = workPage.edges[0].node.frontmatter;
 
@@ -28,34 +30,42 @@ const WorkPage = ({ location, data }) => {
       <SiteHeader />
       <SEO title={meta.title} description={meta.description} />
       <WorkHeroSection
-        title={main.title}
         subtitle={main.subtitle}
-        text={main.text}
+        textSecond={main.textSecond}
         whatWeDo={main.whatWeDo}
         withBackground
       />
-      <WorkItemSection
-        path={firstWork.path}
-        title={firstWork.preview.title}
-        text={firstWork.preview.text}
-        displayTwoImages={firstWork.displayTwoImages}
-        thumbnail={firstWork.thumbnail}
-        thumbnailSecond={firstWork.thumbnailSecond}
-      />
-      <ToolchainSection toolchain={toolchain} />
-      {otherWorks.map(({ node: { frontmatter } }, index) => (
-        <WorkItemSection
-          key={frontmatter.path}
-          path={frontmatter.path}
-          title={frontmatter.preview.title}
-          text={frontmatter.preview.text}
-          displayTwoImages={frontmatter.displayTwoImages}
-          thumbnail={frontmatter.thumbnail}
-          thumbnailSecond={frontmatter.thumbnailSecond}
-          reversedGrid={index % 2 === 0}
-        />
-      ))}
-      <WhatWeDoSection title={whatWeDo.title} withBackground />
+      <CaseWrapper
+        position="top right"
+        firstColor="#f0f6f4"
+        secondColor="#fff"
+        sizePad="xlarge"
+        urlImg="/assets/background-gapNurse.svg"
+      >
+        <MobileCase withBackground data={GapNurseData} />
+      </CaseWrapper>
+      <CaseWrapper
+        position="left top"
+        justify="center"
+        firstColor="#f0f6f4"
+        secondColor="#f0f6f4"
+        sizePad="xlarge"
+        urlImg="/assets/mmoBackground.svg"
+      >
+        <WhatWeDoSection title={whatWeDo.title} />
+        <ToolchainSection toolchain={toolchain} />
+      </CaseWrapper>
+      <CaseWrapper
+        position="left top"
+        withBackground
+        justify="center"
+        firstColor="#fff"
+        secondColor="#f0f6f4"
+        sizePad="xlarge"
+        urlImg="/assets/mmoBackground.svg"
+      >
+        <WebCase data={MMOdata} />
+      </CaseWrapper>
       <SiteFooter />
     </Layout>
   );
@@ -78,8 +88,12 @@ export const pageQuery = graphql`
             main {
               title
               subtitle
+              textSecond
               text
-              whatWeDo
+              whatWeDo {
+                logo
+                name
+              }
             }
             toolchain {
               logo
@@ -118,9 +132,14 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             path
-            displayTwoImages
             thumbnail
+            thumbnailRetina
+            thumbnailWebp
+            thumbnailWebpRetina
             thumbnailSecond
+            thumbnailSecondRetina
+            thumbnailSecondWebp
+            thumbnailSecondWebpRetina
             preview {
               title
               text

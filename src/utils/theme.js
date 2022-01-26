@@ -137,7 +137,7 @@ export const theme = {
       },
       4: {
         font: {
-          weight: 400,
+          weight: 600,
         },
         medium: {
           size: '1.5rem',
