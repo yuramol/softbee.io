@@ -8,21 +8,20 @@ import { SiteHeader } from '../components/Header';
 import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
 import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
-import { MobileCase } from '../components/Work/MobileCase';
+import { MobileCase } from '../components/Work/Mobile/MobileCase';
 import { CaseWrapper } from '../components/Work/CaseWrapper';
-import { WebCase } from '../components/Work/WebCase';
+import { WebCase } from '../components/Work/Web/WebCase';
 
 const WorkPage = ({ location, data }) => {
   const { workPage, homePage } = data;
 
-  const GapNurseData = data.works.edges[0].node.frontmatter;
-  const MMOdata = data.works.edges[1].node.frontmatter;
-
+  const workFirstData = data.works.edges[0].node.frontmatter;
   const { meta, main } = workPage.edges[0].node.frontmatter;
+
+  const array = data.works.edges.slice(1);
 
   let { toolchain } = workPage.edges[0].node.frontmatter;
   toolchain = toolchain.map(item => ({ id: Math.random() * 1000, ...item }));
-
   const { whatWeDo } = homePage.edges[0].node.frontmatter;
 
   return (
@@ -39,10 +38,14 @@ const WorkPage = ({ location, data }) => {
         position="top right"
         firstColor="#f0f6f4"
         secondColor="#fff"
+        justify="center"
         sizePad="xlarge"
-        urlImg="/assets/background-gapNurse.svg"
       >
-        <MobileCase withBackground data={GapNurseData} />
+        {workFirstData.type === 'web' ? (
+          <WebCase data={workFirstData} />
+        ) : (
+          <MobileCase data={workFirstData} />
+        )}
       </CaseWrapper>
       <CaseWrapper
         position="left top"
@@ -55,17 +58,36 @@ const WorkPage = ({ location, data }) => {
         <WhatWeDoSection title={whatWeDo.title} />
         <ToolchainSection toolchain={toolchain} />
       </CaseWrapper>
-      <CaseWrapper
-        position="left top"
-        withBackground
-        justify="center"
-        firstColor="#fff"
-        secondColor="#f0f6f4"
-        sizePad="xlarge"
-        urlImg="/assets/mmoBackground.svg"
-      >
-        <WebCase data={MMOdata} />
-      </CaseWrapper>
+      {array.map((item, index) => {
+        return (
+          <CaseWrapper
+            key={item.node.frontmatter.path}
+            position={!index % 2 ? 'left top' : 'right top'}
+            withBackground
+            justify="center"
+            firstColor={index % 2 ? '#f0f6f4' : '#fff'}
+            secondColor="#f0f6f4"
+            sizePad="xlarge"
+            urlImg={
+              !index % 2
+                ? '/assets/mmoBackground.svg'
+                : '/assets/mmoBackgroundMirror.svg'
+            }
+          >
+            {item.node.frontmatter.type === 'web' ? (
+              <WebCase
+                isPosition={!!(index % 2)}
+                data={item.node.frontmatter}
+              />
+            ) : (
+              <MobileCase
+                isPosition={!(index % 2)}
+                data={item.node.frontmatter}
+              />
+            )}
+          </CaseWrapper>
+        );
+      })}
       <SiteFooter />
     </Layout>
   );
@@ -109,14 +131,6 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
-            gapNurse {
-              title
-              text
-            }
-            mmoCat {
-              title
-              text
-            }
             whatWeDo {
               title
             }
@@ -131,6 +145,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            type
             path
             thumbnail
             thumbnailRetina

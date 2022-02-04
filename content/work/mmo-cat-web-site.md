@@ -2,6 +2,7 @@
 templateKey: workItem
 path: mmo-case
 order: 2
+type: web
 title: MMO.CAT Web-site
 text: |-
   We provided full-stack development service 
