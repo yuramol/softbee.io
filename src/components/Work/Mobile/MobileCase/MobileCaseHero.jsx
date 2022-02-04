@@ -29,9 +29,7 @@ export const MobileCaseHero = ({
   const { isSmall, isDesktopOrTablet } = useBreakpoint();
   return (
     <BoxPositionRelative height={isDesktopOrTablet ? 'auto' : '1000px'}>
-      {isDesktopOrTablet ? null : (
-        <SvgHero color={color} bottom={0} right={0} />
-      )}
+      {!isDesktopOrTablet && <SvgHero color={color} bottom={0} right={0} />}
       <Container pad={{ vertical: 'xlarge' }}>
         <Grid
           columns={isSmall ? 'full' : ['auto', '58.33333%']}

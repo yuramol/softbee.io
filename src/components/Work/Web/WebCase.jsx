@@ -14,7 +14,7 @@ const getSizeForGrid = ({ isPosition, isTablet }) => {
   if (isTablet) {
     return 'full';
   }
-  if (isPosition === true) {
+  if (isPosition) {
     return ['1/3', 'auto'];
   }
   return ['auto', '1/3'];
