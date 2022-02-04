@@ -2,12 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid } from 'grommet';
 
-import Container from '../Layout/Container';
-import { Button } from '../../legos/Button/Button';
-import { Heading } from '../../legos/typography/Heading';
-import { Paragraph } from '../../legos/typography/Paragraph';
-import { useBreakpoint } from '../../utils/useBreakpoint';
-import { ImgFluid } from '../Layout/ImgFluid';
+import Container from '../../Layout/Container';
+import { Button } from '../../../legos/Button/Button';
+import { Heading } from '../../../legos/typography/Heading';
+import { Paragraph } from '../../../legos/typography/Paragraph';
+import { useBreakpoint } from '../../../utils/useBreakpoint';
+import { ImgFluid } from '../../Layout/ImgFluid';
+import { BoxOrder } from '../../../legos/Box/BoxOrder';
+
+const getSizeForGrid = ({ isPosition, isSmall }) => {
+  if (isSmall) {
+    return 'full';
+  }
+  if (isPosition === true) {
+    return ['58.3333%', 'auto'];
+  }
+  return ['auto', '58.3333%'];
+};
 
 export const MobileCase = ({
   data: {
@@ -18,21 +29,26 @@ export const MobileCase = ({
     thumbnailSecondRetina,
     thumbnailSecondWebp,
     thumbnailSecondWebpRetina,
-
     thumbnailWebpRetina,
     thumbnailWebp,
+    path,
   },
+  isPosition,
 }) => {
   const { isSmall, isDesktopOrTablet } = useBreakpoint();
   const altMobileCase = 'Mobile case image';
+  const link = `/work/${path}`;
   return (
     <Container>
       <Grid
-        columns={isSmall ? 'full' : ['auto', '58.33333%']}
+        columns={getSizeForGrid({ isPosition, isSmall })}
         gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
         align="center"
       >
-        <Box align={isSmall ? 'center' : 'start'}>
+        <BoxOrder
+          order={isPosition ? 1 : 0}
+          align={isSmall ? 'center' : 'start'}
+        >
           <Heading
             margin={{ bottom: 'large', top: 'none' }}
             level={2}
@@ -51,15 +67,10 @@ export const MobileCase = ({
 
           {isSmall || (
             <Box height={{ min: '60px' }} width={{ min: '244px' }}>
-              <Button
-                href="/gapnurse-case"
-                label="See case study"
-                primary
-                fill
-              />
+              <Button href={link} label="See case study" primary fill />
             </Box>
           )}
-        </Box>
+        </BoxOrder>
         <Box
           justify={isSmall ? 'center' : 'between'}
           gap="small"
@@ -124,4 +135,9 @@ MobileCase.propTypes = {
       title: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  isPosition: PropTypes.bool,
+};
+
+MobileCase.defaultProps = {
+  isPosition: false,
 };

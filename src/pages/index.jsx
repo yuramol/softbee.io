@@ -9,9 +9,9 @@ import { SiteFooter } from '../components/Footer';
 import { SiteHeader } from '../components/Header';
 import { TeamSection } from '../components/TeamSection/TeamSection';
 import { BoxLookingSection } from '../components/BoxLookingSection/BoxLookingSection';
-import { MobileCase } from '../components/Work/MobileCase';
+import { MobileCase } from '../components/Work/Mobile/MobileCase';
 import { CaseWrapper } from '../components/Work/CaseWrapper';
-import { WebCase } from '../components/Work/WebCase';
+import { WebCase } from '../components/Work/Web/WebCase';
 
 const IndexPage = ({ location, data }) => {
   const {
@@ -22,8 +22,12 @@ const IndexPage = ({ location, data }) => {
     whatWeDo,
   } = data.homePage.edges[0].node.frontmatter;
 
-  const GapNurseData = data.works.edges[0].node.frontmatter;
-  const MMOdata = data.works.edges[1].node.frontmatter;
+  const MobileData = data.works.edges.find(
+    item => item.node.frontmatter.type === 'mobile',
+  ).node.frontmatter;
+  const WebData = data.works.edges.find(
+    item => item.node.frontmatter.type === 'web',
+  ).node.frontmatter;
 
   return (
     <Layout location={location} title={meta.title}>
@@ -42,7 +46,7 @@ const IndexPage = ({ location, data }) => {
         sizePad="xlarge"
         urlImg="/assets/background-gapNurse.svg"
       >
-        <MobileCase withBackground data={GapNurseData} />
+        <MobileCase withBackground data={MobileData} />
       </CaseWrapper>
       <TeamSection title={team.title} text={team.text} />
       <CaseWrapper
@@ -54,7 +58,7 @@ const IndexPage = ({ location, data }) => {
         sizePad="xlarge"
         urlImg="/assets/mmoBackground.svg"
       >
-        <WebCase data={MMOdata} withBackground />
+        <WebCase data={WebData} withBackground />
       </CaseWrapper>
       <BoxLookingSection
         titleLooking={looking.title}
@@ -116,6 +120,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            type
             path
             thumbnail
             thumbnailRetina

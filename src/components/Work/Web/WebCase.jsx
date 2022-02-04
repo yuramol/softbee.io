@@ -2,13 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid } from 'grommet';
 
-import Container from '../Layout/Container';
-import { BoxOrder } from '../../legos/Box/BoxOrder';
-import { Button } from '../../legos/Button/Button';
-import { Heading } from '../../legos/typography/Heading';
-import { ImgFluid } from '../Layout/ImgFluid';
-import { Paragraph } from '../../legos/typography/Paragraph';
-import { useBreakpoint } from '../../utils/useBreakpoint';
+import Container from '../../Layout/Container';
+import { BoxOrder } from '../../../legos/Box/BoxOrder';
+import { Button } from '../../../legos/Button/Button';
+import { Heading } from '../../../legos/typography/Heading';
+import { ImgFluid } from '../../Layout/ImgFluid';
+import { Paragraph } from '../../../legos/typography/Paragraph';
+import { useBreakpoint } from '../../../utils/useBreakpoint';
+
+const getSizeForGrid = ({ isPosition, isTablet }) => {
+  if (isTablet) {
+    return 'full';
+  }
+  if (isPosition === true) {
+    return ['1/3', 'auto'];
+  }
+  return ['auto', '1/3'];
+};
 
 export const WebCase = ({
   data: {
@@ -19,23 +29,27 @@ export const WebCase = ({
     thumbnailSecondRetina,
     thumbnailSecondWebp,
     thumbnailSecondWebpRetina,
-
     thumbnailWebpRetina,
     thumbnailWebp,
   },
+  isPosition,
 }) => {
   const { isSmall, isDesktopOrTablet, isTablet } = useBreakpoint();
-
   const textAlignVariant = isTablet ? 'center' : 'start';
   const altWebCase = 'Web case image ';
   return (
     <Container>
       <Grid
-        columns={isTablet ? 'full' : ['auto', '1/3']}
+        columns={getSizeForGrid({ isPosition, isTablet })}
         gap={isDesktopOrTablet ? 'medium' : 'large'}
         align="center"
       >
-        <Box direction="row" justify="center" align="center">
+        <BoxOrder
+          order={isPosition ? 1 : 0}
+          direction="row"
+          justify="center"
+          align="center"
+        >
           <Box>
             <picture>
               <source
@@ -62,7 +76,7 @@ export const WebCase = ({
               />
             </picture>
           </Box>
-        </Box>
+        </BoxOrder>
 
         <BoxOrder
           order={isTablet ? '-1' : undefined}
@@ -106,7 +120,6 @@ export const WebCase = ({
         )}
       </Grid>
     </Container>
-    // </Box>
   );
 };
 
@@ -125,4 +138,9 @@ WebCase.propTypes = {
       title: PropTypes.string.isRequired,
     }).isRequired,
   }).isRequired,
+  isPosition: PropTypes.bool,
+};
+
+WebCase.defaultProps = {
+  isPosition: false,
 };
