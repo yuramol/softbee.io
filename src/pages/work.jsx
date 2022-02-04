@@ -18,7 +18,7 @@ const WorkPage = ({ location, data }) => {
   const workFirstData = data.works.edges[0].node.frontmatter;
   const { meta, main } = workPage.edges[0].node.frontmatter;
 
-  const array = data.works.edges.slice(1);
+  const works = data.works.edges.slice(1);
 
   let { toolchain } = workPage.edges[0].node.frontmatter;
   toolchain = toolchain.map(item => ({ id: Math.random() * 1000, ...item }));
@@ -58,7 +58,7 @@ const WorkPage = ({ location, data }) => {
         <WhatWeDoSection title={whatWeDo.title} />
         <ToolchainSection toolchain={toolchain} />
       </CaseWrapper>
-      {array.map((item, index) => {
+      {works.map((item, index) => {
         return (
           <CaseWrapper
             key={item.node.frontmatter.path}

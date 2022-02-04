@@ -14,7 +14,7 @@ const getSizeForGrid = ({ isPosition, isSmall }) => {
   if (isSmall) {
     return 'full';
   }
-  if (isPosition === true) {
+  if (isPosition) {
     return ['58.3333%', 'auto'];
   }
   return ['auto', '58.3333%'];

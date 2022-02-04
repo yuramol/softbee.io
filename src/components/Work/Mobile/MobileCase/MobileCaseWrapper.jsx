@@ -29,46 +29,15 @@ export const MobileCaseWrapper = ({
   },
 }) => {
   const { isDesktopOrTablet } = useBreakpoint();
-  if (isSvgHalfCircle) {
-    return (
-      <BoxPositionRelative
-        background={
-          withBackground && isDesktopOrTablet ? 'rgb(240, 246, 244)' : undefined
-        }
-      >
-        {isDesktopOrTablet ? null : (
-          <>
-            <SvgHalfCircle
-              top={top}
-              left={left}
-              bottom={bottom}
-              right={right}
-              color={color}
-              transform={transform}
-            />
-            <SvgHalfCircle
-              top={sTop}
-              left={sLeft}
-              bottom={sBottom}
-              right={sRight}
-              color={color}
-              transform={sTransform}
-            />
-          </>
-        )}
-        {children}
-      </BoxPositionRelative>
-    );
-  }
-  if (isSvgTriangleRounded) {
-    return (
-      <BoxPositionRelative
-        background={
-          withBackground && isDesktopOrTablet ? 'rgb(240, 246, 244)' : undefined
-        }
-      >
-        {isDesktopOrTablet ? null : (
-          <SvgTriangleRounded
+  return (
+    <BoxPositionRelative
+      background={
+        withBackground && isDesktopOrTablet ? 'rgb(240, 246, 244)' : undefined
+      }
+    >
+      {!isDesktopOrTablet && isSvgHalfCircle && (
+        <>
+          <SvgHalfCircle
             top={top}
             left={left}
             bottom={bottom}
@@ -76,33 +45,39 @@ export const MobileCaseWrapper = ({
             color={color}
             transform={transform}
           />
-        )}
-        {children}
-      </BoxPositionRelative>
-    );
-  }
-  if (isSvgHero) {
-    return (
-      <BoxPositionRelative
-        background={
-          withBackground && isDesktopOrTablet ? 'rgb(240, 246, 244)' : undefined
-        }
-      >
-        {isDesktopOrTablet ? null : (
-          <SvgHero
-            top={top}
-            left={left}
-            bottom={bottom}
-            right={right}
+          <SvgHalfCircle
+            top={sTop}
+            left={sLeft}
+            bottom={sBottom}
+            right={sRight}
             color={color}
-            transform={transform}
+            transform={sTransform}
           />
-        )}
-        {children}
-      </BoxPositionRelative>
-    );
-  }
-  return null;
+        </>
+      )}
+      {!isDesktopOrTablet && isSvgTriangleRounded && (
+        <SvgTriangleRounded
+          top={top}
+          left={left}
+          bottom={bottom}
+          right={right}
+          color={color}
+          transform={transform}
+        />
+      )}
+      {!isDesktopOrTablet && isSvgHero && (
+        <SvgHero
+          top={top}
+          left={left}
+          bottom={bottom}
+          right={right}
+          color={color}
+          transform={transform}
+        />
+      )}
+      {children}
+    </BoxPositionRelative>
+  );
 };
 
 MobileCaseWrapper.propTypes = {
