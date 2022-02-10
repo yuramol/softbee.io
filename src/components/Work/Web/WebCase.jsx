@@ -31,12 +31,15 @@ export const WebCase = ({
     thumbnailSecondWebpRetina,
     thumbnailWebpRetina,
     thumbnailWebp,
+    path,
   },
   isPosition,
 }) => {
   const { isSmall, isDesktopOrTablet, isTablet } = useBreakpoint();
   const textAlignVariant = isTablet ? 'center' : 'start';
   const altWebCase = 'Web case image ';
+  const link = `/work/${path}`;
+
   return (
     <Container>
       <Grid
@@ -104,7 +107,7 @@ export const WebCase = ({
 
           {isTablet || (
             <Box height={{ min: '60px' }} width={{ min: '244px' }}>
-              <Button primary fill label="See case study" href="/mmo-case" />
+              <Button primary fill label="See case study" href={link} />
             </Box>
           )}
         </BoxOrder>
@@ -115,7 +118,7 @@ export const WebCase = ({
             height={{ min: '60px' }}
             width={{ min: '244px' }}
           >
-            <Button primary fill label="See case study" href="/mmo-case" />
+            <Button primary fill label="See case study" href={link} />
           </Box>
         )}
       </Grid>
