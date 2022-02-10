@@ -39,7 +39,7 @@ thumbnailSecondSectionIosSecond: /assets/iosPhoneSecondSectionGapNurseSecond.png
 thumbnailSecondSectionIosRetina: /assets/iosPhoneSecondSectionGapNurse@2x.png 2x
 thumbnailSecondSectionIosSecondRetina: /assets/iosPhoneSecondSectionGapNurseSecond@2x.png 2x
 backgroundHero: /assets/background-mobileCaseHero.svg
-color: "#575195"
+color: '#575195'
 technologies: React, Vue
 languages: JS
 time: 124
@@ -53,7 +53,8 @@ preview:
   title: They really help to fight COVID-19 in US
   text: GapNurse, facilities know they’re covered during critical moments and
     unexpected absences without breaking your budget.
-  textInfoMobileCase: GapNurse is a platform for cooperating nurses and healthcare facilities work together.
+  textInfoFirst:
+    GapNurse is a platform for cooperating nurses and healthcare facilities work together.
     GapNurse connects nursing professionals with healthcare facilities to fill hourly,
     short-term and permanent assignments.
 ---

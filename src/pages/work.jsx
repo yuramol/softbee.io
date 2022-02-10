@@ -12,6 +12,28 @@ import { MobileCase } from '../components/Work/Mobile/MobileCase';
 import { CaseWrapper } from '../components/Work/CaseWrapper';
 import { WebCase } from '../components/Work/Web/WebCase';
 
+const getPosition = ({ index }) => {
+  if (index % 2) {
+    return 'top right';
+  }
+  return 'left top';
+};
+
+const getPositionImg = ({ index }) => {
+  const newIndex = index + 1;
+  if (newIndex % 2) {
+    return '/assets/mmoBackground.svg';
+  }
+  return '/assets/mmoBackgroundMirror.svg';
+};
+
+const getColor = ({ index }) => {
+  if (index % 2) {
+    return '#f0f6f4';
+  }
+  return '#fff';
+};
+
 const WorkPage = ({ location, data }) => {
   const { workPage, homePage } = data;
 
@@ -62,17 +84,13 @@ const WorkPage = ({ location, data }) => {
         return (
           <CaseWrapper
             key={item.node.frontmatter.path}
-            position={!index % 2 ? 'left top' : 'right top'}
+            position={getPosition({ index })}
             withBackground
             justify="center"
-            firstColor={index % 2 ? '#f0f6f4' : '#fff'}
+            firstColor={getColor({ index })}
             secondColor="#f0f6f4"
             sizePad="xlarge"
-            urlImg={
-              !index % 2
-                ? '/assets/mmoBackground.svg'
-                : '/assets/mmoBackgroundMirror.svg'
-            }
+            urlImg={getPositionImg({ index })}
           >
             {item.node.frontmatter.type === 'web' ? (
               <WebCase
