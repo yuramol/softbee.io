@@ -6,10 +6,13 @@ import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
-import { MobileCaseHero } from '../components/Work/Mobile/MobileCase/MobileCaseHero';
-import { MobileCaseInfo } from '../components/Work/Mobile/MobileCase/MobileCaseInfo';
+import { WorkCaseHero } from '../components/Work/WorkCaseHero';
 import { MobileCaseWrapper } from '../components/Work/Mobile/MobileCase/MobileCaseWrapper';
 import { MobileCaseDevice } from '../components/Work/Mobile/MobileCase/MobileCaseDevice';
+import { WorkCaseHeaderInfo } from '../components/Work/WorkCaseHeaderInfo';
+import { MobileCaseInfo } from '../components/Work/Mobile/MobileCase/MobileCaseInfo';
+import { WebCaseInfo } from '../components/Work/Web/WebCaseInfo';
+import { WebCaseImage } from '../components/Work/Web/WebCaseImage';
 
 const getPositionBackground = index => {
   if (index % 4 === 0) {
@@ -30,6 +33,12 @@ const getPositionBackground = index => {
 const WorkCaseTemplate = ({ data }) => {
   const workData = data.workCase.frontmatter;
   const {
+    thumbnailFirstCase,
+    thumbnailFirstCaseRetina,
+    thumbnailSecondCase,
+    thumbnailSecondCaseRetina,
+    thumbnailThirdCase,
+    thumbnailThirdCaseRetina,
     thumbnailFirstSectionAndroid,
     thumbnailFirstSectionAndroidSecond,
     thumbnailFirstSectionAndroidRetina,
@@ -76,38 +85,75 @@ const WorkCaseTemplate = ({ data }) => {
       secondRetinaImage: thumbnailSecondSectionIosSecondRetina,
     },
   ];
+  const webItemImages = [
+    {
+      firstImage: thumbnailFirstCase,
+      firstImageRetina: thumbnailFirstCaseRetina,
+    },
+    {
+      firstImage: thumbnailSecondCase,
+      firstImageRetina: thumbnailSecondCaseRetina,
+    },
+    {
+      firstImage: thumbnailThirdCase,
+      firstImageRetina: thumbnailThirdCaseRetina,
+    },
+  ];
   return (
     <Layout>
       <SEO title={title} description={text} />
       <SiteHeader />
-      <MobileCaseHero withBackground data={workData} />
-      <MobileCaseInfo data={workData} />
-      {arrayItemImages.map(
-        (
-          { firstImage, firstImageRetina, secondImage, secondRetinaImage },
-          index,
-        ) => {
-          return (
-            <MobileCaseWrapper
-              key={firstImage}
-              color={color}
-              withBackground={!(index % 2)}
-              isSvgHalfCircle={!(index % 2)}
-              isSvgTriangleRounded={!!(index % 2)}
-              position={getPositionBackground(index + 1)}
-            >
-              <MobileCaseDevice
-                thumbnail={firstImage}
-                thumbnail2x={firstImageRetina}
-                thumbnailSecond={secondImage}
-                thumbnailSecond2x={secondRetinaImage}
-                android={!(index % 2)}
-                data={workData}
-              />
-            </MobileCaseWrapper>
-          );
-        },
+      <WorkCaseHero withBackground data={workData} />
+      <WorkCaseHeaderInfo data={workData} />
+      {workData.type === 'mobile' ? (
+        <MobileCaseInfo data={workData} />
+      ) : (
+        <WebCaseInfo data={workData} />
       )}
+      {workData.type === 'mobile'
+        ? arrayItemImages.map(
+            (
+              { firstImage, firstImageRetina, secondImage, secondRetinaImage },
+              index,
+            ) => {
+              return (
+                <MobileCaseWrapper
+                  key={firstImage}
+                  color={color}
+                  withBackground={!(index % 2)}
+                  isSvgHalfCircle={!(index % 2)}
+                  isSvgTriangleRounded={!!(index % 2)}
+                  position={getPositionBackground(index + 1)}
+                >
+                  <MobileCaseDevice
+                    thumbnail={firstImage}
+                    thumbnail2x={firstImageRetina}
+                    thumbnailSecond={secondImage}
+                    thumbnailSecond2x={secondRetinaImage}
+                    android={!(index % 2)}
+                    data={workData}
+                  />
+                </MobileCaseWrapper>
+              );
+            },
+          )
+        : webItemImages.map(({ firstImage, firstImageRetina }, index) => {
+            return (
+              <MobileCaseWrapper
+                key={firstImage}
+                color={color}
+                withBackground={!(index % 2)}
+                isSvgHalfCircle={!!(index % 2)}
+                isSvgTriangleRounded={!(index % 2)}
+                position={getPositionBackground(index)}
+              >
+                <WebCaseImage
+                  firstImage={firstImage}
+                  firstImageRetina={firstImageRetina}
+                />
+              </MobileCaseWrapper>
+            );
+          })}
       <SiteFooter />
     </Layout>
   );
@@ -119,10 +165,20 @@ export const pageQuery = graphql`
   query WorkItemByPath($slug: String!) {
     workCase: markdownRemark(frontmatter: { path: { eq: $slug } }) {
       frontmatter {
+        type
         googlePlayThumbnail
         appStoreThumbnail
         logo
         alt
+        linkCurrentWeb
+        thumbnail
+        thumbnailRetina
+        thumbnailFirstCase
+        thumbnailFirstCaseRetina
+        thumbnailSecondCase
+        thumbnailSecondCaseRetina
+        thumbnailThirdCase
+        thumbnailThirdCaseRetina
         thumbnailIphone
         thumbnailIphoneRetina
         thumbnailSamsung
@@ -156,7 +212,8 @@ export const pageQuery = graphql`
         color
         backgroundHero
         preview {
-          textInfoMobileCase
+          textInfoFirst
+          textInfoSecond
         }
       }
     }
