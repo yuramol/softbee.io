@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: soft-bee/softbee.tech
-  branch: SB-23-work-cases
+  branch: develop
 
 media_folder: static/assets
 public_folder: assets
