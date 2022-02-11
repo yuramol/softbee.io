@@ -64,5 +64,5 @@ export const OurServices = ({ services }) => {
 };
 
 OurServices.propTypes = {
-  services: PropTypes.arrayOf(PropTypes.array).isRequired,
+  services: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

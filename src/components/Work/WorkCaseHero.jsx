@@ -39,6 +39,7 @@ export const WorkCaseHero = ({
     linkAppStore,
     linkGooglePlay,
     type,
+    linkCurrentWeb,
   },
 }) => {
   const { isSmall, isDesktopOrTablet } = useBreakpoint();
@@ -100,7 +101,7 @@ export const WorkCaseHero = ({
                   bgColor={color}
                   fill
                   label="Check it out"
-                  href="https://www.figma.com/file/es4KLIluf3Orr6FmmBAOvt/Team-website?node-id=3310%3A895"
+                  href={linkCurrentWeb}
                   target="_blank"
                 />
               </Box>
@@ -148,13 +149,14 @@ WorkCaseHero.propTypes = {
   data: PropTypes.shape({
     title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    thumbnail: PropTypes.string.isRequired,
-    thumbnailRetina: PropTypes.string.isRequired,
-    thumbnailIphone: PropTypes.string.isRequired,
-    thumbnailSamsung: PropTypes.string.isRequired,
-    googlePlayThumbnail: PropTypes.string.isRequired,
-    appStoreThumbnail: PropTypes.string.isRequired,
+    thumbnail: PropTypes.string,
+    thumbnailRetina: PropTypes.string,
+    thumbnailIphone: PropTypes.string,
+    thumbnailSamsung: PropTypes.string,
+    googlePlayThumbnail: PropTypes.string,
+    appStoreThumbnail: PropTypes.string,
     color: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired,
+    linkCurrentWeb: PropTypes.string,
   }).isRequired,
 };

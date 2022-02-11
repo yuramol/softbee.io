@@ -170,6 +170,7 @@ export const pageQuery = graphql`
         appStoreThumbnail
         logo
         alt
+        linkCurrentWeb
         thumbnail
         thumbnailRetina
         thumbnailFirstCase

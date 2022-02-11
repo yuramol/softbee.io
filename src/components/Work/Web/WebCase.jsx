@@ -48,7 +48,7 @@ export const WebCase = ({
         align="center"
       >
         <BoxOrder
-          order={isPosition ? 1 : 0}
+          order={isPosition && !isTablet ? 1 : 0}
           direction="row"
           justify="center"
           align="center"

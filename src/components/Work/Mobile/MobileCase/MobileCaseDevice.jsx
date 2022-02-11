@@ -73,9 +73,10 @@ MobileCaseDevice.propTypes = {
   thumbnailSecond: PropTypes.string.isRequired,
   thumbnailSecond2x: PropTypes.string.isRequired,
   android: PropTypes.bool,
-  alt: PropTypes.string.isRequired,
+  alt: PropTypes.string,
 };
 
 MobileCaseDevice.defaultProps = {
   android: false,
+  alt: 'Image Case',
 };

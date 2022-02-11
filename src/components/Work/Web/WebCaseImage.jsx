@@ -9,7 +9,7 @@ export function WebCaseImage({ firstImage, firstImageRetina }) {
   return (
     <Container pad={{ vertical: 'xlarge' }}>
       <Box width={{ max: '1000px' }} margin={{ horizontal: 'auto' }}>
-        <ImgWebCase fill src={firstImage} srcSet={firstImageRetina} />
+        <ImgWebCase src={firstImage} srcSet={firstImageRetina} />
       </Box>
     </Container>
   );
