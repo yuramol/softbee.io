@@ -44,14 +44,19 @@ export const CaseWrapper = ({
 };
 
 CaseWrapper.propTypes = {
-  sizePad: PropTypes.string.isRequired,
-  firstColor: PropTypes.string.isRequired,
-  secondColor: PropTypes.string.isRequired,
-  urlImg: PropTypes.string.isRequired,
-  position: PropTypes.string.isRequired,
+  sizePad: PropTypes.string,
+  firstColor: PropTypes.string,
+  secondColor: PropTypes.string,
+  urlImg: PropTypes.string,
+  position: PropTypes.string,
   withBackground: PropTypes.bool,
 };
 
 CaseWrapper.defaultProps = {
   withBackground: undefined,
+  sizePad: undefined,
+  firstColor: undefined,
+  secondColor: undefined,
+  urlImg: undefined,
+  position: undefined,
 };

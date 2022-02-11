@@ -45,10 +45,10 @@ export const WorkHeroSection = ({ subtitle, withBackground, whatWeDo }) => {
 
 WorkHeroSection.propTypes = {
   subtitle: PropTypes.string.isRequired,
-  whatWeDo: PropTypes.arrayOf(PropTypes.array).isRequired,
+  whatWeDo: PropTypes.arrayOf(PropTypes.object).isRequired,
   withBackground: PropTypes.bool,
 };
 
 WorkHeroSection.defaultProps = {
-  withBackground: undefined,
+  withBackground: false,
 };

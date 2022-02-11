@@ -4,6 +4,7 @@ path: eyadamed-case
 order: 3
 type: web
 title: Eyadamed Web
+alt: eyadamed-web-site
 text: |-
   Multifunctional platform for
   cooperating Doctor with Patient
@@ -30,6 +31,7 @@ technologiesIcon: /assets/icons/settingIcon.svg
 languagesIcon: /assets/icons/languageIcon.svg
 timeIcon: /assets/icons/clockIcon.svg
 screenshots: /assets/previewEyadamedImage.png
+linkCurrentWeb: https://www.google.com/
 preview:
   title: Eyadamed Web
   text: Multifunctional platform for

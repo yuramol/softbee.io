@@ -7,6 +7,7 @@ const StyledParagraph = styled(LibParagraph)`
   font-weight: ${({ fontWeight }) => fontWeight};
   white-space: ${({ whiteSpace }) => whiteSpace};
   text-align: ${({ textAlign }) => textAlign};
+  align-self: ${({ alignSelf }) => alignSelf};
 `;
 export const Paragraph = ({ children, ...props }) => (
   // eslint-disable-next-line react/jsx-props-no-spreading
