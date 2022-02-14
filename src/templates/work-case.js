@@ -11,8 +11,8 @@ import { MobileCaseWrapper } from '../components/Work/Mobile/MobileCase/MobileCa
 import { MobileCaseDevice } from '../components/Work/Mobile/MobileCase/MobileCaseDevice';
 import { WorkCaseHeaderInfo } from '../components/Work/WorkCaseHeaderInfo';
 import { MobileCaseInfo } from '../components/Work/Mobile/MobileCase/MobileCaseInfo';
-import { WebCaseInfo } from '../components/Work/Web/WebCaseInfo';
-import { WebCaseImage } from '../components/Work/Web/WebCaseImage';
+import { WebCaseInfo } from '../components/Work/Web/WebCase/WebCaseInfo';
+import { WebCaseImage } from '../components/Work/Web/WebCase/WebCaseImage';
 
 const getPositionBackground = index => {
   if (index % 4 === 0) {

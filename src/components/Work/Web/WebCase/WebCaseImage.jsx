@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Box } from 'grommet';
 import PropTypes from 'prop-types';
-import Container from '../../Layout/Container';
-import { ImgWebCase } from './styled';
+import Container from '../../../Layout/Container';
+import { ImgWebCase } from '../styled';
 
 export function WebCaseImage({ firstImage, firstImageRetina }) {
   return (
