@@ -3,14 +3,7 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-import {
-  IconArrow,
-  IconFacebook,
-  IconInsta,
-  IconLinkedin,
-  IconTelegram,
-  IconTwitter,
-} from '../../legos/Icons';
+import { IconArrow, IconLinkedin, IconUpWork } from '../../legos/Icons';
 import Container from '../Layout/Container';
 import Logo from '../../../static/assets/logo.svg';
 import { Heading } from '../../legos/typography/Heading';
@@ -178,32 +171,16 @@ export const SiteFooter = () => {
               <SocialLink
                 color="#fff"
                 activeColor={theme.global.colors['accent-1']}
-                icon={<IconInsta />}
-                to="/a"
-              />
-              <SocialLink
-                color="#fff"
-                activeColor={theme.global.colors['accent-1']}
                 icon={<IconLinkedin />}
-                to="/d"
+                to="https://www.linkedin.com/company/softbeeio/"
+                target="_blank"
               />
               <SocialLink
                 color="#fff"
                 activeColor={theme.global.colors['accent-1']}
-                icon={<IconTelegram />}
-                to="/s"
-              />
-              <SocialLink
-                color="#fff"
-                activeColor={theme.global.colors['accent-1']}
-                icon={<IconFacebook />}
-                to="/d"
-              />
-              <SocialLink
-                color="#fff"
-                activeColor={theme.global.colors['accent-1']}
-                icon={<IconTwitter />}
-                to="/w"
+                icon={<IconUpWork />}
+                to="https://www.upwork.com/ag/softbee/"
+                target="_blank"
               />
             </Grid>
           </Box>

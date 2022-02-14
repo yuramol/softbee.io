@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Paragraph } from '../../../legos/typography/Paragraph';
-import { ImgFluid } from '../../Layout/ImgFluid';
-import { useBreakpoint } from '../../../utils/useBreakpoint';
-import Container from '../../Layout/Container';
-import { StyledList } from './styled';
+import { Paragraph } from '../../../../legos/typography/Paragraph';
+import { ImgFluid } from '../../../Layout/ImgFluid';
+import { useBreakpoint } from '../../../../utils/useBreakpoint';
+import Container from '../../../Layout/Container';
+import { StyledList } from '../styled';
 
 export const WebCaseInfo = ({
   data: {
@@ -29,20 +29,21 @@ export const WebCaseInfo = ({
           {textInfoFirst}
         </Paragraph>
 
-        {textInfoSecond.map(item => {
-          return (
-            <Paragraph
-              size={isDesktopOrTablet ? 'xlarge' : 'xxlarge'}
-              fontWeight="400"
-              alignSelf="start"
-              margin={{ vertical: 'xsmall' }}
-              color={color}
-              key={item}
-            >
-              <StyledList dotsList="disc"> {item}</StyledList>
-            </Paragraph>
-          );
-        })}
+        {textInfoSecond &&
+          textInfoSecond.map(item => {
+            return (
+              <Paragraph
+                size={isDesktopOrTablet ? 'xlarge' : 'xxlarge'}
+                fontWeight="400"
+                alignSelf="start"
+                margin={{ vertical: 'xsmall' }}
+                color={color}
+                key={item}
+              >
+                <StyledList dotsList="disc"> {item}</StyledList>
+              </Paragraph>
+            );
+          })}
       </Container>
     </>
   );
