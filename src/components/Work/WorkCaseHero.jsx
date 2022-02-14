@@ -147,8 +147,8 @@ export const WorkCaseHero = ({
 
 WorkCaseHero.propTypes = {
   data: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    text: PropTypes.string,
     logo: PropTypes.string,
     thumbnail: PropTypes.string,
     thumbnailRetina: PropTypes.string,
