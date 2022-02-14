@@ -25,3 +25,6 @@ export {
 export {
   default as IconArrowDown,
 } from '../../static/assets/icons/arrowDown.inline.svg';
+export {
+  default as IconUpWork,
+} from '../../static/assets/icons/upWork.inline.svg';
