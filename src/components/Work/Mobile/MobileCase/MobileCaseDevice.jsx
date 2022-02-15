@@ -28,7 +28,10 @@ export const MobileCaseDevice = ({
         alignContent="center"
         margin={{ horizontal: 'auto' }}
       >
-        <Box width={isSmall ? '48%' : undefined}>
+        <Box
+          pad={{ right: isSmall ? '10px' : undefined }}
+          width={isSmall ? '48%' : undefined}
+        >
           <ImgFluid srcSet={thumbnail2x} alt={alt} src={thumbnail} />
         </Box>
         <BoxOrder
@@ -51,7 +54,10 @@ export const MobileCaseDevice = ({
             {android ? 'Android' : 'iOS'}
           </Heading>
         </BoxOrder>
-        <Box width={isSmall ? '48%' : undefined}>
+        <Box
+          pad={{ left: isSmall ? '10px' : undefined }}
+          width={isSmall ? '48%' : undefined}
+        >
           <ImgFluid
             alt={alt}
             srcSet={thumbnailSecond2x}

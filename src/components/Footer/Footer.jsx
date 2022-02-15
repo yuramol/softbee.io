@@ -7,7 +7,6 @@ import { IconArrow, IconLinkedin, IconUpWork } from '../../legos/Icons';
 import Container from '../Layout/Container';
 import Logo from '../../../static/assets/logo.svg';
 import { Heading } from '../../legos/typography/Heading';
-import { Paragraph } from '../../legos/typography/Paragraph';
 import { RouterLink } from '../../legos/RouterLink';
 import { StyledLink, StyledButton, SocialLink, StyledText } from './styled';
 import { Text } from '../../legos/typography/Text';
@@ -58,12 +57,7 @@ export const SiteFooter = () => {
       }
     `,
   );
-  const {
-    title,
-    message,
-    placeholder,
-    success,
-  } = edges[0].node.frontmatter.footer;
+  const { title, placeholder, success } = edges[0].node.frontmatter.footer;
 
   const alignVariant = isSmall ? 'center' : 'start';
   const columnsCount = isSmall ? 'full' : ['1/2', 'auto'];
@@ -104,14 +98,13 @@ export const SiteFooter = () => {
   const onChangeReCaptcha = value => {
     setReCaptchaCheck(value !== null);
   };
-
   return (
     <Footer background="brand">
       <Container>
         <Grid
           columns={columnsCount}
           gap={gapVariant}
-          pad={{ vertical: 'large' }}
+          pad={{ vertical: isSmall ? 'xlarge' : 'large' }}
         >
           <Box justify="between">
             <Box
@@ -194,14 +187,6 @@ export const SiteFooter = () => {
             >
               {title}
             </Heading>
-            <Paragraph
-              size="xlarge"
-              color="#fff"
-              textAlign={alignVariant}
-              margin={{ top: 'none', bottom: 'medium' }}
-            >
-              {message}
-            </Paragraph>
             <Form
               name="slack-form"
               value={formValues}
@@ -224,7 +209,7 @@ export const SiteFooter = () => {
                         <TextInput
                           name="textSlack"
                           placeholder={placeholder}
-                          size="xlarge"
+                          size={isSmall ? 'medium' : 'xlarge'}
                         />
                       </FormField>
                       {!isMessageNotEmpty && (
@@ -232,11 +217,13 @@ export const SiteFooter = () => {
                           You must enter at least 20 characters
                         </Text>
                       )}
-                      <ReCAPTCHA
-                        ref={reCaptchaRef}
-                        onChange={onChangeReCaptcha}
-                        sitekey={process.env.SITE_RECAPTCHA_KEY}
-                      />
+                      {isMessageNotEmpty && (
+                        <ReCAPTCHA
+                          ref={reCaptchaRef}
+                          onChange={onChangeReCaptcha}
+                          sitekey={process.env.SITE_RECAPTCHA_KEY}
+                        />
+                      )}
                     </>
                   )}
                 </Box>

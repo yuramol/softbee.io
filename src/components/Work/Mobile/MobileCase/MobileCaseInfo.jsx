@@ -24,7 +24,7 @@ export const MobileCaseInfo = ({
         />
         <Paragraph
           textAlign="center"
-          size={isDesktopOrTablet ? 'xlarge' : '2.25rem'}
+          size={isDesktopOrTablet ? 'medium' : '2.25rem'}
           margin={{ top: 'large', bottom: 'none' }}
           fontWeight="300"
           color={color}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box } from 'grommet';
 import PropTypes from 'prop-types';
-import { Heading } from '../../legos/typography/Heading';
 import { Paragraph } from '../../legos/typography/Paragraph';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { useBreakpoint } from '../../utils/useBreakpoint';
@@ -35,7 +34,7 @@ export const WorkCaseHeaderInfo = ({
       iconSrc: timeIcon,
     },
   ];
-  const { isSmall, isDesktopOrTablet } = useBreakpoint();
+  const { isSmall, isDesktopOrTablet, isSTablet } = useBreakpoint();
   const iconSize = isSmall ? '32px' : '42px';
   return (
     <>
@@ -53,7 +52,7 @@ export const WorkCaseHeaderInfo = ({
           direction="row"
           wrap={!!isSmall}
         >
-          {dataInfo.map(({ name, value, iconSrc }) => {
+          {dataInfo.map(({ value, iconSrc }) => {
             return (
               <Box
                 pad={{
@@ -69,22 +68,12 @@ export const WorkCaseHeaderInfo = ({
                   <ImgFluid mobileWidth={iconSize} src={iconSrc} alt={alt} />
                 </Box>
                 <Box>
-                  <Heading
-                    lineHeight="1"
-                    level={4}
-                    fontWeight="400"
-                    color="#fff"
-                    margin={{ top: 'none', bottom: 'xxsmall' }}
-                    textAlign="center"
-                  >
-                    {name}:
-                  </Heading>
                   <Paragraph
                     textAlign="center"
                     color="#fff"
                     fontWeight="600"
                     margin={{ bottom: 'none', top: 'none' }}
-                    size={isSmall ? 'large' : 'xxlarge'}
+                    size={isSTablet ? 'medium' : 'xxlarge'}
                   >
                     {value}
                   </Paragraph>

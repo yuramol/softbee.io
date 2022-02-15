@@ -19,7 +19,8 @@ export const StyledButton = styled(Button)`
 `;
 
 export const SocialLink = styled(RouterLink)`
-  ${displayFlexCenter}
+  ${displayFlexCenter};
+  line-height: 1;
 `;
 
 export const StyledText = styled(Text)`
