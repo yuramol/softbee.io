@@ -25,7 +25,7 @@ export const ToolchainSection = ({ toolchain }) => {
         {/* todo new field in markdown */}
         What do we have in our toolchain?
       </Heading>
-      <Box wrap direction="row" justify="center" margin="0, auto">
+      <Box wrap direction="row" justify={isSmall ? 'around' : 'center'}>
         {toolchain.map(({ logo, name }) => (
           <Box
             key={name}

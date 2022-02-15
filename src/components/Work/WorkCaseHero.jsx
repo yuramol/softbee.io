@@ -44,10 +44,11 @@ export const WorkCaseHero = ({
 }) => {
   const { isSmall, isSTablet, isDesktopOrTablet } = useBreakpoint();
   return (
-    <BoxPositionRelative height={isDesktopOrTablet ? 'auto' : '1000px'}>
+    <BoxPositionRelative>
       {!isDesktopOrTablet && <SvgHero color={color} bottom={0} right={0} />}
       <Container pad={{ vertical: 'xlarge' }}>
         <Grid
+          margin={{ bottom: isDesktopOrTablet ? undefined : 'xlarge' }}
           columns={isSmall ? 'full' : getSize({ type, isDesktopOrTablet })}
           gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
           align="center"
@@ -68,7 +69,7 @@ export const WorkCaseHero = ({
             >
               {title}
             </Heading>
-            <Box width={isDesktopOrTablet ? '100%' : '80%'}>
+            <Box>
               <Paragraph
                 fontWeight="400"
                 textAlign={isSmall ? 'center' : 'none'}
@@ -109,7 +110,7 @@ export const WorkCaseHero = ({
           </BoxOrder>
           {type === 'mobile' ? (
             <Box
-              justify="around"
+              justify="center"
               pad={{ left: isSmall ? 'none' : 'large' }}
               direction="row"
             >
@@ -122,7 +123,7 @@ export const WorkCaseHero = ({
               </Box>
               <Box
                 alignSelf="end"
-                pad={{ left: isDesktopOrTablet ? 'small' : 'none' }}
+                pad={{ left: isDesktopOrTablet ? 'large' : 'xlarge' }}
               >
                 <ImgFluid
                   srcSet={thumbnailIphoneRetina}
