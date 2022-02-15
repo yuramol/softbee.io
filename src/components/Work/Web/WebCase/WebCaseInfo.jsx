@@ -38,7 +38,7 @@ export const WebCaseInfo = ({
                 alignSelf="start"
                 margin={{ vertical: 'xsmall' }}
                 color={color}
-                key={item}
+                key={item + Math.random() * 1000}
               >
                 <StyledList dotsList="disc"> {item}</StyledList>
               </Paragraph>
