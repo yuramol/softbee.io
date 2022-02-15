@@ -39,7 +39,7 @@ export const WorkCaseHeaderInfo = ({
   return (
     <>
       <Box
-        pad={{ vertical: isSmall ? 'xlarge' : 'large' }}
+        pad={{ vertical: 'large' }}
         align={isSmall ? undefined : 'center'}
         justify="center"
         background={{ color }}

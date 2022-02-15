@@ -11,6 +11,8 @@ export const StyledSvg = styled.svg`
   right: ${({ right }) => right};
   transform: ${({ transform }) => transform};
   z-index: -10;
+  max-width: 45%;
+  height: auto;
 `;
 
 export const BoxPositionRelative = styled(Box)`
