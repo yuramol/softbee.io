@@ -65,7 +65,7 @@ export const WorkCaseHero = ({
             <Heading
               margin={{ bottom: 'none', top: 'medium' }}
               color={color}
-              level={2}
+              level={1}
             >
               {title}
             </Heading>
