@@ -1,6 +1,6 @@
 ---
 templateKey: workItem
-path: eyadamed-case
+path: eyadamed
 order: 3
 type: web
 title: Eyadamed Web
