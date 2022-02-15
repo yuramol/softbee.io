@@ -24,7 +24,7 @@ export const WhatWeDoSection = ({ title }) => {
         textAlign="center"
         level={2}
         margin={{ top: 'none', bottom: 'large' }}
-        fontWeight="400"
+        fontWeight="500"
       >
         {title}
       </Heading>
@@ -42,7 +42,7 @@ export const WhatWeDoSection = ({ title }) => {
             />
             <Heading
               level={3}
-              fontWeight="700"
+              fontWeight="400"
               margin={{ left: 'medium', vertical: 'none' }}
               size={isXSmall ? '1rem' : undefined}
             >

@@ -38,7 +38,7 @@ export const OurTeamFollowSection = ({ text }) => {
         <Box
           elevation={isSmall ? 'yellowMobileShadow' : 'yellowDesktopShadow'}
           background="brand"
-          width={{ max: '1000px', width: '100%' }}
+          width={{ max: '1000px', width: isDesktopOrTablet ? '90%' : '100%' }}
           pad={{
             vertical: padVariant,
             horizontal: padVariant,

@@ -13,7 +13,7 @@ export const OurTeamWeAreSection = ({ title, text }) => {
 
   const columnsCount = isSmall ? 'full' : ['1/2', 'auto'];
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
-  const textFontSizeVariant = isSTablet ? 'large' : 'xlarge';
+  const textFontSizeVariant = isSTablet ? 'medium' : 'xlarge';
   const textAlignVariant = isSmall ? 'center' : undefined;
 
   return (

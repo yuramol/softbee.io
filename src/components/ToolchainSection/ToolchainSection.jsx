@@ -12,7 +12,7 @@ export const ToolchainSection = ({ toolchain }) => {
   const { isSmall } = useBreakpoint();
 
   return (
-    <Container pad={{ top: 'large' }}>
+    <Container pad={{ top: 'xlarge' }}>
       <Heading
         textAlign="center"
         level={2}
@@ -20,7 +20,7 @@ export const ToolchainSection = ({ toolchain }) => {
           top: isSmall ? 'large' : 'none',
           bottom: isSmall ? 'medium' : 'none',
         }}
-        fontWeight="400"
+        fontWeight="500"
       >
         {/* todo new field in markdown */}
         What do we have in our toolchain?

@@ -125,6 +125,10 @@ export const theme = {
           size: '2.25rem',
           height: '1.5',
         },
+        small: {
+          size: '1rem',
+          height: '1.5',
+        },
       },
       3: {
         font: {

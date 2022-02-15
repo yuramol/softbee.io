@@ -14,7 +14,7 @@ export const TeamSection = ({ title, text }) => {
 
   const columnsCount = isSmall ? 'full' : ['1/2', 'auto'];
   const textAlignVariant = isSmall ? 'center' : 'start';
-  const textFontSizeVariant = isSmall ? 'large' : 'xlarge';
+  const textFontSizeVariant = isSmall ? 'medium' : 'xlarge';
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
 
   return (

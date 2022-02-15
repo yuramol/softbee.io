@@ -13,10 +13,6 @@ thumbnail: /assets/previewEyadamedImage.png
 thumbnailRetina: /assets/previewEyadamedImageRetina.png 2x
 thumbnailWebp: /assets/previewEyadamedImage.webp
 thumbnailWebpRetina: /assets/previewEyadamedImageRetina.webp 2x
-thumbnailSecond: /assets/sectionMMOMini.png
-thumbnailSecondRetina: /assets/sectionMMOMini@2x.png 2x
-thumbnailSecondWebp: /assets/sectionMMOMini.webp
-thumbnailSecondWebpRetina: /assets/sectionMMOMini@2x.webp 2x
 thumbnailFirstCase: /assets/firstSectionEyadamed.png
 thumbnailFirstCaseRetina: /assets/firstSectionEyadamed@2x.png 2x
 thumbnailSecondCase: /assets/secondSectionEyadamed.png
