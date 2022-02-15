@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Grid } from 'grommet';
 
+import styled from 'styled-components';
 import Container from '../../Layout/Container';
 import { Button } from '../../../legos/Button/Button';
 import { Heading } from '../../../legos/typography/Heading';
@@ -9,6 +10,10 @@ import { Paragraph } from '../../../legos/typography/Paragraph';
 import { useBreakpoint } from '../../../utils/useBreakpoint';
 import { ImgFluid } from '../../Layout/ImgFluid';
 import { BoxOrder } from '../../../legos/Box/BoxOrder';
+
+const BoxCenterMobile = styled(Box)`
+  text-align: ${({ center }) => center && 'center'};
+`;
 
 const getSizeForGrid = ({ isPosition, isSmall }) => {
   if (isSmall) {
@@ -59,7 +64,7 @@ export const MobileCase = ({
 
           <Paragraph
             margin={{ bottom: isSmall ? 'none' : 'large', top: 'none' }}
-            size={isSmall ? 'large' : 'xlarge'}
+            size={isSmall ? 'medium' : 'xlarge'}
             color="text-dark-grey"
           >
             {text}
@@ -77,7 +82,10 @@ export const MobileCase = ({
           direction="row"
           align="center"
         >
-          <Box align={isSmall ? 'center' : undefined}>
+          <BoxCenterMobile
+            center={!!isSmall}
+            align={isSmall ? 'center' : undefined}
+          >
             <picture>
               <source
                 srcSet={`${thumbnailWebp}, ${thumbnailWebpRetina}`}
@@ -90,8 +98,11 @@ export const MobileCase = ({
                 alt={altMobileCase}
               />
             </picture>
-          </Box>
-          <Box align={isSmall ? 'center' : undefined}>
+          </BoxCenterMobile>
+          <BoxCenterMobile
+            center={!!isSmall}
+            align={isSmall ? 'center' : undefined}
+          >
             <picture>
               <source
                 srcSet={`${thumbnailSecondWebp}, ${thumbnailSecondWebpRetina}`}
@@ -104,7 +115,7 @@ export const MobileCase = ({
                 alt={altMobileCase}
               />
             </picture>
-          </Box>
+          </BoxCenterMobile>
         </Box>
         {isSmall && (
           <Box
@@ -112,7 +123,7 @@ export const MobileCase = ({
             height={{ min: '60px' }}
             width={{ min: '244px' }}
           >
-            <Button href="/gapnurse-case" label="See case study" primary fill />
+            <Button href={link} label="See case study" primary fill />
           </Box>
         )}
       </Grid>

@@ -21,7 +21,7 @@ export const WebCaseInfo = ({
         <ImgFluid width={isMobile ? '100px' : '150px'} src={logo} alt={alt} />
         <Paragraph
           textAlign="start"
-          size={isDesktopOrTablet ? 'xlarge' : '2.25rem'}
+          size={isDesktopOrTablet ? 'medium' : '2.25rem'}
           margin={{ top: 'large', bottom: 'meduim' }}
           fontWeight="500"
           color={color}
@@ -33,7 +33,7 @@ export const WebCaseInfo = ({
           textInfoSecond.map(item => {
             return (
               <Paragraph
-                size={isDesktopOrTablet ? 'xlarge' : 'xxlarge'}
+                size={isDesktopOrTablet ? 'medium' : 'xxlarge'}
                 fontWeight="400"
                 alignSelf="start"
                 margin={{ vertical: 'xsmall' }}

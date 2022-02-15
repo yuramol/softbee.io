@@ -66,19 +66,21 @@ export const WebCase = ({
               />
             </picture>
           </Box>
-          <Box pad={{ left: 'medium' }}>
-            <picture>
-              <source
-                srcSet={`${thumbnailSecondWebp}, ${thumbnailSecondWebpRetina}`}
-                type="image/webp"
-              />
-              <ImgFluid
-                srcSet={thumbnailSecondRetina}
-                src={thumbnailSecond}
-                alt={altWebCase}
-              />
-            </picture>
-          </Box>
+          {thumbnailSecond && (
+            <Box pad={{ left: 'medium' }}>
+              <picture>
+                <source
+                  srcSet={`${thumbnailSecondWebp}, ${thumbnailSecondWebpRetina}`}
+                  type="image/webp"
+                />
+                <ImgFluid
+                  srcSet={thumbnailSecondRetina}
+                  src={thumbnailSecond}
+                  alt={altWebCase}
+                />
+              </picture>
+            </Box>
+          )}
         </BoxOrder>
 
         <BoxOrder
@@ -99,7 +101,7 @@ export const WebCase = ({
               bottom: isTablet ? 'none' : 'large',
               top: 'none',
             }}
-            size={isSmall ? 'large' : 'xlarge'}
+            size={isSmall ? 'medium' : 'xlarge'}
             color="text-dark-grey"
           >
             {text}
@@ -130,10 +132,10 @@ WebCase.propTypes = {
   data: PropTypes.shape({
     thumbnail: PropTypes.string.isRequired,
     thumbnailRetina: PropTypes.string.isRequired,
-    thumbnailSecond: PropTypes.string.isRequired,
-    thumbnailSecondRetina: PropTypes.string.isRequired,
-    thumbnailSecondWebp: PropTypes.string.isRequired,
-    thumbnailSecondWebpRetina: PropTypes.string.isRequired,
+    thumbnailSecond: PropTypes.string,
+    thumbnailSecondRetina: PropTypes.string,
+    thumbnailSecondWebp: PropTypes.string,
+    thumbnailSecondWebpRetina: PropTypes.string,
     thumbnailWebpRetina: PropTypes.string.isRequired,
     thumbnailWebp: PropTypes.string.isRequired,
     preview: PropTypes.shape({

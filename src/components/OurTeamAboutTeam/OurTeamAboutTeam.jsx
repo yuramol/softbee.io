@@ -19,16 +19,19 @@ export const OurTeamAboutTeam = ({ title, text, list }) => {
 
   const { isSmall, isSTablet, isTablet, isExtraSmall } = useBreakpoint();
 
-  const textFontSizeVariant = isSTablet ? 'large' : 'xlarge';
+  const textFontSizeVariant = isSTablet ? 'medium' : 'xlarge';
   const gapVariant = isTablet ? 'medium' : 'xlarge';
 
   return (
-    <Box pad={{ vertical: 'large' }} background={{ color: '#fff' }}>
+    <Box
+      pad={{ vertical: isSmall ? 'xlarge' : 'large' }}
+      background={{ color: '#fff' }}
+    >
       <Container>
         <Heading
           level={2}
           textAlign="center"
-          margin={{ top: 'none', bottom: 'medium' }}
+          margin={{ top: 'none', bottom: 'large' }}
         >
           {title}
         </Heading>

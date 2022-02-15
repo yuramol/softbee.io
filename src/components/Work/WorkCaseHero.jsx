@@ -42,7 +42,7 @@ export const WorkCaseHero = ({
     linkCurrentWeb,
   },
 }) => {
-  const { isSmall, isDesktopOrTablet } = useBreakpoint();
+  const { isSmall, isSTablet, isDesktopOrTablet } = useBreakpoint();
   return (
     <BoxPositionRelative height={isDesktopOrTablet ? 'auto' : '1000px'}>
       {!isDesktopOrTablet && <SvgHero color={color} bottom={0} right={0} />}
@@ -72,7 +72,7 @@ export const WorkCaseHero = ({
               <Paragraph
                 fontWeight="400"
                 textAlign={isSmall ? 'center' : 'none'}
-                size="xxlarge"
+                size={isSTablet ? 'medium' : 'xxlarge'}
                 color={color}
               >
                 {text}

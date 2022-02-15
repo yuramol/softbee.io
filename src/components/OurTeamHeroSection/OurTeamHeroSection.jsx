@@ -15,7 +15,7 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const columnsCount = isSTablet ? 'full' : ['auto', '58.33333%'];
   const textAlignVariant = isSTablet ? 'center' : undefined;
   const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
-  const textFontSizeVariant = isSTablet ? 'large' : 'xxlarge';
+  const textFontSizeVariant = isSTablet ? 'medium' : 'xxlarge';
 
   return (
     <Box
