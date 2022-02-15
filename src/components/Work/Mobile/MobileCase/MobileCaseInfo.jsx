@@ -13,7 +13,7 @@ export const MobileCaseInfo = ({
     preview: { textInfoFirst },
   },
 }) => {
-  const { isDesktopOrTablet } = useBreakpoint();
+  const { isDesktopOrTablet, isSmall } = useBreakpoint();
   return (
     <>
       <Container pad={{ vertical: 'xlarge' }} align="center">
@@ -24,7 +24,7 @@ export const MobileCaseInfo = ({
         />
         <Paragraph
           textAlign="center"
-          size={isDesktopOrTablet ? 'medium' : '2.25rem'}
+          size={isSmall ? 'medium' : 'xxlarge'}
           margin={{ top: 'large', bottom: 'none' }}
           fontWeight="300"
           color={color}

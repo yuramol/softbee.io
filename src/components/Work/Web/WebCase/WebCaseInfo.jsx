@@ -14,14 +14,14 @@ export const WebCaseInfo = ({
     preview: { textInfoFirst, textInfoSecond },
   },
 }) => {
-  const { isDesktopOrTablet, isMobile } = useBreakpoint();
+  const { isMobile, isSmall } = useBreakpoint();
   return (
     <>
       <Container pad={{ vertical: 'xlarge' }} align="center">
         <ImgFluid width={isMobile ? '100px' : '150px'} src={logo} alt={alt} />
         <Paragraph
           textAlign="start"
-          size={isDesktopOrTablet ? 'medium' : '2.25rem'}
+          size={isSmall ? 'medium' : 'xxlarge'}
           margin={{ top: 'large', bottom: 'meduim' }}
           fontWeight="500"
           color={color}
@@ -33,7 +33,7 @@ export const WebCaseInfo = ({
           textInfoSecond.map(item => {
             return (
               <Paragraph
-                size={isDesktopOrTablet ? 'medium' : 'xxlarge'}
+                size={isSmall ? 'medium' : 'xxlarge'}
                 fontWeight="400"
                 alignSelf="start"
                 margin={{ vertical: 'xsmall' }}
