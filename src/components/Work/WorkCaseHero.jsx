@@ -18,9 +18,18 @@ const getSize = ({ type, isDesktopOrTablet }) => {
   if (type === 'mobile') {
     return ['auto', '58.33333%'];
   }
-
   return null;
 };
+const getPosition = ({ type, isSmall }) => {
+  if (isSmall) {
+    return 0;
+  }
+  if (type === 'mobile') {
+    return 0;
+  }
+  return 1;
+};
+
 export const WorkCaseHero = ({
   data: {
     title,
@@ -54,14 +63,10 @@ export const WorkCaseHero = ({
           align="center"
         >
           <BoxOrder
-            order={type === 'mobile' ? '0' : '1'}
+            order={getPosition({ type, isSmall })}
             align={isSmall ? 'center' : 'start'}
           >
-            <ImgFluid
-              mobileWidth={type === 'mobile' && '100px'}
-              alt={alt}
-              src={logo}
-            />
+            <ImgFluid mobileWidth="100px" alt={alt} src={logo} />
             <Heading
               margin={{ bottom: 'none', top: 'medium' }}
               color={color}
