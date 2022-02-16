@@ -13,15 +13,11 @@ export const MobileCaseInfo = ({
     preview: { textInfoFirst },
   },
 }) => {
-  const { isDesktopOrTablet, isSmall } = useBreakpoint();
+  const { isSmall } = useBreakpoint();
   return (
     <>
       <Container pad={{ vertical: 'xlarge' }} align="center">
-        <ImgFluid
-          width={isDesktopOrTablet ? '70px' : '150px'}
-          src={logo}
-          alt={alt}
-        />
+        <ImgFluid width={isSmall ? '100px' : '150px'} src={logo} alt={alt} />
         <Paragraph
           textAlign="center"
           size={isSmall ? 'medium' : 'xxlarge'}

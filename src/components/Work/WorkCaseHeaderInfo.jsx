@@ -43,7 +43,7 @@ export const WorkCaseHeaderInfo = ({
         align={isSmall ? undefined : 'center'}
         justify="center"
         background={{ color }}
-        round={{ corner: 'bottom', size: isSmall ? '20px' : '100px' }}
+        round={{ corner: 'bottom', size: isSmall ? '0px' : '100px' }}
       >
         <Box
           justify="center"
