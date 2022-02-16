@@ -8,6 +8,18 @@ import { ImgFluid } from '../Layout/ImgFluid';
 import { Heading } from '../../legos/typography/Heading';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
+const whatIconSize = ({ isSmall, isSTablet, isXSmall }) => {
+  if (isXSmall) {
+    return '25px';
+  }
+  if (isSmall) {
+    return '30px';
+  }
+  if (isSTablet) {
+    return '40px';
+  }
+  return '50px';
+};
 const whatWeDoInfo = [
   { text: 'Research', img: '/assets/icons/research.svg' },
   { text: 'Design', img: '/assets/icons/design.svg' },
@@ -15,7 +27,7 @@ const whatWeDoInfo = [
   { text: 'Support', img: '/assets/icons/support.svg' },
 ];
 export const WhatWeDoSection = ({ title }) => {
-  const { isSTablet, isSmall } = useBreakpoint();
+  const { isSTablet, isSmall, isExtraSmall } = useBreakpoint();
   const isXSmall = useMediaQuery({ query: '(max-width: 400px)' });
 
   return (
@@ -29,14 +41,14 @@ export const WhatWeDoSection = ({ title }) => {
         {title}
       </Heading>
       <Grid
-        columns={{ count: isSmall ? 2 : 4, size: 'auto' }}
+        columns={{ count: isExtraSmall ? 2 : 4, size: 'auto' }}
         gap="medium"
         justify="center"
       >
         {whatWeDoInfo.map(({ text, img }) => (
           <Box key={img} direction="row" align="center" justify="center">
             <ImgFluid
-              mobileWidth={isXSmall ? '25px' : isSTablet && '40px'}
+              mobileWidth={whatIconSize({ isSmall, isSTablet, isXSmall })}
               src={img}
               alt="Research"
             />
