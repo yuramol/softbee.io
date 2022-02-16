@@ -14,11 +14,11 @@ export const WebCaseInfo = ({
     preview: { textInfoFirst, textInfoSecond },
   },
 }) => {
-  const { isMobile, isSmall } = useBreakpoint();
+  const { isSmall } = useBreakpoint();
   return (
     <>
       <Container pad={{ vertical: 'xlarge' }} align="center">
-        <ImgFluid width={isMobile ? '100px' : '150px'} src={logo} alt={alt} />
+        <ImgFluid width={isSmall ? '100px' : '150px'} src={logo} alt={alt} />
         <Paragraph
           textAlign="start"
           size={isSmall ? 'medium' : 'xxlarge'}
