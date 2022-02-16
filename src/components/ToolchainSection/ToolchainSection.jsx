@@ -18,7 +18,7 @@ export const ToolchainSection = ({ toolchain }) => {
         level={2}
         margin={{
           top: isSmall ? 'large' : 'none',
-          bottom: isSmall ? 'medium' : 'none',
+          bottom: 'medium',
         }}
         fontWeight="500"
       >
@@ -29,10 +29,14 @@ export const ToolchainSection = ({ toolchain }) => {
         {toolchain.map(({ logo, name }) => (
           <Box
             key={name}
-            width={isSmall ? '145px' : { min: '20%' }}
-            pad={{ horizontal: 'medium', top: 'large' }}
+            width={isSmall ? '100px' : { min: '20%' }}
+            pad={{ horizontal: 'medium', top: 'medium' }}
           >
-            <ImgFluid height="80px" src={logo} alt={name} />
+            <ImgFluid
+              height={isSmall ? '50px' : '80px'}
+              src={logo}
+              alt={name}
+            />
             <Paragraph
               lineHeight="1.2"
               color="brand"
