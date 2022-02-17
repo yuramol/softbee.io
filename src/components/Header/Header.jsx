@@ -13,7 +13,6 @@ import { theme } from '../../utils/theme';
 const linkItems = [
   { id: '1', label: 'Work', link: '/work' },
   { id: '2', label: 'Our team', link: '/our-team' },
-  { id: '3', label: 'Blog', link: '/blog' },
 ];
 
 export const SiteHeader = () => {
