@@ -25,7 +25,6 @@ const linkFooterItems = [
   { id: '1', label: 'Work', routerLink: true, link: '/work' },
   { id: '2', label: 'Our team', routerLink: true, link: '/our-team' },
   { id: '3', label: 'Contacts', routerLink: false, click: openModalLetsTalk },
-  { id: '4', label: 'Blog', routerLink: true, link: '/blog' },
 ];
 
 export const SiteFooter = () => {
@@ -178,7 +177,11 @@ export const SiteFooter = () => {
             </Grid>
           </Box>
 
-          <Box justify="center" align={isSmall ? 'center' : undefined}>
+          <Box
+            height={{ min: isSmall ? '165px' : '207px' }}
+            justifyContent="start"
+            align={isSmall ? 'center' : undefined}
+          >
             <Heading
               level={2}
               textAlign={alignVariant}
