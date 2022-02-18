@@ -138,7 +138,7 @@ export const Wizard = ({ needBoxShadow, onClose, maxWidth }) => {
         <textarea name="comment" />
       </form>
       <Box
-        height="200px"
+        height={{ min: '200px' }}
         margin={{ horizontal: '0 auto' }}
         width="100%"
         direction="row"

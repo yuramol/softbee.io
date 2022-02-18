@@ -1,8 +1,17 @@
-import { Box } from 'grommet';
-import styled from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { VideoWrapper, VideoFrame } from './styled';
 
-export const VideoBox = styled(Box)`
-  position: relative;
-  width: 100%;
-  padding-top: calc(9 / 16 * 100%);
-`;
+export const VideoBox = ({ data: { srcVideo } }) => {
+  return (
+    <VideoWrapper>
+      <VideoFrame src={srcVideo} />
+    </VideoWrapper>
+  );
+};
+
+VideoBox.propTypes = {
+  data: PropTypes.shape({
+    srcVideo: PropTypes.string.isRequired,
+  }).isRequired,
+};
