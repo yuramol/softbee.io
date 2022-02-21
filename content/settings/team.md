@@ -40,9 +40,19 @@ letsTalk:
     too many tshirt slogans to keep track of. One day we’ll be rich, you’d best
     work with us while we need the money.
   title: About us
-follow: Follow us on
+follow: >-
+  Follow us on
   [Medium](https://medium.com/front-end-weekly/loading-components-asynchronously-in-react-app-with-an-hoc-61ca27c4fda7)
   and **don’t forget** to [Hire the team](https://www.upwork.com/ag/softbee/)
+
+
+  * ewqewq
+
+  * wqew
+
+  * eqwewq
+
+  * # ewqewqewq
 ---
 
 templateKey: team
