@@ -20,9 +20,7 @@ imageCollections:
       imageRetina: assets/thirdSectionEyadamed@2x.png
 imageMobileLink: []
 displayTwoImages: false
-imagePreview:
-  - image: assets/firstSectionEyadamed.png
-    imageRetina: assets/firstSectionEyadamed@2x.png
+imagePreview: []
 color: "#345B94"
 technologies: React
 languages: TS
