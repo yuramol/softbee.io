@@ -2,7 +2,7 @@
 templateKey: workItem
 path: eyadamed
 type: web
-alt: eyadamed-web-site
+alt: eyadamed
 linkWeb: https://www.google.com
 order: 1
 title: Eyadamed Web
