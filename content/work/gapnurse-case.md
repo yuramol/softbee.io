@@ -15,6 +15,9 @@ iconsWorkInfo:
   technologies: assets/iconsettingwork.svg
   language: assets/iconlanguagework.svg
   time: assets/icontimework.svg
+  technologiesIcon: assets/iconsettingwork.svg
+  languageIcon: assets/iconlanguagework.svg
+  timeIcon: assets/icontimework.svg
 imageCollections:
   - imageSection:
       - image: assets/androidPhoneFirstSectionGapNurse.png
