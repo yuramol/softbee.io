@@ -3,7 +3,7 @@ templateKey: workItem
 path: gapnurse-case
 type: mobile
 alt: |
-  gapnurse-case
+  gapnurse
 linkAppStore: https://apps.apple.com/app/id1494280703
 linkGooglePlay: https://play.google.com/store/apps/details?id=com.gapnurse
 order: 2
