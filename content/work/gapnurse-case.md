@@ -38,10 +38,10 @@ imageMobileLink:
   appStoreImage: assets/appstoreimage.png
 displayTwoImages: true
 imagePreview:
-  image: assets/samsungimage.png
+  image: assets/androidIconPhone.png
   imageRetina: assets/samsungimageretina.png
-  imageSecond: assets/appleimageretina.png
-  imageSecondRetina: assets/appleimageretina.png
+  imageSecond: assets/iosIconPhone.png
+  imageSecondRetina: assets/iosIconPhoneRetina.png
 color: "#575195"
 technologies: React, Vue
 languages: JS
