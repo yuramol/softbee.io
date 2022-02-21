@@ -1,6 +1,6 @@
 ---
 templateKey: workItem
-path: eyadamed
+path: eyadamed-web
 type: web
 alt: eyadamed-web-site
 linkWeb: https://www.google.com/
