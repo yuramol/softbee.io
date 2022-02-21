@@ -24,10 +24,10 @@ imageCollections:
         imageRetina: assets/androidPhoneFirstSectionGapNurse@2x.png
         imageSecond: assets/androidPhoneFirstSectionGapNurseSecond.png
         imageSecondRetina: assets/androidPhoneFirstSectionGapNurseSecond@2x.png
-      - image: assets/androidPhoneSecondSectionGapNurse.png
-        imageSecond: assets/androidPhoneSecondSectionGapNurseSecond.png
-        imageRetina: assets/androidPhoneSecondSectionGapNurse@2x.png
-        imageSecondRetina: assets/androidPhoneSecondSectionGapNurseSecond@2x.png
+      - image: assets/iosPhoneFirstSectionGapNurse.png
+        imageSecond: assets/iosPhoneFirstSectionGapNurseSecond.png
+        imageRetina: assets/iosPhoneFirstSectionGapNurse@2x.png
+        imageSecondRetina: assets/iosPhoneFirstSectionGapNurseSecond@2x.png
       - image: assets/androidthirdsectionimage.png
         imageSecond: assets/androidthirdsectionimagesecond.png
         imageRetina: assets/androidthirdsectionimage-2x.png
