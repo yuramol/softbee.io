@@ -3,7 +3,7 @@ templateKey: workItem
 path: eyadamed
 type: web
 alt: eyadamed-web-site
-linkWeb: https://www.google.com/
+linkWeb: https://www.google.com
 order: 1
 title: Eyadamed Web
 text: Multifunctional platform for cooperating Doctor with Patient
