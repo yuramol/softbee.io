@@ -1,9 +1,10 @@
 ---
 templateKey: workItem
-path: gapnurse-case
+path: gapnurse-case-video
 type: mobile
 alt: |
   gapnurse-case
+srcVideo: https://www.youtube.com/embed/iywaBOMvYLI
 linkAppStore: https://apps.apple.com/app/id1494280703
 linkGooglePlay: https://play.google.com/store/apps/details?id=com.gapnurse
 order: 2
