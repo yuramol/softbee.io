@@ -1,49 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Paragraph } from '../../../../legos/typography/Paragraph';
+import ReactMarkdown from 'react-markdown';
+import styled from 'styled-components';
 import { ImgFluid } from '../../../Layout/ImgFluid';
 import { useBreakpoint } from '../../../../utils/useBreakpoint';
 import Container from '../../../Layout/Container';
-import { StyledList } from '../styled';
+
+const StyledReactMarkdown = styled(ReactMarkdown)`
+  text-align: start;
+  font-size: ${({ size }) => size};
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: ${({ color }) => color};
+  & > ul {
+    padding-left: 20px;
+    & > li:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+`;
 
 export const WebCaseInfo = ({
   data: {
     logo,
     alt,
     color,
-    preview: { textInfoFirst, textInfoSecond },
+    preview: { textInfo },
   },
 }) => {
   const { isSmall } = useBreakpoint();
   return (
     <>
       <Container pad={{ vertical: 'xlarge' }} align="center">
-        <ImgFluid width={isSmall ? '100px' : '150px'} src={logo} alt={alt} />
-        <Paragraph
-          textAlign="start"
-          size={isSmall ? 'medium' : 'xxlarge'}
-          margin={{ top: 'large', bottom: 'meduim' }}
-          fontWeight="500"
-          color={color}
-        >
-          {textInfoFirst}
-        </Paragraph>
-
-        {textInfoSecond &&
-          textInfoSecond.map(item => {
-            return (
-              <Paragraph
-                size={isSmall ? 'medium' : 'xxlarge'}
-                fontWeight="400"
-                alignSelf="start"
-                margin={{ vertical: 'xsmall' }}
-                color={color}
-                key={item + Math.random() * 1000}
-              >
-                <StyledList dotsList="disc"> {item}</StyledList>
-              </Paragraph>
-            );
-          })}
+        <ImgFluid
+          width={isSmall ? '100px' : '150px'}
+          src={`/${logo}`}
+          alt={alt}
+        />
+        <StyledReactMarkdown color={color} size={isSmall ? '1rem' : '1.5rem'}>
+          {textInfo}
+        </StyledReactMarkdown>
       </Container>
     </>
   );

@@ -122,14 +122,12 @@ export const pageQuery = graphql`
           frontmatter {
             type
             path
-            thumbnail
-            thumbnailRetina
-            thumbnailWebp
-            thumbnailWebpRetina
-            thumbnailSecond
-            thumbnailSecondRetina
-            thumbnailSecondWebp
-            thumbnailSecondWebpRetina
+            imagePreview {
+              image
+              imageRetina
+              imageSecond
+              imageSecondRetina
+            }
             preview {
               title
               text

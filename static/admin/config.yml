@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: soft-bee/softbee.tech
-  branch: develop
+  branch: feat/SB-24-fix-bugs-during-testing
 
 media_folder: static/assets
 public_folder: assets
@@ -36,11 +36,42 @@ collections:
           widget: hidden,
           default: workItem,
         }
-      - { name: path, label: Path }
+      - { name: path, label: Path, required: true }
+      - { name: type, label: Type, required: true }
+      - { name: alt, label: Alt, widget: text, required: true }
+      - { name: srcVideo, label: Src For Video, widget: string, required: false }
+      - { label: Link(src) for web, name: linkWeb, widget: string, required: false }
+      - { label: Link app store, name: linkAppStore, widget: string, required: false }
+      - { label: Link GooglePlay, name: linkGooglePlay, widget: string, required: false }
       - { name: order, label: Order, widget: number }
       - { name: title, label: Title }
       - { name: text, label: Text, widget: text }
       - { label: Logo, name: logo, widget: image }
+      - label: Icons Work Info
+        name: iconsWorkInfo
+        widget: object
+        fields:
+          - {label: Technologies, name: technologiesIcon, widget: image}
+          - {label: Language, name: languageIcon, widget: image}
+          - {label: Time, name: timeIcon, widget: image}
+      - label: Image Collections
+        name: imageCollections
+        widget: list
+        fields:
+          - label: Image section
+            name: imageSection
+            widget: list
+            fields:
+              - {label: Image, name: image, widget: image, required: true}
+              - {label: Image second, name: imageSecond, widget: image, required: false}
+              - {label: Image retina, name: imageRetina, widget: image, required: true}
+              - {label: Image second retina, name: imageSecondRetina, widget: image, required: false}
+      - label: Image for Mobile
+        name: imageMobileLink
+        widget: object
+        fields:
+          - {label: Google play, name: googlePlayImage, widget: image, required: false}
+          - {label: App store, name: appStoreImage, widget: image, required: false}
       - {
           label: Display two images,
           name: displayTwoImages,
@@ -48,24 +79,25 @@ collections:
           default: true,
           required: false,
         }
-      - { label: Thumbnail, name: thumbnail, widget: image }
-      - {
-          label: Thumbnail second,
-          name: thumbnailSecond,
-          widget: image,
-          required: false,
-        }
+      - label: Image Preview
+        name: imagePreview
+        widget: object
+        fields:
+          - {label: Image for preview, name: image, widget: image, required: true}
+          - {label: Image retina for preview, name: imageRetina, widget: image, required: true}
+          - {label: Image second for preview, name: imageSecond, widget: image, required: false}
+          - {label: Image second retina for preview, name: imageSecondRetina, widget: image, required: false}
       - { label: Color, name: color, widget: color, allowInput: true }
       - { label: Technologies, name: technologies }
       - { label: Languages, name: languages }
       - { label: Time, name: time, widget: number }
-      - { label: Screenshots, name: screenshots, widget: image }
       - label: Preview
         name: preview
         widget: object
         fields:
           - { label: Title, name: title }
           - { label: Text, name: text, widget: text }
+          - { label: Text info for case, name: textInfo, widget: markdown }
   - name: settings
     label: Settings
     files:

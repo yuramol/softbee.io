@@ -10,14 +10,18 @@ export const MobileCaseInfo = ({
     logo,
     alt,
     color,
-    preview: { textInfoFirst },
+    preview: { textInfo },
   },
 }) => {
   const { isSmall } = useBreakpoint();
   return (
     <>
       <Container pad={{ vertical: 'xlarge' }} align="center">
-        <ImgFluid width={isSmall ? '100px' : '150px'} src={logo} alt={alt} />
+        <ImgFluid
+          width={isSmall ? '100px' : '150px'}
+          src={`/${logo}`}
+          alt={alt}
+        />
         <Paragraph
           textAlign="center"
           size={isSmall ? 'medium' : 'xxlarge'}
@@ -25,7 +29,7 @@ export const MobileCaseInfo = ({
           fontWeight="300"
           color={color}
         >
-          {textInfoFirst}
+          {textInfo}
         </Paragraph>
       </Container>
     </>

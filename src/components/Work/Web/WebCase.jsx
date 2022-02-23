@@ -23,14 +23,7 @@ const getSizeForGrid = ({ isPosition, isTablet }) => {
 export const WebCase = ({
   data: {
     preview: { title, text },
-    thumbnail,
-    thumbnailRetina,
-    thumbnailSecond,
-    thumbnailSecondRetina,
-    thumbnailSecondWebp,
-    thumbnailSecondWebpRetina,
-    thumbnailWebpRetina,
-    thumbnailWebp,
+    imagePreview: { image, imageRetina, imageSecond, imageSecondRetina },
     path,
   },
   isPosition,
@@ -55,27 +48,19 @@ export const WebCase = ({
         >
           <Box>
             <picture>
-              <source
-                srcSet={`${thumbnailWebp}, ${thumbnailWebpRetina}`}
-                type="image/webp"
-              />
               <ImgFluid
-                src={thumbnail}
-                srcSet={thumbnailRetina}
+                src={`/${image}`}
+                srcSet={`/${imageRetina} 2x`}
                 alt={altWebCase}
               />
             </picture>
           </Box>
-          {thumbnailSecond && (
+          {imageSecond && (
             <Box pad={{ left: 'medium' }}>
               <picture>
-                <source
-                  srcSet={`${thumbnailSecondWebp}, ${thumbnailSecondWebpRetina}`}
-                  type="image/webp"
-                />
                 <ImgFluid
-                  srcSet={thumbnailSecondRetina}
-                  src={thumbnailSecond}
+                  srcSet={`/${imageSecondRetina} 2x`}
+                  src={`/${imageSecond}`}
                   alt={altWebCase}
                 />
               </picture>
@@ -127,17 +112,14 @@ export const WebCase = ({
     </Container>
   );
 };
-
 WebCase.propTypes = {
   data: PropTypes.shape({
-    thumbnail: PropTypes.string.isRequired,
-    thumbnailRetina: PropTypes.string.isRequired,
-    thumbnailSecond: PropTypes.string,
-    thumbnailSecondRetina: PropTypes.string,
-    thumbnailSecondWebp: PropTypes.string,
-    thumbnailSecondWebpRetina: PropTypes.string,
-    thumbnailWebpRetina: PropTypes.string.isRequired,
-    thumbnailWebp: PropTypes.string.isRequired,
+    imagePreview: PropTypes.shape({
+      image: PropTypes.string,
+      imageRetina: PropTypes.string,
+      imageSecond: PropTypes.string,
+      imageSecondRetina: PropTypes.string,
+    }),
     preview: PropTypes.shape({
       text: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
