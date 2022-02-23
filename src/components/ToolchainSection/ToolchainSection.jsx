@@ -12,7 +12,7 @@ export const ToolchainSection = ({ toolchain }) => {
   const { isSmall } = useBreakpoint();
 
   return (
-    <Container pad={{ top: 'xlarge' }}>
+    <Container>
       <Heading
         textAlign="center"
         level={2}
