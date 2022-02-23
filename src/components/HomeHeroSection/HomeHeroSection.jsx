@@ -16,7 +16,7 @@ export const HomeHeroSection = ({ title, text }) => {
   const columnsCount = isSTablet ? 'full' : ['auto', '1/2'];
   const textAlignVariant = isSTablet ? 'center' : 'start';
   const textFontSizeVariant = isSTablet ? 'medium' : 'xxlarge';
-  const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
+  const gapVariant = isDesktopOrTablet ? 'medium' : 'large';
 
   return (
     <Box

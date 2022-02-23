@@ -22,7 +22,7 @@ const getSizeForGrid = ({ isPosition, isSmall }) => {
   if (isPosition) {
     return ['58.3333%', 'auto'];
   }
-  return ['auto', '58.3333%'];
+  return ['auto', '50%'];
 };
 
 export const MobileCase = ({

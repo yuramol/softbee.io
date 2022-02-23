@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
-import { ImgFluid } from '../../../Layout/ImgFluid';
-import { useBreakpoint } from '../../../../utils/useBreakpoint';
-import Container from '../../../Layout/Container';
+import { ImgFluid } from '../Layout/ImgFluid';
+import { useBreakpoint } from '../../utils/useBreakpoint';
+import Container from '../Layout/Container';
 
 const StyledReactMarkdown = styled(ReactMarkdown)`
   text-align: start;
   font-size: ${({ size }) => size};
   margin-top: 3rem;
   margin-bottom: 1.5rem;
-  font-weight: 500;
+  font-weight: 400;
   color: ${({ color }) => color};
   & > ul {
     padding-left: 20px;
