@@ -42,7 +42,7 @@ export const MobileCaseDevice = ({
         >
           <ImgFluid
             alt={alt}
-            src={logo}
+            src={`/${logo}`}
             width={isDesktopOrTablet ? '70px' : '100px'}
           />
           <Heading

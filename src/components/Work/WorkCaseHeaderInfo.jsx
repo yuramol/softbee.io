@@ -8,9 +8,7 @@ import { useBreakpoint } from '../../utils/useBreakpoint';
 export const WorkCaseHeaderInfo = ({
   data: {
     color,
-    timeIcon,
-    languagesIcon,
-    technologiesIcon,
+    iconsWorkInfo: { technologiesIcon, languageIcon, timeIcon },
     time,
     languages,
     technologies,
@@ -26,7 +24,7 @@ export const WorkCaseHeaderInfo = ({
     {
       name: 'Languages',
       value: languages,
-      iconSrc: languagesIcon,
+      iconSrc: languageIcon,
     },
     {
       name: 'Time',
@@ -65,7 +63,11 @@ export const WorkCaseHeaderInfo = ({
                 key={value}
               >
                 <Box margin={{ right: 'medium' }} flex={{ shrink: 0 }}>
-                  <ImgFluid mobileWidth={iconSize} src={iconSrc} alt={alt} />
+                  <ImgFluid
+                    mobileWidth={iconSize}
+                    src={`/${iconSrc}`}
+                    alt={alt}
+                  />
                 </Box>
                 <Box>
                   <Paragraph
@@ -90,9 +92,11 @@ export const WorkCaseHeaderInfo = ({
 WorkCaseHeaderInfo.propTypes = {
   data: PropTypes.shape({
     color: PropTypes.string.isRequired,
-    timeIcon: PropTypes.string.isRequired,
-    languagesIcon: PropTypes.string.isRequired,
-    technologiesIcon: PropTypes.string.isRequired,
+    iconsWorkInfo: PropTypes.shape({
+      technologiesIcon: PropTypes.string,
+      languageIcon: PropTypes.string,
+      timeIcon: PropTypes.string,
+    }),
     time: PropTypes.number.isRequired,
     languages: PropTypes.string.isRequired,
     technologies: PropTypes.string.isRequired,

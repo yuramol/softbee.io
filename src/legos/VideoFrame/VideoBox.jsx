@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { VideoWrapper, VideoFrame } from './styled';
+import Container from '../../components/Layout/Container';
+import { VideoFrame, VideoWrapper } from './styled';
 
-export const VideoBox = ({ data: { srcVideo } }) => {
+export const VideoBox = ({ src }) => {
   return (
-    <VideoWrapper>
-      <VideoFrame src={srcVideo} />
-    </VideoWrapper>
+    <Container>
+      <VideoWrapper>
+        <VideoFrame src={src} />
+      </VideoWrapper>
+    </Container>
   );
 };
 
 VideoBox.propTypes = {
-  data: PropTypes.shape({
-    srcVideo: PropTypes.string.isRequired,
-  }).isRequired,
+  src: PropTypes.string.isRequired,
 };

@@ -158,21 +158,18 @@ export const pageQuery = graphql`
     }
     works: allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "workItem" } } }
-      sort: { fields: [frontmatter___order] }
     ) {
       edges {
         node {
           frontmatter {
             type
             path
-            thumbnail
-            thumbnailRetina
-            thumbnailWebp
-            thumbnailWebpRetina
-            thumbnailSecond
-            thumbnailSecondRetina
-            thumbnailSecondWebp
-            thumbnailSecondWebpRetina
+            imagePreview {
+              image
+              imageRetina
+              imageSecond
+              imageSecondRetina
+            }
             preview {
               title
               text
