@@ -11,8 +11,8 @@ text: SSSDDFDFF['[[FPTOGUIEKGH/GHGHLP ETRE OW8 YRY P
 logo: https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png
 iconsWorkInfo:
   technologiesIcon: assets/Build.svg
-  languageIcon: assets/OleksandrOmelchenko.png
-  timeIcon: assets/adobeCreativeSuiteIcon.svg
+  languageIcon: assets/Build.svg
+  timeIcon: assets/Build.svg
 imageCollections:
   - imageSection:
       - image: assets/YuriyMoldavchuk.png
@@ -31,13 +31,11 @@ preview:
     ;le,rl,wlelwerkkwerjjjejrjwejrjwejr owejroiwjeorijow
     ijeriojoijweoirjiowejriojwoeijro ijweojfoisjdfoijs oijdfj "
   textInfo: >-
-    *1*  
+    * *1*  
 
-     * 3* 
+    * 3* 
 
-
-
-    *  1
+    * 1
 
     * 2
 
@@ -47,23 +45,11 @@ preview:
 
     * 5
 
+    * 456
 
+    *  **4324** 
 
+    * **3242 3**
 
-    456
-
-
-
-
-
-
-
-     **4324** 
-
-    **3242 3**
-
-
-
-
-    ### [234 ](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png)
+    * ### [234 ](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png)
 ---
