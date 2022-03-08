@@ -3,12 +3,12 @@ templateKey: workItem
 path: testkeyadmintest
 type: web
 alt: "1"
-srcVideo: https://youtu.be/Dp5u6A13004
+srcVideo: https://www.youtube.com/embed/Dp5u6A13004
 linkWeb: https://www.google.com.ua/
 order: 4
 title: We can DO IT
 text: SSSDDFDFF['[[FPTOGUIEKGH/GHGHLP ETRE OW8 YRY P
-logo: https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/2560px-YouTube_full-color_icon_%282017%29.svg.png
+logo: assets/angularIcon.svg
 iconsWorkInfo:
   technologiesIcon: assets/Build.svg
   languageIcon: assets/Build.svg
