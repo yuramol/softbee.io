@@ -22,20 +22,13 @@ const getSizeForGrid = ({ isPosition, isSmall }) => {
   if (isPosition) {
     return ['58.3333%', 'auto'];
   }
-  return ['auto', '58.3333%'];
+  return ['auto', '50%'];
 };
 
 export const MobileCase = ({
   data: {
+    imagePreview: { image, imageRetina, imageSecond, imageSecondRetina },
     preview: { title, text },
-    thumbnail,
-    thumbnailRetina,
-    thumbnailSecond,
-    thumbnailSecondRetina,
-    thumbnailSecondWebp,
-    thumbnailSecondWebpRetina,
-    thumbnailWebpRetina,
-    thumbnailWebp,
     path,
   },
   isPosition,
@@ -77,7 +70,7 @@ export const MobileCase = ({
           )}
         </BoxOrder>
         <Box
-          justify={isSmall ? 'center' : 'between'}
+          justify={isSmall ? 'center' : 'around'}
           gap="small"
           direction="row"
           align="center"
@@ -87,14 +80,10 @@ export const MobileCase = ({
             align={isSmall ? 'center' : undefined}
           >
             <picture>
-              <source
-                srcSet={`${thumbnailWebp}, ${thumbnailWebpRetina}`}
-                type="image/webp"
-              />
               <ImgFluid
                 mobileWidth={isSmall && '80%'}
-                srcSet={thumbnailRetina}
-                src={thumbnail}
+                srcSet={`/${imageRetina} 2x`}
+                src={`/${image}`}
                 alt={altMobileCase}
               />
             </picture>
@@ -104,14 +93,10 @@ export const MobileCase = ({
             align={isSmall ? 'center' : undefined}
           >
             <picture>
-              <source
-                srcSet={`${thumbnailSecondWebp}, ${thumbnailSecondWebpRetina}`}
-                type="image/webp"
-              />
               <ImgFluid
                 mobileWidth={isSmall && '80%'}
-                src={thumbnailSecond}
-                srcSet={thumbnailSecondRetina}
+                src={`/${imageSecond}`}
+                srcSet={`/${imageSecondRetina} 2x`}
                 alt={altMobileCase}
               />
             </picture>
@@ -133,14 +118,12 @@ export const MobileCase = ({
 
 MobileCase.propTypes = {
   data: PropTypes.shape({
-    thumbnail: PropTypes.string.isRequired,
-    thumbnailRetina: PropTypes.string.isRequired,
-    thumbnailSecond: PropTypes.string.isRequired,
-    thumbnailSecondRetina: PropTypes.string.isRequired,
-    thumbnailSecondWebp: PropTypes.string.isRequired,
-    thumbnailSecondWebpRetina: PropTypes.string.isRequired,
-    thumbnailWebpRetina: PropTypes.string.isRequired,
-    thumbnailWebp: PropTypes.string.isRequired,
+    imagePreview: PropTypes.shape({
+      image: PropTypes.string,
+      imageRetina: PropTypes.string,
+      imageSecond: PropTypes.string,
+      imageSecondRetina: PropTypes.string,
+    }),
     preview: PropTypes.shape({
       text: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,

@@ -10,9 +10,9 @@ import { WorkCaseHero } from '../components/Work/WorkCaseHero';
 import { MobileCaseWrapper } from '../components/Work/Mobile/MobileCase/MobileCaseWrapper';
 import { MobileCaseDevice } from '../components/Work/Mobile/MobileCase/MobileCaseDevice';
 import { WorkCaseHeaderInfo } from '../components/Work/WorkCaseHeaderInfo';
-import { MobileCaseInfo } from '../components/Work/Mobile/MobileCase/MobileCaseInfo';
-import { WebCaseInfo } from '../components/Work/Web/WebCase/WebCaseInfo';
 import { WebCaseImage } from '../components/Work/Web/WebCase/WebCaseImage';
+import { VideoBox } from '../legos/VideoFrame/VideoBox';
+import { WebCaseInfo } from '../components/Work/CaseInfo';
 
 const getPositionBackground = index => {
   if (index % 4 === 0) {
@@ -31,94 +31,24 @@ const getPositionBackground = index => {
   };
 };
 const WorkCaseTemplate = ({ data }) => {
+  const { srcVideo, text, title, color } = data.workCase.frontmatter;
   const workData = data.workCase.frontmatter;
-  const {
-    thumbnailFirstCase,
-    thumbnailFirstCaseRetina,
-    thumbnailSecondCase,
-    thumbnailSecondCaseRetina,
-    thumbnailThirdCase,
-    thumbnailThirdCaseRetina,
-    thumbnailFirstSectionAndroid,
-    thumbnailFirstSectionAndroidSecond,
-    thumbnailFirstSectionAndroidRetina,
-    thumbnailFirstSectionAndroidSecondRetina,
-    thumbnailFirstSectionIos,
-    thumbnailFirstSectionIosSecond,
-    thumbnailFirstSectionIosRetina,
-    thumbnailFirstSectionIosSecondRetina,
-    thumbnailSecondSectionAndroid,
-    thumbnailSecondSectionAndroidSecond,
-    thumbnailSecondSectionAndroidRetina,
-    thumbnailSecondSectionAndroidSecondRetina,
-    thumbnailSecondSectionIos,
-    thumbnailSecondSectionIosSecond,
-    thumbnailSecondSectionIosRetina,
-    thumbnailSecondSectionIosSecondRetina,
-    text,
-    title,
-    color,
-  } = data.workCase.frontmatter;
-  const arrayItemImages = [
-    {
-      firstImage: thumbnailFirstSectionAndroid,
-      firstImageRetina: thumbnailFirstSectionAndroidRetina,
-      secondImage: thumbnailFirstSectionAndroidSecond,
-      secondRetinaImage: thumbnailFirstSectionAndroidSecondRetina,
-    },
-    {
-      firstImage: thumbnailFirstSectionIos,
-      firstImageRetina: thumbnailFirstSectionIosRetina,
-      secondImage: thumbnailFirstSectionIosSecond,
-      secondRetinaImage: thumbnailFirstSectionIosSecondRetina,
-    },
-    {
-      firstImage: thumbnailSecondSectionAndroid,
-      firstImageRetina: thumbnailSecondSectionAndroidRetina,
-      secondImage: thumbnailSecondSectionAndroidSecond,
-      secondRetinaImage: thumbnailSecondSectionAndroidSecondRetina,
-    },
-    {
-      firstImage: thumbnailSecondSectionIos,
-      firstImageRetina: thumbnailSecondSectionIosRetina,
-      secondImage: thumbnailSecondSectionIosSecond,
-      secondRetinaImage: thumbnailSecondSectionIosSecondRetina,
-    },
-  ];
-  const webItemImages = [
-    {
-      firstImage: thumbnailFirstCase,
-      firstImageRetina: thumbnailFirstCaseRetina,
-    },
-    {
-      firstImage: thumbnailSecondCase,
-      firstImageRetina: thumbnailSecondCaseRetina,
-    },
-    {
-      firstImage: thumbnailThirdCase,
-      firstImageRetina: thumbnailThirdCaseRetina,
-    },
-  ];
   return (
     <Layout>
       <SEO title={title} description={text} />
       <SiteHeader />
       <WorkCaseHero withBackground data={workData} />
       <WorkCaseHeaderInfo data={workData} />
-      {workData.type === 'mobile' ? (
-        <MobileCaseInfo data={workData} />
-      ) : (
-        <WebCaseInfo data={workData} />
-      )}
+
+      <WebCaseInfo data={workData} />
+
+      {srcVideo && <VideoBox src={srcVideo} />}
       {workData.type === 'mobile'
-        ? arrayItemImages.map(
-            (
-              { firstImage, firstImageRetina, secondImage, secondRetinaImage },
-              index,
-            ) => {
+        ? workData.imageCollections[0].imageSection.map(
+            ({ image, imageRetina, imageSecond, imageSecondRetina }, index) => {
               return (
                 <MobileCaseWrapper
-                  key={firstImage}
+                  key={image + imageRetina}
                   color={color}
                   withBackground={!(index % 2)}
                   isSvgHalfCircle={!(index % 2)}
@@ -126,10 +56,10 @@ const WorkCaseTemplate = ({ data }) => {
                   position={getPositionBackground(index + 1)}
                 >
                   <MobileCaseDevice
-                    thumbnail={firstImage}
-                    thumbnail2x={firstImageRetina}
-                    thumbnailSecond={secondImage}
-                    thumbnailSecond2x={secondRetinaImage}
+                    thumbnail={`/${image}`}
+                    thumbnail2x={`/${imageRetina} 2x`}
+                    thumbnailSecond={`/${imageSecond}`}
+                    thumbnailSecond2x={`/${imageSecondRetina} 2x`}
                     android={!(index % 2)}
                     data={workData}
                   />
@@ -137,23 +67,25 @@ const WorkCaseTemplate = ({ data }) => {
               );
             },
           )
-        : webItemImages.map(({ firstImage, firstImageRetina }, index) => {
-            return (
-              <MobileCaseWrapper
-                key={firstImage}
-                color={color}
-                withBackground={!(index % 2)}
-                isSvgHalfCircle={!!(index % 2)}
-                isSvgTriangleRounded={!(index % 2)}
-                position={getPositionBackground(index)}
-              >
-                <WebCaseImage
-                  firstImage={firstImage}
-                  firstImageRetina={firstImageRetina}
-                />
-              </MobileCaseWrapper>
-            );
-          })}
+        : workData.imageCollections[0].imageSection.map(
+            ({ image, imageRetina }, index) => {
+              return (
+                <MobileCaseWrapper
+                  key={image}
+                  color={color}
+                  withBackground={!(index % 2)}
+                  isSvgHalfCircle={!!(index % 2)}
+                  isSvgTriangleRounded={!(index % 2)}
+                  position={getPositionBackground(index)}
+                >
+                  <WebCaseImage
+                    firstImage={`/${image}`}
+                    firstImageRetina={`/${imageRetina} 2x`}
+                  />
+                </MobileCaseWrapper>
+              );
+            },
+          )}
       <SiteFooter />
     </Layout>
   );
@@ -165,55 +97,47 @@ export const pageQuery = graphql`
   query WorkItemByPath($slug: String!) {
     workCase: markdownRemark(frontmatter: { path: { eq: $slug } }) {
       frontmatter {
+        path
         type
-        googlePlayThumbnail
-        appStoreThumbnail
-        logo
         alt
-        linkCurrentWeb
-        thumbnail
-        thumbnailRetina
-        thumbnailFirstCase
-        thumbnailFirstCaseRetina
-        thumbnailSecondCase
-        thumbnailSecondCaseRetina
-        thumbnailThirdCase
-        thumbnailThirdCaseRetina
-        thumbnailIphone
-        thumbnailIphoneRetina
-        thumbnailSamsung
-        thumbnailSamsungRetina
-        thumbnailFirstSectionAndroid
-        thumbnailFirstSectionAndroidSecond
-        thumbnailFirstSectionAndroidRetina
-        thumbnailFirstSectionAndroidSecondRetina
-        thumbnailSecondSectionAndroid
-        thumbnailSecondSectionAndroidSecond
-        thumbnailSecondSectionAndroidRetina
-        thumbnailSecondSectionAndroidSecondRetina
-        thumbnailFirstSectionIos
-        thumbnailFirstSectionIosSecond
-        thumbnailFirstSectionIosRetina
-        thumbnailFirstSectionIosSecondRetina
-        thumbnailSecondSectionIos
-        thumbnailSecondSectionIosSecond
-        thumbnailSecondSectionIosRetina
-        thumbnailSecondSectionIosSecondRetina
         linkAppStore
         linkGooglePlay
-        timeIcon
-        languagesIcon
-        technologiesIcon
-        time
-        languages
-        technologies
+        order
         title
         text
+        logo
         color
-        backgroundHero
+        technologies
+        languages
+        time
+        srcVideo
+        iconsWorkInfo {
+          technologiesIcon
+          languageIcon
+          timeIcon
+        }
+        imageCollections {
+          imageSection {
+            image
+            imageSecond
+            imageRetina
+            imageSecondRetina
+          }
+        }
+        imageMobileLink {
+          googlePlayImage
+          appStoreImage
+        }
+        imagePreview {
+          image
+          imageRetina
+          imageSecond
+          imageSecondRetina
+        }
         preview {
-          textInfoFirst
-          textInfoSecond
+          title
+          text
+          textInfo
         }
       }
     }

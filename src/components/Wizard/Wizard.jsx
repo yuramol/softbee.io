@@ -138,20 +138,25 @@ export const Wizard = ({ needBoxShadow, onClose, maxWidth }) => {
         <textarea name="comment" />
       </form>
       <Box
+        height={{ min: '200px' }}
+        margin={{ horizontal: '0 auto' }}
         width="100%"
         direction="row"
         wrap={isMobile}
         align="center"
-        justify={isMobile ? 'center' : 'between'}
+        justify="center"
       >
-        <NavigationButton
-          onClick={() => navigate(step - 1)}
-          icon={<IconArrowStepPrev />}
-          margin={{ right: 'medium' }}
-          plain
-          colorText={theme.global.colors['accent-1']}
-          disabled={step === 1}
-        />
+        {step !== 5 && (
+          <NavigationButton
+            onClick={() => navigate(step - 1)}
+            icon={<IconArrowStepPrev />}
+            margin={{ right: 'medium' }}
+            plain
+            colorText={theme.global.colors['accent-1']}
+            disabled={step === 1}
+          />
+        )}
+
         <BoxOrder
           margin={{ bottom: isMobile ? 'medium' : undefined }}
           order={isMobile ? '-1' : undefined}
@@ -162,7 +167,7 @@ export const Wizard = ({ needBoxShadow, onClose, maxWidth }) => {
             level={2}
             fill
             margin={{ top: 'none', bottom: 'medium' }}
-            textAlign={isMobile ? 'center' : undefined}
+            textAlign={isMobile ? 'center' : 'center'}
           >
             {currentTitle}
           </Heading>
@@ -180,14 +185,16 @@ export const Wizard = ({ needBoxShadow, onClose, maxWidth }) => {
             </FormField>
           )}
         </BoxOrder>
-        <NavigationButton
-          onClick={() => navigate(step + 1)}
-          icon={<IconArrowStepNext />}
-          plain
-          margin={{ left: 'medium' }}
-          colorText={theme.global.colors['accent-1']}
-          disabled={moveForwardIsDisabled}
-        />
+        {step !== 5 && (
+          <NavigationButton
+            onClick={() => navigate(step + 1)}
+            icon={<IconArrowStepNext />}
+            plain
+            margin={{ left: 'medium' }}
+            colorText={theme.global.colors['accent-1']}
+            disabled={moveForwardIsDisabled}
+          />
+        )}
       </Box>
     </WrapperWizard>
   );

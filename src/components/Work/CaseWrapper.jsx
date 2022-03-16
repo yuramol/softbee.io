@@ -23,7 +23,6 @@ export const CaseWrapper = ({
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
       pad={{ vertical: sizePad }}
-      height={{ min: isDesktopOrTablet ? undefined : '800px' }}
       background={
         withBackground
           ? {

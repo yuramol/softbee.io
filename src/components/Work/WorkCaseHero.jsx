@@ -35,20 +35,14 @@ export const WorkCaseHero = ({
     title,
     text,
     logo,
-    thumbnail,
-    thumbnailRetina,
-    thumbnailIphone,
-    thumbnailSamsung,
-    thumbnailSamsungRetina,
-    thumbnailIphoneRetina,
-    googlePlayThumbnail,
-    appStoreThumbnail,
     alt,
     color,
-    linkAppStore,
-    linkGooglePlay,
     type,
     linkCurrentWeb,
+    linkAppStore,
+    linkGooglePlay,
+    imageMobileLink,
+    imagePreview: { image, imageRetina, imageSecond, imageSecondRetina },
   },
 }) => {
   const { isSmall, isSTablet, isDesktopOrTablet } = useBreakpoint();
@@ -66,7 +60,7 @@ export const WorkCaseHero = ({
             order={getPosition({ type, isSmall })}
             align={isSmall ? 'center' : 'start'}
           >
-            <ImgFluid mobileWidth="100px" alt={alt} src={logo} />
+            <ImgFluid mobileWidth="100px" alt={alt} src={`/${logo}`} />
             <Heading
               margin={{ bottom: 'none', top: 'medium' }}
               color={color}
@@ -90,14 +84,14 @@ export const WorkCaseHero = ({
                   <ImgFluid
                     mobileWidth="98%"
                     alt={alt}
-                    src={googlePlayThumbnail}
+                    src={`/${imageMobileLink.googlePlayImage}`}
                   />
                 </a>
                 <a href={linkAppStore}>
                   <ImgFluid
                     mobileWidth="98%"
                     alt={alt}
-                    src={appStoreThumbnail}
+                    src={`/${imageMobileLink.appStoreImage}`}
                   />
                 </a>
               </Box>
@@ -121,8 +115,8 @@ export const WorkCaseHero = ({
             >
               <Box>
                 <ImgFluid
-                  srcSet={thumbnailSamsungRetina}
-                  src={thumbnailSamsung}
+                  srcSet={`/${imageRetina} 2x`}
+                  src={`/${image}`}
                   alt={alt}
                 />
               </Box>
@@ -131,17 +125,17 @@ export const WorkCaseHero = ({
                 pad={{ left: isDesktopOrTablet ? 'large' : 'xlarge' }}
               >
                 <ImgFluid
-                  srcSet={thumbnailIphoneRetina}
+                  srcSet={`/${imageSecondRetina} 2x`}
                   alt={alt}
-                  src={thumbnailIphone}
+                  src={`/${imageSecond}`}
                 />
               </Box>
             </Box>
           ) : (
             <ImgWebCase
               margin="0 auto"
-              srcSet={thumbnailRetina}
-              src={thumbnail}
+              srcSet={`/${imageRetina} 2x`}
+              src={`/${image}`}
               alt={alt}
             />
           )}
@@ -156,19 +150,21 @@ WorkCaseHero.propTypes = {
     title: PropTypes.string,
     text: PropTypes.string,
     logo: PropTypes.string,
-    thumbnail: PropTypes.string,
-    thumbnailRetina: PropTypes.string,
-    thumbnailIphone: PropTypes.string,
-    thumbnailSamsung: PropTypes.string,
-    thumbnailSamsungRetina: PropTypes.string,
-    thumbnailIphoneRetina: PropTypes.string,
-    googlePlayThumbnail: PropTypes.string,
-    appStoreThumbnail: PropTypes.string,
     alt: PropTypes.string,
     color: PropTypes.string,
     linkAppStore: PropTypes.string,
     linkGooglePlay: PropTypes.string,
     type: PropTypes.string,
     linkCurrentWeb: PropTypes.string,
+    imageMobileLink: PropTypes.shape({
+      googlePlayImage: PropTypes.string,
+      appStoreImage: PropTypes.string,
+    }),
+    imagePreview: PropTypes.shape({
+      image: PropTypes.string,
+      imageRetina: PropTypes.string,
+      imageSecond: PropTypes.string,
+      imageSecondRetina: PropTypes.string,
+    }),
   }).isRequired,
 };

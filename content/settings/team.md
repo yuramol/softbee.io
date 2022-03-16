@@ -35,12 +35,14 @@ members:
     share biscuits.
   title: Real people creating real results
 letsTalk:
-  text: We’re designers, developers, illustrators, copywriters and coders, but
-      we also have pure gold ideas. iPhone games, time-keeping apps, dog-backpacks,
-      too many tshirt slogans to keep track of. One day we’ll be rich, you’d best
-      work with us while we need the money.
+  text: We’re designers, developers, illustrators, copywriters and coders, but we
+    also have pure gold ideas. iPhone games, time-keeping apps, dog-backpacks,
+    too many tshirt slogans to keep track of. One day we’ll be rich, you’d best
+    work with us while we need the money.
   title: About us
-follow: Follow us on [Medium](https://medium.com/front-end-weekly/loading-components-asynchronously-in-react-app-with-an-hoc-61ca27c4fda7) and don’t forget to [Hire the team](https://www.upwork.com/ag/softbee/)
+follow: Follow us on
+  [Medium](https://medium.com/front-end-weekly/loading-components-asynchronously-in-react-app-with-an-hoc-61ca27c4fda7)
+  and don’t forgetto [Hire the team](https://www.upwork.com/ag/softbee/)
 ---
 
 templateKey: team
