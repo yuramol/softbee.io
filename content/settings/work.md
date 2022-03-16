@@ -5,8 +5,9 @@ meta:
   title: Our work
 main:
   subtitle: >-
-    That’s how we work and what we do.
-    And a bit of our favorite projects and the impact they've made.
+    Remember we told you we convert ideas to successful products?
+   
+    Get to know some of them.
   text: >-
     We work really well together but are awesome separately, too. Hire only what
     you need, we’ll build our team around your project.

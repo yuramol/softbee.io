@@ -5,10 +5,8 @@ meta:
   title: Programming honey
 homeHero:
   text: |-
-    Some text
-    with linebreaks
-    and so
-  title: Your partners in new products creating
+    You have finally found them — a skilled team who mastered their craft to absolute proficiency
+  title: Your partners in the creation of new products
 gapNurse:
   text: >-
     GapNurse, facilities know they’re covered during critical moments and
@@ -16,17 +14,13 @@ gapNurse:
   title: They really help to fight COVID-19 in US
 team:
   text: >-
-    Somethings about how we work.We do all sorts of programming:
+   We prototype, design, document, develop and test. In other words, we cover the whole project's life cycle
+    
 
-    Web, mobile, backend, desktop development.
+   We are a team of passionate designers, mobile and web developers who love what they do. We strive to be on the same page with our clients. 
+   We make your users satisfied so they want to share your product with others.
 
-    JS is our lovest language.Blala something more.
-
-
-    We are a team of passionated mobile and web developers who love y do.Also we
-    love being on the same page with our clients and to deliver real cases to
-    users.
-  title: We love taking products from vision to reality.
+  title: We convert your ideas to successful products
 mmoCat:
   text: |-
     We provided full-stack development service
