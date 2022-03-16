@@ -1,16 +1,17 @@
 ---
 templateKey: workItem
-path: gapnurse-case-video
+path: gapnurse
 type: mobile
 alt: |
   gapnurse-case
-srcVideo: https://www.youtube.com/embed/iywaBOMvYLI
+srcVideo: ''
 linkAppStore: https://apps.apple.com/app/id1494280703
 linkGooglePlay: https://play.google.com/store/apps/details?id=com.gapnurse
 order: 2
 title: GapNurse App
 text: |
   Platform for cooperating nurses and healthcare facilities work together
+  
 logo: assets/logoGapNurse.svg
 iconsWorkInfo:
   technologies: assets/iconsettingwork.svg
@@ -42,20 +43,19 @@ imageMobileLink:
   appStoreImage: assets/appstoreimage.png
 displayTwoImages: true
 imagePreview:
-  image: assets/androidIconPhone.png
-  imageRetina: assets/samsungimageretina.png
-  imageSecond: assets/iosIconPhone.png
-  imageSecondRetina: assets/iosIconPhoneRetina.png
+  image: assets/PhoneGapNurse.png
+  imageRetina: assets/PhoneGapNurse@2x.png
+  imageSecond: assets/PhoneGapNurse2.png
+  imageSecondRetina: assets/PhoneGapNurse2@2x.png
 color: "#575195"
 technologies: React, Vue
 languages: JS
 time: 124
 preview:
-  title: They really help to fight COVID-19 in US
+  title: They really help hospitals to stay productive and helpful 
   text: >
-    GapNurse, facilities know they’re covered during critical moments and
-    unexpected absences without breaking your budget.
-  textInfo: GapNurse is a platform for **cooperating nurses and healthcare
-    facilities work** together. GapNurse connects nursing professionals with
-    healthcare facilities to fill hourly, short-term and permanent assignments.
+    With GapNurse medical facilities know they’re covered during critical times, especially while coping with COVID-19.
+    At the same time it won't break your budget
+  textInfo: GapNurse is a platform for cooperating nurses and healthcare facilities work together.
+    GapNurse connects nursing professionals with healthcare facilities to fill hourly, short-term and permanent assignments.
 ---
