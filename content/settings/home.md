@@ -16,7 +16,6 @@ team:
   text: >-
    We prototype, design, document, develop and test. In other words, we cover the whole project's life cycle
     
-
    We are a team of passionate designers, mobile and web developers who love what they do. We strive to be on the same page with our clients. 
    We make your users satisfied so they want to share your product with others.
 

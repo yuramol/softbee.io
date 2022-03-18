@@ -6,7 +6,6 @@ import { SEO } from '../components/SEO';
 import { SiteFooter } from '../components/Footer';
 import { SiteHeader } from '../components/Header';
 import { ToolchainSection } from '../components/ToolchainSection/ToolchainSection';
-import { WhatWeDoSection } from '../components/WhatWeDoSection/WhatWeDoSection';
 import { WorkHeroSection } from '../components/WorkHeroSection/WorkHeroSection';
 import { MobileCase } from '../components/Work/Mobile/MobileCase';
 import { CaseWrapper } from '../components/Work/CaseWrapper';
@@ -35,7 +34,7 @@ const getColor = ({ index }) => {
 };
 
 const WorkPage = ({ location, data }) => {
-  const { workPage, homePage } = data;
+  const { workPage } = data;
 
   const workFirstData = data.works.edges[0].node.frontmatter;
   const { meta, main } = workPage.edges[0].node.frontmatter;
@@ -44,7 +43,6 @@ const WorkPage = ({ location, data }) => {
 
   let { toolchain } = workPage.edges[0].node.frontmatter;
   toolchain = toolchain.map(item => ({ id: Math.random() * 1000, ...item }));
-  const { whatWeDo } = homePage.edges[0].node.frontmatter;
 
   return (
     <Layout location={location} title={meta.title} withBackground>
@@ -77,7 +75,6 @@ const WorkPage = ({ location, data }) => {
         sizePad="xlarge"
         urlImg="/assets/mmoBackground.svg"
       >
-        <WhatWeDoSection title={whatWeDo.title} />
         <ToolchainSection toolchain={toolchain} />
       </CaseWrapper>
       {works.map((item, index) => {

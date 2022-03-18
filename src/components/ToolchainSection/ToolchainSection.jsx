@@ -22,7 +22,6 @@ export const ToolchainSection = ({ toolchain }) => {
         }}
         fontWeight="500"
       >
-        {/* todo new field in markdown */}
         What do we have in our toolchain?
       </Heading>
       <Box wrap direction="row" justify={isSmall ? 'around' : 'center'}>
