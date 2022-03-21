@@ -14,16 +14,16 @@ iconsWorkInfo:
   timeIcon: assets/icontimework.svg
 imageCollections:
   - imageSection:
-      - image: assets/firstSectionEyadamed.png
-        imageRetina: assets/firstSectionEyadamed@2x.png
+      - image: assets/firstSectionEyadamed.webp
+        imageRetina: assets/firstSectionEyadamed@2x.webp
       - image: assets/secondSectionEyadamed.png
         imageRetina: assets/secondSectionEyadamed@2x.png
       - image: assets/thirdSectionEyadamed.png
         imageRetina: assets/thirdSectionEyadamed@2x.png
 displayTwoImages: true
 imagePreview:
-  image: assets/previewEyadamedImage.png
-  imageRetina: assets/previewEyadamedImageRetina.png
+  image: assets/previewEyadamedImage.webp
+  imageRetina: assets/previewEyadamedImageRetina.webp
 color: "#345B94"
 technologies: React
 languages: TS
