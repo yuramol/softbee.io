@@ -56,7 +56,21 @@ preview:
     With GapNurse medical facilities know they’re covered during critical times,
     especially while coping with COVID-19. At the same time it won't break your
     budget
-  textInfo: GapNurse is a platform for cooperating nurses and healthcare
-    facilities work together. GapNurse connects nursing professionals with
-    healthcare facilities to fill hourly, short-term and permanent assignments.
+  textInfo: >-
+    The main idea of the app is to help to connect empowered healthcare workers
+    with medical organizations that need help in caring for people. We
+    successfully delivered the MVP, so the client can spread the app to alpha
+    testers
+
+
+    .Medical facilities can publish assignments for healthcare workers, both their employees and independent contractors, via a web portal. Healthcare workers can find assignments via the app that work with their schedule and receive some payment.
+
+
+    Users can accept or reject assignments, view their schedule, receive notifications about future events, read assignments descriptions, mark them as done, get paid, and track their success.
+
+
+    **Responsibilities** 
+
+
+    Front End Development. Cooperate with [Demigos ](https://demigos.com/)worked on creating new app.
 ---
