@@ -23,9 +23,9 @@ members:
       photo: /assets/Mykhailo.jpg
     - name: Yurii
       photo: /assets/YM.png
-      position: Front-End Developer & PM
+      position: COO & Front-End Developer 
     - name: Oleksandr
-      position: Front-End Developer & PM
+      position: CDO & Front-End Developer
       photo: /assets/Alex.png
     - name: Eugen
       photo: /assets/Eugen.jpg
