@@ -69,5 +69,8 @@ preview:
     Users can accept or reject assignments, view their schedule, receive notifications about future events, read assignments descriptions, mark them as done, get paid, and track their success.
 
 
-    **Responsibilities** Front End Development. Cooperate with [Demigos ](https://demigos.com/)worked on creating new app.
+    **Responsibilities** 
+
+
+    Front End Development. Cooperate with [Demigos ](https://demigos.com/)worked on creating new app.
 ---
