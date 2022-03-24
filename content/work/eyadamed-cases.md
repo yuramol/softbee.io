@@ -37,9 +37,7 @@ preview:
     Doctor. Allow Patients to pay online for appointments and orders. Provide
     the ability for Pharmacies to manage orders. 
   textInfo: >-
-    
-
-    ﻿![:pushpin:](https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-large%2F1f4cc.png) **Project description** 
+    **Project description** 
 
 
     Web application provides these abilities:
@@ -51,7 +49,9 @@ preview:
 
     * for the Admin to provide the ability to manage all entities of apps (Patients, Doctors, Pharmacists, Appointments, Orders, etc.). 
 
-      ﻿![:pushpin:](https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-large%2F1f4cc.png) **Responsibilities** 
 
-      Front End Development. Cooperate with [Demigos ](https://demigos.com/)worked on creating new app.
+    **Responsibilities** 
+
+
+    Front End Development. Cooperate with [Demigos ](https://demigos.com/)worked on creating new app.
 ---
