@@ -15,9 +15,9 @@ const getSizeForGrid = ({ isPosition, isTablet }) => {
     return 'full';
   }
   if (isPosition) {
-    return ['1/3', 'auto'];
+    return ['auto', '50%'];
   }
-  return ['auto', '1/3'];
+  return ['50%', 'auto'];
 };
 
 export const WebCase = ({
@@ -37,7 +37,7 @@ export const WebCase = ({
     <Container>
       <Grid
         columns={getSizeForGrid({ isPosition, isTablet })}
-        gap={isDesktopOrTablet ? 'medium' : 'large'}
+        gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
         align="center"
       >
         <BoxOrder

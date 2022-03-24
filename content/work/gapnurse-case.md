@@ -22,31 +22,31 @@ iconsWorkInfo:
   timeIcon: assets/icontimework.svg
 imageCollections:
   - imageSection:
-      - image: assets/androidPhoneFirstSectionGapNurse.png
-        imageRetina: assets/androidPhoneFirstSectionGapNurse@2x.png
-        imageSecond: assets/androidPhoneFirstSectionGapNurseSecond.png
-        imageSecondRetina: assets/androidPhoneFirstSectionGapNurseSecond@2x.png
-      - image: assets/iosPhoneFirstSectionGapNurse.png
-        imageSecond: assets/iosPhoneFirstSectionGapNurseSecond.png
-        imageRetina: assets/iosPhoneFirstSectionGapNurse@2x.png
-        imageSecondRetina: assets/iosPhoneFirstSectionGapNurseSecond@2x.png
-      - image: assets/androidthirdsectionimage.png
-        imageSecond: assets/androidthirdsectionimagesecond.png
-        imageRetina: assets/androidthirdsectionimage-2x.png
-        imageSecondRetina: assets/androidthirdsectionimagesecond-2x.png
-      - image: assets/androidfourthsectionimage.png
-        imageSecond: assets/androidfourthsectionimagesecond.png
-        imageRetina: assets/androidfourthsectionimage-2x.png
-        imageSecondRetina: assets/androidfourthsectionimagesecond-2x.png
+      - image: assets/androidPhoneFirstSectionGapNurse.webp
+        imageRetina: assets/androidPhoneFirstSectionGapNurse@2x.webp
+        imageSecond: assets/androidPhoneFirstSectionGapNurseSecond.webp
+        imageSecondRetina: assets/androidPhoneFirstSectionGapNurseSecond@2x.webp
+      - image: assets/iosPhoneFirstSectionGapNurse.webp
+        imageSecond: assets/iosPhoneFirstSectionGapNurseSecond.webp
+        imageRetina: assets/iosPhoneFirstSectionGapNurse@2x.webp
+        imageSecondRetina: assets/iosPhoneFirstSectionGapNurseSecond@2x.webp
+      - image: assets/androidthirdsectionimage.webp
+        imageSecond: assets/androidthirdsectionimagesecond.webp
+        imageRetina: assets/androidthirdsectionimage-2x.webp
+        imageSecondRetina: assets/androidthirdsectionimagesecond-2x.webp
+      - image: assets/androidfourthsectionimage.webp
+        imageSecond: assets/androidfourthsectionimagesecond.webp
+        imageRetina: assets/androidfourthsectionimage-2x.webp
+        imageSecondRetina: assets/androidfourthsectionimagesecond-2x.webp
 imageMobileLink:
   googlePlayImage: assets/googleplayimage.png
   appStoreImage: assets/appstoreimage.png
 displayTwoImages: true
 imagePreview:
-  image: assets/PhoneGapNurse.png
-  imageRetina: assets/PhoneGapNurse@2x.png
-  imageSecond: assets/PhoneGapNurse2.png
-  imageSecondRetina: assets/PhoneGapNurse2@2x.png
+  image: assets/PhoneGapNurse.webp
+  imageRetina: assets/PhoneGapNurse@2x.webp
+  imageSecond: assets/PhoneGapNurse2.webp
+  imageSecondRetina: assets/PhoneGapNurse2@2x.webp
 color: "#575195"
 technologies: React, Vue
 languages: JS
