@@ -63,7 +63,7 @@ preview:
     testers
 
 
-    .Medical facilities can publish assignments for healthcare workers, both their employees and independent contractors, via a web portal. Healthcare workers can find assignments via the app that work with their schedule and receive some payment.
+    Medical facilities can publish assignments for healthcare workers, both their employees and independent contractors, via a web portal. Healthcare workers can find assignments via the app that work with their schedule and receive some payment.
 
 
     Users can accept or reject assignments, view their schedule, receive notifications about future events, read assignments descriptions, mark them as done, get paid, and track their success.
