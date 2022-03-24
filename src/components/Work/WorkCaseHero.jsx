@@ -100,17 +100,19 @@ export const WorkCaseHero = ({
                 )}
               </Box>
             ) : (
-              <Box align-items="center" height="60px" width="200px">
+              <>
                 {linkWeb !== '#' && (
-                  <LinkWebButton
-                    bgColor={color}
-                    fill
-                    label="Check it out"
-                    href={linkWeb}
-                    target="_blank"
-                  />
+                  <Box align-items="center" height="60px" width="200px">
+                    <LinkWebButton
+                      bgColor={color}
+                      fill
+                      label="Check it out"
+                      href={linkWeb}
+                      target="_blank"
+                    />
+                  </Box>
                 )}
-              </Box>
+              </>
             )}
           </BoxOrder>
           {type === 'mobile' ? (
