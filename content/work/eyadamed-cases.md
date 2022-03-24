@@ -37,9 +37,6 @@ preview:
     Doctor. Allow Patients to pay online for appointments and orders. Provide
     the ability for Pharmacies to manage orders. 
   textInfo: >-
-    **Project description** 
-
-
     Web application provides these abilities:
 
 
@@ -53,5 +50,5 @@ preview:
     **Responsibilities** 
 
 
-    Front End Development. Cooperate with [Demigos ](https://demigos.com/)worked on creating new app.
+    Front End Development. Cooperate with [Demigos ](https://demigos.com/)worked on creating new web site.
 ---
