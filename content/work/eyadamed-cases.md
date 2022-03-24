@@ -39,5 +39,5 @@ preview:
     
     * for Pharmacists to provide to external pharmacies the ability to manage orders received from Patients via the app.
 
-    * for the Admin to provide the ability to manage all entities of apps (Patients, Doctors, Pharmacists, Appointments, Orders, etc.).
+    * for the Admin to provide the ability to manage all entities of apps (Patients, Doctors, Pharmacists, Appointments, Orders, etc.). :muscle:
 ---
