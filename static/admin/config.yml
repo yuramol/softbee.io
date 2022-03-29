@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: soft-bee/softbee.tech
-  branch: feat/SB-24-fix-bugs-during-testing
+  branch: master
 
 media_folder: static/assets
 public_folder: assets
