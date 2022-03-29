@@ -22,7 +22,7 @@ imageCollections:
         imageRetina: assets/secondSectionEyadamed@2x.webp
       - image: assets/thirdSectionEyadamed.webp
         imageRetina: assets/thirdSectionEyadamed@2x.webp
-displayTwoImages: true
+displayTwoImages: false
 imagePreview:
   image: assets/previeweyadamedimage.webp
   imageRetina: assets/previeweyadamedimageretina.webp
