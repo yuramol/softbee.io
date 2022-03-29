@@ -35,11 +35,14 @@ const getColor = ({ index }) => {
 
 const WorkPage = ({ location, data }) => {
   const { workPage } = data;
-
-  const workFirstData = data.works.edges[0].node.frontmatter;
+  const filterFirstData = data.works.edges.filter(
+    item => item.node.frontmatter.order === 1,
+  );
+  const workFirstData = filterFirstData[0].node.frontmatter;
   const { meta, main } = workPage.edges[0].node.frontmatter;
-
-  const works = data.works.edges.slice(1);
+  const works = data.works.edges.filter(
+    item => item.node.frontmatter.order !== 1,
+  );
 
   let { toolchain } = workPage.edges[0].node.frontmatter;
   toolchain = toolchain.map(item => ({ id: Math.random() * 1000, ...item }));
@@ -159,6 +162,7 @@ export const pageQuery = graphql`
       edges {
         node {
           frontmatter {
+            order
             type
             path
             imagePreview {

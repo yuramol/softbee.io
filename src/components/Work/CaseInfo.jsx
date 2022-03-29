@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 import Container from '../Layout/Container';
+import { theme } from '../../utils/theme';
 
 const StyledReactMarkdown = styled(ReactMarkdown)`
   text-align: start;
@@ -17,6 +18,14 @@ const StyledReactMarkdown = styled(ReactMarkdown)`
     padding-left: 20px;
     & > li:not(:first-child) {
       margin-top: 10px;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: ${theme.global.colors['accent-1']};
+    transition: 0.2s color ease-in-out;
+    &:hover {
+      color: ${theme.global.colors.brand};
     }
   }
 `;

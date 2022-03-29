@@ -38,7 +38,7 @@ export const WorkCaseHero = ({
     alt,
     color,
     type,
-    linkCurrentWeb,
+    linkWeb,
     linkAppStore,
     linkGooglePlay,
     imageMobileLink,
@@ -80,31 +80,39 @@ export const WorkCaseHero = ({
             </Box>
             {type === 'mobile' ? (
               <Box justify="between" direction="row">
-                <a href={linkGooglePlay}>
-                  <ImgFluid
-                    mobileWidth="98%"
-                    alt={alt}
-                    src={`/${imageMobileLink.googlePlayImage}`}
-                  />
-                </a>
-                <a href={linkAppStore}>
-                  <ImgFluid
-                    mobileWidth="98%"
-                    alt={alt}
-                    src={`/${imageMobileLink.appStoreImage}`}
-                  />
-                </a>
+                {linkGooglePlay !== '#' && (
+                  <a href={linkGooglePlay}>
+                    <ImgFluid
+                      mobileWidth="98%"
+                      alt={alt}
+                      src={`/${imageMobileLink.googlePlayImage}`}
+                    />
+                  </a>
+                )}
+                {linkAppStore !== '#' && (
+                  <a href={linkAppStore}>
+                    <ImgFluid
+                      mobileWidth="98%"
+                      alt={alt}
+                      src={`/${imageMobileLink.appStoreImage}`}
+                    />
+                  </a>
+                )}
               </Box>
             ) : (
-              <Box align-items="center" height="60px" width="200px">
-                <LinkWebButton
-                  bgColor={color}
-                  fill
-                  label="Check it out"
-                  href={linkCurrentWeb}
-                  target="_blank"
-                />
-              </Box>
+              <>
+                {linkWeb !== '#' && (
+                  <Box align-items="center" height="60px" width="200px">
+                    <LinkWebButton
+                      bgColor={color}
+                      fill
+                      label="Check it out"
+                      href={linkWeb}
+                      target="_blank"
+                    />
+                  </Box>
+                )}
+              </>
             )}
           </BoxOrder>
           {type === 'mobile' ? (
@@ -155,7 +163,7 @@ WorkCaseHero.propTypes = {
     linkAppStore: PropTypes.string,
     linkGooglePlay: PropTypes.string,
     type: PropTypes.string,
-    linkCurrentWeb: PropTypes.string,
+    linkWeb: PropTypes.string,
     imageMobileLink: PropTypes.shape({
       googlePlayImage: PropTypes.string,
       appStoreImage: PropTypes.string,

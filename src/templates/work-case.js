@@ -102,6 +102,7 @@ export const pageQuery = graphql`
         alt
         linkAppStore
         linkGooglePlay
+        linkWeb
         order
         title
         text

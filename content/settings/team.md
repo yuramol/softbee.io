@@ -4,35 +4,49 @@ meta:
   description: Couple words about team
   title: Super team
 main:
-  text: We help companies discover what makes them unique and channel it into a
+  text:  We help companies discover what makes them unique and channel it into a
     memorable experience that outsells and outshines their competition online.
   title: About our team
 members:
   list:
-    - name: Yurii
-      photo: /assets/photo_2021-08-06_13-39-18.jpg
-      position: Front-end Developer
-    - name: Oleksandr
-      position: Front-end Developer
-      photo: /assets/photo_2021-08-06_13-39-18.jpg
-    - name: Andrii
-      position: Senior Web Developer
-      photo: /assets/photo_2021-08-06_13-39-18.jpg
     - name: Artem
-      position: Front-end Developer
-      photo: /assets/photo_2021-08-06_13-39-18.jpg
-    - name: Oleg
-      position: React.js Developer
-      photo: /assets/photo_2021-08-06_13-39-18.jpg
+      position: Front-End & Mobile Developer 
+      photo: /assets/Artem.png
+    - name: Yurii
+      photo: /assets/YK.png
+      position: Front-End Developer
+    - name: Vitaliy
+      position: Front-End & Mobile Developer 
+      photo: /assets/Vitaliy.jpg
+    - name: Mykhailo
+      position: Full Stack Developer 
+      photo: /assets/Mykhailo.jpg
+    - name: Yurii
+      photo: /assets/YM.png
+      position: COO & Front-End Developer 
+    - name: Oleksandr
+      position: CDO & Front-End Developer
+      photo: /assets/Alex.png
+    - name: Eugen
+      photo: /assets/Eugen.jpg
+      position: Front-End Developer
     - name: Vlad
       position: Lead Graphic Designer
-      photo: /assets/photo_2021-08-06_13-39-18.jpg
-    - name: Mad Max
-      position: Senior of Seniors
-      photo: /assets/photo_2021-08-06_13-39-18.jpg
-  text: Working alone sucks, so we teamed up to kick ass together. We prove that
-    distance doesn’t matter when you love what you do, plus we don’t have to
-    share biscuits.
+      photo: /assets/Vlad.png
+    - name: Oleg
+      position: React Developer
+      photo: /assets/Oleg.png
+    - name: Tonia
+      position: UI/UX Designer
+      photo: /assets/Tonia.png
+    - name: Diana
+      position: English Teacher
+      photo: /assets/Diana.jpg
+    - name: Stas
+      position: React Trainee
+      photo: /assets/Stas.png
+
+  text: Working alone sucks, so we teamed up to kick ass together. We prove that distance doesn’t matter when you love what you do, plus we don’t have to share biscuits.
   title: Real people creating real results
 letsTalk:
   text: We’re designers, developers, illustrators, copywriters and coders, but we
@@ -41,8 +55,8 @@ letsTalk:
     work with us while we need the money.
   title: About us
 follow: Follow us on
-  [Medium](https://medium.com/front-end-weekly/loading-components-asynchronously-in-react-app-with-an-hoc-61ca27c4fda7)
-  and don’t forgetto [Hire the team](https://www.upwork.com/ag/softbee/)
+  [LinkedIn](https://www.linkedin.com/company/softbeeio/about/)
+  and don’t forgetto [Hire the team on Upwork](https://www.upwork.com/ag/softbee/)
 ---
 
 templateKey: team
