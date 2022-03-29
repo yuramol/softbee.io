@@ -38,8 +38,8 @@ imageCollections:
         imageRetina: assets/androidfourthsectionimage-2x.webp
         imageSecondRetina: assets/androidfourthsectionimagesecond-2x.webp
 imageMobileLink:
-  googlePlayImage: assets/googleplayimage.png
-  appStoreImage: assets/appstoreimage.png
+  googlePlayImage: assets/play-store.svg
+  appStoreImage: assets/app-store.svg
 displayTwoImages: true
 imagePreview:
   image: assets/PhoneGapNurse.webp
