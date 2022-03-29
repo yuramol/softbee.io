@@ -125,7 +125,6 @@ export const SiteFooter = () => {
                   top: isDesktopOrTablet ? 'medium' : undefined,
                 }}
               >
-                {process.env.SITE_RECAPTCHA_KEY}
                 {linkFooterItems.map(linkItem =>
                   linkItem.routerLink ? (
                     <RouterLink
