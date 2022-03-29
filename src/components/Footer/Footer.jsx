@@ -97,6 +97,7 @@ export const SiteFooter = () => {
   const onChangeReCaptcha = value => {
     setReCaptchaCheck(value !== null);
   };
+
   return (
     <Footer background="brand">
       <Container>
@@ -124,6 +125,7 @@ export const SiteFooter = () => {
                   top: isDesktopOrTablet ? 'medium' : undefined,
                 }}
               >
+                {process.env.SITE_RECAPTCHA_KEY}
                 {linkFooterItems.map(linkItem =>
                   linkItem.routerLink ? (
                     <RouterLink
