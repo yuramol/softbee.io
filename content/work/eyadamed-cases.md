@@ -24,7 +24,7 @@ imageCollections:
         imageRetina: assets/thirdSectionEyadamed@2x.webp
 displayTwoImages: true
 imagePreview:
-  image: assets/previewEyadamedImage.webp
+  image: assets/previeweyadamedimage.webp
   imageRetina: assets/previewEyadamedImageRetina.webp
 color: "#345B94"
 technologies: React
