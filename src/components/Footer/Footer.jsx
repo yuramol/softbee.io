@@ -225,7 +225,7 @@ export const SiteFooter = () => {
                         <ReCAPTCHA
                           ref={reCaptchaRef}
                           onChange={onChangeReCaptcha}
-                          sitekey={process.env.SITE_RECAPTCHA_KEY}
+                          sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
                         />
                       )}
                     </>
