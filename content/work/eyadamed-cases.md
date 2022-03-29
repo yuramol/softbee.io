@@ -1,6 +1,6 @@
 ---
 templateKey: workItem
-path: eyadamed-cases
+path: eyadamed
 type: web
 alt: eyadamed-web-site
 linkWeb: "#"
