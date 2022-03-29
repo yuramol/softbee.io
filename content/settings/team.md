@@ -4,26 +4,26 @@ meta:
   description: Couple words about team
   title: Super team
 main:
-  text:  We help companies discover what makes them unique and channel it into a
+  text: We help companies discover what makes them unique and channel it into a
     memorable experience that outsells and outshines their competition online.
   title: About our team
 members:
   list:
     - name: Artem
-      position: Front-End & Mobile Developer 
+      position: Front-End & Mobile Developer
       photo: /assets/Artem.png
     - name: Yurii
       photo: /assets/YK.png
       position: Front-End Developer
     - name: Vitaliy
-      position: Front-End & Mobile Developer 
+      position: Front-End & Mobile Developer
       photo: /assets/Vitaliy.jpg
     - name: Mykhailo
-      position: Full Stack Developer 
+      position: Full Stack Developer
       photo: /assets/Mykhailo.jpg
     - name: Yurii
       photo: /assets/YM.png
-      position: COO & Front-End Developer 
+      position: COO & Front-End Developer
     - name: Oleksandr
       position: CDO & Front-End Developer
       photo: /assets/Alex.png
@@ -45,8 +45,9 @@ members:
     - name: Stas
       position: React Trainee
       photo: /assets/Stas.png
-
-  text: Working alone sucks, so we teamed up to kick ass together. We prove that distance doesn’t matter when you love what you do, plus we don’t have to share biscuits.
+  text: Working alone sucks, so we teamed up to kick ass together. We prove that
+    distance doesn’t matter when you love what you do, plus we don’t have to
+    share biscuits.
   title: Real people creating real results
 letsTalk:
   text: We’re designers, developers, illustrators, copywriters and coders, but we
@@ -55,8 +56,8 @@ letsTalk:
     work with us while we need the money.
   title: About us
 follow: Follow us on
-  [LinkedIn](https://www.linkedin.com/company/softbeeio/about/)
-  and don’t forgetto [Hire the team on Upwork](https://www.upwork.com/ag/softbee/)
+  [LinkedIn](https://www.linkedin.com/company/softbeeio/about/) and don’t forget
+  to [Hire the team on Upwork](https://www.upwork.com/ag/softbee/)
 ---
 
 templateKey: team
