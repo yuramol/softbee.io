@@ -8,7 +8,7 @@ footer:
 form:
   list:
     - placeholder: Lovely Person
-      title: "Hey! Let’s get started. We are SoftBee, and you are? ,\nand you are? \U0001F44B"
+      title: "Hey! Let’s get started. We are SoftBee,\nand you are? \U0001F44B"
     - placeholder: 'Apps, a website ?'
       title: |-
         Hello, {name}! What do you want
@@ -21,4 +21,3 @@ form:
       title: "Please provide your email\n \U0001F4E7"
   submission: "Thank you for your submission! \U0001F389"
 ---
-
