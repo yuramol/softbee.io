@@ -29,8 +29,8 @@ whatWeDo:
   - name: Branding
     image: assets/brandingIcon.svg
 whatWeDoSecond:
-  - name: ewqewqe
-    image: assets/Artem.png
+  - name: Branding
+    image: assets/brandingIcon.svg
 toolchain:
   - logo: /assets/nodeJSIcon.svg
     name: Node.js
