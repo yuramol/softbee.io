@@ -26,7 +26,7 @@ main:
     - logo: /assets/mobileAppsIcon.svg
       name: Mobile apps
 whatWeDo:
-  - name: Branding
+  - name: Brandingg
     image: assets/brandingIcon.svg
   - name: Print Layout Design
     image: assets/printLayoutDesingIcon.svg
