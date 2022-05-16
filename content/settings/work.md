@@ -26,6 +26,9 @@ main:
     - logo: /assets/mobileAppsIcon.svg
       name: Mobile apps
 whatWeDo: []
+whatWeDoSecond:
+  - name: ewqewqe
+    image: assets/Artem.png
 toolchain:
   - logo: /assets/nodeJSIcon.svg
     name: Node.js
