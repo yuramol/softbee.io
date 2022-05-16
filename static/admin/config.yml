@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: soft-bee/softbee.tech
-  branch: feat/SB-24-fix-bugs-during-testing
+  branch: develop
 
 media_folder: static/assets
 public_folder: assets
@@ -39,10 +39,30 @@ collections:
       - { name: path, label: Path, required: true }
       - { name: type, label: Type, required: true }
       - { name: alt, label: Alt, widget: text, required: true }
-      - { name: srcVideo, label: Src For Video, widget: string, required: false }
-      - { label: Link(src) for web, name: linkWeb, widget: string, required: false }
-      - { label: Link app store, name: linkAppStore, widget: string, required: false }
-      - { label: Link GooglePlay, name: linkGooglePlay, widget: string, required: false }
+      - {
+          name: srcVideo,
+          label: Src For Video,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: Link(src) for web,
+          name: linkWeb,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: Link app store,
+          name: linkAppStore,
+          widget: string,
+          required: false,
+        }
+      - {
+          label: Link GooglePlay,
+          name: linkGooglePlay,
+          widget: string,
+          required: false,
+        }
       - { name: order, label: Order, widget: number }
       - { name: title, label: Title }
       - { name: text, label: Text, widget: text }
@@ -51,9 +71,9 @@ collections:
         name: iconsWorkInfo
         widget: object
         fields:
-          - {label: Technologies, name: technologiesIcon, widget: image}
-          - {label: Language, name: languageIcon, widget: image}
-          - {label: Time, name: timeIcon, widget: image}
+          - { label: Technologies, name: technologiesIcon, widget: image }
+          - { label: Language, name: languageIcon, widget: image }
+          - { label: Time, name: timeIcon, widget: image }
       - label: Image Collections
         name: imageCollections
         widget: list
@@ -62,16 +82,41 @@ collections:
             name: imageSection
             widget: list
             fields:
-              - {label: Image, name: image, widget: image, required: true}
-              - {label: Image second, name: imageSecond, widget: image, required: false}
-              - {label: Image retina, name: imageRetina, widget: image, required: true}
-              - {label: Image second retina, name: imageSecondRetina, widget: image, required: false}
+              - { label: Image, name: image, widget: image, required: true }
+              - {
+                  label: Image second,
+                  name: imageSecond,
+                  widget: image,
+                  required: false,
+                }
+              - {
+                  label: Image retina,
+                  name: imageRetina,
+                  widget: image,
+                  required: true,
+                }
+              - {
+                  label: Image second retina,
+                  name: imageSecondRetina,
+                  widget: image,
+                  required: false,
+                }
       - label: Image for Mobile
         name: imageMobileLink
         widget: object
         fields:
-          - {label: Google play, name: googlePlayImage, widget: image, required: false}
-          - {label: App store, name: appStoreImage, widget: image, required: false}
+          - {
+              label: Google play,
+              name: googlePlayImage,
+              widget: image,
+              required: false,
+            }
+          - {
+              label: App store,
+              name: appStoreImage,
+              widget: image,
+              required: false,
+            }
       - {
           label: Display two images,
           name: displayTwoImages,
@@ -83,10 +128,30 @@ collections:
         name: imagePreview
         widget: object
         fields:
-          - {label: Image for preview, name: image, widget: image, required: true}
-          - {label: Image retina for preview, name: imageRetina, widget: image, required: true}
-          - {label: Image second for preview, name: imageSecond, widget: image, required: false}
-          - {label: Image second retina for preview, name: imageSecondRetina, widget: image, required: false}
+          - {
+              label: Image for preview,
+              name: image,
+              widget: image,
+              required: true,
+            }
+          - {
+              label: Image retina for preview,
+              name: imageRetina,
+              widget: image,
+              required: true,
+            }
+          - {
+              label: Image second for preview,
+              name: imageSecond,
+              widget: image,
+              required: false,
+            }
+          - {
+              label: Image second retina for preview,
+              name: imageSecondRetina,
+              widget: image,
+              required: false,
+            }
       - { label: Color, name: color, widget: color, allowInput: true }
       - { label: Technologies, name: technologies }
       - { label: Languages, name: languages }
@@ -253,12 +318,12 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Subtitle, name: subtitle, widget: string }
               - { label: Text, name: text, widget: text }
-              - {
-                  label: What we do,
-                  name: whatWeDo,
-                  widget: list,
-                  field: { label: Name, name: name, widget: string },
-                }
+          - label: What we do
+            name: whatWeDoSecond
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Image, name: image, widget: image }
           - label: Toolchain
             name: toolchain
             widget: list

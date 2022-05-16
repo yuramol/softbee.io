@@ -12,22 +12,6 @@ main:
   textSecond: From small HTML-template, to building entire applications, we’ve
     worked on projects of all sizes.
   title: Work
-  whatWeDo:
-    - logo: /assets/brandingIcon.svg
-      name: Branding
-    - logo: /assets/printLayoutDesingIcon.svg
-      name: Print Layout Desing
-    - logo: /assets/uiInteractionsIcon.svg
-      name: UI & interactions
-    - logo: /assets/frontEndIcon.svg
-      name: Front-end
-    - logo: /assets/backEndIcon.svg
-      name: Back-end
-    - logo: /assets/mobileAppsIcon.svg
-      name: Mobile apps
-whatWeDo:
-  - name: Branding
-    image: assets/brandingIcon.svg
 whatWeDoSecond:
   - name: Branding
     image: assets/brandingIcon.svg
