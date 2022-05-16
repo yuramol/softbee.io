@@ -1,6 +1,6 @@
 ---
 templateKey: workItem
-path: eyadamed-cases
+path: eyadamed
 type: web
 alt: eyadamed-web-site
 linkWeb: "#"
@@ -16,16 +16,16 @@ iconsWorkInfo:
   timeIcon: assets/icontimework.svg
 imageCollections:
   - imageSection:
-      - image: assets/firstSectionEyadamed.webp
-        imageRetina: assets/firstSectionEyadamed@2x.webp
+      - image: assets/firstsectioneyadamed.webp
+        imageRetina: assets/firstsectioneyadamed-2x.webp
       - image: assets/secondSectionEyadamed.webp
         imageRetina: assets/secondSectionEyadamed@2x.webp
       - image: assets/thirdSectionEyadamed.webp
         imageRetina: assets/thirdSectionEyadamed@2x.webp
 displayTwoImages: true
 imagePreview:
-  image: assets/previewEyadamedImage.png
-  imageRetina: assets/previewEyadamedImageRetina.png
+  image: assets/test.webp
+  imageRetina: assets/test2.webp
 color: "#345B94"
 technologies: React
 languages: TS
