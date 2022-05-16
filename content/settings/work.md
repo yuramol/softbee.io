@@ -26,8 +26,8 @@ main:
     - logo: /assets/mobileAppsIcon.svg
       name: Mobile apps
 whatWeDo:
-  - name: nadwq
-    image: assets/Diana.jpg
+  - name: Branding
+    image: assets/brandingIcon.svg
 whatWeDoSecond:
   - name: ewqewqe
     image: assets/Artem.png
