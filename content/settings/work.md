@@ -31,6 +31,8 @@ whatWeDo:
 whatWeDoSecond:
   - name: Branding
     image: assets/brandingIcon.svg
+  - name: Front-End
+    image: assets/frontEndIcon.svg
 toolchain:
   - logo: /assets/nodeJSIcon.svg
     name: Node.js
