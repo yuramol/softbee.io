@@ -15,7 +15,7 @@ main:
   whatWeDo:
     - logo: /assets/brandingIcon.svg
       name: Branding
-    - Print Layout Design
+    - Print Layout Desing
     - logo: /assets/uiInteractionsIcon.svg
       name: UI & interactions
     - logo: /assets/frontEndIcon.svg
