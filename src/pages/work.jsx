@@ -39,7 +39,7 @@ const WorkPage = ({ location, data }) => {
     item => item.node.frontmatter.order === 1,
   );
   const workFirstData = filterFirstData[0].node.frontmatter;
-  const { meta, main } = workPage.edges[0].node.frontmatter;
+  const { meta, main, whatWeDoSecond } = workPage.edges[0].node.frontmatter;
   const works = data.works.edges.filter(
     item => item.node.frontmatter.order !== 1,
   );
@@ -54,7 +54,7 @@ const WorkPage = ({ location, data }) => {
       <WorkHeroSection
         subtitle={main.subtitle}
         textSecond={main.textSecond}
-        whatWeDo={main.whatWeDo}
+        whatWeDo={whatWeDoSecond}
         withBackground
       />
       <CaseWrapper
@@ -125,15 +125,15 @@ export const pageQuery = graphql`
               title
               description
             }
+            whatWeDoSecond {
+              name
+              image
+            }
             main {
               title
               subtitle
               textSecond
               text
-              whatWeDo {
-                logo
-                name
-              }
             }
             toolchain {
               logo

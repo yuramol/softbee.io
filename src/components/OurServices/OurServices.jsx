@@ -33,7 +33,7 @@ export const OurServices = ({ services }) => {
       wrap
       margin={{ horizontal: 'auto', bottom: 'xlarge' }}
     >
-      {services.map(({ name, logo }, index) => (
+      {services.map(({ name, image }, index) => (
         <Box
           key={name}
           margin={{ bottom: 'medium', top: 'medium' }}
@@ -43,7 +43,7 @@ export const OurServices = ({ services }) => {
         >
           <ImgFluid
             mobileWidth={isSmall ? '3rem' : '5rem'}
-            src={logo}
+            src={image}
             alt={name}
           />
           <Heading
