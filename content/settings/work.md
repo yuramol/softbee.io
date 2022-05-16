@@ -25,7 +25,9 @@ main:
       name: Back-end
     - logo: /assets/mobileAppsIcon.svg
       name: Mobile apps
-whatWeDo: []
+whatWeDo:
+  - name: nadwq
+    image: assets/Diana.jpg
 whatWeDoSecond:
   - name: ewqewqe
     image: assets/Artem.png
