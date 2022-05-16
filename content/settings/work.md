@@ -25,7 +25,11 @@ main:
       name: Back-end
     - logo: /assets/mobileAppsIcon.svg
       name: Mobile apps
-whatWeDo: []
+whatWeDo:
+  - name: Branding
+    image: assets/brandingIcon.svg
+  - name: Print Layout Design
+    image: assets/printLayoutDesingIcon.svg
 toolchain:
   - logo: /assets/nodeJSIcon.svg
     name: Node.js
