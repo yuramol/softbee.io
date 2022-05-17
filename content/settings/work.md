@@ -15,7 +15,7 @@ main:
 whatWeDoSecond:
   - name: Branding
     image: assets/brandingIcon.svg
-  - name: Print Layout Desing
+  - name: Print Layout Design
     image: assets/printLayoutDesingIcon.svg
   - name: UI & interactions
     image: assets/uiInteractionsIcon.svg
