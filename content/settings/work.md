@@ -15,8 +15,16 @@ main:
 whatWeDoSecond:
   - name: Branding
     image: assets/brandingIcon.svg
-  - name: Front-End
+  - name: Print Layout Desing
+    image: assets/printLayoutDesingIcon.svg
+  - name: UI & interactions
+    image: assets/uiInteractionsIcon.svg
+  - name: Front-end
     image: assets/frontEndIcon.svg
+  - name: Back-end
+    image: assets/backEndIcon.svg
+  - name: Mobile Apps
+    image: assets/mobileAppsIcon.svg
 toolchain:
   - logo: /assets/nodeJSIcon.svg
     name: Node.js
