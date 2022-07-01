@@ -8,8 +8,9 @@ import { RouterLink } from '../../legos/RouterLink';
 import { theme } from '../../utils/theme';
 
 const linkItems = [
-  { id: '1', label: 'Work', link: '/work' },
-  { id: '2', label: 'Our team', link: '/our-team' },
+  { id: '1', label: 'Home', link: '/' },
+  { id: '2', label: 'Work', link: '/work' },
+  { id: '3', label: 'Our team', link: '/our-team' },
 ];
 
 const StyledLayer = styled(Layer)`

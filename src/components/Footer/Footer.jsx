@@ -22,9 +22,10 @@ const openModalLetsTalk = () => {
 };
 
 const linkFooterItems = [
-  { id: '1', label: 'Work', routerLink: true, link: '/work' },
-  { id: '2', label: 'Our team', routerLink: true, link: '/our-team' },
-  { id: '3', label: 'Contacts', routerLink: false, click: openModalLetsTalk },
+  { id: '1', label: 'Home', link: '/' },
+  { id: '2', label: 'Work', routerLink: true, link: '/work' },
+  { id: '3', label: 'Our team', routerLink: true, link: '/our-team' },
+  { id: '4', label: 'Contacts', routerLink: false, click: openModalLetsTalk },
 ];
 
 export const SiteFooter = () => {
