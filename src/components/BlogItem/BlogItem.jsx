@@ -41,7 +41,8 @@ export const BlogItem = ({ post }) => {
             size={isMobile ? 'small' : undefined}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: post.frontmatter.description || post.excerpt,
+              __html: post.frontmatter.description,
+              // || post.excerpt,
             }}
           />
         </Box>
@@ -55,7 +56,7 @@ export const BlogItem = ({ post }) => {
 
 BlogItem.propTypes = {
   post: PropTypes.shape({
-    excerpt: PropTypes.string,
+    // excerpt: PropTypes.string,
     fields: PropTypes.shape({
       slug: PropTypes.string,
     }),
