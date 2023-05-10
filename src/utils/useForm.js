@@ -1,13 +1,7 @@
-const encode = data => {
-  return Object.keys(data)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
-};
+import { sendSlack } from './useSlack';
 
 export const sendForm = (formName, input) => {
-  return fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encode({ 'form-name': formName, ...input }),
-  });
+  sendSlack(
+    ` Name: ${input.name}\n Website: ${input.website}\n Email: ${input.email}\n Comment: ${input.comment}\n`,
+  );
 };
