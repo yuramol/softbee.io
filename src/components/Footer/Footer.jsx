@@ -20,11 +20,12 @@ import { theme } from '../../utils/theme';
 const openModalLetsTalk = () => {
   dispatch('letsTalk/open');
 };
+// Our team' wait to redesign
 
 const linkFooterItems = [
   { id: '1', label: 'Home', link: '/' },
-  { id: '2', label: 'Work', routerLink: true, link: '/work' },
-  { id: '3', label: 'Our team', routerLink: true, link: '/our-team' },
+  { id: '2', label: 'Portfolio', routerLink: true, link: '/work' },
+  // { id: '3', label: 'Our team', routerLink: true, link: '/our-team' },
   { id: '4', label: 'Contacts', routerLink: false, click: openModalLetsTalk },
 ];
 

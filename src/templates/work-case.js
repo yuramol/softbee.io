@@ -8,11 +8,10 @@ import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { WorkCaseHero } from '../components/Work/WorkCaseHero';
 import { MobileCaseWrapper } from '../components/Work/Mobile/MobileCase/MobileCaseWrapper';
-import { MobileCaseDevice } from '../components/Work/Mobile/MobileCase/MobileCaseDevice';
-import { WorkCaseHeaderInfo } from '../components/Work/WorkCaseHeaderInfo';
 import { WebCaseImage } from '../components/Work/Web/WebCase/WebCaseImage';
 import { VideoBox } from '../legos/VideoFrame/VideoBox';
 import { WebCaseInfo } from '../components/Work/CaseInfo';
+import { FindUsBlock } from '../components/FindUs/FindUsBlock';
 
 const getPositionBackground = index => {
   if (index % 4 === 0) {
@@ -38,14 +37,15 @@ const WorkCaseTemplate = ({ data }) => {
       <SEO title={title} description={text} />
       <SiteHeader />
       <WorkCaseHero withBackground data={workData} />
-      <WorkCaseHeaderInfo data={workData} />
+      {/* <WorkCaseHeaderInfo data={workData} /> */}
+      <FindUsBlock bgColor={color} headerText="Check out our works on" />
 
       <WebCaseInfo data={workData} />
 
       {srcVideo && <VideoBox src={srcVideo} />}
       {workData.type === 'mobile'
         ? workData.imageCollections[0].imageSection.map(
-            ({ image, imageRetina, imageSecond, imageSecondRetina }, index) => {
+            ({ image, imageRetina }, index) => {
               return (
                 <MobileCaseWrapper
                   key={image + imageRetina}
@@ -55,13 +55,17 @@ const WorkCaseTemplate = ({ data }) => {
                   isSvgTriangleRounded={!!(index % 2)}
                   position={getPositionBackground(index + 1)}
                 >
-                  <MobileCaseDevice
+                  {/* <MobileCaseDevice
                     thumbnail={`/${image}`}
                     thumbnail2x={`/${imageRetina} 2x`}
                     thumbnailSecond={`/${imageSecond}`}
                     thumbnailSecond2x={`/${imageSecondRetina} 2x`}
                     android={!(index % 2)}
                     data={workData}
+                  /> */}
+                  <WebCaseImage
+                    firstImage={`/${image}`}
+                    firstImageRetina={`/${imageRetina} 2x`}
                   />
                 </MobileCaseWrapper>
               );

@@ -34,7 +34,6 @@ export const WorkCaseHero = ({
   data: {
     title,
     text,
-    logo,
     alt,
     color,
     type,
@@ -60,7 +59,7 @@ export const WorkCaseHero = ({
             order={getPosition({ type, isSmall })}
             align={isSmall ? 'center' : 'start'}
           >
-            <ImgFluid mobileWidth="100px" alt={alt} src={`/${logo}`} />
+            {/* <ImgFluid mobileWidth="100px" alt={alt} src={`/${logo}`} /> */}
             <Heading
               margin={{ bottom: 'none', top: 'medium' }}
               color={color}

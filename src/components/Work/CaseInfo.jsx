@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
-import { ImgFluid } from '../Layout/ImgFluid';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 import Container from '../Layout/Container';
 import { theme } from '../../utils/theme';
@@ -32,8 +31,6 @@ const StyledReactMarkdown = styled(ReactMarkdown)`
 
 export const WebCaseInfo = ({
   data: {
-    logo,
-    alt,
     color,
     preview: { textInfo },
   },
@@ -42,11 +39,11 @@ export const WebCaseInfo = ({
   return (
     <>
       <Container pad={{ vertical: 'xlarge' }} align="center">
-        <ImgFluid
+        {/* <ImgFluid
           width={isSmall ? '100px' : '150px'}
           src={`/${logo}`}
           alt={alt}
-        />
+        /> */}
         <StyledReactMarkdown color={color} size={isSmall ? '1rem' : '1.5rem'}>
           {textInfo}
         </StyledReactMarkdown>
@@ -62,7 +59,6 @@ WebCaseInfo.propTypes = {
     alt: PropTypes.string.isRequired,
     preview: PropTypes.shape({
       textInfoFirst: PropTypes.string,
-      textInfoSecond: PropTypes.array,
     }),
   }).isRequired,
 };
