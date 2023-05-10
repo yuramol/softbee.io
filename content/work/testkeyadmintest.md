@@ -4,7 +4,7 @@ path: testkeyadmintest
 type: mobile
 alt: mobile
 srcVideo: https://www.youtube.com/watch?v=17ntdUP5-Do&pp=ygUINGsgdmlkZW8%3D
-order: 6
+order: 2
 title: We can DO IT
 text: |-
   testkeyadmintest
