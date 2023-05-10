@@ -1,4 +1,4 @@
-const SLACK_TOKEN = 'xoxb-440799965478-2617126290705-fQc9qMK58mso2e4etAQc2xfm';
+const SLACK_TOKEN = 'xoxb-440799965478-5233353746182-BCNb58zd39KVR3DUp2gDl5Bz';
 const SLACK_CHANNEL = 'C02HBQYSZ47';
 
 export const sendSlack = text => {
