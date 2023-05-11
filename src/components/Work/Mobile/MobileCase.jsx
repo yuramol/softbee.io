@@ -27,7 +27,7 @@ const getSizeForGrid = ({ isPosition, isSmall }) => {
 
 export const MobileCase = ({
   data: {
-    imagePreview: { image, imageRetina, imageSecond, imageSecondRetina },
+    imagePreview: { image, imageRetina },
     preview: { title, text },
     path,
   },
@@ -88,7 +88,7 @@ export const MobileCase = ({
               />
             </picture>
           </BoxCenterMobile>
-          <BoxCenterMobile
+          {/* <BoxCenterMobile
             center={!!isSmall}
             align={isSmall ? 'center' : undefined}
           >
@@ -100,7 +100,7 @@ export const MobileCase = ({
                 alt={altMobileCase}
               />
             </picture>
-          </BoxCenterMobile>
+          </BoxCenterMobile> */}
         </Box>
         {isSmall && (
           <Box

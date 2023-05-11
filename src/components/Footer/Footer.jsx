@@ -3,7 +3,14 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-import { IconArrow, IconLinkedin, IconUpWork } from '../../legos/Icons';
+import styled from 'styled-components';
+import {
+  IconArrow,
+  IconBehance,
+  IconClutch,
+  IconLinkedin,
+  IconUpWork,
+} from '../../legos/Icons';
 import Container from '../Layout/Container';
 import Logo from '../../../static/assets/logo.svg';
 import { Heading } from '../../legos/typography/Heading';
@@ -28,7 +35,39 @@ const linkFooterItems = [
   // { id: '3', label: 'Our team', routerLink: true, link: '/our-team' },
   { id: '4', label: 'Contacts', routerLink: false, click: openModalLetsTalk },
 ];
-
+const footerLinkSocial = [
+  {
+    name: 'Upwork',
+    iconSrc: <IconUpWork />,
+    to: 'https://www.upwork.com/ag/softbee/',
+  },
+  {
+    name: 'LinkedIn',
+    iconSrc: <IconLinkedin />,
+    to: 'https://www.linkedin.com/company/softbeeio/',
+  },
+  {
+    name: 'Clutch',
+    iconSrc: <IconClutch />,
+    to: 'https://www.upwork.com/ag/softbee/',
+  },
+  {
+    name: 'Behance',
+    iconSrc: <IconBehance />,
+    to: 'https://www.upwork.com/ag/softbee/',
+  },
+];
+const StyledLinks = styled.a`
+  color: ${props => props.color || 'white'};
+  text-decoration: none;
+  width: 50px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: #f5d040;
+    text-decoration: underline;
+    width: 50px;
+  }
+`;
 export const SiteFooter = () => {
   const { isSmall, isDesktopOrTablet } = useBreakpoint();
 
@@ -154,6 +193,9 @@ export const SiteFooter = () => {
                 )}
               </Box>
             </Box>
+            <StyledLinks href="mailto:info@softbee.io">
+              info@softbee.io
+            </StyledLinks>
             <Grid
               margin={{
                 top: isSmall ? 'large' : undefined,
@@ -163,20 +205,16 @@ export const SiteFooter = () => {
               gap={isDesktopOrTablet ? '1rem' : 'large'}
               columns={{ count: 'fit', size: columnsSize }}
             >
-              <SocialLink
-                color="#fff"
-                activeColor={theme.global.colors['accent-1']}
-                icon={<IconLinkedin />}
-                to="https://www.linkedin.com/company/softbeeio/"
-                target="_blank"
-              />
-              <SocialLink
-                color="#fff"
-                activeColor={theme.global.colors['accent-1']}
-                icon={<IconUpWork />}
-                to="https://www.upwork.com/ag/softbee/"
-                target="_blank"
-              />
+              {footerLinkSocial.map(item => (
+                <SocialLink
+                  key={item.name}
+                  color="#fff"
+                  activeColor={theme.global.colors['accent-1']}
+                  icon={item.iconSrc}
+                  to={item.to}
+                  target="_blank"
+                />
+              ))}
             </Grid>
           </Box>
 
