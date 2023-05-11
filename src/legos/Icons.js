@@ -8,5 +8,5 @@ export { default as IconArrowStepNext } from '../../static/assets/icons/arrowSte
 export { default as IconArrowStepPrev } from '../../static/assets/icons/arrowStepPrev.inline.svg';
 export { default as IconArrowDown } from '../../static/assets/icons/arrowDown.inline.svg';
 export { default as IconUpWork } from '../../static/assets/icons/upWork.inline.svg';
-export { default as IconBehance } from '../../static/assets/icons/behance.inline.svg';
-export { default as IconClutch } from '../../static/assets/icons/clutch.inline.svg';
+export { default as IconBehance } from '../../static/assets/icons/Behance.inline.svg';
+export { default as IconClutch } from '../../static/assets/icons/Clutch.inline.svg';

@@ -46,16 +46,14 @@ export const FindUsBlock = ({ bgColor, headerText }) => {
       background={bgColor}
       round={{ corner: 'bottom', size: isSmall ? '0px' : '100px' }}
     >
-      <>
-        <Heading
-          margin={{ bottom: '15px', top: '0' }}
-          level={2}
-          textAlign="center"
-          color="#fff"
-        >
-          {headerText}
-        </Heading>
-      </>
+      <Heading
+        margin={{ bottom: '15px', top: '0' }}
+        level={2}
+        textAlign="center"
+        color="#fff"
+      >
+        {headerText}
+      </Heading>
 
       <Box
         justify="center"
