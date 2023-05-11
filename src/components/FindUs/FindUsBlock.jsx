@@ -14,7 +14,12 @@ import { theme } from '../../utils/theme';
 import { Heading } from '../../legos/typography/Heading';
 
 export const FindUsBlock = ({ bgColor, headerText }) => {
-  const { isSmall, isDesktopOrTablet, isSTablet } = useBreakpoint();
+  const {
+    isSmall,
+    isDesktopOrTablet,
+    isSTablet,
+    isExtraSmall,
+  } = useBreakpoint();
   const iconSize = isSmall ? '32px' : '42px';
   const dataInfo = [
     {
@@ -74,6 +79,7 @@ export const FindUsBlock = ({ bgColor, headerText }) => {
               align="center"
               direction="row"
               key={name}
+              width={isExtraSmall ? '50%' : undefined}
             >
               <Box
                 margin={{ right: 'medium' }}

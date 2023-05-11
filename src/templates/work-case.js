@@ -37,12 +37,12 @@ const WorkCaseTemplate = ({ data }) => {
       <SEO title={title} description={text} />
       <SiteHeader />
       <WorkCaseHero withBackground data={workData} />
-      {/* <WorkCaseHeaderInfo data={workData} /> */}
       <FindUsBlock bgColor={color} headerText="Check out our works on" />
+
+      {srcVideo && <VideoBox src={srcVideo} />}
 
       <WebCaseInfo data={workData} />
 
-      {srcVideo && <VideoBox src={srcVideo} />}
       {workData.type === 'mobile'
         ? workData.imageCollections[0].imageSection.map(
             ({ image, imageRetina }, index) => {
@@ -55,14 +55,6 @@ const WorkCaseTemplate = ({ data }) => {
                   isSvgTriangleRounded={!!(index % 2)}
                   position={getPositionBackground(index + 1)}
                 >
-                  {/* <MobileCaseDevice
-                    thumbnail={`/${image}`}
-                    thumbnail2x={`/${imageRetina} 2x`}
-                    thumbnailSecond={`/${imageSecond}`}
-                    thumbnailSecond2x={`/${imageSecondRetina} 2x`}
-                    android={!(index % 2)}
-                    data={workData}
-                  /> */}
                   <WebCaseImage
                     firstImage={`/${image}`}
                     firstImageRetina={`/${imageRetina} 2x`}

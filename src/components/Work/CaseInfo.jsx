@@ -38,7 +38,7 @@ export const WebCaseInfo = ({
   const { isSmall } = useBreakpoint();
   return (
     <>
-      <Container pad={{ vertical: 'xlarge' }} align="center">
+      <Container pad={{ vertical: 'large' }} align="center">
         {/* <ImgFluid
           width={isSmall ? '100px' : '150px'}
           src={`/${logo}`}
