@@ -26,7 +26,7 @@ export const BlogSection = ({ withBackground }) => {
       ) {
         edges {
           node {
-            excerpt
+            # excerpt
             fields {
               slug
             }

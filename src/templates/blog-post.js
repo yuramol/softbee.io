@@ -134,8 +134,8 @@ export const pageQuery = graphql`
     }
     mdx(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
-      body
+      # excerpt(pruneLength: 160)
+      # body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
@@ -145,7 +145,7 @@ export const pageQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: 3) {
       edges {
         node {
-          excerpt
+          # excerpt
           fields {
             slug
           }
