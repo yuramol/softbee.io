@@ -137,16 +137,6 @@ export const WorkCaseHero = ({
                   alt={alt}
                 />
               </Box>
-              {/* <Box
-                alignSelf="end"
-                pad={{ left: isDesktopOrTablet ? 'large' : 'xlarge' }}
-              >
-                <ImgFluid
-                  srcSet={`/${imageSecondRetina} 2x`}
-                  alt={alt}
-                  src={`/${imageSecond}`}
-                />
-              </Box> */}
             </Box>
           ) : (
             <ImgWebCase

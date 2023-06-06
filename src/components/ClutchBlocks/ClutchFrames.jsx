@@ -35,9 +35,8 @@ export const ClutchFrames = () => {
       direction="row"
       style={{ position: 'absolute', top: '330px' }}
     >
-      {ClutchFramesSrc.map(item => (
-        // eslint-disable-next-line react/jsx-key
-        <Box>
+      {ClutchFramesSrc.map((index, item) => (
+        <Box key={index}>
           <iframe
             src={item.src}
             width="93"

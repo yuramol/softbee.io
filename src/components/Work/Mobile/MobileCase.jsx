@@ -88,19 +88,6 @@ export const MobileCase = ({
               />
             </picture>
           </BoxCenterMobile>
-          {/* <BoxCenterMobile
-            center={!!isSmall}
-            align={isSmall ? 'center' : undefined}
-          >
-            <picture>
-              <ImgFluid
-                mobileWidth={isSmall && '80%'}
-                src={`/${imageSecond}`}
-                srcSet={`/${imageSecondRetina} 2x`}
-                alt={altMobileCase}
-              />
-            </picture>
-          </BoxCenterMobile> */}
         </Box>
         {isSmall && (
           <Box

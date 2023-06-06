@@ -39,11 +39,6 @@ export const WebCaseInfo = ({
   return (
     <>
       <Container pad={{ vertical: 'large' }} align="center">
-        {/* <ImgFluid
-          width={isSmall ? '100px' : '150px'}
-          src={`/${logo}`}
-          alt={alt}
-        /> */}
         <StyledReactMarkdown color={color} size={isSmall ? '1rem' : '1.5rem'}>
           {textInfo}
         </StyledReactMarkdown>
