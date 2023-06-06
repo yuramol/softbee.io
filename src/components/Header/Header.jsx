@@ -14,7 +14,7 @@ import { theme } from '../../utils/theme';
 const linkItems = [
   { id: '1', label: 'Home', link: '/' },
   { id: '2', label: 'Portfolio', link: '/work' },
-  // { id: '3', label: 'Our team', link: '/our-team' },
+  { id: '3', label: 'Blog', link: '/blog' },
 ];
 
 export const SiteHeader = () => {

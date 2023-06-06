@@ -41,7 +41,7 @@ export const WorkCaseHero = ({
     linkAppStore,
     linkGooglePlay,
     imageMobileLink,
-    imagePreview: { image, imageRetina, imageSecond, imageSecondRetina },
+    imagePreview: { image, imageRetina },
   },
 }) => {
   const { isSmall, isSTablet, isDesktopOrTablet } = useBreakpoint();
@@ -59,7 +59,6 @@ export const WorkCaseHero = ({
             order={getPosition({ type, isSmall })}
             align={isSmall ? 'center' : 'start'}
           >
-            {/* <ImgFluid mobileWidth="100px" alt={alt} src={`/${logo}`} /> */}
             <Heading
               margin={{ bottom: 'none', top: 'medium' }}
               color={color}
@@ -113,6 +112,17 @@ export const WorkCaseHero = ({
                 )}
               </>
             )}
+            {linkWeb !== '#' && (
+              <Box align-items="center" height="60px" width="100%">
+                <LinkWebButton
+                  bgColor="black"
+                  fill
+                  label="Check it out"
+                  href={linkWeb}
+                  target="_blank"
+                />
+              </Box>
+            )}
           </BoxOrder>
           {type === 'mobile' ? (
             <Box
@@ -127,7 +137,7 @@ export const WorkCaseHero = ({
                   alt={alt}
                 />
               </Box>
-              <Box
+              {/* <Box
                 alignSelf="end"
                 pad={{ left: isDesktopOrTablet ? 'large' : 'xlarge' }}
               >
@@ -136,7 +146,7 @@ export const WorkCaseHero = ({
                   alt={alt}
                   src={`/${imageSecond}`}
                 />
-              </Box>
+              </Box> */}
             </Box>
           ) : (
             <ImgWebCase

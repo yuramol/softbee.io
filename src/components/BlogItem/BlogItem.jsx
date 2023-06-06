@@ -7,7 +7,6 @@ import { theme } from '../../utils/theme';
 import { ImgLink, BlogItemLink, Img } from './styled';
 
 export const BlogItem = ({ post }) => {
-  const isTablet = useMediaQuery({ query: '(max-width: 1200px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 780px)' });
   const title = post.frontmatter.title || post.fields.slug;
 
@@ -17,7 +16,7 @@ export const BlogItem = ({ post }) => {
       pad={
         isMobile
           ? { horizontal: 'xsmall', vertical: 'large' }
-          : { horizontal: 'xlarge', vertical: 'large' }
+          : { vertical: 'medium' }
       }
     >
       <Grid
@@ -25,7 +24,6 @@ export const BlogItem = ({ post }) => {
         gap="small"
         justify="stretch"
         justifyContent="between"
-        pad={isTablet ? { horizontal: 'medium' } : { horizontal: 'xlarge' }}
       >
         <Box pad={{ right: 'large' }}>
           <BlogItemLink
