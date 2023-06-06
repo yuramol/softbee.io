@@ -14,8 +14,9 @@ BlogItemLink.propTypes = {
 
 export const ImgLink = styled(BlogItemLink)`
   display: block;
-  width: 136px;
-  height: 136px;
+  max-width: 300px;
+  height: auto;
+  max-height: 170px;
 `;
 
 export const Img = styled.img`

@@ -3,7 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import { Box, Grid, Heading, ResponsiveContext, Nav } from 'grommet';
+import { Grid, ResponsiveContext, Nav } from 'grommet';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
@@ -11,20 +11,14 @@ import { RouterLink } from '../legos/RouterLink';
 import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { maxBreakpoints } from '../utils/useBreakpoints';
-import { theme } from '../utils/theme';
 import Container from '../components/Layout/Container';
-import { ImgCover } from '../components/Layout/ImgCover';
-import { BlogItem } from './styled';
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
-  const postsRecent = data.allMdx.edges;
   const siteTitle = data.site.siteMetadata.title;
   const size = React.useContext(ResponsiveContext);
-  const isMobile = maxBreakpoints('mobile', size);
   const isTablet = maxBreakpoints('desktopOrTablet', size);
   const { previous, next } = pageContext;
-  const columnsCount = isMobile ? 1 : 3;
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -69,54 +63,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           </Nav>
         </Grid>
       </Container>
-      <Box background={{ color: '#f0f6f4' }}>
-        <Container>
-          <Grid
-            columns={{ count: columnsCount, size: 'auto' }}
-            gap={isTablet ? 'small' : 'large'}
-            pad={{ vertical: 'large' }}
-            align="center"
-            justify="center"
-            justifyContent="around"
-          >
-            {postsRecent.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug;
-              return (
-                <Box
-                  width="100%"
-                  key={node.fields.slug}
-                  pad={{ vertical: 'large' }}
-                >
-                  <RouterLink to={`/blog${node.fields.slug}`}>
-                    <BlogItem bottomFlex="56.476%">
-                      <ImgCover
-                        src="/assets/rectangle.png"
-                        alt="On laptop open code editor"
-                      />
-                    </BlogItem>
-                  </RouterLink>
 
-                  <RouterLink
-                    to={`/blog${node.fields.slug}`}
-                    disableUnderline
-                    color={theme.global.colors.brand}
-                    hoveredColor={theme.global.colors['accent-2']}
-                  >
-                    <Heading
-                      level={4}
-                      margin={{ top: '20px', bottom: '15px' }}
-                      truncate
-                      textAlign="center"
-                    >
-                      {title}
-                    </Heading>
-                  </RouterLink>
-                </Box>
-              );
-            })}
-          </Grid>
-        </Container>
-      </Box>
       <SiteFooter />
     </Layout>
   );

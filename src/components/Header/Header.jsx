@@ -10,10 +10,11 @@ import { StyledLink, StyledHeader, StyledHeaderWrapper } from './styled';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 import { theme } from '../../utils/theme';
 
+// Our team' wait to redesign
 const linkItems = [
   { id: '1', label: 'Home', link: '/' },
-  { id: '2', label: 'Work', link: '/work' },
-  { id: '3', label: 'Our team', link: '/our-team' },
+  { id: '2', label: 'Portfolio', link: '/work' },
+  { id: '3', label: 'Blog', link: '/blog' },
 ];
 
 export const SiteHeader = () => {

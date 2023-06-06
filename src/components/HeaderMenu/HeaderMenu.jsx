@@ -7,10 +7,11 @@ import { ButtonLetsTalk } from '../ButtonLetsTalk/ButtonLetsTalk';
 import { RouterLink } from '../../legos/RouterLink';
 import { theme } from '../../utils/theme';
 
+// Our team' wait to redesign
 const linkItems = [
   { id: '1', label: 'Home', link: '/' },
   { id: '2', label: 'Work', link: '/work' },
-  { id: '3', label: 'Our team', link: '/our-team' },
+  // { id: '3', label: 'Our team', link: '/our-team' },
 ];
 
 const StyledLayer = styled(Layer)`
