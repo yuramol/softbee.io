@@ -14,6 +14,7 @@ export default function HTML(props) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         {props.headComponents}
+        <script src="https://widget.clutch.co/static/js/widget.js" />
       </head>
       <body className="not-loaded" {...props.bodyAttributes}>
         {props.preBodyComponents}

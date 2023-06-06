@@ -12,6 +12,8 @@ import { BoxLookingSection } from '../components/BoxLookingSection/BoxLookingSec
 import { MobileCase } from '../components/Work/Mobile/MobileCase';
 import { CaseWrapper } from '../components/Work/CaseWrapper';
 import { WebCase } from '../components/Work/Web/WebCase';
+import { FindUsBlock } from '../components/FindUs/FindUsBlock';
+import ClutchReviews from '../components/ClutchBlocks/ClutchReviews';
 
 const IndexPage = ({ location, data }) => {
   const {
@@ -38,6 +40,7 @@ const IndexPage = ({ location, data }) => {
         text={homeHero.text}
         withBackground
       />
+
       <CaseWrapper
         position="top right"
         withBackground
@@ -48,6 +51,7 @@ const IndexPage = ({ location, data }) => {
       >
         <MobileCase withBackground data={MobileData} />
       </CaseWrapper>
+      <FindUsBlock bgColor="#104065" headerText="Find us on" />
       <TeamSection title={team.title} text={team.text} />
       <CaseWrapper
         position="left top"
@@ -60,6 +64,7 @@ const IndexPage = ({ location, data }) => {
       >
         <WebCase data={WebData} withBackground />
       </CaseWrapper>
+      <ClutchReviews />
       <BoxLookingSection
         titleLooking={looking.title}
         textLooking={looking.text}
