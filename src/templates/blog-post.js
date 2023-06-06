@@ -19,7 +19,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const size = React.useContext(ResponsiveContext);
   const isTablet = maxBreakpoints('desktopOrTablet', size);
   const { previous, next } = pageContext;
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -29,7 +28,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SiteHeader />
       <Container>
         <Grid
-          //  columns={{ count: 1 }}
           gap="small"
           pad={
             isTablet
@@ -39,7 +37,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         >
           <h1>{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
           <hr />
           <Nav direction="row" justify="between" pad={{ vertical: 'small' }}>
             {previous && (
