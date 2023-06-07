@@ -9,5 +9,5 @@ description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu purus
   adipiscing....
 ---
 ```
-const Button = props => (  <ButtonWrapper props={props}>{props.children}</ButtonWrapper>)
+
 ```
