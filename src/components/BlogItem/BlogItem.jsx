@@ -19,13 +19,11 @@ export const BlogItem = ({ post }) => {
           : { vertical: 'medium' }
       }
     >
-      <Grid
-        columns={['auto', 'auto']}
-        gap="small"
-        justify="stretch"
-        justifyContent="between"
-      >
-        <Box pad={{ right: 'large' }}>
+      {isMobile ? (
+        <Box style={{ alignItems: 'center' }} pad={{ horizontal: 'large' }}>
+          <ImgLink slug={post.fields.slug}>
+            <Img src={post.frontmatter.image} alt={title} />
+          </ImgLink>
           <BlogItemLink
             slug={post.fields.slug}
             hoveredColor={theme.global.colors.brand}
@@ -44,10 +42,37 @@ export const BlogItem = ({ post }) => {
             }}
           />
         </Box>
-        <ImgLink slug={post.fields.slug}>
-          <Img src={post.frontmatter.image} alt={title} />
-        </ImgLink>
-      </Grid>
+      ) : (
+        <Grid
+          columns={['auto', 'auto']}
+          gap="small"
+          justify="stretch"
+          justifyContent="between"
+        >
+          <Box pad={{ right: 'large' }}>
+            <BlogItemLink
+              slug={post.fields.slug}
+              hoveredColor={theme.global.colors.brand}
+            >
+              <Heading level={4} margin={{ top: 'none', bottom: '15px' }}>
+                {title}
+              </Heading>
+            </BlogItemLink>
+            {/* <small>{post.frontmatter.date}</small> */}
+            <Text
+              size={isMobile ? 'small' : undefined}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{
+                __html: post.frontmatter.description,
+                // || post.excerpt,
+              }}
+            />
+          </Box>
+          <ImgLink slug={post.fields.slug}>
+            <Img src={post.frontmatter.image} alt={title} />
+          </ImgLink>
+        </Grid>
+      )}
     </Box>
   );
 };

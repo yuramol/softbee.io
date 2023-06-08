@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import { Grid } from 'grommet';
+import { Grid, ResponsiveContext } from 'grommet';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
@@ -10,16 +10,24 @@ import { SiteHeader } from '../components/Header';
 import { SiteFooter } from '../components/Footer';
 import { BlogItem } from '../components/BlogItem/BlogItem';
 import BlogContainer from '../components/Layout/BlogContainer';
+import { maxBreakpoints } from '../utils/useBreakpoints';
 
 const Blog = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const posts = data.blogs.edges;
+  const size = React.useContext(ResponsiveContext);
+  const isTablet = maxBreakpoints('desktopOrTablet', size);
 
   return (
     <Layout location={location} title={siteTitle} withBackground>
       <SEO title="All posts" />
       <SiteHeader />
-      <BlogContainer>
+      <BlogContainer
+        gap="small"
+        pad={
+          isTablet ? { horizontal: 'xlarge', top: 'xlarge' } : { top: 'xlarge' }
+        }
+      >
         <Grid style={{ marginBottom: '40px' }}>
           {posts.map(({ node }) => {
             return <BlogItem post={node} key={node.fields.slug} />;
