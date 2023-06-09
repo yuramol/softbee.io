@@ -35,12 +35,12 @@ export const FindUsBlock = ({ bgColor, headerText }) => {
     {
       name: 'Clutch',
       iconSrc: <IconClutch />,
-      to: 'https://www.upwork.com/ag/softbee/',
+      to: 'https://clutch.co/profile/softbee-0',
     },
     {
       name: 'Behance',
       iconSrc: <IconBehance />,
-      to: 'https://www.upwork.com/ag/softbee/',
+      to: 'https://www.behance.net/softbee',
     },
   ];
   return (

@@ -29,11 +29,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <Container>
         <Grid
           gap="small"
-          pad={
-            isTablet
-              ? { top: 'xlarge' }
-              : { horizontal: 'xlarge', top: 'xlarge' }
-          }
+          pad={isTablet ? { top: 'xlarge', horizontal: 'small' } : null}
         >
           <h1>{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
