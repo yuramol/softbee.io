@@ -27,6 +27,7 @@ const Blog = ({ data, location }) => {
         pad={
           isTablet ? { horizontal: 'xlarge', top: 'xlarge' } : { top: 'xlarge' }
         }
+        style={{ marginBottom: '60px' }}
       >
         <Grid style={{ marginBottom: '40px' }}>
           {posts.map(({ node }) => {
