@@ -28,13 +28,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SiteHeader />
       <Container>
         <Grid
-          //  columns={{ count: 1 }}
           gap="small"
           pad={isTablet ? { top: 'xlarge', horizontal: 'small' } : null}
         >
           <h1>{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
-          <MDXRenderer>{post.body}</MDXRenderer>
+          {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
           <hr />
           <Nav direction="row" justify="between" pad={{ vertical: 'small' }}>
             {previous && (

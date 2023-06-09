@@ -47,6 +47,7 @@
     "react-markdown": "^7.0.0",
     "react-responsive": "^8.1.0",
     "react-switch": "^5.0.0",
+    "request": "^2.88.2",
     "styled-components": "^4.2.0",
     "yup": "^0.32.9"
   },

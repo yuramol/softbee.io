@@ -12,9 +12,6 @@ members:
     - name: Artem
       position: Front-End & Mobile Developer
       photo: /assets/Artem.png
-    - name: Yurii
-      photo: /assets/YK.png
-      position: Front-End Developer
     - name: Vitaliy
       position: Front-End & Mobile Developer
       photo: /assets/Vitaliy.jpg
