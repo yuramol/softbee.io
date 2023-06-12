@@ -2,11 +2,12 @@
 templateKey: blogItem
 path: testing-push-notifications-on-ios-simulator
 date: 2020-04-15T08:22:31.703Z
+image: assets/2300x1600_06_gaphurseapp.jpg
 title: Testing Push Notifications with iOS simulator and React Native
-description: >-
-  For the long time we could not test Push Notifications on iOS simulator. But
-  from Xcode version 11.4 it is possible now! In this article we will make the
-  test notification with custom payload to pop up on a screen of iOS simulator.
+description: For the long time we could not test Push Notifications on iOS
+  simulator. But from Xcode version 11.4 it is possible now! In this article we
+  will make the test notification with custom payload to pop up on a screen of
+  iOS simulator.
 ---
 ## How does Xcode allow us now to trigger notifications?
 
