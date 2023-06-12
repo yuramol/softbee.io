@@ -21,22 +21,28 @@ iconsWorkInfo:
   timeIcon: assets/icontimework.svg
 imageCollections:
   - imageSection:
-      - image: assets/androidPhoneFirstSectionGapNurse.webp
-        imageRetina: assets/androidPhoneFirstSectionGapNurse@2x.webp
-        imageSecond: assets/androidPhoneFirstSectionGapNurseSecond.webp
-        imageSecondRetina: assets/androidPhoneFirstSectionGapNurseSecond@2x.webp
-      - image: assets/iosPhoneFirstSectionGapNurse.webp
-        imageSecond: assets/iosPhoneFirstSectionGapNurseSecond.webp
-        imageRetina: assets/iosPhoneFirstSectionGapNurse@2x.webp
-        imageSecondRetina: assets/iosPhoneFirstSectionGapNurseSecond@2x.webp
-      - image: assets/androidthirdsectionimage.webp
-        imageSecond: assets/androidthirdsectionimagesecond.webp
-        imageRetina: assets/androidthirdsectionimage-2x.webp
-        imageSecondRetina: assets/androidthirdsectionimagesecond-2x.webp
-      - image: assets/androidfourthsectionimage.webp
-        imageSecond: assets/androidfourthsectionimagesecond.webp
-        imageRetina: assets/androidfourthsectionimage-2x.webp
-        imageSecondRetina: assets/androidfourthsectionimagesecond-2x.webp
+      - image: assets/1150x800_01_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_01_gaphurseapp.jpg
+      - image: assets/1150x800_02_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_02_gaphurseapp.jpg
+      - image: assets/1150x800_03_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_03_gaphurseapp.jpg
+      - image: assets/1150x800_04_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_04_gaphurseapp.jpg
+      - image: assets/1150x800_05_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_05_gaphurseapp.jpg
+      - image: assets/1150x800_06_gaphurseapp.jpg
+        imageSecond: ""
+        imageRetina: assets/2300x1600_06_gaphurseapp.jpg
+      - image: assets/1150x800_07_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_07_gaphurseapp.jpg
+      - image: assets/1150x800_08_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_08_gaphurseapp.jpg
+      - image: assets/1150x800_09_gaphurseapp.jpg
+        imageSecond: ""
+        imageRetina: assets/2300x1600_09_gaphurseapp.jpg
+      - image: assets/1150x800_10_gaphurseapp.jpg
+        imageRetina: assets/2300x1600_10_gaphurseapp.jpg
 imageMobileLink:
   googlePlayImage: assets/play-store.svg
   appStoreImage: assets/app-store.svg
