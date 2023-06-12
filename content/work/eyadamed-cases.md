@@ -24,8 +24,8 @@ imageCollections:
         imageRetina: assets/thirdSectionEyadamed@2x.webp
 displayTwoImages: true
 imagePreview:
-  image: assets/test.webp
-  imageRetina: assets/test2.webp
+  image: assets/mshf_600x600.png
+  imageRetina: assets/mshf_1200x1200.png
 color: "#345B94"
 technologies: React
 languages: TS
