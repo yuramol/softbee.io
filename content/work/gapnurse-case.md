@@ -42,8 +42,8 @@ imageMobileLink:
   appStoreImage: assets/app-store.svg
 displayTwoImages: true
 imagePreview:
-  image: assets/PhoneGapNurse.webp
-  imageRetina: assets/PhoneGapNurse@2x.webp
+  image: assets/gapnurse-app_600x600.png
+  imageRetina: assets/gapnurse-app_1200x1200.png
   imageSecond: assets/PhoneGapNurse2.webp
   imageSecondRetina: assets/PhoneGapNurse2@2x.webp
 color: "#575195"
