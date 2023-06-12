@@ -11,4 +11,4 @@ description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu purus
 ---
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu purus sit nulla platea pellentesque pretium. Facilisi tellus rutrum eu mi quam mauris dui orci ante. Faucibus elit, imperdiet mi maecenas egestas semper mauris ultricies vitae....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu purus sit nulla platea pellentesque pretium. Facilisi tellus rutrum eu mi quam mauris dui orci ante. Faucibus elit, imperdiet mi maecenas egestas semper mauris ultricies vitae....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu purus sit nulla platea pellentesque pretium. Facilisi tellus rutrum eu mi quam mauris dui orci ante. Faucibus elit, imperdiet mi maecenas egestas semper mauris ultricies vitae....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu purus sit nulla platea pellentesque pretium. Facilisi tellus rutrum eu mi quam mauris dui orci ante. Faucibus elit, imperdiet mi maecenas egestas semper mauris ultricies vitae....
 
-![test](/assets/ArtemMarochkanych.png "test")
+![test](assets/1150x800_05_gaphurseapp.jpg "test")
