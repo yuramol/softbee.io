@@ -50,8 +50,8 @@ displayTwoImages: true
 imagePreview:
   image: assets/gapnurse-app_600x600.png
   imageRetina: assets/gapnurse-app_1200x1200.png
-  imageSecond: assets/PhoneGapNurse2.webp
-  imageSecondRetina: assets/PhoneGapNurse2@2x.webp
+  imageSecond: ""
+  imageSecondRetina: ""
 color: "#575195"
 technologies: React, Vue
 languages: JS
