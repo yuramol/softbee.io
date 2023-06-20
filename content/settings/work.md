@@ -4,7 +4,7 @@ meta:
   description: Some words about our work
   title: Our work
 main:
-  subtitle: Remember we told you we convert 1deas to successful products?Get to
+  subtitle: Remember we told you we convert ideas to successful products?Get to
     know some of them.
   text: We work really well together but are awesome separately, too. Hire only
     what you need, we’ll build our team around your project.
