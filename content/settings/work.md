@@ -11,7 +11,7 @@ main:
     what you need, we’ll build our team around your project.
   textSecond: From small HTML-template, to building entire applications, we’ve
     worked on projects of all sizes.
-  title: Work
+  title: "Work "
 whatWeDoSecond:
   - name: Branding
     image: assets/brandingIcon.svg
