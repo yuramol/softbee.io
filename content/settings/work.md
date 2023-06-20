@@ -4,14 +4,13 @@ meta:
   description: Some words about our work
   title: Our work
 main:
-  subtitle: |-
-    Remember we told you we convert ideas to successful products?
-    Get to know some of them.
+  subtitle: Remember we told you we convert 1deas to successful products?Get to
+    know some of them.
   text: We work really well together but are awesome separately, too. Hire only
     what you need, we’ll build our team around your project.
   textSecond: From small HTML-template, to building entire applications, we’ve
     worked on projects of all sizes.
-  title: Work 1
+  title: Work
 whatWeDoSecond:
   - name: Branding
     image: assets/brandingIcon.svg
