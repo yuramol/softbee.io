@@ -23,6 +23,8 @@ export const OurServices = ({ services }) => {
     ? { left: 'none', top: '10px', bottom: 'none' }
     : { left: '20px', right: 'none', vertical: 'none' };
 
+  console.log('%c jordan services', 'color: lime;', services);
+
   return (
     <Box
       background="brand"
@@ -33,36 +35,39 @@ export const OurServices = ({ services }) => {
       wrap
       margin={{ horizontal: 'auto', bottom: 'xlarge' }}
     >
-      {services.map(({ name, image }, index) => (
-        <Box
-          key={name}
-          margin={{ bottom: 'medium', top: 'medium' }}
-          direction={rowOrColumn}
-          width={getSizeForBox(isSmall, index)}
-          align={itemsPosition}
-        >
-          <ImgFluid
-            mobileWidth={isSmall ? '3rem' : '5rem'}
-            src={image}
-            alt={name}
-          />
-          <Heading
-            fontWeight={isSmall ? '400' : '600'}
-            alignSelf="center"
-            size={isSmall ? 'xlarge' : undefined}
-            margin={marginItems}
-            textAlign={itemsPosition}
-            level={4}
-            color="#fffff"
+      {services.map(({ name, image }, index) => {
+        console.log('%c jordan image', 'color: lime;', image);
+        return (
+          <Box
+            key={name}
+            margin={{ bottom: 'medium', top: 'medium' }}
+            direction={rowOrColumn}
+            width={getSizeForBox(isSmall, index)}
+            align={itemsPosition}
           >
-            {name}
-          </Heading>
-        </Box>
-      ))}
+            <ImgFluid
+              mobileWidth={isSmall ? '3rem' : '5rem'}
+              src={image}
+              alt={name}
+            />
+            <Heading
+              fontWeight={isSmall ? '400' : '600'}
+              alignSelf="center"
+              size={isSmall ? 'xlarge' : undefined}
+              margin={marginItems}
+              textAlign={itemsPosition}
+              level={4}
+              color="#fffff"
+            >
+              {name}
+            </Heading>
+          </Box>
+        );
+      })}
     </Box>
   );
 };
 
 OurServices.propTypes = {
-  services: PropTypes.arrayOf(PropTypes.object).isRequired,
+  services: PropTypes.arrayOf(PropTypes?.object).isRequired,
 };
