@@ -23,8 +23,6 @@ export const OurServices = ({ services }) => {
     ? { left: 'none', top: '10px', bottom: 'none' }
     : { left: '20px', right: 'none', vertical: 'none' };
 
-  console.log('%c jordan services', 'color: lime;', services);
-
   return (
     <Box
       background="brand"
@@ -35,8 +33,7 @@ export const OurServices = ({ services }) => {
       wrap
       margin={{ horizontal: 'auto', bottom: 'xlarge' }}
     >
-      {services.map(({ name, image }, index) => {
-        console.log('%c jordan image', 'color: lime;', image);
+      {services?.map(({ name, image }, index) => {
         return (
           <Box
             key={name}
@@ -47,7 +44,7 @@ export const OurServices = ({ services }) => {
           >
             <ImgFluid
               mobileWidth={isSmall ? '3rem' : '5rem'}
-              src={image}
+              src={`https://softbee.io/${image}`}
               alt={name}
             />
             <Heading
