@@ -44,7 +44,7 @@ export const OurServices = ({ services }) => {
           >
             <ImgFluid
               mobileWidth={isSmall ? '3rem' : '5rem'}
-              src={`https://softbee.io/${image}`}
+              src={`/${image}`}
               alt={name}
             />
             <Heading
