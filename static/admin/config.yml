@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: soft-bee/softbee.tech
-  branch: master
+  branch: develop
 
 
 media_folder: static/assets
