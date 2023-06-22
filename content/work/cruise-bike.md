@@ -47,12 +47,16 @@ imageCollections:
   - imageSection:
       - image: assets/1150x800_cruise-app_01.jpg
         imageRetina: assets/2300x1600_cruise-app_01.jpg
+        imageSecondRetina: ""
       - image: assets/1150x800_cruise-app_02.jpg
         imageRetina: assets/2300x1600_cruise-app_02.jpg
+        imageSecondRetina: ""
       - image: assets/1150x800_cruise-app_03.jpg
         imageRetina: assets/2300x1600_cruise-app_03.jpg
+        imageSecondRetina: ""
       - image: assets/1150x800_cruise-app_04.jpg
         imageRetina: assets/2300x1600_cruise-app_04.jpg
+        imageSecondRetina: ""
 displayTwoImages: true
 imagePreview:
   image: assets/cruise-app_600x600.png

@@ -78,24 +78,30 @@ export const WorkCaseHero = ({
             </Box>
             {type === 'mobile' ? (
               <Box justify="between" direction="row">
-                {linkGooglePlay !== '#' && (
-                  <a href={linkGooglePlay}>
-                    <ImgFluid
-                      mobileWidth="98%"
-                      alt={alt}
-                      src={`/${imageMobileLink.googlePlayImage}`}
-                    />
-                  </a>
-                )}
-                {linkAppStore !== '#' && (
-                  <a href={linkAppStore}>
-                    <ImgFluid
-                      mobileWidth="98%"
-                      alt={alt}
-                      src={`/${imageMobileLink.appStoreImage}`}
-                    />
-                  </a>
-                )}
+                {linkGooglePlay !== '#' &&
+                  imageMobileLink &&
+                  imageMobileLink.googlePlayImage &&
+                  imageMobileLink.googlePlayImage.length > 0 && (
+                    <a href={linkGooglePlay}>
+                      <ImgFluid
+                        mobileWidth="98%"
+                        alt={alt}
+                        src={`/${imageMobileLink.googlePlayImage}`}
+                      />
+                    </a>
+                  )}
+                {linkAppStore !== '#' &&
+                  imageMobileLink &&
+                  imageMobileLink.appStoreImage &&
+                  imageMobileLink.appStoreImage.length > 0 && (
+                    <a href={linkAppStore}>
+                      <ImgFluid
+                        mobileWidth="98%"
+                        alt={alt}
+                        src={`/${imageMobileLink.appStoreImage}`}
+                      />
+                    </a>
+                  )}
               </Box>
             ) : (
               <>

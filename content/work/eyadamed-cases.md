@@ -18,10 +18,13 @@ imageCollections:
   - imageSection:
       - image: assets/firstsectioneyadamed.webp
         imageRetina: assets/firstsectioneyadamed-2x.webp
+        imageSecondRetina: ""
       - image: assets/secondSectionEyadamed.webp
         imageRetina: assets/secondSectionEyadamed@2x.webp
+        imageSecondRetina: ""
       - image: assets/thirdSectionEyadamed.webp
         imageRetina: assets/thirdSectionEyadamed@2x.webp
+        imageSecondRetina: ""
 displayTwoImages: true
 imagePreview:
   image: assets/mshf_600x600.png
