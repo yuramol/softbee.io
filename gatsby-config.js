@@ -98,8 +98,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#104065`,
         display: `minimal-ui`,
-        // edit below
-        // icon: `content/assets/logo.png`,
+        icon: `content/assets/logo.png`,
       },
     },
     {
