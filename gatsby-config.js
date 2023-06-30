@@ -100,6 +100,7 @@ module.exports = {
         display: `minimal-ui`,
         // edit below
         icon: `content/assets/logo.png`,
+        icon_options: { purpose: `maskable` },
       },
     },
     {
