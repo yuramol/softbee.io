@@ -1,6 +1,6 @@
 ---
 templateKey: workItem
-path: /plumbid
+path: plumbid
 type: web
 alt: Plumbid Patent-pending Real Estate Real Time Auction | React & Python
 srcVideo: https://youtu.be/UgPGybD12-0
