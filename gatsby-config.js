@@ -99,9 +99,7 @@ module.exports = {
         theme_color: `#104065`,
         display: `minimal-ui`,
         // edit below
-        // icon: `content/assets/logo.png`,
-        icon: `src/logo.png`,
-        legacy: false,
+        icon: `content/assets/logo.png`,
       },
     },
     {
