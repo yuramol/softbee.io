@@ -48,7 +48,7 @@ export const WorkCaseHero = ({
   return (
     <BoxPositionRelative>
       {!isDesktopOrTablet && <SvgHero color={color} bottom={0} right={0} />}
-      <Container pad={{ vertical: 'xlarge' }}>
+      <Container pad={{ vertical: 'xlarge' }} style={{ paddingTop: '0' }}>
         <Grid
           margin={{ bottom: isDesktopOrTablet ? undefined : 'xlarge' }}
           columns={isSmall ? 'full' : getSize({ type, isDesktopOrTablet })}
