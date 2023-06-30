@@ -100,6 +100,8 @@ module.exports = {
         display: `minimal-ui`,
         // edit below
         // icon: `content/assets/logo.png`,
+        icon: `src/logo.png`,
+        legacy: false,
       },
     },
     {
