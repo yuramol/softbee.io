@@ -7,7 +7,7 @@ import { theme } from '../utils/theme';
 import { hoveredLink } from '../utils/globalStyles';
 
 const StyledLink = styled(LibLink)`
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   font-weight: ${({ fontWeight }) => fontWeight};
   font-size: ${({ fontSize }) => fontSize};
   line-height: ${({ lineHeight }) => lineHeight};
@@ -20,25 +20,27 @@ const StyledLink = styled(LibLink)`
       text-decoration: none;
     `}
   ${({ activeColor }) => activeColor && hoveredLink(activeColor)}
+  h4 {
+    ${({ activeColor }) => activeColor && hoveredLink(activeColor)}
+  }
+  ${({ isActive, activeColor, isMobileNavigation }) =>
+    isActive &&
+    !isMobileNavigation &&
+    css`
+      position: relative;
 
-${({ isActive, activeColor, isMobileNavigation }) =>
-  isActive &&
-  !isMobileNavigation &&
-  css`
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 90%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background-color: ${activeColor};
-    }
-  `}
+      &::after {
+        content: '';
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: ${activeColor};
+      }
+    `}
 `;
 
 export const RouterLink = ({ to, children, icon, ...props }) => {

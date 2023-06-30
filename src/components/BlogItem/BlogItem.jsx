@@ -26,7 +26,8 @@ export const BlogItem = ({ post }) => {
           </ImgLink>
           <BlogItemLink
             slug={post.fields.slug}
-            hoveredColor={theme.global.colors.brand}
+            disableUnderline
+            activeColor={theme.global.colors.focus}
           >
             <Heading level={4} margin={{ top: 'none', bottom: '15px' }}>
               {title}
@@ -52,7 +53,8 @@ export const BlogItem = ({ post }) => {
           <Box pad={{ right: 'large' }}>
             <BlogItemLink
               slug={post.fields.slug}
-              hoveredColor={theme.global.colors.brand}
+              disableUnderline
+              activeColor={theme.global.colors.focus}
             >
               <Heading level={4} margin={{ top: 'none', bottom: '15px' }}>
                 {title}
