@@ -4,7 +4,7 @@ path: gapnurse
 type: mobile
 alt: |
   gapnurse-case
-srcVideo: https://youtu.be/0mcf_Nw7Jrg
+srcVideo: https://www.youtube.com/embed/0mcf_Nw7Jrg
 linkWeb: https://gapnurse.com/
 linkAppStore: https://apps.apple.com/app/id1494280703
 linkGooglePlay: https://play.google.com/store/apps/details?id=com.gapnurse
