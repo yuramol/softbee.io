@@ -3,22 +3,13 @@ templateKey: workItem
 path: plumbid
 type: web
 alt: Plumbid Patent-pending Real Estate Real Time Auction | React & Python
-srcVideo: https://www.youtube.com/embed/UgPGybD12-0
+srcVideo: https://youtu.be/UgPGybD12-0
 linkWeb: https://plumbid.com/
 order: 2
 title: Patent-pending Real Estate Real Time Auction | React & Python
-text: This project aims to create plumBid, a platform for real-time auctions
-  where sellers can list their properties for sale and buyers can make
-  purchases. plumBid empowers buyers, sellers, and agents to fine-tune and
-  adjust deals for their advantage. Sellers prioritize important terms like
-  sales price, buyer's cash down payment, escrow period length, and
-  contingencies. Buyers use the platform to understand the seller's preferences,
-  create competitive offers, and facilitate transparent and fair deals. Key
-  features include user profile creation, complex calculations, chat
-  integration, file uploading, calendar scheduling, email notifications, a
-  structured database, and a timer for updates. plumBid addresses transparency
-  issues, offers flexibility, and provides a fast and automated solution for
-  real estate transactions.
+text: "PlumBid: Real-time auction platform for property sales. Empowers users to
+  fine-tune deals, and prioritize terms. Transparent, flexible, automated
+  solution for fast real estate transactions."
 logo: assets/adobeCreativeSuiteIcon.svg
 iconsWorkInfo:
   technologiesIcon: assets/iconsettingwork.svg
@@ -61,7 +52,9 @@ preview:
     solution for real estate transactions.
   title: Patent-pending Real Estate Real Time Auction | React & Python
   textInfo: >-
-    
+    <!--StartFragment-->
+
+
     📌 **Task** 
 
 
@@ -100,7 +93,7 @@ preview:
     ***Uniquely transparent*** 
 
 
-    The platform solves one of the most vexing issues in real estate - the lack of perceived or actual transparency and fairness during a transaction. Utilizing it to negotiate the final price and terms is proven to be better for the seller, buyer, and real estate agent. No guessing how many other buyers are interested or how much you need to pay to secure a property. No preferential treatment—with all parties in control of their process and outcome. 
+    The platform solves one of the most vexing issues in real estate - the lack of perceived or actual transparency and fairness during a transaction. Utilizing it to negotiate the final price and terms is proven to be better for the seller, buyer, and real estate agent. No guessing how many other buyers are interested or how much you need to pay to secure a property. No preferential treatment -- with all parties in control of their process and outcome. 
 
 
     ***Flexible*** 
@@ -112,5 +105,8 @@ preview:
     ***Extremely fast*** 
 
 
-    Tired of drawn-out, back-and-forth negotiations, comparing competing offers, and days of generating countless counter-offers? PlumBid does it automatically online through a powerful, proprietary patent-pending software technology bidding platform.
+    Tired of drawn-out, back-and-forth negotiations, comparing competing offers, and days of generating countless counter-offers? PlumBid does it automatically online through a powerful, proprietary patent-pending software technology bidding platform.    
+
+
+    <!--EndFragment-->
 ---
