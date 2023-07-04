@@ -38,18 +38,9 @@ technologies: React, TypeScript, Responsive Design, Redux, MUI, React, Sass, Gra
 languages: Python, JavaScript
 time: 15
 preview:
-  text: This project aims to create plumBid, a platform for real-time auctions
-    where sellers can list their properties for sale and buyers can make
-    purchases. plumBid empowers buyers, sellers, and agents to fine-tune and
-    adjust deals for their advantage. Sellers prioritize important terms like
-    sales price, buyer's cash down payment, escrow period length, and
-    contingencies. Buyers use the platform to understand the seller's
-    preferences, create competitive offers, and facilitate transparent and fair
-    deals. Key features include user profile creation, complex calculations,
-    chat integration, file uploading, calendar scheduling, email notifications,
-    a structured database, and a timer for updates. plumBid addresses
-    transparency issues, offers flexibility, and provides a fast and automated
-    solution for real estate transactions.
+  text: "PlumBid: Real-time auction platform for property sales. Empowers users to
+    fine-tune deals, and prioritize terms. Transparent, flexible, automated
+    solution for fast real estate transactions."
   title: Patent-pending Real Estate Real Time Auction | React & Python
   textInfo: >-
     <!--StartFragment-->
