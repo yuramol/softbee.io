@@ -53,7 +53,7 @@ preview:
     There was created an online clinic - Mobile and Web Apps that allow patients and doctors to interact using the web portal and the app via video/text/voice communication. Patients can upload docs, request tests, buy medicaments, chat with doctors, plan and conduct video calls to show body parts for examination, and discuss further treatment. 
 
 
-    **Features** 
+    **🛠 Features** 
 
 
     * Synchronized web and mobile app 
@@ -81,7 +81,7 @@ preview:
     * Task List Board 
 
 
-    **Key Solutions/ Insights** 
+    **⭐ Key Solutions/ Insights** 
 
 
     ***Scalability*** 
