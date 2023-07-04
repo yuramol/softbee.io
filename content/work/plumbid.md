@@ -31,8 +31,8 @@ imageCollections:
         imageRetina: assets/2300x1600_plumbid_06.jpg
 displayTwoImages: true
 imagePreview:
-  image: assets/1150x800_plumbid_06.jpg
-  imageRetina: assets/2300x1600_plumbid_06.jpg
+  image: assets/plumbid_600x600.png
+  imageRetina: assets/plumbid_1200x1200.png
 color: "#721e6b"
 technologies: React, TypeScript, Responsive Design, Redux, MUI, React, Sass, GraphQL
 languages: Python, JavaScript
