@@ -43,9 +43,6 @@ preview:
     solution for fast real estate transactions."
   title: Patent-pending Real Estate Real Time Auction | React & Python
   textInfo: >-
-    <!--StartFragment-->
-
-
     📌 **Task** 
 
 
@@ -96,8 +93,5 @@ preview:
     ***Extremely fast*** 
 
 
-    Tired of drawn-out, back-and-forth negotiations, comparing competing offers, and days of generating countless counter-offers? PlumBid does it automatically online through a powerful, proprietary patent-pending software technology bidding platform.    
-
-
-    <!--EndFragment-->
+    Tired of drawn-out, back-and-forth negotiations, comparing competing offers, and days of generating countless counter-offers? PlumBid does it automatically online through a powerful, proprietary patent-pending software technology bidding platform.
 ---
