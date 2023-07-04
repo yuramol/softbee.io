@@ -47,13 +47,13 @@ preview:
     Сreate an opportunity for doctors to receive patients, and conduct examinations and diagnostics online. Our scope of work includes the front-end part of WEB and the development of MOBILE apps. 
 
 
-    **Solution** 
+    **🎯 Solution** 
 
 
     There was created an online clinic - Mobile and Web Apps that allow patients and doctors to interact using the web portal and the app via video/text/voice communication. Patients can upload docs, request tests, buy medicaments, chat with doctors, plan and conduct video calls to show body parts for examination, and discuss further treatment. 
 
 
-    **🎯 Features** 
+    **Features** 
 
 
     * Synchronized web and mobile app 
