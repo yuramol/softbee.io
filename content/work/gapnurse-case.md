@@ -9,7 +9,7 @@ linkWeb: https://gapnurse.com/
 linkAppStore: https://apps.apple.com/app/id1494280703
 linkGooglePlay: https://play.google.com/store/apps/details?id=com.gapnurse
 order: 2
-title: GapNurse App
+title: Unique HRMS for Clinics and Hospitals
 text: |
   Platform for cooperating nurses and healthcare facilities work together
 logo: assets/logoGapNurse.svg
@@ -68,7 +68,7 @@ technologies: React, Vue
 languages: JS
 time: 124
 preview:
-  title: They really help hospitals to stay productive and helpful
+  title: Unique HRMS for Clinics and Hospitals
   text: >
     With GapNurse medical facilities know they’re covered during critical times,
     especially while coping with COVID-19. At the same time it won't break your
