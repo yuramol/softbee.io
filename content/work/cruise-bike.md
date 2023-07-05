@@ -4,7 +4,7 @@ path: cruise-bike
 type: mobile
 alt: cruise-bike
 order: 5
-title: Uberlike Mobile App for Bike Sharing | React Native App
+title: Uber like Mobile App for Bike Sharing
 text: We need to develop a mobile app that allows vehicle owners to share their
   scooters or bicycles with others and earn money, while also providing
   customers with an affordable means of transportation.
