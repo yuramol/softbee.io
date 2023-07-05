@@ -41,7 +41,7 @@ technologies: "123"
 languages: "123"
 time: 123
 preview:
-  title: Online Clinic for Doctors Patients and Pharmacies | React Native App
+  title: Online Clinic for Doctors Patients and Pharmacies
   text: Mobile and web apps enabling remote doctor-patient interactions, including
     video/text/voice communication, document uploads, test requests, medication
     purchases, and scheduling. Features include synchronized web and mobile
