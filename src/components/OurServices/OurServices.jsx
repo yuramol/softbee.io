@@ -1,17 +1,16 @@
 import React from 'react';
 import { Box } from 'grommet';
 import PropTypes from 'prop-types';
+
 import { Heading } from '../../legos/typography/Heading';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { useBreakpoint } from '../../utils/useBreakpoint';
 
 const getSizeForBox = (isSmall, index) => {
-  if (isSmall) {
+  if (isSmall || index % 2 === 0) {
     return '50%';
   }
-  if (index % 2 === 0) {
-    return '60%';
-  }
+
   return '40%';
 };
 
