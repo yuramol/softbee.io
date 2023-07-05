@@ -6,7 +6,7 @@ alt: Plumbid Patent-pending Real Estate Real Time Auction | React & Python
 srcVideo: https://www.youtube.com/embed/UgPGybD12-0
 linkWeb: https://plumbid.com/
 order: 2
-title: Patent-pending Real Estate Real Time Auction | React & Python
+title: Patent-pending Real Estate Real Time Auction
 text: "PlumBid: Real-time auction platform for property sales. Empowers users to
   fine-tune deals, and prioritize terms. Transparent, flexible, automated
   solution for fast real estate transactions."
