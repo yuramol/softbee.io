@@ -1,23 +1,19 @@
 import { Box } from 'grommet';
 import React from 'react';
-import { useBreakpoint } from '../../utils/useBreakpoint';
 import { ClutchFrames } from './ClutchFrames';
 
 const ClutchReviews = () => {
-  const isTablet = useBreakpoint();
-
   return (
     <Box
       width="100%"
       align="center"
       style={{
         backgroundColor: '#fafafa',
-        height: '380px',
         position: 'relative',
-        margin: { bottom: isTablet ? '300px' : '10px', top: 'none' },
+        overflow: 'hidden',
       }}
     >
-      <Box width="1200px">
+      <Box width="1200px" margin={{ top: '25px' }}>
         <div
           className="clutch-widget"
           data-url="https://widget.clutch.co"
