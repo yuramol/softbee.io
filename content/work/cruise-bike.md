@@ -38,7 +38,7 @@ technologies: GraphQL, JavaScript, Smartphone, Mobile App, Hybrid App
 languages: JavaScript
 time: 1
 preview:
-  title: Uberlike Mobile App for Bike Sharing | Mobile App
+  title: Uber like Mobile App for Bike Sharing
   text: We need to develop a mobile app that allows vehicle owners to share their
     scooters or bicycles with others and earn money, while also providing
     customers with an affordable means of transportation.
