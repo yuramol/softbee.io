@@ -28,7 +28,7 @@ export const WebCase = ({
   },
   isPosition,
 }) => {
-  const { isSmall, isDesktopOrTablet, isTablet } = useBreakpoint();
+  const { isSmall, isTablet } = useBreakpoint();
   const textAlignVariant = isTablet ? 'center' : 'start';
   const altWebCase = 'Web case image ';
   const link = `/work/${path}`;
@@ -37,7 +37,7 @@ export const WebCase = ({
     <Container>
       <Grid
         columns={getSizeForGrid({ isPosition, isTablet })}
-        gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
+        gap="medium"
         align="center"
       >
         <BoxOrder

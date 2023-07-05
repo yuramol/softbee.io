@@ -33,14 +33,14 @@ export const MobileCase = ({
   },
   isPosition,
 }) => {
-  const { isSmall, isDesktopOrTablet } = useBreakpoint();
+  const { isSmall } = useBreakpoint();
   const altMobileCase = 'Mobile case image';
   const link = `/work/${path}`;
   return (
     <Container>
       <Grid
         columns={getSizeForGrid({ isPosition, isSmall })}
-        gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
+        gap="medium"
         align="center"
       >
         <BoxOrder

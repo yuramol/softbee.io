@@ -52,7 +52,7 @@ export const WorkCaseHero = ({
         <Grid
           margin={{ bottom: isDesktopOrTablet ? undefined : 'xlarge' }}
           columns={isSmall ? 'full' : getSize({ type, isDesktopOrTablet })}
-          gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
+          gap="medium"
           align="center"
         >
           <BoxOrder
