@@ -8,7 +8,7 @@ linkWeb: https://trovrapp.com/
 linkAppStore: https://apps.apple.com/gb/app/trovr/id1597907004
 linkGooglePlay: https://play.google.com/store/apps/details?id=com.trovrdigital.trovr.consumerapp
 order: 1
-title: UK / UAE - ECO-friendly community | React Native App
+title: UK / UAE - ECO-friendly community
 text: "Trovr and Trovr-Merchant applications incentivize eco-friendly behavior
   by rewarding users for recycling glass, plastic, and aluminum bottles. Earned
   bonus points can be redeemed for vouchers from popular brands. "
