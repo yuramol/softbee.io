@@ -99,6 +99,7 @@ module.exports = {
         theme_color: `#104065`,
         display: `minimal-ui`,
         icon: `content/assets/logo.png`,
+        icon_options: { purpose: `maskable` },
       },
     },
     {

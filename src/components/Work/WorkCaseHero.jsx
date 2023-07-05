@@ -16,7 +16,7 @@ const getSize = ({ type, isDesktopOrTablet }) => {
     return isDesktopOrTablet ? ['60%', 'auto'] : ['50%', 'auto'];
   }
   if (type === 'mobile') {
-    return ['auto', '58.33333%'];
+    return ['auto', '50%'];
   }
   return null;
 };
@@ -48,11 +48,11 @@ export const WorkCaseHero = ({
   return (
     <BoxPositionRelative>
       {!isDesktopOrTablet && <SvgHero color={color} bottom={0} right={0} />}
-      <Container pad={{ vertical: 'xlarge' }}>
+      <Container pad={{ vertical: 'xlarge' }} style={{ paddingTop: '0' }}>
         <Grid
           margin={{ bottom: isDesktopOrTablet ? undefined : 'xlarge' }}
           columns={isSmall ? 'full' : getSize({ type, isDesktopOrTablet })}
-          gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
+          gap="medium"
           align="center"
         >
           <BoxOrder
@@ -103,23 +103,14 @@ export const WorkCaseHero = ({
                     </a>
                   )}
               </Box>
-            ) : (
-              <>
-                {linkWeb !== '#' && (
-                  <Box align-items="center" height="60px" width="200px">
-                    <LinkWebButton
-                      bgColor={color}
-                      fill
-                      label="Check it out"
-                      href={linkWeb}
-                      target="_blank"
-                    />
-                  </Box>
-                )}
-              </>
-            )}
+            ) : null}
             {linkWeb !== '#' && (
-              <Box align-items="center" height="60px" width="100%">
+              <Box
+                align-items="center"
+                height="60px"
+                width="100%"
+                maxWidth="420px"
+              >
                 <LinkWebButton
                   bgColor="black"
                   fill
@@ -131,11 +122,7 @@ export const WorkCaseHero = ({
             )}
           </BoxOrder>
           {type === 'mobile' ? (
-            <Box
-              justify="center"
-              pad={{ left: isSmall ? 'none' : 'large' }}
-              direction="row"
-            >
+            <Box justify="center" direction="row">
               <Box>
                 <ImgFluid
                   srcSet={`/${imageRetina} 2x`}

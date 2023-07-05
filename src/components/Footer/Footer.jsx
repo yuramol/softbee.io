@@ -193,9 +193,15 @@ export const SiteFooter = () => {
                 )}
               </Box>
             </Box>
-            <StyledLinks href="mailto:info@softbee.io">
-              info@softbee.io
-            </StyledLinks>
+
+            <Box flex align={isSmall ? 'center' : 'unset'}>
+              <StyledLinks
+                href="mailto:info@softbee.io"
+                style={{ width: 'unset' }}
+              >
+                info@softbee.io
+              </StyledLinks>
+            </Box>
             <Grid
               margin={{
                 top: isSmall ? 'large' : undefined,
