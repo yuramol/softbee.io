@@ -20,7 +20,7 @@ const getSizeForGrid = ({ isPosition, isSmall }) => {
     return 'full';
   }
   if (isPosition) {
-    return ['58.3333%', 'auto'];
+    return ['50%', 'auto'];
   }
   return ['auto', '50%'];
 };
@@ -44,8 +44,8 @@ export const MobileCase = ({
         align="center"
       >
         <BoxOrder
-          order={isPosition ? 1 : 0}
           align={isSmall ? 'center' : 'start'}
+          order={isPosition && !isSmall ? 1 : 0}
         >
           <Heading
             margin={{ bottom: 'large', top: 'none' }}
