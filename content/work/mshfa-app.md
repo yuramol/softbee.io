@@ -8,7 +8,7 @@ linkWeb: https://mshfakwt.com/
 linkAppStore: https://apps.apple.com/kw/app/mshfa/id1564107336
 linkGooglePlay: https://play.google.com/store/apps/details?id=app.mshfa.mshfa
 order: 2
-title: Online Clinic for Doctors Patients and Pharmacies | React Native App
+title: Online Clinic for Doctors Patients and Pharmacies
 text: Mobile and web apps enabling remote doctor-patient interactions, including
   video/text/voice communication, document uploads, test requests, medication
   purchases, and scheduling. Features include synchronized web and mobile apps,
