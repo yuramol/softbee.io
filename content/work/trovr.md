@@ -36,7 +36,7 @@ preview:
   text: "Trovr and Trovr-Merchant applications incentivize eco-friendly behavior
     by rewarding users for recycling glass, plastic, and aluminum bottles.
     Earned bonus points can be redeemed for vouchers from popular brands. "
-  title: UK / UAE - ECO-friendly community | React Native App
+  title: UK / UAE - ECO-friendly community
   textInfo: >-
     ### 📝 TASK 
 
