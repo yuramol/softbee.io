@@ -41,7 +41,7 @@ preview:
   text: "PlumBid: Real-time auction platform for property sales. Empowers users to
     fine-tune deals, and prioritize terms. Transparent, flexible, automated
     solution for fast real estate transactions."
-  title: Patent-pending Real Estate Real Time Auction | React & Python
+  title: Patent-pending Real Estate Real Time Auction
   textInfo: >-
     📌 **Task** 
 
