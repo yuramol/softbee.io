@@ -20,7 +20,7 @@ const getSizeForGrid = ({ isPosition, isSmall }) => {
     return 'full';
   }
   if (isPosition) {
-    return ['58.3333%', 'auto'];
+    return ['50%', 'auto'];
   }
   return ['auto', '50%'];
 };
@@ -33,19 +33,19 @@ export const MobileCase = ({
   },
   isPosition,
 }) => {
-  const { isSmall, isDesktopOrTablet } = useBreakpoint();
+  const { isSmall } = useBreakpoint();
   const altMobileCase = 'Mobile case image';
   const link = `/work/${path}`;
   return (
     <Container>
       <Grid
         columns={getSizeForGrid({ isPosition, isSmall })}
-        gap={isDesktopOrTablet ? 'medium' : 'xlarge'}
+        gap="medium"
         align="center"
       >
         <BoxOrder
-          order={isPosition ? 1 : 0}
           align={isSmall ? 'center' : 'start'}
+          order={isPosition && !isSmall ? 1 : 0}
         >
           <Heading
             margin={{ bottom: 'large', top: 'none' }}
