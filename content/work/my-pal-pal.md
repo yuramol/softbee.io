@@ -30,7 +30,7 @@ technologies: "123"
 languages: "132"
 time: 123
 preview:
-  title: Doctors and Clinics Marketplace | React Native App
+  title: Doctors and Clinics Marketplace
   text: Mobile app streamlining the search for doctors and clinics in New York.
     Features include insurance coverage verification, specialist
     recommendations, ratings, appointment booking, notifications, and feedback
