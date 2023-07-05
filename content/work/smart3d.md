@@ -5,7 +5,7 @@ type: mobile
 alt: CRM and Marketplace + 3D constructor | React Native App
 linkGooglePlay: https://play.google.com/store/apps/details?id=com.constructor.first&hl=ru&gl=US
 order: 2
-title: CRM and Marketplace + 3D constructor | React Native App Close the dialog
+title: CRM and Marketplace + 3D constructor
 text: "CRM affiliate program: Mobile apps for handling accounting and sales of
   building products, engaging partners. Features include user roles, 3D/2D
   visualization, location-based services, map integration, chat support,
