@@ -6,7 +6,7 @@ alt: eyadamed-web-site
 srcVideo: https://www.youtube.com/embed/ekDjxeNEGbk
 linkWeb: https://mshfakwt.com/
 order: 3
-title: MSHFA Web
+title: "Online Clinic for Doctors Patients and Pharmacies "
 text: Provide the ability for Patients to conduct an online appointment with a
   Doctor. Allow Patients to pay online for    appointments and orders. Provide
   the ability for Pharmacies to manage orders.
@@ -35,7 +35,7 @@ technologies: React
 languages: TS
 time: 160
 preview:
-  title: MSHFA is multifunctional platform for cooperating Doctor with Patient
+  title: "Online Clinic for Doctors Patients and Pharmacies "
   text: >
     Provide the ability for Patients to conduct an online appointment with a
     Doctor. Allow Patients to pay online for appointments and orders. Provide
