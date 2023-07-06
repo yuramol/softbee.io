@@ -43,21 +43,19 @@ preview:
     scooters or bicycles with others and earn money, while also providing
     customers with an affordable means of transportation.
   textInfo: >-
-    
-
-    Task
+    ### Task
 
 
     Develop a mobile app that allows vehicle owners to share their scooters or bicycles with others and earn money, while also providing customers with an affordable means of transportation.
 
 
-    Solution
+    ### Solution
 
 
     We took part in developing a map-based Uber-Like mobile app. When vehicle owners sign up, they receive a U-lock with a Bluetooth chip inside. Wherever they lock a U-lock via the app, that position will be displayed on a map inside the app. Users can locate bikes and scooters in the app and unlock them using their smartphone cameras. The app tracks how long a user rides, gives a way to pay for a ride, adds an ability to request vehicles for future rides, and tracks where the user left a vehicle so the owner or other users can locate one.
 
 
-    Features
+    ### Features
 
 
     * Map integration
