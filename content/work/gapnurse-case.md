@@ -74,25 +74,25 @@ preview:
     especially while coping with COVID-19. At the same time it won't break your
     budget.
   textInfo: >-
-    **Challenge** 
+    ### **Challenge** 
 
 
     We should develop synchronized web and mobile applications to help medical organizations find contractors and employees without the involvement of expensive staffing agencies, as well as mobile manage tasks, track their progress and pay bills. 
 
 
-    **Solution** 
+    ### **Solution** 
 
 
     There was created a web portal, where medical facilities can publish assignments for healthcare workers both their employees and independent contractors. Healthcare workers can find assignments via the app that work with their schedule and receive some payment. Users can accept or reject assignments, view their schedule, receive notifications about future events, read assignment descriptions, mark them as done, get paid, and track their success. 
 
 
-    **Features** 
+    ### **Features** 
 
 
     The scope of work includes 
 
 
-    ***Mobile Apps - for both IOS & Android with***: 
+    #### ***Mobile Apps - for both IOS & Android with***: 
 
 
     * User Profile Creation 
@@ -114,7 +114,7 @@ preview:
     * Synchronization between web and mobile app managers 
 
 
-    ***Admin-panel with***: 
+    #### ***Admin-panel with***: 
 
 
     * System Administration 
@@ -130,22 +130,22 @@ preview:
     * Complex and large-scale database (Facilities, Employees, Assignments) 
 
 
-    **Key solutions/ Insights** 
+    #### **Key solutions/ Insights** 
 
 
-    *SAVE TIME AND MONEY* 
+    ***SAVE TIME AND MONEY*** 
 
 
     The matching technology automates the process of filling open shifts with both your existing staff and independent nurses for hourly, per diem, or multi-day assignments. 
 
 
-    *MAINTAIN COMPLIANCE* 
+    ***MAINTAIN COMPLIANCE*** 
 
 
     Credentialing, documentation, in-service training, contractor orientations, HIPAA privacy all connect seamlessly to make sure that you’re ready to submit claims on a timely basis. 
 
 
-    *SECURITY AND PRIVACY* 
+    ***SECURITY AND PRIVACY*** 
 
 
     Every conceivable effort has been made to protect the privacy and security of you, your staff, and your patients /residents. The innovative world-class security is constantly monitoring and preventing outside threats and making sure your information remains your information.
