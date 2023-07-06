@@ -34,8 +34,8 @@ imageMobileLink:
   appStoreImage: assets/app-store.svg
 displayTwoImages: true
 imagePreview:
-  image: assets/mshf_600x600.png
-  imageRetina: assets/mshf_1200x1200.png
+  image: assets/mshf_mobile_600x600.png
+  imageRetina: assets/mshf_mobile_1200x1200.png
 color: "#345b94"
 technologies: "123"
 languages: "123"
