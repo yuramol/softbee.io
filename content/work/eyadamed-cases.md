@@ -41,19 +41,19 @@ preview:
     Doctor. Allow Patients to pay online for appointments and orders. Provide
     the ability for Pharmacies to manage orders. 
   textInfo: >-
-    **📝 Task** 
+    ### **📝 Task** 
 
 
     Сreate an opportunity for doctors to receive patients, and conduct examinations and diagnostics online. Our scope of work includes the front-end part of WEB and the development of MOBILE apps. 
 
 
-    **🎯 Solution** 
+    ### **🎯 Solution** 
 
 
     There was created an online clinic - Mobile and Web Apps that allow patients and doctors to interact using the web portal and the app via video/text/voice communication. Patients can upload docs, request tests, buy medicaments, chat with doctors, plan and conduct video calls to show body parts for examination, and discuss further treatment. 
 
 
-    **🛠 Features** 
+    ### **🛠 Features** 
 
 
     * Synchronized web and mobile app 
@@ -81,22 +81,22 @@ preview:
     * Task List Board 
 
 
-    **⭐ Key Solutions/ Insights** 
+    ### **⭐ Key Solutions/ Insights** 
 
 
-    ***Scalability*** 
+    #### ***Scalability*** 
 
 
     The platform is designed to support the work of hundreds of doctors and can be used by different clinics and doctors, regardless of specialization 
 
 
-    ***Client-faced*** 
+    #### ***Client-faced*** 
 
 
     Web and mobile applications are designed so that the user can get the maximum possible number of services without leaving home. Tests requesting, consultation, ordering medicines - all these functions are easy and quick to use at any time. 
 
 
-    ***For doctors*** 
+    #### ***For doctors*** 
 
 
     Unlike patients, doctors use this app all the time, so it's designed for their needs: 
@@ -109,7 +109,7 @@ preview:
     * Save tests data 
 
 
-    ***For pharmacies*** 
+    #### ***For pharmacies*** 
 
 
     There was provided external pharmacies the ability to manage orders received from Patients via the app.
