@@ -22,6 +22,7 @@ const StyledLink = styled(LibLink)`
   ${({ activeColor }) => activeColor && hoveredLink(activeColor)}
   h4 {
     ${({ activeColor }) => activeColor && hoveredLink(activeColor)}
+    transition:${({ activeColor }) => activeColor && '0.3s'};
   }
   ${({ isActive, activeColor, isMobileNavigation }) =>
     isActive &&
