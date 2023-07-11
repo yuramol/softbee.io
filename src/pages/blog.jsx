@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import { Grid, ResponsiveContext } from 'grommet';
+import { Box, ResponsiveContext } from 'grommet';
 
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
@@ -29,11 +29,11 @@ const Blog = ({ data, location }) => {
         }
         style={{ marginBottom: '60px' }}
       >
-        <Grid style={{ marginBottom: '40px' }}>
+        <Box>
           {posts.map(({ node }) => {
             return <BlogItem post={node} key={node.fields.slug} />;
           })}
-        </Grid>
+        </Box>
       </BlogContainer>
       <SiteFooter />
     </Layout>
@@ -55,7 +55,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          # excerpt
           fields {
             slug
           }
