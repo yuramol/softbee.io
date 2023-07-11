@@ -1,7 +1,7 @@
 import React from 'react';
-
 import { Box, Grid } from 'grommet';
 import PropTypes from 'prop-types';
+
 import Container from '../Layout/Container';
 import { ImgFluid } from '../Layout/ImgFluid';
 import { Paragraph } from '../../legos/typography/Paragraph';
@@ -11,23 +11,14 @@ import { BoxPositionRelative, SvgHero } from './styled';
 import { BoxOrder } from '../../legos/Box/BoxOrder';
 import { LinkWebButton, ImgWebCase } from './Web/styled';
 
-const getSize = ({ type, isDesktopOrTablet }) => {
+const getSize = ({ type }) => {
   if (type === 'web') {
-    return isDesktopOrTablet ? ['60%', 'auto'] : ['50%', 'auto'];
+    return ['50%', 'auto'];
   }
   if (type === 'mobile') {
     return ['auto', '50%'];
   }
   return null;
-};
-const getPosition = ({ type, isSmall }) => {
-  if (isSmall) {
-    return 0;
-  }
-  if (type === 'mobile') {
-    return 0;
-  }
-  return 1;
 };
 
 export const WorkCaseHero = ({
@@ -44,22 +35,28 @@ export const WorkCaseHero = ({
     imagePreview: { image, imageRetina },
   },
 }) => {
-  const { isSmall, isSTablet, isDesktopOrTablet } = useBreakpoint();
+  const { isSmall, isSTablet, isTablet, isDesktopOrTablet } = useBreakpoint();
+  const isChangeLayout =
+    (type === 'mobile' && isSmall) || (isTablet && type === 'web');
+
   return (
     <BoxPositionRelative>
       {!isDesktopOrTablet && <SvgHero color={color} bottom={0} right={0} />}
       <Container pad={{ vertical: 'xlarge' }} style={{ paddingTop: '0' }}>
         <Grid
           margin={{ bottom: isDesktopOrTablet ? undefined : 'xlarge' }}
-          columns={isSmall ? 'full' : getSize({ type, isDesktopOrTablet })}
+          columns={
+            isChangeLayout ? 'full' : getSize({ type, isDesktopOrTablet })
+          }
           gap="medium"
           align="center"
         >
           <BoxOrder
-            order={getPosition({ type, isSmall })}
-            align={isSmall ? 'center' : 'start'}
+            align={isChangeLayout ? 'center' : 'start'}
+            pad={{ top: '70px' }}
           >
             <Heading
+              textAlign={isChangeLayout ? 'center' : 'start'}
               margin={{ bottom: 'none', top: 'medium' }}
               color={color}
               level={1}
@@ -69,7 +66,7 @@ export const WorkCaseHero = ({
             <Box>
               <Paragraph
                 fontWeight="400"
-                textAlign={isSmall ? 'center' : 'none'}
+                textAlign={isChangeLayout ? 'center' : 'none'}
                 size={isSTablet ? 'medium' : 'xxlarge'}
                 color={color}
               >
@@ -109,7 +106,9 @@ export const WorkCaseHero = ({
                 align-items="center"
                 height="60px"
                 width="100%"
-                maxWidth="420px"
+                style={{
+                  maxWidth: '420px',
+                }}
               >
                 <LinkWebButton
                   bgColor="black"
