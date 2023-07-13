@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: does-any-business-require-web-and-mobile
-date: 2023-07-13T10:54:15.482Z
+date: 2023-06-29T10:54:15.482Z
 image: assets/1678184803291.png
 title: Does any Business require Web and Mobile?
 description: It doesn't matter what size your business is or will be, it doesn't
