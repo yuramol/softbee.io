@@ -17,6 +17,9 @@ const MarkdownWrapper = styled.div`
   img {
     width: 100%;
   }
+  p {
+    overflow-wrap: anywhere;
+  }
 `;
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -37,7 +40,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <Grid
           gap="small"
           pad={
-            isTablet ? { top: 'xlarge', horizontal: 'small' } : { top: '40px' }
+            isTablet ? { top: 'xlarge', horizontal: 'small' } : { top: '70px' }
           }
         >
           <h1>{post.frontmatter.title}</h1>
