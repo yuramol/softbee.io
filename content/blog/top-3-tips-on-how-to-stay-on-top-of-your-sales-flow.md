@@ -6,7 +6,10 @@ image: assets/1678780704059.jpeg
 title: Top 3 tips on how to stay on top of your sales flow
 description: It happens that you take on a large client, and your company's
   profits depend on 50+ % of the work with this client! If you're in this
-  situation, change something immediately!
+  situation, change something immediately! Yes, the temptation is great,
+  everything is going well now, there's no stress, the client is already in good
+  relations with you, and it's like a family, and that's really cool! But not
+  for business! Not for business...
 ---
 It happens that you take on a large client, and your company's profits depend on 50+ % of the work with this client! If you're in this situation, change something immediately!
 
