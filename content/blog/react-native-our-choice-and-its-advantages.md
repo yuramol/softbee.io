@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: react-native-our-choice-and-its-advantages
-date: 2023-07-13T11:11:19.316Z
+date: 2023-07-06T11:11:19.316Z
 image: assets/1683022829743.jpeg
 title: "React Native: Our Choice and Its Advantages"
 description: You know that feeling when you look back and don't regret anything?
