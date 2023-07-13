@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: top3-tips-on-how-to-stay-on-top-of-your-sales-flow
-date: 2023-07-13T08:57:21.880Z
+date: 2023-06-01T08:57:21.880Z
 image: assets/1678780704059.jpeg
 title: Top 3 tips on how to stay on top of your sales flow
 description: It happens that you take on a large client, and your company's
