@@ -24,15 +24,11 @@ Individuals who are not receptive to novelty and adventure view challenges as an
 
 ### Love money more than code
 
-![No alt text provided for this image](https://media.licdn.com/dms/image/D4E12AQHywmoMM5xM7w/article-inline_image-shrink_1000_1488/0/1683800381525?e=1694649600&v=beta&t=p8AC7sYZZNgp5EdxZ4Y9bGDV9pMlGZmLoIdvRgEHVQw)
-
 Every professional deserves fair compensation for their work. As previously mentioned, developers play a vital role in creating a product or service, so this isn't about saving your money. However, hiring someone who just wants to take their money and go home will never result in quality work. 
 
 They are not concerned about producing a high-quality product or meeting deadlines, nor are they interested in collaborating with their colleagues. If a person's only focus is money, it is impossible to retain them in the long run. Based on experience, individuals who are the least invested in a project are often the first to complain about their pay (within two weeks of beginning work on the project.)
 
 ### Dishonest or dishonorable
-
-![No alt text provided for this image](https://media.licdn.com/dms/image/D4E12AQErcJ-eOb0Vew/article-inline_image-shrink_1500_2232/0/1683800692797?e=1694649600&v=beta&t=uBvECyPnoJDQdBi5VqxJMghtQnNRkX3inBullb-EDOo)
 
 A developer's conscience and integrity are crucial in ensuring that they carry out their work with worth, honesty, and attentiveness, going the extra mile for you (appreciate such developers). No matter how skillfully you craft the developer's job description, you cannot substitute basic human integrity. It is vital to have trustworthy and honorable developers on your team to guarantee the success of your project.
 
@@ -45,8 +41,6 @@ Now that we've identified capable individuals who relish the challenge and enjoy
 Regrettably, such individuals who do not know how to understand and be understood do exist, and it is easy to spot this trait during the interview process. We all understand how it happens and recognize the potential risks and consequences that come with poor communication skills in a development team.
 
 ### Frequently say "no"
-
-![No alt text provided for this image](https://media.licdn.com/dms/image/D4E12AQFqTgA9cMPBtQ/article-inline_image-shrink_1500_2232/0/1683800793440?e=1694649600&v=beta&t=E9G3rxtG7IM_50QiLtPSTrjNnlx8Ft79aYVmJZowgy4)
 
 Statements like "I haven't worked with this," "I don't know how to do this," or "This is not my area of expertise" can create a backlog of tasks that cannot be completed, despite having a fully staffed team. 
 
@@ -61,8 +55,6 @@ Some developers require a lot of hand-holding and management to be productive. T
 While a well-structured team can help alleviate some issues, the simple self-organization of each developer is an indispensable phenomenon in the project.
 
 ## Hard Skills
-
-![No alt text provided for this image](https://media.licdn.com/dms/image/D4E12AQEBO9qlw1lruA/article-inline_image-shrink_1000_1488/0/1683800513036?e=1694649600&v=beta&t=MQfRnZ0nz8F_IA-l2WgASGLqNV-iT9nIZwEvFg1dEd8)
 
 Great, we've got developers who understand and are understood, don't say "no" out of habit, and know how to organize themselves. But your developer is truly Good if they:
 
