@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: transformation-outstaff-switch-or-not-switch-what-are-risks
-date: 2023-07-13T09:49:22.256Z
+date: 2023-06-14T09:49:22.256Z
 image: assets/1681806714336.jpeg
 title: "TRANSFORMATION IN OUTSTAFF: To switch or not to switch? What are the risks?"
 description: Outstaffing has proven to be a cost-effective and efficient way to
