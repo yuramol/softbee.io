@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: good-bad-and-ugly-developer
-date: 2023-07-13T09:27:06.611Z
+date: 2023-06-07T09:27:06.611Z
 image: assets/1683799934630.jpeg
 title: The good, the bad, and the ugly developer
 description: "Let's start with the example: You possess an expensive vessel and
