@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: outstaff-what-should-companies-prepare
-date: 2023-07-13T10:45:02.685Z
+date: 2023-06-26T10:45:02.685Z
 image: assets/1680164290736.jpeg
 title: "OutStaff: What should companies prepare for?"
 description: According to a recent survey between outstaff companies, 45% of
