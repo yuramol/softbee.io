@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: boosting-development-efficiency-upgraded-code-conventions-does-any-business-require-web-and-mobile
-date: 2023-07-13T11:04:22.888Z
+date: 2023-07-04T11:04:22.888Z
 image: assets/1685431989583.jpeg
 title: 🚀 Boosting Development Efficiency with Upgraded Code Conventions 🚀
 description: So what the importance of rules and conventions in the way we write
