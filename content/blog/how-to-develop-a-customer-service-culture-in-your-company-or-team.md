@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: how-develop-customer-service-culture-your-company-or-team
-date: 2023-07-13T10:27:48.785Z
+date: 2023-06-20T10:27:48.785Z
 image: assets/1680594776239.jpeg
 title: How to Develop a Customer Service Culture in Your Company or Team
 description: Your customer service culture is more than just a promise or
