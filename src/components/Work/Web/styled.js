@@ -7,7 +7,6 @@ import { ImgFluid } from '../../Layout/ImgFluid';
 export const LinkWebButton = styled(Button)`
   background-color: ${({ bgColor }) =>
     bgColor || theme.global.colors['accent-1']};
-
   border-color: ${({ bgColor }) => bgColor || theme.global.colors['accent-1']};
   color: ${({ bgColor }) => (bgColor ? '#fff' : theme.global.colors.brand)};
   ${({ bgColor }) =>

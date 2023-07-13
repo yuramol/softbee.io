@@ -1,7 +1,7 @@
 ---
 templateKey: blogItem
 path: pm-you-need
-date: 2023-05-17T09:20:36.137Z
+date: 2023-05-01T09:20:36.137Z
 image: assets/business_man_with_a_briefcase_shaking_hands_with_a_man__b49ef7d7-bafa-4d1c-8584-227e52a58bdc.png
 title: WHO SHOULD NOT BE TRUSTED WITH YOUR PROJECTS?
 description: "Now nobody pays you for the process. Managed to launch something -

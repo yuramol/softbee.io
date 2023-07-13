@@ -14,13 +14,18 @@ BlogItemLink.propTypes = {
 
 export const ImgLink = styled(BlogItemLink)`
   display: block;
-  max-width: 300px;
   height: auto;
-  max-height: 170px;
+  margin-bottom: 20px;
+  max-width: 970px;
+  object-fit: cover;
+  padding-bottom: 35%;
+  position: relative;
+  width: 100%;
 `;
 
 export const Img = styled.img`
   object-fit: cover;
   width: 100%;
   height: 100%;
+  position: absolute;
 `;

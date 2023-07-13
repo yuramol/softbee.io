@@ -12,9 +12,8 @@ import { useBreakpoint } from '../../utils/useBreakpoint';
 export const OurTeamHeroSection = ({ title, text, withBackground }) => {
   const { isSmall, isDesktopOrTablet, isSTablet } = useBreakpoint();
 
-  const columnsCount = isSTablet ? 'full' : ['auto', '58.33333%'];
+  const columnsCount = isSTablet ? 'full' : ['auto', '50%'];
   const textAlignVariant = isSTablet ? 'center' : undefined;
-  const gapVariant = isDesktopOrTablet ? 'medium' : 'xlarge';
   const textFontSizeVariant = isSTablet ? 'medium' : 'xxlarge';
 
   return (
@@ -33,7 +32,7 @@ export const OurTeamHeroSection = ({ title, text, withBackground }) => {
       }
     >
       <Container>
-        <Grid columns={columnsCount} gap={gapVariant} align="center">
+        <Grid columns={columnsCount} gap="medium" align="center">
           <Box>
             <Heading
               level={1}

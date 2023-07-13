@@ -2,9 +2,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-
 import { Grid, ResponsiveContext, Nav } from 'grommet';
 
+import styled from 'styled-components';
 import { Layout } from '../components/Layout';
 import { SEO } from '../components/SEO';
 import { RouterLink } from '../legos/RouterLink';
@@ -13,12 +13,22 @@ import { SiteFooter } from '../components/Footer';
 import { maxBreakpoints } from '../utils/useBreakpoints';
 import Container from '../components/Layout/Container';
 
+const MarkdownWrapper = styled.div`
+  img {
+    width: 100%;
+  }
+  p {
+    overflow-wrap: anywhere;
+  }
+`;
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx;
   const siteTitle = data.site.siteMetadata.title;
   const size = React.useContext(ResponsiveContext);
   const isTablet = maxBreakpoints('desktopOrTablet', size);
   const { previous, next } = pageContext;
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -29,28 +39,24 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <Container>
         <Grid
           gap="small"
-          pad={isTablet ? { top: 'xlarge', horizontal: 'small' } : null}
+          pad={
+            isTablet ? { top: 'xlarge', horizontal: 'small' } : { top: '70px' }
+          }
         >
           <h1>{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
-          {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
+          <MarkdownWrapper>
+            {post.body && <MDXRenderer>{post.body}</MDXRenderer>}
+          </MarkdownWrapper>
           <hr />
-          <Nav direction="row" justify="between" pad={{ vertical: 'small' }}>
+          <Nav direction="row" justify="between" pad={{ bottom: '50px' }}>
             {previous && (
-              <RouterLink
-                //  hoveredColor={theme.global.colors.brand}
-                to={`/blog${previous.fields.slug}`}
-                rel="prev"
-              >
+              <RouterLink to={`/blog${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </RouterLink>
             )}
             {next && (
-              <RouterLink
-                //  hoveredColor={theme.global.colors.brand}
-                to={`/blog${next.fields.slug}`}
-                rel="next"
-              >
+              <RouterLink to={`/blog${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </RouterLink>
             )}
@@ -76,7 +82,7 @@ export const pageQuery = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       id
       # excerpt(pruneLength: 160)
-      # body
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

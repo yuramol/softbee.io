@@ -9,7 +9,6 @@ import { theme } from '../../utils/theme';
 const StyledReactMarkdown = styled(ReactMarkdown)`
   text-align: start;
   font-size: ${({ size }) => size};
-  margin-top: 3rem;
   margin-bottom: 1.5rem;
   font-weight: 400;
   color: ${({ color }) => color};
