@@ -76,3 +76,6 @@ yarn-error.log
 .netlify
 .graphqlconfig
 schema.graphql
+
+# Netlify
+static/admin/config.yml
